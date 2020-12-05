@@ -363,23 +363,14 @@
             <thead>
                 <tr>
                     <th class="priority-1">No</th>
-                    <th class="priority-2">Contact Name</th> 
-                    <th class="priority-3">Contact No</th>
-                    <th class="priority-4">Email</th>
-                    <th class="priority-5">Project</th>
-                    <?php if($this->session->userdata("user_type")!="user") { ?>
-                        <th class="priority-13">Lead Source</th>
-                        <th class="priority-14">Lead Id</th> 
-                    <?php } ?>
-                    <th class="priority-6">Advisor</th>
-                    <?php if($this->session->userdata("user_type")!="user") { ?> 
-                        <th class="priority-7">Sub-Source</th>
-                    <?php } ?>
-                    <th class="priority-8">Due date</th>
-                    <th class="priority-9">Status</th>
-                    <th class="priority-10">Date Added</th>
-                    <!-- <th>Last Update</th> -->
-                    <th class="priority-11">Action</th>
+                    <th class="priority-2">Date Added</th> 
+                    <th class="priority-3">Lead Id</th> 
+                    <th class="priority-4">Customer Name</th>
+                    <th class="priority-5">Contact No</th>
+                    <th class="priority-6">Email</th>
+                    <th class="priority-7">Project</th> 
+                    <th class="priority-8">Status</th> 
+                    <th class="priority-9">Last Updated</th> 
                 </tr>
             </thead> 
             <tbody id="main_body">
@@ -389,42 +380,19 @@
                 foreach ($result as $data) {
                     $duedate = explode(" ", $data->due_date);
                     $duedate = $duedate[0]; ?>
-                    <tr id="row<?php echo $i ?>" if <?php if($data->status_name=='New') echo "style='font-weight:bold'"; if(strtotime($duedate)<strtotime('today')){?> class="highlight_past" <?php }elseif(strtotime($duedate) == strtotime('today')) {?> class="highlight_now" <?php }elseif(strtotime($duedate)>strtotime('today')){ ?> class="highlight_future" <?php } ?>>
+                    
+                    <tr onclick="window.open('<?= base_url('callback-details?id='.$data->id) ?>','_blank')" id="row<?php echo $i ?>" if <?php if($data->status_name=='New') echo "style='font-weight:bold'"; if(strtotime($duedate)<strtotime('today')){?> class="highlight_past" <?php }elseif(strtotime($duedate) == strtotime('today')) {?> class="highlight_now" <?php }elseif(strtotime($duedate)>strtotime('today')){ ?> class="highlight_future" <?php } ?>> 
                         <td class="priority-1"><?php echo $i; ?></td>
-                        <td class="priority-2"><?php echo $data->name; ?></td>
-                        <td class="priority-3"><?php echo $data->contact_no1 ?></td>
-                        <td class="priority-4"><?php echo $data->email1; ?></td>
-                        <td class="priority-5"><?php echo $data->project_name; ?></td>
-                        <?php if($this->session->userdata("user_type")!="user") { ?>
-                            <td class="priority-13"><?php echo $data->lead_source_name; ?></td>
-                            <td class="priority-14"><?php echo $data->leadid; ?></td>
-                        <?php } ?>
-                        <td class="priority-6"><?php echo $data->user_name; ?></td>
-                        <?php if($this->session->userdata("user_type")!="user") { ?>
-                            <td class="priority-7"><?php echo $data->broker_name; ?></td>
-                        <?php } ?>
-                        <td class="due_date priority-8"><?php echo $data->due_date; ?></td>
-                        <td class="priority-9"><?php echo $data->status_name; ?></td>
-                        <td class="priority-10"><?php echo $data->date_added; ?></td>
-                        <!-- <td><?php echo $data->last_update; ?></td> -->
-                        <td class="priority-11">
-                            <table>
-                            <tr class="icon" style="background-color: #ffffff00;">
-                                    <td>
-                                        <!-- <a onclick="edit('<?php echo $data->id; ?>')" data-toggle="modal" data-target="#modal_edit"> -->
-                                        <a href="<?= base_url('callback-details?id='.$data->id) ?>" target="_blank">
-                                            <i class="fa fa-home fa-2x"  title="Detail" style="" aria-hidden="true"></i>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a onclick="previous_callbacks('<?php echo $data->id; ?>')" data-toggle="modal" data-target="#modal_previous">
-                                            <i class="fa fa-keyboard-o fa-2x" title="Notes" style="" aria-hidden="true"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
+                        <td class="priority-2"><?php echo $data->date_added; ?></td>
+                        <td class="priority-3"><?php echo $data->leadid; ?></td>
+                        <td class="priority-4"><?php echo $data->name; ?></td>
+                        <td class="priority-5"><?php echo $data->contact_no1 ?></td>
+                        <td class="priority-6"><?php echo $data->email1; ?></td>
+                        <td class="priority-7"><?php echo $data->project_name; ?></td> 
+                        <td class="priority-8"><?php echo $data->status_name; ?></td>
+                        <td class="priority-9"><?php echo $data->last_update; ?></td>   
                     </tr>
+              
                 <?php $i++; } }
                 else
                 {

@@ -21,7 +21,8 @@
     </div>
     <?php
 }
-
+// print_r($this->session->userdata());
+// die();
 
     ?>
 <body>
@@ -161,7 +162,7 @@
 
             <div class="col-md-3 form-group">
                 <label for="assign">User Name:</label>
-                <select  class="form-control"  id="user_name" name="user_name" required="required" >
+                <select  class="form-control"  id="user_name" name="user_name" required="required" <?php if($this->session->userdata('user_type')!='user'){ echo "enabled='false'";} else echo "disabled";?> >
                      <option value="">Select</option>
                     <?php $all_user= $this->user_model->all_users("type in (1,2,3,4)"); 
                     foreach( $all_user as $user){ 
@@ -183,7 +184,7 @@
                                 break;
                         }
                         ?>
-                        <option value="<?php echo $user->id ?>"><?php echo $user->first_name." ".$user->last_name." ($role)"; ?></option>
+                        <option value="<?php echo $user->id ?>" <?php if($user->id==$this->session->userdata('user_id')) { echo 'selected';}?>><?php echo $user->first_name." ".$user->last_name." ($role)"; ?></option>
                     <?php } ?>               
                 </select>
             </div>

@@ -98,14 +98,14 @@
                 <input type="number" class="form-control" id="contact_no2" name="contact_no2" placeholder="Contact No">
             </div>
             
-            <div class="col-md-3 form-group">
+            <div class="col-md-3 form-group" hidden="">
                 <label for="assign">Call back type:</label>
                 <select  class="form-control"  id="callback_type" name="callback_type" required="required" >
-                    <option value="">Select </option>
-                    <?php $all_callback_types=$this->common_model->all_active_callback_types();
+                    <option value="2">Domestic </option>
+                    <!-- <?php $all_callback_types=$this->common_model->all_active_callback_types();
                     foreach($all_callback_types as $callback_type){ ?>
                         <option value="<?php echo $callback_type->id; ?>"><?php echo $callback_type->name; ?></option>
-                    <?php }?>            
+                    <?php }?>   -->          
                 </select>
             </div>
 
@@ -189,9 +189,9 @@
                 </select>
             </div>
       
-            <div class="col-md-3 form-group">
+            <div class="col-md-3 form-group" hidden="">
                 <label for="assign">Manage Sub Broker:</label>
-                <select  class="form-control"  id="sub_broker" name="sub_broker" required="required" >
+                <select  class="form-control"  id="sub_broker" name="sub_broker" >
                     <option value="">Select</option>
                     <?php $brokers= $this->common_model->all_active_brokers(); 
                     foreach( $brokers as $broker){ ?>

@@ -381,7 +381,7 @@
                     $duedate = explode(" ", $data->due_date);
                     $duedate = $duedate[0]; ?>
                     
-                    <tr onclick="window.open('<?= base_url('callback-details?id='.$data->id) ?>','_blank')" id="row<?php echo $i ?>" if <?php if($data->status_name=='New') echo "style='font-weight:bold'"; if(strtotime($duedate)<strtotime('today')){?> class="highlight_past" <?php }elseif(strtotime($duedate) == strtotime('today')) {?> class="highlight_now" <?php }elseif(strtotime($duedate)>strtotime('today')){ ?> class="highlight_future" <?php } ?>> 
+                    <tr style="cursor: pointer;" onclick="window.open('<?= base_url('callback-details?id='.$data->id) ?>','_blank')" id="row<?php echo $i ?>" if <?php if($data->status_name=='New') echo "style='font-weight:bold'"; if(strtotime($duedate)<strtotime('today')){?> class="highlight_past" <?php }elseif(strtotime($duedate) == strtotime('today')) {?> class="highlight_now" <?php }elseif(strtotime($duedate)>strtotime('today')){ ?> class="highlight_future" <?php } ?>> 
                         <td class="priority-1"><?php echo $i; ?></td>
                         <td class="priority-2"><?php echo $data->date_added; ?></td>
                         <td class="priority-3"><?php echo $data->leadid; ?></td>

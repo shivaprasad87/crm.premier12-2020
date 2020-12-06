@@ -558,8 +558,14 @@ Team Premier Real Estate Services Pvt Ltd
     });
                     </script>
                     <div class="col-sm-3 form-group">
-                        <label for="Location">Location:</label>
-                        <input type="text" class="form-control" id="Location" name="Location" value= "<?=$location;?>"placeholder="Location*">
+                        <label for="Location">Zone:</label> 
+                        <select  class="form-control"  id="p_type" name="Location"    >
+                                    <option value="">Select</option>  
+                                    <option value="east" <?php if($location=='east') echo 'selected';?>>East Zone</option>
+                                    <option value="west" <?php if($location=='west') echo 'selected';?>>West Zone</option>
+                                    <option value="north" <?php if($location=='north') echo 'selected';?>>North Zone</option>
+                                    <option value="south" <?php if($location=='south') echo 'selected';?>>South Zone</option>                                           
+                        </select>
                     </div>
                      <script>
                       $(document).ready(function(){
@@ -953,11 +959,11 @@ $(document).ready(function() {
         $("#budget").prop('required',true);
         $("#cities").prop('required',true);
         $("#Location").prop('required',true);
-        $("#p_type").prop('required',true);
+        //$("#p_type").prop('required',true);
         $("#possesion").prop('required',true);
-        $("#a_services").prop('required',true);
-        $("#tos").prop('required',true);
-        $("#client_type").prop('required',true);
+        //$("#a_services").prop('required',true);
+        //$("#tos").prop('required',true);
+        //$("#client_type").prop('required',true);
             if($("#budget").val()==""){
                 $("#budget").focus();
                 return false;
@@ -1264,10 +1270,7 @@ $(document).ready(function() {
             }
         }
         $(".se-pre-con").show();
-        var file_data = $('#documents').prop('files');   
-    var form_data = new FormData();                  
-    form_data.append('file', file_data);
-    console.log(form_data);             
+
         var data = {
             'extrxDataIds' : ($('#extraDataIds').val()) ? $('#extraDataIds').val() : 0,
             'callback_id':$('#mhid').val(),
@@ -1297,12 +1300,9 @@ $(document).ready(function() {
             'est_month_of_invoice':$('#c_estMonthofInvoice').val(),
             'agreement_status':$('#c_agrmntStatus').val(),
             'project_type':$('#c_projectType').val(),
-
             'reason_for_dead':$('.reasonOfDead').val(),
-            'reason_cause':$('#selectDeadRsn').val(),
-            
+            'reason_cause':$('#selectDeadRsn').val(),    
             'current_callback':$('#current_callback1').val(),
-
             'name':$('#m_name1').val(),
             'due_date':$('#reassign_date').val()?$('#reassign_date').val()+' '+($('#reassign_time').val()?$('#reassign_time').val():'00:00'):null,
             'dept_id':$("#m_dept").val(),
@@ -1321,7 +1321,7 @@ $(document).ready(function() {
             'a_services':$("#a_services").val(),
             'tos':$("#tos").val(),
             'client_type':$("#client_type").val(),
-            'documents':form_data
+            //'documents':form_data
         };
         if($("#m_lead_source").val())
             data.lead_source_id = $("#m_lead_source").val();
@@ -1352,18 +1352,18 @@ $(document).ready(function() {
         }
         if($("#hidden_user_id").val() == $("#m_user_name").val())
             data.current_user_id = $("#m_user_name").val();
-        console.log(data);
-        alert(data);
-        // $.ajax({
-        //     type:"POST",
-        //     url: "<?php echo base_url()?>admin/update_callback_details",
-        //     data:data,
-        //     success:function(data){
-        //       alert('Data saved Success.');
-        //       opener.location.reload();
-        //       window.top.close();
-        //     }
-        // });
+        //console.log(data);
+        //alert(data);
+        $.ajax({
+            type:"POST",
+            url: "<?php echo base_url()?>admin/update_callback_details",
+            data:data,
+            success:function(data){
+              alert('Data saved Success.');
+              opener.location.reload();
+              window.top.close();
+            }
+        });
     }
 
     function status(v){

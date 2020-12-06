@@ -145,7 +145,7 @@
                     <label for="name">Contact No 2:</label>
                     <input type="text" class="form-control" id="m_contact_no2" value="<?= $contact_no2; ?>" name="m_contact_no2" placeholder="Contact No" <?php if(!$edit) echo 'disabled'; ?>>
                 </div>
-                <div class="col-md-3 form-group">
+                <div class="col-md-3 form-group" hidden="">
                     <label for="assign">Call back type:</label>
                     <select  class="form-control"  id="m_callback_type" name="m_callback_type" required="required" disabled>
                         <option value="">Select </option>
@@ -600,7 +600,7 @@ Team Premier Real Estate Services Pvt Ltd
 
     });
                     </script>
-                    <div class="col-sm-3 form-group">
+                    <div class="col-sm-3 form-group" hidden="">
                         <label for="p_type">Purchase Type:</label>
                          
                         <select  class="form-control"  id="p_type" name="p_type"    >
@@ -624,7 +624,7 @@ Team Premier Real Estate Services Pvt Ltd
                                     <option value="4" <?php if($possesion==4) echo 'selected';?>>New Launch</option>                                        
                         </select>
                     </div>
-                    <div class="col-sm-3 form-group">
+                    <div class="col-sm-3 form-group" hidden="">
                         <label for="a_services">Additional Services:</label>
                          
                          <select  class="form-control"  id="a_services" name="a_services"    >
@@ -637,7 +637,7 @@ Team Premier Real Estate Services Pvt Ltd
                                     <option value="6" <?php if($a_services==6) echo 'selected';?>>NONE</option>                                        
                         </select>
                     </div>
-                    <div class="col-sm-3 form-group">
+                    <div class="col-sm-3 form-group" hidden="">
                         <label for="tos">Type Of Sale:</label>
                          
                          <select  class="form-control"  id="tos" name="tos"    >
@@ -647,7 +647,7 @@ Team Premier Real Estate Services Pvt Ltd
                                     <option value="3" <?php if($tos==3) echo 'selected';?> >Rentals</option>                                            
                         </select>
                     </div>
-                    <div class="col-sm-3 form-group">
+                    <div class="col-sm-3 form-group" hidden="">
                         <label for="client_type">Client Type:</label> 
                         <select  class="form-control"  id="client_type" name="client_type"   >
                                     <option value="">Select</option>  

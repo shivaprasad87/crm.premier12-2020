@@ -111,25 +111,25 @@ class Callback_model extends MY_Model {
         );
         $query=$this->db->insert('callback_data',$temp_data);
 
-        if($data['user_id']){
-            $userdata = $this->db->select('*')
-                ->where('id', $data['user_id'])
-                ->from('user')
-                ->get()->row();
-            if(!empty($userdata)){
-                if(($userdata->email) && (in_array($userdata->type, array('1','2')))){
-                    $this->load->library('email');
-                    $config = email_config();
+        // if($data['user_id']){
+        //     $userdata = $this->db->select('*')
+        //         ->where('id', $data['user_id'])
+        //         ->from('user')
+        //         ->get()->row();
+        //     if(!empty($userdata)){
+        //         if(($userdata->email) && (in_array($userdata->type, array('1','2')))){
+        //             $this->load->library('email');
+        //             $config = email_config();
 
-                    $this->email->initialize($config);
-                    $this->email->from("admin@leads.com", "Admin");
-                    $this->email->to($userdata->email);
-                    $this->email->subject("New lead added");
-                    $this->email->message("There is one new lead assigned to you");
-                    $this->email->send();
-                }
-            }
-        }
+        //             $this->email->initialize($config);
+        //             $this->email->from("admin@leads.com", "Admin");
+        //             $this->email->to($userdata->email);
+        //             $this->email->subject("New lead added");
+        //             $this->email->message("There is one new lead assigned to you");
+        //             $this->email->send();
+        //         }
+        //     }
+        // }
 
         $this->deleteWhere(array('callback_id'=>$lstId), 'close_callback_details');
         $this->db->insert('close_callback_details',array('callback_id'=> $lstId,'date_added'=>date('Y-m-d H:s:i')));

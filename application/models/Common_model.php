@@ -678,6 +678,72 @@ class Common_model extends MY_Model {
        $query=$this->db->get();
         return $query->result_array();
 
+    }public function get_where_groupby($data='',$table_name='',$group_by='')
+    {
+        $query = $this->db->select("*")
+        ->group_by($group_by)
+        ->where($data)
+        ->from($table_name);
+        return $query->get()->result();
+
+    }
+    /*public function get_users_for_assign($data='',$table_name='')
+    {
+       $query = $this->db->select("id, online_lead_count") 
+        ->where("type=1 and online_lead_count = (select min(online_lead_count) from user where `city_id` = ".$data['city_id']." AND `type` = 1 AND `active` = 1 AND date(last_update) = '".date('Y-m-d')."' ) limit 1")
+        ->from($table_name);
+        return $query->get()->result();
+    }*/
+    public function get_users_for_assign($p_id='',$table_name='')
+    {
+       $query = $this->db->select("id, online_lead_count") 
+        ->where("type=1 and online_lead_count = (select min(online_lead_count) from user where`type` = 1 AND `active` = 1 AND date(last_update) = '".date('Y-m-d')."' ) and assignedProjects like ".'"%'.$p_id.'%"'." limit 1")
+        ->from($table_name);
+        return $query->get()->result();
+    }
+
+
+    public function userCountplus($id='')
+    {
+        $sql ='UPDATE user SET online_lead_count = online_lead_count+1  WHERE id =?';
+        $query = $this->db->query($sql, array($id)); 
+        if ($query)
+            return true;
+        else
+            return false;
+    }
+
+     public function make_count_zero($id='')
+    {
+        $sql ='UPDATE user SET online_lead_count = 0';
+        $query = $this->db->query($sql); 
+        if ($query)
+            return true;
+        else
+            return false;
+    }
+     function getProjectList($clause){
+        $q = $this->db->get_where('project', $clause);
+        return $q->result_array();
+    }
+    function checkModuleProject($clause) {
+        $q = $this->db->get_where('user', $clause);
+        return $q->row_array();
+    } 
+     function postAccessQueryProject($params){
+        $this->db->insert('user', $params);
+        return $this->db->insert_id();
+    }
+    function deleteAccessProject($clause){
+        $this->db->delete('user', $clause);
+        return true;
+    } 
+    function updateAccessQueryProject($clause, $params){
+        $this->db->where($clause);
+        if($this->db->update('user', $params))
+            return true;
+        else
+            return false;
     }
 
 

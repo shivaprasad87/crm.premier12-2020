@@ -273,6 +273,7 @@
                 <th class="priority-8" style="width:30%;">Edit</th>
                 <th class="priority-9" style="width:30%;">Change Password</th> 
                 <th class="priority-10" style="width:30%;">Privilege</th>
+                <th class="priority-10" style="width:30%;">Projects</th>
             </tr>
         </thead> 
         <tbody>
@@ -290,6 +291,9 @@
                         <td class="priority-9" style="width:30%;vertical-align:middle;"><button type="button" class="btn btn-info" onclick="reset_password(<?php echo $user->id; ?>)">Reset Password</button></td>
                         <td class="priority-10" style="width:30%;vertical-align:middle;">
                             <button type="button" class="btn btn-info" onclick="permissionModal(<?php echo $user->id; ?>)" data-toggle="modal" data-target="#modalPermission">Permission</button>
+                        </td>
+                        <td class="priority-10" style="width:30%;vertical-align:middle;">
+                            <button type="button" class="btn btn-info" onclick="assignProjects(<?php echo $user->id; ?>)" data-toggle="modal" data-target="#assignProject">Assign Project</button>
                         </td>
                     </tr>
                 <?php } 
@@ -618,9 +622,11 @@
 <script type="text/javascript" src="<?php echo base_url()?>assets/js/CSSPlugin.min.js"></script>
 <script src="<?php echo base_url()?>assets/js/scripts.js"></script>-->
 <script src="<?= base_url();?>assets/js/custom.js"></script>
+
 <!-- Bootstrap Core JavaScript -->
    
    <script>
+
     $(document).ready(function() {
          $('#example').DataTable({
               "paging":   false,
@@ -703,6 +709,7 @@
     x.style.display = "none";
   }
 }
+
     </script>
 </body>
 </html>

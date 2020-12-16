@@ -30,8 +30,7 @@ class RoundRobbin extends CI_Controller {
 		}
    	 
     }
-    public function save_online_leads($user='',$online_lead_id='',$project_id=''){
-    	//echo "this funciton calling";die;
+    public function save_online_leads($user='',$online_lead_id='',$project_id=''){ 
 		$error=0;
 		$ext=''; 
 			$dept=1;
@@ -104,6 +103,7 @@ class RoundRobbin extends CI_Controller {
 	}
 	public function make_count_zero($value='')
 	{
+		
 	$bool =	$this->common_model->make_count_zero();
 	if($bool)
 		echo "truncated";

@@ -243,7 +243,7 @@ else if(!empty($project))
                     <th>Last Update</th>
                 <?php } ?>
                 <?php if($access == 'read_write'){ ?>
-                    <th>Action</th>
+                    <!-- <th>Action</th> -->
                 <?php } ?>
             </tr>
         </thead> 
@@ -254,7 +254,7 @@ else if(!empty($project))
             foreach ($result as $data) {
                 $duedate = explode(" ", $data->due_date);
                 $duedate = $duedate[0]; ?>
-                <tr id="row<?php echo $data->id; ?>" <?php if(strtotime($duedate)<strtotime('today')){?> class="highlight_past" <?php }elseif(strtotime($duedate) == strtotime('today')) {?> class="highlight_now" <?php }elseif(strtotime($duedate)>strtotime('today')){ ?> class="highlight_future" <?php } ?>>
+                <tr style="cursor: pointer;" onclick="window.open('<?= base_url('callback-details?id='.$data->id) ?>','_blank')" id="row<?php echo $data->id; ?>" <?php if(strtotime($duedate)<strtotime('today')){?> class="highlight_past" <?php }elseif(strtotime($duedate) == strtotime('today')) {?> class="highlight_now" <?php }elseif(strtotime($duedate)>strtotime('today')){ ?> class="highlight_future" <?php } ?>>
                     <td><?php echo $i; ?></td>
                     <?php if(($report == 'lead') || ($report == 'lead_assignment') || ($report == 'site_visit') || ($report == 'clent_reg')){ ?>
 
@@ -297,11 +297,11 @@ else if(!empty($project))
                         <td><?php echo $data->last_update; ?></td>
                     <?php } ?>
                     <?php if($access == 'read_write'){ ?>
-                        <td>
+                        <!--<td>
                             <table>
                                 <tr>
                                     <td>
-                                        <!-- <a onclick="edit('<?php echo $data->id; ?>')" data-toggle="modal" data-target="#modal_edit"> -->
+                                        <!-- <a onclick="edit('<?php echo $data->id; ?>')" data-toggle="modal" data-target="#modal_edit"> 
                                         <a href="<?= base_url('callback-details?id='.$data->id) ?>" target="_blank">
                                             <i class="fa fa-home fa-2x"  title="Detail" style="color:#ff1122; font-size:21px;padding-right:7px;" aria-hidden="true"></i>
                                         </a>
@@ -316,7 +316,7 @@ else if(!empty($project))
                                     <?php } ?>
                                 </tr>
                             </table>
-                        </td>
+                        </td>-->
                     <?php } ?>
                 </tr>
             <?php $i++; } }?>

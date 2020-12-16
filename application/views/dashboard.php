@@ -78,6 +78,72 @@
 
 								else{?>
 						<div class="outter-wp">
+
+                        <div class="birthday-card">
+                    <div class="birthday">
+                        <div class="wrapper">
+                            <div class="text1">
+                                <h1>Happy Birthday</h1>
+                                <h2 class="quote">Hope your Special Day</h2>
+                                <h2 class="quote">Bring bring you all that your Heart Desires</h2>
+                                <h2 class="quote">Wishing you a day of Pleasent Surprises</h2>
+                                <h2 class="quote">Dear "Client Name"</h2>
+                            </div>
+                            <div id="scene">
+                                <div class="bgcover">
+                                    <div class="ballon"></div>
+                                    <div class="ballon"></div>
+                                    <div class="ballon"></div>
+                                    <div class="ballon"></div>
+                                    <div class="ballon"></div>
+                                    <div class="ballon"></div>
+                                </div>
+                                <div class="cake">
+                                    <div class="candle">
+                                        <div class="candle-1">
+                                            <div class="wax"></div>
+                                            <div class="flame"></div>
+                                        </div>
+                                    </div>
+                                    <div class="strip"></div>
+                                    <div class="strip next"></div>
+                                </div>
+                                <div class="platform">
+                                    <div class="strip"></div>
+                                    <div class="strip next"></div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="clearfix"> </div>	
+                    
+                    </div> 
+                    <div class="ex1">
+                                <div class="container1">
+                                <img src="https://www.w3schools.com/w3images/bandmember.jpg" alt="Avatar" style="width:100%;">
+                                <p>Hello. How are you today?</p>
+                                <span class="time-right">11:00</span>
+                                </div>
+
+                                <div class="container1 darker">
+                                <img src="https://www.w3schools.com/w3images/bandmember.jpg" alt="Avatar" class="right" style="width:100%;">
+                                <p>Hey! I'm fine. Thanks for asking!</p>
+                                <span class="time-left">11:01</span>
+                                </div>
+
+                                <div class="container1">
+                                <img src="https://www.w3schools.com/w3images/bandmember.jpg" alt="Avatar" style="width:100%;">
+                                <p>Sweet! So, what do you wanna do today?</p>
+                                <span class="time-right">11:02</span>
+                                </div>
+
+                                <div class="container1 darker">
+                                <img src="https://www.w3schools.com/w3images/bandmember.jpg" alt="Avatar" class="right" style="width:100%;">
+                                <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
+                                <span class="time-left">11:05</span>
+                                </div>
+                        </div>
+    </div> 
 								<!--custom-widgets-->
 												<div class="custom-widgets">
 													<?php 

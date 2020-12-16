@@ -659,6 +659,42 @@ Team Premier Real Estate Services Pvt Ltd
                  </div>
 
                 <div class="clearfix"></div>
+
+                <div class="col-md-5 Callbacks">
+                <label for="comment">Post Your Comment:</label>
+            <div class="panel panel-primary">
+              
+           
+                <div class="panel-body">
+               
+                    <ul class="chat">
+                        <li class="left clearfix"><span class="chat-img pull-left">
+                             </span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                   
+                                </div>
+                                <p name="notes" id="previous_callback1" rows="5"  id="comment" readonly><?= $previous_callback;?></p>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                <!-- <label for="comment">Current Callbacks:</label> -->
+                    <div class="input-group">
+                        
+                        <input id="btn-input" type="text" class="form-control input-sm" id="current_callback1" name="current_callback1" onkeyup="curr(this.value)" placeholder="Please Update Your Changes To Save" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-warning btn-sm" id="btn-chat">
+                                Send</button>
+                        </span>
+                    </div>
+                </div>
+           
+            </div>
+        </div> 
+        
                 <div class="col-sm-6 form-group">
                     <label for="comment">Preview Callbacks:</label>
                     <textarea class="form-control" name="notes" id="previous_callback1" rows="5"  id="comment" readonly><?= $previous_callback;?></textarea>

@@ -697,7 +697,7 @@ class Common_model extends MY_Model {
     public function get_users_for_assign($p_id='',$table_name='')
     {
        $query = $this->db->select("id, online_lead_count") 
-        ->where("type=1 and online_lead_count = (select min(online_lead_count) from user where`type` = 1 AND `active` = 1 AND date(last_update) = '".date('Y-m-d')."' ) and assignedProjects like ".'"%'.$p_id.'%"'." limit 1")
+        ->where("type!=5 and online_lead_count = (select min(online_lead_count) from user where`type` = 1 AND `active` = 1 AND date(last_update) = '".date('Y-m-d')."' ) and assignedProjects like ".'"%'.$p_id.'%"'." limit 1")
         ->from($table_name);
         return $query->get()->result();
     }
@@ -744,6 +744,20 @@ class Common_model extends MY_Model {
             return true;
         else
             return false;
+    }
+            function get_project_details($id){
+        $this->db->select('p.*,c.id as city_id,c.name as city,b.name as builder,b.id as builder_id');
+        $this->db->from('project as p');
+        $this->db->join('city as c','c.id=p.city_id','LEFT');
+        $this->db->join('builder as b','b.id=p.builder_id','LEFT'); 
+        $this->db->where('p.id',$id);
+        $query=$this->db->get();
+        return $query?$query->row():false;
+    }
+     public function updateProject($where, $data, $table_name = '') {
+        if ($table_name == '')
+            $table_name = $this->table_name;
+        return $this->db->where($where)->update($table_name, $data);
     }
 
 

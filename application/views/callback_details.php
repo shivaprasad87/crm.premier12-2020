@@ -32,26 +32,6 @@
             <div class="header-section">
                         <!--menu-right-->
                         <div class="top_menu">
-                                <!--<div class="main-search">
-                                            <form>
-                                               <input type="text" value="Search" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search';}" class="text"/>
-                                                <input type="submit" value="">
-                                            </form>
-                                    <div class="close"><img src="<?php echo base_url()?>assets/images/cross.png" /></div>
-                                </div>
-                                    <div class="srch"><button></button></div>
-                                    <script type="text/javascript">
-                                         $('.main-search').hide();
-                                        $('button').click(function (){
-                                            $('.main-search').show();
-                                            $('.main-search text').focus();
-                                        }
-                                        );
-                                        $('.close').click(function(){
-                                            $('.main-search').hide();
-                                        });
-                                    </script>
-                            /profile_details-->
                                 <div class="profile_details_left">
                                 <?php $this->load->view('notification');?>
                             </div>
@@ -660,7 +640,7 @@ Team Premier Real Estate Services Pvt Ltd
 
                 <div class="clearfix"></div>
 
-                <div class="col-md-5 Callbacks">
+                <div class="col-md-12 Callbacks">
                 <label for="comment">Post Your Comment:</label>
             <div class="panel panel-primary">
               
@@ -674,7 +654,7 @@ Team Premier Real Estate Services Pvt Ltd
                                 <div class="header">
                                    
                                 </div>
-                                <p name="notes" id="previous_callback1" rows="5"  id="comment" readonly><?= $previous_callback;?></p>
+                                <p name="notes"  rows="5"  id="comments" readonly><?= $previous_callback;?></p>
                             </div>
                         </li>
 
@@ -684,27 +664,48 @@ Team Premier Real Estate Services Pvt Ltd
                 <!-- <label for="comment">Current Callbacks:</label> -->
                     <div class="input-group">
                         
-                        <input id="btn-input" type="text" class="form-control input-sm" id="current_callback1" name="current_callback1" onkeyup="curr(this.value)" placeholder="Please Update Your Changes To Save" />
+                        <input id="btn-input" type="text" class="form-control input-sm current_callback2" id="current_callback2"  placeholder="Please Update Your Changes To Save" />
                         <span class="input-group-btn">
                             <button class="btn btn-warning btn-sm" id="btn-chat">
                                 Send</button>
                         </span>
                     </div>
                 </div>
+                <script>
+                        $(function(){
+                        $('#btn-chat').on('click', function() {
+                            var com = $('.current_callback2').val();
+                            if(com=='')
+                                return false;
+                            
+                            var data = {'comment':com,'id':$('#mhid').val(),'status_id':$('#m_status').val()}
+                            console.log(data);
+                        $.ajax({
+                type: 'POST',
+                url: "<?php echo base_url()?>admin/updateComment",
+                data : data,
+                success: function(res){
+                     $('#comments').html(res);
+                     $('.current_callback2').val("");
+                }
+            });
+                        });      
+                        })
+                </script>
            
             </div>
         </div> 
         
-                <div class="col-sm-6 form-group">
+                <!-- <div class="col-sm-6 form-group">
                     <label for="comment">Preview Callbacks:</label>
                     <textarea class="form-control" name="notes" id="previous_callback1" rows="5"  id="comment" readonly><?= $previous_callback;?></textarea>
-                </div>
+                </div> -->
                 
                 <?php if($edit){ ?>
-                    <div class="col-sm-6 form-group">
+                    <!-- <div class="col-sm-6 form-group">
                         <label for="comment">Current Callbacks:</label>
                         <textarea class="form-control" name="notes" rows="5" id="current_callback1" name="current_callback1" onkeyup="curr(this.value)" placeholder="Please Update Your Changes To Save"></textarea>
-                    </div>
+                    </div> -->
                     <div class="clearfix"></div>
                     <div class="col-md-6 form-group">
                         <input type="checkbox" name="fancy-checkbox-success" onclick="reassignDate()"  id="fancy-checkbox-success" autocomplete="off" />
@@ -2010,6 +2011,28 @@ $(document).ready(function() {
         document.body.appendChild(form);
         form.submit();
     }
+
+    function updateComment()
+{
+    alert("comment");
+                $.ajax({
+                type: 'POST',
+                url: "<?php echo base_url()?>admin/updateComment",
+                current_callback : comment,
+                success: function(res){
+                    var result = JSON.parse(res);
+                    if(result.code == 1){
+                        $('#site_visit_data .ErrMsg').html('<p class="alert alert-success">Success. Please wait...</p>');
+                        setTimeout(function(){
+                            location.reload();
+                        },1500);                        
+                    }
+                    else
+                        $('#site_visit_data .ErrMsg').html('<p class="alert alert-danger">Select any one option!</p>');
+
+                }
+            });
+}
 
 </script>
 </body>

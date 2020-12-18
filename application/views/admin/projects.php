@@ -6,46 +6,46 @@
         $this->load->view('inc/header');    
 ?>
 <body>
-	 <div class="se-pre-con"></div>
+     <div class="se-pre-con"></div>
    <div class="page-container">
    <!--/content-inner-->
-	<div class="left-content">
-	   <div class="inner-content">
-		<!-- header-starts -->
-			<div class="header-section">
-						<!--menu-right-->
-						<div class="top_menu">
-						        <!--<div class="main-search">
-											<form>
-											   <input type="text" value="Search" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search';}" class="text"/>
-												<input type="submit" value="">
-											</form>
-									<div class="close"><img src="<?php echo base_url()?>assets/images/cross.png" /></div>
-								</div>
-									<div class="srch"><button></button></div>
-									<script type="text/javascript">
-										 $('.main-search').hide();
-										$('button').click(function (){
-											$('.main-search').show();
-											$('.main-search text').focus();
-										}
-										);
-										$('.close').click(function(){
-											$('.main-search').hide();
-										});
-									</script>
-							<!--/profile_details-->
-								<div class="profile_details_left">
-									<?php $this->load->view('notification');?>
-							</div>
-							<div class="clearfix"></div>	
-							<!--//profile_details-->
-						</div>
-						<!--//menu-right-->
-					<div class="clearfix"></div>
-				</div>
-					<!-- //header-ends -->
-						<div class="outter-wp">
+    <div class="left-content">
+       <div class="inner-content">
+        <!-- header-starts -->
+            <div class="header-section">
+                        <!--menu-right-->
+                        <div class="top_menu">
+                                <!--<div class="main-search">
+                                            <form>
+                                               <input type="text" value="Search" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search';}" class="text"/>
+                                                <input type="submit" value="">
+                                            </form>
+                                    <div class="close"><img src="<?php echo base_url()?>assets/images/cross.png" /></div>
+                                </div>
+                                    <div class="srch"><button></button></div>
+                                    <script type="text/javascript">
+                                         $('.main-search').hide();
+                                        $('button').click(function (){
+                                            $('.main-search').show();
+                                            $('.main-search text').focus();
+                                        }
+                                        );
+                                        $('.close').click(function(){
+                                            $('.main-search').hide();
+                                        });
+                                    </script>
+                            <!--/profile_details-->
+                                <div class="profile_details_left">
+                                    <?php $this->load->view('notification');?>
+                            </div>
+                            <div class="clearfix"></div>    
+                            <!--//profile_details-->
+                        </div>
+                        <!--//menu-right-->
+                    <div class="clearfix"></div>
+                </div>
+                    <!-- //header-ends -->
+                        <div class="outter-wp">
 
 <div class="container">
     <div class="page-header">
@@ -101,8 +101,17 @@
                         <td><?php echo $project->builder_name; ?></td>
                         <td><?php  if(empty($project->city_name)){echo '-----';}else {echo $project->city_name;} ?></td>
                         <td><?php echo $project->date_added; ?></td>
-                        <td align="middle"><button type="button" id="b1<?php echo $project->id; ?>" class="btn <?php echo $project->active?'btn-info':'btn-danger'; ?>" onclick="change_status(<?php echo $project->id; ?>)"><span id="projectus_sp_<?php echo $project->id; ?>"><?php echo $project->active?'Active':'Inactive'; ?></span></button></td>
-                    </tr>
+                        <td align="middle"> 
+                        <a onclick="edit('<?php echo $project->id; ?>')" data-toggle="modal" data-target="#modal_edit">
+                            <i class="fa fa-home fa-2x"  title="Detail" style="color:#ff1122; font-size:21px;padding-right:7px;" aria-hidden="true"></i>
+                        </a> 
+                        <button type="button" id="b1<?php echo $project->id; ?>" class="btn <?php echo $project->active?'btn-info':'btn-danger'; ?>" onclick="change_status(<?php echo $project->id; ?>)"><span id="projectus_sp_<?php echo $project->id; ?>"><?php echo $project->active?'Active':'Inactive'; ?></span></button>
+                        <!-- <a onclick="soft_delete('<?php echo $project->id; ?>','1')" data-toggle="modal">
+                        <i title="Delete" class="fa fa-trash-o fa-2x" style="color:#ff1122; font-size:21px;padding-right:7px; color:#225511;" aria-hidden="true"></i>
+                        </a> -->
+                            </td>
+                            </tr>
+                            
                 <?php }
             } ?>
         </tbody>
@@ -117,11 +126,12 @@
                     $('#builder').focus();
                     return false;
                 }
-                 if($('#active_cities').val() == ""){
+                if($('#active_cities').val() == ""){
                     alert("Please select a City");
                     $('#active_cities').focus();
                     return false;
                 }
+                
                 $.ajax({
                     type:"POST",
                     url: "<?php echo base_url()?>admin/add_project",
@@ -179,69 +189,129 @@
                 }
             });
         }
+            function edit(v){
+        $(".se-pre-con").show();
+        $.ajax({
+            type:"POST",
+            url: "<?php echo base_url()?>admin/get_project_details",
+            data:{id:v},
+            success:function(data){
+                $('#mhid').val(v);
+                $('#p_name').val(data.project);
+                $('#c_id').val(data.city_id);
+                $('#b_id').val(data.builder_id); 
+                console.log(data);
+                $(".se-pre-con").hide("slow");
+            }
+        });
+    }
     </script>
 </div>
 
-						</div><!--/tabs-->
-										 <div class="tab-main">
-											 <!--/tabs-inner-->
-												
-												</div>
-											  <!--//tabs-inner-->
+                        </div><!--/tabs-->
+                                         <div class="tab-main">
+                                             <!--/tabs-inner-->
+                                                
+                                                </div>
+                                              <!--//tabs-inner-->
 
-									 <!--footer section start-->
-										<footer>
-										   <p>&copy <?= date('Y')?> Premier Real Estate .  </p>
-										</footer>
-									<!--footer section end-->
-								</div>
-							</div>
-				<!--//content-inner-->
-			<!--/sidebar-menu-->
-				<div class="sidebar-menu">
-					<header class="logo">
-					<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>  <span id="logo"> <h1>PMR</h1></span> 
-					<!--<img id="logo" src="" alt="Logo"/>--> 
-				  </a> 
-				</header>
-			<div style="border-top:1px solid rgba(69, 74, 84, 0.7)"></div>
-			<!--/down-->
-							<div class="down">	
-									  <?php $this->load->view('profile_pic');?>
-									  <span class=" name-caret"><?php echo $this->session->userdata('user_name'); ?></span>
-									   <p><?php echo $this->session->userdata('user_type'); ?></p>
-									
-									<ul>
-									<li><a class="tooltips" href="<?= base_url('dashboard/profile'); ?>"><span>Profile</span><i class="lnr lnr-user"></i></a></li>
-										<li><a class="tooltips" style=" color: #d8c26b !important; " href="#"><span>Team Size</span><?php if($this->session->userdata("manager_team_size")) echo $this->session->userdata("manager_team_size")?$this->session->userdata("manager_team_size"):''?></a></li>
-										<li><a class="tooltips" href="<?php echo base_url()?>login/logout"><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
-										</ul>
-									</div>
-							   <!--//down-->
+                                     <!--footer section start-->
+                                        <footer>
+                                            <p>&copy <?= date('Y')?> Holding Bricks . All Rights Reserved <!--| Design by <a href="#" target="_blank">Digilance5</a>--></p> 
+                                        </footer>
+                                    <!--footer section end-->
+                                </div>
+                            </div>
+                <!--//content-inner-->
+            <!--/sidebar-menu-->
+                <div class="sidebar-menu">
+                    <header class="logo">
+                    <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>  <span id="logo"> <h1>HBKS</h1></span> 
+                    <!--<img id="logo" src="" alt="Logo"/>--> 
+                  </a> 
+                </header>
+            <div style="border-top:1px solid rgba(69, 74, 84, 0.7)"></div>
+            <!--/down-->
+                            <div class="down">  
+                                      <?php $this->load->view('profile_pic');?>
+                                      <span class=" name-caret"><?php echo $this->session->userdata('user_name'); ?></span>
+                                       <p><?php echo $this->session->userdata('user_type'); ?></p>
+                                    
+                                    <ul>
+                                    <li><a class="tooltips" href="<?= base_url('dashboard/profile'); ?>"><span>Profile</span><i class="lnr lnr-user"></i></a></li>
+                                        <li><a class="tooltips" style=" color: #00C6D7 !important; " href="#"><span>Team Size</span><?php if($this->session->userdata("manager_team_size")) echo $this->session->userdata("manager_team_size")?$this->session->userdata("manager_team_size"):''?></a></li>
+                                        <li><a class="tooltips" href="<?php echo base_url()?>login/logout"><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
+                                        </ul>
+                                    </div>
+                               <!--//down-->
                            <?php $this->load->view('inc/header_nav'); ?>
-							  </div>
-							  <div class="clearfix"></div>		
-							</div>
-							<script>
-							var toggle = true;
-										
-							$(".sidebar-icon").click(function() {                
-							  if (toggle)
-							  {
-								$(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
-								$("#menu span").css({"position":"absolute"});
-							  }
-							  else
-							  {
-								$(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
-								setTimeout(function() {
-								  $("#menu span").css({"position":"relative"});
-								}, 400);
-							  }
-											
-											toggle = !toggle;
-										});
-							</script>
+                              </div>
+                              <div class="clearfix"></div>      
+                            </div>
+                            <script>
+                            var toggle = true;
+                                        
+                            $(".sidebar-icon").click(function() {                
+                              if (toggle)
+                              {
+                                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                                $("#menu span").css({"position":"absolute"});
+                              }
+                              else
+                              {
+                                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                                setTimeout(function() {
+                                  $("#menu span").css({"position":"relative"});
+                                }, 400);
+                              }
+                                            
+                                            toggle = !toggle;
+                                        });
+                            </script>
+                            
+                            
+    <div class="modal fade" id="modal_edit"  role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Project details</h4>
+            </div>
+            <div class="modal-body">
+                
+                <div class="col-sm-3 form-group">
+                    <label for="name">Project:</label>
+                    <input type="text" class="form-control" id="p_name" name="project" placeholder="Name" required="required">
+                </div>
+                <div class="col-xs-12 col-md-3 form-group">
+                    <input type="hidden" id="mhid">
+                    <label for="emp_code">City:</label>
+                    <select  class="form-control"  id="c_id" name="m_dept" required >
+                        <option value="">Select</option>
+                        <?php $all_active_cities=$this->common_model->all_active_cities();
+                        foreach($all_active_cities as $all_active_cities){ ?>
+                            <option value="<?php echo $all_active_cities->id; ?>"><?php echo $all_active_cities->name; ?></option>
+                        <?php }?> 
+                    </select>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <label for="contact_no1">Builder:</label>
+                    <select  class="form-control"  id="b_id" name="m_dept" required >
+                        <option value="">Select</option>   
+                        <?php $all_active_builders=$this->common_model->all_active_builders();
+                        foreach($all_active_builders as $all_active_builders){ ?>
+                            <option value="<?php echo $all_active_builders->id; ?>"><?php echo $all_active_builders->name; ?></option>
+                        <?php }?>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success" onclick="update_project_details();" id="save" >Save</button>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!--js -->
 
 <script type="text/javascript" src="<?php echo base_url()?>assets/js/TweenLite.min.js"></script>
@@ -327,9 +397,44 @@
             $('#revenue_data').html(data);
         });
     }
+    
+    function soft_delete(id,i){
+        $(".se-pre-con").show();
+        $.ajax({
+            type:"POST",
+            url: "<?=base_url();?>/admin/delete_project",
+            data:{id:id},
+            success:function(data){
+                if(data.status){
+                    alert("Success");
+                    location.reload();
+                    //$('#row'+i).remove();
+                }
+                $(".se-pre-con").hide("slow");
+            }
+        });
+    }
+      function update_project_details(){
+          var data = {
+            'id':$('#mhid').val(),
+            'name':$('#p_name').val(),
+            'builder_id':$('#b_id').val(),
+            'city_id':$('#c_id').val()
+          };
+          console.log(data);
+          //alert(data)
+          $.ajax({
+            type:"POST",
+            url: "<?php echo base_url()?>admin/update_project_details",
+            data:data,
+            success:function(data){
+                location.reload();
+            }
+        });
+      }
 
 
 </script>
-
+ 
 </body>
 </html>

@@ -491,6 +491,7 @@ class Admin extends CI_Controller {
 				$previous_callback .= $callback_data->status."****".$callback_data->date_added."****".$callback_data->user;
 				$previous_callback .= "\n---------------------------------\n";
 				$previous_callback .= $callback_data->current_callback."\n\n";
+				
 			}
 			$data['previous_callback'] = $previous_callback;
 			if($this->input->post('type')){
@@ -3505,6 +3506,58 @@ public function make_user_online($value='')
 			echo json_encode($result);
 		}
 	}
-	 
+	 	public function get_project_details(){
+		$id=$this->input->get_post('id');
+		$query=$this->common_model->get_project_details($id);
+		$data = null;
+		if($query){
+			$data = array(
+				'id' =>$id,
+				'project' =>$query->name,
+				'city'=>$query->city,
+				'builer'=>$query->builder,
+				'city_id'=>$query->city_id,
+				'builder_id'=>$query->builder_id
+			);
+		}
+	//	echo $this->db->last_query();
+		header('Content-Type: application/json');
+		echo json_encode($data);
+		}
+		function update_project_details(){
+		$id = $this->input->get_post('id');
+		$data =array('name'=>$this->input->get_post('name'),'builder_id'=>$this->input->get_post('builder_id'),'city_id'=>$this->input->get_post('city_id'));
+		$this->common_model->updateProject(array('id'=>$id),$data,'project');
+		echo $this->db->last_query(); 
+		}
+		public function updateComment(){
+		$current_callback=$this->input->post('comment');
+		$id = $this->input->post('id');
+		$user_id = $this->session->userdata('user_id');
+		$date_added = date('Y-m-d H:m:i');
+		$ind_callback_data = array(
+			"current_callback" => $current_callback,
+			"user_id" => $user_id,
+			"callback_id" => $id,
+			"status_id" => $this->input->post('status_id'),
+			"date_added" => $date_added
+		);
+		$query = $this->callback_model->add_callback_data($ind_callback_data);
+		$indiv_callback_data = $this->callback_model->get_callback_data($id);
+			$previous_callback = "";
+			foreach ($indiv_callback_data as $callback_data) {
+				$previous_callback .= $callback_data->status."****".$callback_data->date_added."****".$callback_data->user;
+				$previous_callback .= "\n---------------------------------\n";
+				$previous_callback .= $callback_data->current_callback."\n\n";
+				$previous_callback .="<br>";
+			}
+			print_r($previous_callback);
+		// print_r($ind_callback_data);
+		// $data = array(
+		// 	'status' =>true
+		// );
+		// header('Content-Type: application/json');
+		// echo json_encode($data);
+}
 
 }

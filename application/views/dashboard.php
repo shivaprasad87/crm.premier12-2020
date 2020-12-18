@@ -79,7 +79,7 @@
 								else{?>
 						<div class="outter-wp">
 
-                        <div class="birthday-card">
+                        <div class="birthday-card hidden">
                     <div class="birthday">
                         <div class="wrapper">
                             <div class="text1">

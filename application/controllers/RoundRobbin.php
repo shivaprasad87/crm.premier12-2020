@@ -39,6 +39,8 @@ class RoundRobbin extends CI_Controller {
 			$status=1;
 			$due_date=date('Y-m-d');
 			$due_time=date('h:m'); 
+			$lead_ids = json_decode(json_encode($this->callback_model->get_last_id()),true);
+            $leadId = $lead_ids['id']+1;
  
 				$lead_data = $this->common_model->getFromId($online_lead_id, 'id', 'online_leads');
 				 if($project_id)
@@ -86,7 +88,7 @@ class RoundRobbin extends CI_Controller {
 					'email1'=>$lead_data->email,
 					'project_id'=>$p_id['id'],
 					'lead_source_id'=>$data['id'],
-					'leadid'=>$lead_data->leadid,
+					'leadid'=>trim("PMR-".sprintf("%'.011d",$leadId).PHP_EOL),
 					'user_id'=>$user,
 					'due_date'=>$due_date,
 					'broker_id'=>$broker,

@@ -2141,7 +2141,7 @@ if($this->input->post('budget')!='')
 						'contact_no2'=>trim($contact_no2),
 						'email1'=>trim($email1),
 						'email2'=>trim($email2),
-						'leadid'=>trim("FBP-".sprintf("%'.011d",$lead_ids++).PHP_EOL),
+						'leadid'=>trim("PMR-".sprintf("%'.011d",$lead_ids++).PHP_EOL),
 						'notes'=>trim($notes),
 					);
 					// print_r($data);exit;

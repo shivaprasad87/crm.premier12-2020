@@ -17,12 +17,14 @@ class RoundRobbin extends CI_Controller {
 
     	$data = array('saved'=>0);
     	$un_saved =$this->common_model->getWhere($data,'online_leads'); 
+    	if(count($un_saved)>0)
+    	{
 		foreach ($un_saved as $us) { 
 			$user = $this->common_model->get_users_for_assign($us->project_id,'user'); 
 			if(!empty($user))
 			{
 			//print_r($user);
-			//echo "<br>".$user[0]->id."<br>";
+			echo "<br>".$user[0]->id."<br>";
 			$this->save_online_leads($user[0]->id,$us->id,$us->project_id);
 			$check = $this->common_model->userCountplus($user[0]->id); 
 			if($check)
@@ -30,6 +32,10 @@ class RoundRobbin extends CI_Controller {
 			}
 		}
 		echo "success";
+		}
+		else
+			echo "No Leads to automatic assignent";
+
    	 
     }
     public function save_online_leads($user='',$online_lead_id='',$project_id=''){ 

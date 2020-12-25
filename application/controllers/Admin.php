@@ -2839,9 +2839,14 @@ if ($err) {
 			}
 		}
 		elseif($this->input->post('userId')) {
+			$params = array(
+				'id'		=> $this->input->post('userId'),
+				'assignedProjects'	=> '' 
+			);
+			$clause = ['id' => $this->input->post('userId')];
 			$chkExists = $this->common_model->checkModulePermission(['id' => $this->input->post('userId')]);
 			if($chkExists){
-				$this->common_model->deleteAccessProject(['id' => $this->input->post('userId')]);
+				$this->common_model->updateAccessQueryProject($clause,$params);
 				$result['type'] = 1;
 				$result['msg']  = 'Project revoked successfully.';
 			}

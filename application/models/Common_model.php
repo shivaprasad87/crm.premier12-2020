@@ -733,10 +733,6 @@ class Common_model extends MY_Model {
      function postAccessQueryProject($params){
         $this->db->insert('user', $params);
         return $this->db->insert_id();
-    }
-    function deleteAccessProject($clause){
-        $this->db->delete('user', $clause);
-        return true;
     } 
     function updateAccessQueryProject($clause, $params){
         $this->db->where($clause);

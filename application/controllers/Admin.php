@@ -2844,7 +2844,7 @@ if ($err) {
 				'assignedProjects'	=> '' 
 			);
 			$clause = ['id' => $this->input->post('userId')];
-			$chkExists = $this->common_model->checkModulePermission(['id' => $this->input->post('userId')]);
+			$chkExists = $this->common_model->checkModuleProject(['id' => $this->input->post('userId')]);
 			if($chkExists){
 				$this->common_model->updateAccessQueryProject($clause,$params);
 				$result['type'] = 1;

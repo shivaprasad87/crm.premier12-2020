@@ -757,17 +757,17 @@ if($this->input->post('budget')!='')
 			$query=$this->callback_model->update_callback_details($data,$id);
 		}
 
-		$current_callback=$this->input->post('current_callback');
-		$user_id = $this->session->userdata('user_id');
-		$date_added = date('Y-m-d H:s:i');
-		$ind_callback_data = array(
-			"current_callback" => $current_callback,
-			"user_id" => $user_id,
-			"callback_id" => $id,
-			"status_id" => $this->input->post('status_id'),
-			"date_added" => $date_added
-		);
-		$query = $this->callback_model->add_callback_data($ind_callback_data);
+		// $current_callback=$this->input->post('current_callback');
+		// $user_id = $this->session->userdata('user_id');
+		// $date_added = date('Y-m-d H:s:i');
+		// $ind_callback_data = array(
+		// 	"current_callback" => $current_callback,
+		// 	"user_id" => $user_id,
+		// 	"callback_id" => $id,
+		// 	"status_id" => $this->input->post('status_id'),
+		// 	"date_added" => $date_added
+		// );
+		// $query = $this->callback_model->add_callback_data($ind_callback_data);
 
 		$data = array(
 			'status' =>true

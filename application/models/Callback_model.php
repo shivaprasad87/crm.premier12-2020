@@ -139,7 +139,7 @@ class Callback_model extends MY_Model {
         $message = "Lead added in the system";
         $query=$this->db->insert('callback_log',array(
             'callback_id' => $lstId,
-            'user_id' => $user_id,
+            'user_id' => $user_id?$user_id:$data['user_id'],
             'details' => $message,
             'date_added' => $date_added
         ));

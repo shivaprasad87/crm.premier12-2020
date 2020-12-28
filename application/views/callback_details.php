@@ -899,7 +899,7 @@ Team Premier Real Estate
             </div>
             <div class="clearfix"></div>
             <div class="container">                
-                <button type="submit" class="btn btn-success" onclick="update_callback_details()" id="save" disabled style="width: 150px">Save</button>
+                <button type="submit" class="btn btn-success" onclick="update_callback_details()" id="save" style="width: 150px">Save</button>
             </div>
         </div>
         <input type="hidden" id="extraDataIds" value="<?= $this->session->userdata('siteVisitIds'); ?>">

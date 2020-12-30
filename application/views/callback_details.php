@@ -640,7 +640,7 @@ Team Premier Real Estate Services Pvt Ltd
 
                 <div class="clearfix"></div>
 
-                <div class="col-md-12 Callbacks">
+                <div class="col-sm-6 Callbacks">
                 <label for="comment">Post Your Comment:</label>
             <div class="panel panel-primary">
               

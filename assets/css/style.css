@@ -6335,7 +6335,11 @@ footer  p a:hover ,.footer p a:hover{
 		height: 350px!important;
 		width: 500px!important;
 	}
-}
+  }
+	.border-line2{
+		padding: 0em 1em 1em;
+		border: 1px solid #E7E7E8;
+	}
 @media (min-width:769px){
 
 	.inner-content {
@@ -6347,24 +6351,26 @@ footer  p a:hover ,.footer p a:hover{
 		float: right;
 	}
 
-.border-line{
-
-	margin: 1em;;
-	box-shadow: 0 1px 1px rgba(0,0,0,.05);
--o-box-shadow: 0 1px 1px rgba(0,0,0,.05);
--webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
--moz-box-shadow: 0 1px 1px rgba(0,0,0,.05);
-border: 1px solid #E7E7E8;
-}
-.border-line1{
-	padding: 0em 2em 1em;
-	margin: 1em;;
-	box-shadow: 0 1px 1px rgba(0,0,0,.05);
--o-box-shadow: 0 1px 1px rgba(0,0,0,.05);
--webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
--moz-box-shadow: 0 1px 1px rgba(0,0,0,.05);
-border: 1px solid #E7E7E8;
-}
+	.border-line{
+	    margin: 1em;;
+		box-shadow: 0 1px 1px rgba(0,0,0,.05);
+	-o-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+	-moz-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+	border: 1px solid #E7E7E8;
+	}
+	.top-mg .col-md-5 {
+	width: 46.666667%!important;
+	}
+	.border-line1{
+		padding: 0em 2em 1em;
+		margin: .5em;;
+		box-shadow: 0 1px 1px rgba(0,0,0,.05);
+	-o-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+	-moz-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+	border: 1px solid #E7E7E8;
+	}
 
 }
 @media (max-width:768px){

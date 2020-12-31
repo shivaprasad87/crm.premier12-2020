@@ -45,7 +45,7 @@ tr:nth-child(even) {
 }
 .header-section {
     height: 40px;
-    margin-top: -31px;
+
 }
 li.dropdown.note a {
     padding: 0.4em 2em;
@@ -251,13 +251,14 @@ li.dropdown.note a {
   vertical-align: middle;
   border-radius: 2px;
 }
+
 </style>
 	 <div class="se-pre-con"></div>
    <div class="page-container" style="height: 1000px;">
    <!--/content-inner-->
 	<div class="left-content">
 	   <div class="inner-content">
-		<!-- header-starts -->
+		    <!-- header-starts -->
 			<div class="header-section">
 						<!--menu-right-->
 						<div class="top_menu">
@@ -280,41 +281,39 @@ li.dropdown.note a {
 											$('.main-search').hide();
 										});
 									</script>
-							<!--/profile_details-->
+							       <!--/profile_details-->
 								<div class="profile_details_left">
-								<?php $this->load->view('notification');?>
-							</div>
+                                    <?php $this->load->view('notification');?>
+                                </div>
 							<div class="clearfix"></div>	
 							<!--//profile_details-->
 						</div>
 						<!--//menu-right-->
 					<div class="clearfix"></div>
-				</div>
+			</div>
 					<!-- //header-ends -->
-					<?php
-    if(!$this->session->userdata('permissions') && $this->session->userdata('permissions')=='' ) {
-    ?>
+			<?php
+            if(!$this->session->userdata('permissions') && $this->session->userdata('permissions')=='' ) {
+            ?>
 
-    <style type="text/css">
-    .alrtMsg{padding-top: 50px;}
-    .alrtMsg i {
-        font-size: 60px;
-        color: #f1c836;
-    }
-    </style>
-    <div class="container"> 
-        <div class="row"> 
-            <div class="text-center alrtMsg">
-                <i class="fa fa-exclamation-triangle"></i>
-                <h3>You Do Not have permission as of now. Please contact your Administration and Request for Permission.</h3>
+            <style type="text/css">
+            .alrtMsg{padding-top: 50px;}
+            .alrtMsg i {
+                font-size: 60px;
+                color: #f1c836;
+            }
+            </style>
+            <div class="container"> 
+                <div class="row"> 
+                    <div class="text-center alrtMsg">
+                        <i class="fa fa-exclamation-triangle"></i>
+                        <h3>You Do Not have permission as of now. Please contact your Administration and Request for Permission.</h3>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <?php
-}
-
-
-								else{?>
+            <?php
+        }
+	    else{?>
 						                <div class="outter-wp">
                                                 <div class="col-md-9 mt-30">
                                                     <div class="birthday-card ">
@@ -628,6 +627,7 @@ li.dropdown.note a {
 													
 													if ($this->session->userdata('user_type')=="user") { 
        												?>
+
        												 <div class="col-md-3">
                                                             <div class="row-one">
                                                                 <div class="col-md-3 widget">
@@ -672,8 +672,10 @@ li.dropdown.note a {
                                                                 </div>
                                                                 <div class="clearfix"> </div>	
                                                             </div>
-                                                    </div>
+                                                    </div
+                                                    >
 													<br>
+
 													<div class="row-one">
 														<div class="col-md-3 widget">
 															<div class="stats-left ">
@@ -717,7 +719,9 @@ li.dropdown.note a {
 														</div> 
 														<div class="clearfix"> </div>	
 													</div>
+
 													<br>
+
 													<div class="tab-inner">
 												      <div id="tabs" class="tabs">
 															<div class="graph">
@@ -728,863 +732,888 @@ li.dropdown.note a {
 																							<li><a href="#section-3" class="icon-cup"><i class="lnr lnr-lighter"></i> <span>Total Revenue</span></a></li>
 																						</ul>
 																					</nav>
-																					<div class="content tab">
-																						<section id="section-1" class="content-current">
-																							<div class="">
+																				<div class="content tab">
+																					<section id="section-1" class="content-current">
+																						<div class="">
 																							<table class="table" style="margin-top: 10px;">
-														                                <thead>
-														                                    <tr>
-														                                        <th>Contact Name</th>
-														                                        <th>Assigned User</th>
-														                                        <th>Email</th>
-														                                        <th>Last added Note</th>
-														                                    </tr>
-														                                     <?php
+                                                                                            <thead>
+                                                                                                <tr>
+                                                                                                    <th>Contact Name</th>
+                                                                                                    <th>Assigned User</th>
+                                                                                                    <th>Email</th>
+                                                                                                    <th>Last added Note</th>
+                                                                                                </tr>
+                                                                                                <?php
 
-																							if(count($imp_callbacks)>0)
-																							{
-														                                      foreach ($imp_callbacks as $callback) { ?>
-																							
-                                        <tr>
-                                            <td><a href="<?php echo base_url().'dashboard/view_callbacks/'.$user_id; ?>" data-type="user_important" data-id="<?php echo $callback->id; ?>"><?php echo $callback->name; ?></a></td>
-                                            <td><?php echo $callback->user_name; ?></td>
-                                            <td>
-                                                <?php 
-                                                    echo $callback->email1; 
-                                                    if($callback->email2)
-                                                        echo ", ".$callback->email2;
-                                                ?>
-                                            </td>
-                                            <td><?php echo $callback->last_note; ?></td>
-                                        </tr>
-                                    <?php }
-                                }
-                                 else
-                                        echo '<tr><td colspan="3">No records found!</td></tr>';
+                                                                                                if(count($imp_callbacks)>0)
+                                                                                                {
+                                                                                                foreach ($imp_callbacks as $callback) { ?>
+                                                                                                
+                                                                                                <tr>
+                                                                                                    <td><a href="<?php echo base_url().'dashboard/view_callbacks/'.$user_id; ?>" data-type="user_important" data-id="<?php echo $callback->id; ?>"><?php echo $callback->name; ?></a></td>
+                                                                                                    <td><?php echo $callback->user_name; ?></td>
+                                                                                                    <td>
+                                                                                                        <?php 
+                                                                                                            echo $callback->email1; 
+                                                                                                            if($callback->email2)
+                                                                                                                echo ", ".$callback->email2;
+                                                                                                        ?>
+                                                                                                    </td>
+                                                                                                    <td><?php echo $callback->last_note; ?></td>
+                                                                                                </tr>
+                                                                                                    <?php }
+                                                                                                }
+                                                                                                else
+                                                                                                        echo '<tr><td colspan="3">No records found!</td></tr>';
 
-                                     ?>
-                                        
-														                                </thead>
-														                                <tbody>
-														                                    														                                        
-														                                </tbody>
-														                            </table>
-																							</div>
+                                                                                                    ?>
+                                            
+                                                                                            </thead>
+                                                                                            <tbody>
+                                                                                                                                                                                                
+                                                                                            </tbody>
+                                                                                            </table>
+																					    </div>
 																						
-																						</section>
-																						<section id="section-2">
-																							<div class="">
+																					</section>
+
+																					<section id="section-2">
+																						<div class="">
 																							 <br>
-														                            <table class="table">
-														                                <thead>
-														                                    <tr>
-														                                        <th>Contact Name</th>
-														                                        <th>Date of Site Visit</th>
-														                                        <th>Project Name</th>
-														                                        <!-- <th>Lastest Comment</th> -->
-														                                    </tr>
-														                                </thead>
-														                                <tbody>
-														                                	<?php  
-                                    if(count($site_visit_data)>0) {    
-                                   echo '<a href="javascript:void(0);" class="btn btn-info pull-right emailSiteVisit" style="margin-top: 15px;">Email this</a>';                              
-                                        foreach ($site_visit_data as $k=>$data) { 
-                                             if(!isset($site_visit_data[$k+1]['id']))
-                                                $site_visit_data[$k+1]['id']=null;
-                                            if($data['id'] != $site_visit_data[$k+1]['id']) {
-                                            ?>
-                                            <tr>
-                                                <td><?php echo $data['name']; ?></td>
-                                                <td><?php echo $data['visitDate']; ?></td>
-                                                <td>
-                                                    <?php echo implode(', ', $site_visit_projects[$data['id']]);?>
-                                                </td>
-                                                <!-- <td><?php //echo $callback->last_note; ?></td> -->
-                                            </tr>
-                                            <?php 
-                                            }   
-                                                                                 
-                                        }
-                                    }
-                                    else
-                                        echo '<tr><td colspan="3">No records found!</td></tr>';
-                                    ?> 
-										                                        
-														                                </tbody>
-														                            </table>
-																							</div>
-																						</section>
-									                                                    <section id="section-3">
-																							<div class="">
-																							 <br>
-														                            <!-- <table class="table">
-														                                <thead>
-														                                    <tr>
-														                                        <th>Total Revenue</th> 
-														                                        <th>Lastest Comment</th>
-														                                    </tr>
-														                                </thead>
-														                                <tbody>
-														                                	<tr>
-														                                		 <td><a href="#" class="view_callbacks" data-type="user_close"><?php echo $total_revenue; ?></a></td>
-														                                	</tr>
-									                                  
-														                                </tbody>
-                                                                                    </table> -->
+                                                                                            <table class="table">
+                                                                                                <thead>
+                                                                                                    <tr>
+                                                                                                        <th>Contact Name</th>
+                                                                                                        <th>Date of Site Visit</th>
+                                                                                                        <th>Project Name</th>
+                                                                                                        <!-- <th>Lastest Comment</th> -->
+                                                                                                    </tr>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php  
+                                                                                                        if(count($site_visit_data)>0) {    
+                                                                                                    echo '<a href="javascript:void(0);" class="btn btn-info pull-right emailSiteVisit" style="margin-top: 15px;">Email this</a>';                              
+                                                                                                    foreach ($site_visit_data as $k=>$data) { 
+                                                                                                    if(!isset($site_visit_data[$k+1]['id']))
+                                                                                                        $site_visit_data[$k+1]['id']=null;
+                                                                                                    if($data['id'] != $site_visit_data[$k+1]['id']) {
+                                                                                                    ?>
+                                                                                                    <tr>
+                                                                                                        <td><?php echo $data['name']; ?></td>
+                                                                                                        <td><?php echo $data['visitDate']; ?></td>
+                                                                                                        <td>
+                                                                                                            <?php echo implode(', ', $site_visit_projects[$data['id']]);?>
+                                                                                                        </td>
+                                                                                                        <!-- <td><?php //echo $callback->last_note; ?></td> -->
+                                                                                                    </tr>
+                                                                                                    <?php 
+                                                                                                    }   
+                                                                                                                                                
+                                                                                                        }
+                                                                                                    }
+                                                                                                    else
+                                                                                                        echo '<tr><td colspan="3">No records found!</td></tr>';
+                                                                                                    ?> 
+                                                                                        
+                                                                                                </tbody>
+                                                                                            </table>
+																						</div>
+																					</section>
+									                                                
+                                                                                    <section id="section-3">
+                                                                                        <div class="">
+                                                                                                <br>
+                                                                                            <!-- <table class="table">
+                                                                                                <thead>
+                                                                                                    <tr>
+                                                                                                        <th>Total Revenue</th> 
+                                                                                                        <th>Lastest Comment</th>
+                                                                                                    </tr>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td><a href="#" class="view_callbacks" data-type="user_close"><?php echo $total_revenue; ?></a></td>
+                                                                                                    </tr>
+                                                                            
+                                                                                                </tbody>
+                                                                                            </table> -->
+                                                                                            
+                                                                                            <div class="container">
+                                                                                                    <div class="row text-center">
+                                                                                                        <div class="col-md-6">
+                                                                                                            Total Revenue
+                                                                                                        </div>
+                                                                                                        <div class="col-md-6">
+                                                                                                            <a href="#" class="view_callbacks" data-type="user_close">
+                                                                                                                <?php echo $total_revenue; ?></a>
+                                                                                                        </div>
+                                                                                                    
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                </section>
+                                                                                            </div><!-- /content -->
+                                                                                        </div>
+																				        <!-- /tabs -->
+																				
+																			        </section>
+                                                                                </div>    
+                                                                                <script src="<?php echo base_url()?>/assets/js/cbpFWTabs.js"></script>
+                                                                                <script>
+                                                                                    new CBPFWTabs( document.getElementById( 'tabs' ) );
+                                                                                </script>
+																	
+																 
+																 <div class="clearfix"> </div>
+														    </div>
+                                                      </div>
+                                                    </div>
+
+                                                    <?php }
+                                                    elseif ($this->session->userdata('user_type')=="manager"){ 
+
+                                                    ?>
+                                                    <style>
+
+                                                
+                                                        .stats-right label{
+                                                            font-size: 1em; 
+                                                            color: #3E3D3D;
+                                                            word-break: break-all;
+                                                        }
+                                                        #textright{
+                                                            padding: 37px 0px;
+                                                        }
+                                                        @media (max-width:1366px){
+                                                        
+                                                            .stats-right label{
+                                                                font-size: 1em; 
+                                                                color: #3E3D3D;
+                                                                word-break: break-all;
+                                                            }
+                                                            #textright{
+                                                                padding: 37px 0px;
+                                                            }
+                                                        }
+                                                        @media (max-width:1366px){
+                                                            .stats-right{
+                                                                padding: 37px 0px!important;
+                                                            height: 100px!important;
+                                                            } 
+                                                            .stats-right label{
+                                                                font-size: 1em; 
+                                                                color: #3E3D3D;
+                                                                word-break: break-all;
+                                                            }
+                                                            #textright{
+                                                                padding: 37px 0px;
+                                                            }
+                                                        }
+                                                        
+                                                        @media (max-width:1150px){
+                                                            .stats-right{
+                                                            padding: 33px 0px;
+                                                        }
+                                                        } 
+                                                    
+                                                        #textright{
+                                                            padding: 32px 0px;
+                                                            }
+                                                        }
+
+                                                        @media (max-width:930px){
+                                                            .stats-right{
+                                                            padding: 2px 0px;
+                                                        } 
+                                                    
+                                                        #textright{
+                                                                padding: 24px 0px;
+                                                            }
+                                                        }
+                                                        @media (max-width:768px){
+                                                            .stats-right{
+                                                                padding: 2px 0px;
+                                                            } 
+                                                        
+                                                            #textright{
+                                                                padding: 24px 0px;
+                                                            }
+                                                        }
+                                                    </style>
+
+                                                    <div class="row-one">
+                                                            <div class="col-md-3 widget">
+                                                                <div class="stats-left ">
+                                                                    <h5>Team</h5>
+                                                                    <h4> Revenue</h4>
+                                                                </div>
+                                                                <div class="stats-right" >
+                                                                    <label style=""><a href="#" ><?php echo $total_team_revenue?$total_team_revenue:0; ?></a></label>
+                                                                </div>
+                                                                <div class="clearfix"> </div>	
+                                                            </div>
+                                                            <div class="col-md-3 widget states-mdl">
+                                                                <div class="stats-left">
+                                                                    <h5>Own</h5>
+                                                                    <h4>Closed Calls</h4>
+                                                                </div>
+                                                                <div class="stats-right" id="textright">
+                                                                    <label> <a href="#" class="view_callbacks" data-type="manager_close"><?php echo $close_leads_count; ?></a></label>
+                                                                </div>
+                                                                <div class="clearfix"> </div>	
+                                                            </div>
+                                                            <div class="col-md-3 widget states-thrd">
+                                                                <div class="stats-left">
+                                                                    <h5>Total Calls </h5>
+                                                                    <h4>For Team</h4>
+                                                                </div>
+                                                                <div class="stats-right" id="textright">
+                                                                    <label><a href="<?php echo base_url().'view_callbacks?advisor='.$team_members; ?>" ><?php echo $total_calls; ?></a></label>
+                                                                </div>
+                                                                <div class="clearfix"> </div>	
+                                                            </div>
+                                                            <div class="col-md-3 widget states-last">
+                                                                <div class="stats-left">
+                                                                    <h5>Own</h5>
+                                                                    <h4>Revenue</h4>
+                                                                </div>
+                                                                <div class="stats-right">
+                                                                    <label> <?php echo $total_revenue; ?></label>
+                                                                </div>
+                                                                <div class="clearfix"> </div>	
+                                                            </div>
+                                                            <div class="clearfix"> </div>	
+                                                    </div> 
+
+                                                    <div class="container"> 
+                                                                <div class="top-mg dash-wd">
+                                                                    <div class="tab-inner">
+                                                                        <div id="tabs" class="tabs">
+                                                                                                                <div class="graph">
+                                                                                                                                        <nav>
+                                                                                                                                            <ul>
+                                                                                                                                                <li class="tab-current"><a href="#section-1" class="icon-shop"><i class="lnr lnr-briefcase"></i> <span>Important Calls</span></a></li>
+                                                                                                                                                <li><a href="#section-2" class="icon-cup"><i class="lnr lnr-lighter"></i> <span>Site Visit Fixed</span></a></li>
+                                                                                                                                            </ul>
+                                                                                                                                        </nav>
+                                                                                                                                        <div class="content tab">
+                                                                                                                                            <section id="section-1" class="content-current">
+                                                                                                                                                <div class="">
+                                                                                                                                                    <table class="table" style="margin-top: 30px;">
+                                                                                                                                                        <thead>
+                                                                                                                                                            <tr>
+                                                                                                                                                                <th>Contact Name</th>
+                                                                                                                                                                <th>Assigned User</th>
+                                                                                                                                                                <th>Email</th>
+                                                                                                                                                                <th>Last added Note</th>
+                                                                                                                                                            </tr>
+                                                                                                                                                        </thead>
+                                                                                                                                                        <tbody>
+                                                                                                                                                                                                                                                            
+                                                                                                                                                        </tbody>
+                                                                                                                                                    </table>
+                                                                                                                                                </div>
+                                                                                                                                            
+                                                                                                                                            </section>
+
+                                                                                                                                            <section id="section-2">
+                                                                                                                                                <div class="">
+                                                                                                                                                    <br>
+                                                                                                                                                    <table class="table">
+                                                                                                                                                        <thead>
+                                                                                                                                                            <tr>
+                                                                                                                                                                <th>Contact Name</th>
+                                                                                                                                                                <th>Date of Site Visit</th>
+                                                                                                                                                                <th>Project Name</th>
+                                                                                                                                                                <!-- <th>Lastest Comment</th> -->
+                                                                                                                                                            </tr>
+                                                                                                                                                        </thead>
+                                                                                                                                                        <tbody>
+                                                                                                                                                            <tr><td colspan="3">No records found!</td></tr>                                        
+                                                                                                                                                        </tbody>
+                                                                                                                                                    </table>
+                                                                                                                                                </div>
+                                                                                                                                            </section>
+                                                                                                                                        </div><!-- /content -->
+                                                                                                                                    </div>
+                                                                                                                                    <!-- /tabs -->
+                                                                                                                                    
+                                                                                                                </div>
+                                                                                                                                <script src="<?php echo base_url()?>/assets/js/cbpFWTabs.js"></script>
+                                                                                                                                <script>
+                                                                                                                                    new CBPFWTabs( document.getElementById( 'tabs' ) );
+                                                                                                                                </script>
+                                                                                                                        
+                                                                                                                    
+                                                                                                                    <div class="clearfix"> </div>
+                                                                        </div>
+                                                                        <div class="col-md-12">
+                                                                            <div class="">
+                                                                                <h2 align="center">Lead Source Report</h2>
+                                                                                <div class=" ctr">
+                                                                                    <table align="center" style="width:50%" class="table">
+                                                                                        <thead>
+                                                                                            <tr>
+                                                                                                <th>Lead Source</th>
+                                                                                                <th>Count</th>
+                                                                                            </tr>
+                                                                                        </thead>
+                                                                                        <tbody>
+                                                                                            <?php foreach ($lead_source_report as $key => $value) { ?>
+                                                                                                <tr>
+                                                                                                    <td><?php echo $this->common_model->get_leadsource_name($key); ?></td>
+                                                                                                    <td><?php echo $value; ?></td>
+                                                                                                </tr>
+                                                                                            <?php } ?>
+                                                                                                
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                <h2 align="center">Call Reports</h2>
+                                                                                <div class=" ctr">
+                                                                                    <table align="center" style="width:50%" class="table">
+                                                                                        <thead>
+                                                                                            <tr>
+                                                                                                <th>User Name</th>
+                                                                                                <th>Number of calls</th>
+                                                                                                <th>Calls done Yesterday</th>
+                                                                                                <th>Calls for Today</th>
+                                                                                                <th>Productivity</th>
+                                                                                            </tr>
+                                                                                        </thead>
+                                                                                        <tbody>
+                                                                                            <?php foreach ($call_reports as $key => $value) { ?>
+                                                                                                <tr>
+                                                                                                    <td><?php echo $value->first_name." ".$value->last_name; ?></td>
+                                                                                                    <td><?php echo $value->total_calls; ?></td>
+                                                                                                    <td><?php echo $value->yesterday_callback_count; ?></td>
+                                                                                                    <td><?php echo $value->today_callback_count; ?></td>
+                                                                                                    <td><?php echo $value->productivity; ?> %</td>
+                                                                                                </tr>
+                                                                                            <?php } ?>
+                                                                                                
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <?php } elseif ($this->session->userdata('user_type')=="City_head"  ) { 
+
+                                                                    ?>
+
+
+                                                                <div class="container"> 
+                                                                    <div class="top-mg dash-wd">
+                                                                        <div class="col-md-12">
+                                                                            
+                                                                            <div class="tab-inner">
+                                                                                                                <div id="tabs" class="tabs">
+                                                                                                                    <div class="graph">
+                                                                                                                                            <nav>
+                                                                                                                                                <ul>
+                                                                                                                                                    <li class="tab-current"><a href="#section-1" class="icon-shop"><i class="lnr lnr-briefcase"></i> <span>Important Calls</span></a></li>
+                                                                                                                                                    <li><a href="#section-2" class="icon-cup"><i class="lnr lnr-lighter"></i> <span>Site Visit Fixed</span></a></li>
+                                                                                                                                                </ul>
+                                                                                                                                            </nav>
+                                                                                                                                            <div class="content tab">
+                                                                                                                                                <section id="section-1" class="content-current">
+                                                                                                                                                    <div class="">
+                                                                                                                                                        <table class="table" style="margin-top: 30px;">
+                                                                                                                                                            <thead>
+                                                                                                                                                                <tr>
+                                                                                                                                                                    <th>Contact Name</th>
+                                                                                                                                                                    <th>Assigned User</th>
+                                                                                                                                                                    <th>Email</th>
+                                                                                                                                                                    <th>Last added Note</th>
+                                                                                                                                                                </tr>
+                                                                                                                                                            </thead>
+                                                                                                                                                            <tbody>
+                                                                                                                                                                                                                                                                
+                                                                                                                                                            </tbody>
+                                                                                                                                                        </table>
+                                                                                                                                                    </div>
+                                                                                                                                                
+                                                                                                                                                </section>
+
+                                                                                                                                                <section id="section-2">
+                                                                                                                                                    <div class="">
+                                                                                                                                                        <br>
+                                                                                                                                                        <table class="table">
+                                                                                                                                                            <thead>
+                                                                                                                                                                <tr>
+                                                                                                                                                                    <th>Contact Name</th>
+                                                                                                                                                                    <th>Date of Site Visit</th>
+                                                                                                                                                                    <th>Project Name</th>
+                                                                                                                                                                    <!-- <th>Lastest Comment</th> -->
+                                                                                                                                                                </tr>
+                                                                                                                                                            </thead>
+                                                                                                                                                            <tbody>
+                                                                                                                                                                <tr><td colspan="3">No records found!</td></tr>                                        
+                                                                                                                                                            </tbody>
+                                                                                                                                                        </table>
+                                                                                                                                                    </div>
+                                                                                                                                                </section>
+                                                                                                                                            </div><!-- /content -->
+                                                                                                                    </div>
+                                                                                                                                        <!-- /tabs -->
+                                                                                                                                        
+                                                                                                                                    </div>
+                                                                                                                                    <script src="<?php echo base_url()?>/assets/js/cbpFWTabs.js"></script>
+                                                                                                                                    <script>
+                                                                                                                                        new CBPFWTabs( document.getElementById( 'tabs' ) );
+                                                                                                                                    </script>
+                                                                                                                            
+                                                                                                                        
+                                                                                                                        <div class="clearfix"> </div>
+                                                                                                                </div>
+                                                                                    <div class="row top-mg dash-wd">
+                                                                                        <h2>Lead Source Report</h2>
+                                                                                        <div class="col-md-12 ctr">
+                                                                                            <table class="table">
+                                                                                                <thead>
+                                                                                                    <tr>
+                                                                                                        <th>Lead Source</th>
+                                                                                                        <th>Count</th>
+                                                                                                    </tr>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php foreach ($lead_source_report as $key => $value) { ?>
+                                                                                                        <tr>
+                                                                                                            <td><?php echo $this->common_model->get_leadsource_name($key); ?></td>
+                                                                                                            <td><?php echo $value; ?></td>
+                                                                                                        </tr>
+                                                                                                    <?php } ?>
+                                                                                                        
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row top-mg dash-wd">
+                                                                                        <h2>Call Reports</h2>
+                                                                                        <div class="col-md-12 ctr">
+                                                                                            <table class="table">
+                                                                                                <thead>
+                                                                                                    <tr>
+                                                                                                        <th>User Name</th>
+                                                                                                        <th>Number of calls</th>
+                                                                                                        <th>Calls done Yesterday</th>
+                                                                                                        <th>Calls for Today</th>
+                                                                                                        <th>Productivity</th>
+                                                                                                    </tr>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php foreach ($call_reports as $key => $value) { ?>
+                                                                                                        <tr>
+                                                                                                            <td><?php echo $value->first_name." ".$value->last_name; ?></td>
+                                                                                                            <td><?php echo $value->total_calls; ?></td>
+                                                                                                            <td><?php echo $value->yesterday_callback_count; ?></td>
+                                                                                                            <td><?php echo $value->today_callback_count; ?></td>
+                                                                                                            <td><?php echo $value->productivity; ?> %</td>
+                                                                                                        </tr>
+                                                                                                    <?php } ?>
+                                                                                                        
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
                                                                                     
-                                                                                    <div class="container">
-                                                                                            <div class="row text-center">
-                                                                                                <div class="col-md-6">
-                                                                                                Total Revenue
-                                                                                                </div>
-                                                                                                <div class="col-md-6">
-                                                                                               <a href="#" class="view_callbacks" data-type="user_close"><?php echo $total_revenue; ?></a>
-                                                                                                </div>
+                                                                            </div>
+                                                                    
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            <?php }
+                                                            else{ ?>
+
+                                                                <style>
+
+                                                                    .stats-right{
+                                                                        padding: 25px 0px;
+                                                                        height: 71px;
+                                                                    } 
+                                                                    .stats-right label{
+                                                                        font-size: 1em; 
+                                                                        color: #3E3D3D;
+                                                                        word-break: break-all;
+                                                                    }
+                                                                    #textright{
+                                                                        padding: 37px 0px;
+                                                                    }
+                                                                    @media (max-width:1366px){
+                                                                    
+                                                                        .stats-right label{
+                                                                            font-size: 1em; 
+                                                                            color: #3E3D3D;
+                                                                            word-break: break-all;
+                                                                        }
+                                                                        #textright{
+                                                                            padding: 37px 0px;
+                                                                        }
+                                                                    }
+                                                                    @media (max-width:1366px){
+                                                                    
+                                                                        .stats-right label{
+                                                                            font-size: 1em; 
+                                                                            color: #3E3D3D;
+                                                                            word-break: break-all;
+                                                                        }
+                                                                        #textright{
+                                                                            padding: 37px 0px;
+                                                                        }
+                                                                    }
+                                                                    
+                                                                    @media (max-width:1150px){
+                                                                        .stats-right{
+                                                                        padding: 33px 0px;
+                                                                    }
+                                                                    } 
+                                                                
+                                                                    #textright{
+                                                                        padding: 32px 0px;
+                                                                    }
+                                                                    }
+
+                                                                    @media (max-width:930px){
+                                                                        .stats-right{
+                                                                        padding: 2px 0px;
+                                                                    } 
+                                                                
+                                                                    #textright{
+                                                                        padding: 24px 0px;
+                                                                    }
+                                                                    }
+                                                                    @media (max-width:768px){
+                                                                            .stats-right{
+                                                                            padding: 2px 0px;
+                                                                        } 
+                                                                    
+                                                                        #textright{
+                                                                            padding: 24px 0px;
+                                                                        }
+                                                                    }
+                                                                </style>
+
+                                                                                                <div class="row-one">
+                                                                                                    <div class="col-md-3 widget">
+                                                                                                        <div class="stats-left ">
+                                                                                                            <h5>Team</h5>
+                                                                                                            <h4> Revenue</h4>
+                                                                                                        </div>
+                                                                                                        <div class="stats-right mt-0" >
+                                                                                                            <label style=""><a href="#" ><?php echo $total_team_revenue?$total_team_revenue:0; ?></a></label>
+                                                                                                        </div>
+                                                                                                        <div class="clearfix"> </div>	
+                                                                                                    </div>
+                                                                                                    
+                                                                                                    <div class="col-md-3 widget mt-30">
+                                                                                                        <div class="stats-left">
+                                                                                                            <h5>Own</h5>
+                                                                                                            <h4>Closed Calls</h4>
+                                                                                                        </div>
+                                                                                                        <div class="stats-right" id="textright">
+                                                                                                            <label> <a href="#" class="view_callbacks" data-type="manager_close"><?php echo $close_leads_count; ?></a></label>
+                                                                                                        </div>
+                                                                                                        <div class="clearfix"> </div>	
+                                                                                                    </div>
+                                                                                                    
+                                                                                                    <div class="col-md-3 widget mt-30">
+                                                                                                        <div class="stats-left">
+                                                                                                            <h5>Total Calls </h5>
+                                                                                                            <h4><!--For Team --> &nbsp;</h4>
+                                                                                                        </div>
+                                                                                                        <div class="stats-right" id="textright">
+                                                                                                            <label><a href="<?php echo base_url().'view_callbacks?advisor='.$team_members ?>&access=read_write" ><?php echo $total_calls; ?></a></label>
+                                                                                                        </div>
+                                                                                                        <div class="clearfix"> </div>	
+                                                                                                    </div>
+                                                                                                    
+                                                                                                    <div class="col-md-3 widget mt-30">
+                                                                                                        <div class="stats-left">
+                                                                                                            <h5>Own</h5>
+                                                                                                            <h4>Revenue</h4>
+                                                                                                        </div>
+                                                                                                        <div class="stats-right">
+                                                                                                            <label> <?php echo $total_revenue; ?></label>
+                                                                                                        </div>
+                                                                                                        <div class="clearfix"> </div>	
+                                                                                                    </div>
+                                                                                                    
+                                                                                                    <div class="clearfix"> </div>	
+                                                                                                </div> 
+
+                                                                                    <div class="container"> 
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="top-mg dash-wd">
+                                                                                                <div class="tab-inner">
+                                                                                                    <div id="tabs" class="tabs">
+                                                                                                            <div class="graph">
+                                                                                                                                    <nav>
+                                                                                                                                        <ul>
+                                                                                                                                            <li class="tab-current"><a href="#section-1" class="icon-shop"><i class="lnr lnr-briefcase"></i> <span>Important Calls</span></a></li>
+                                                                                                                                            <li><a href="#section-2" class="icon-cup"><i class="lnr lnr-lighter"></i> <span>Site Visit Fixed</span></a></li>
+                                                                                                                                        </ul>
+                                                                                                                                    </nav>
+                                                                                                                                    <div class="content tab">
+                                                                                                                                        <section id="section-1" class="content-current">
+                                                                                                                                            <div class="">
+                                                                                                                                                <table class="table" style="">
+                                                                                                                                                    <thead>
+                                                                                                                                                        <tr>
+                                                                                                                                                            <th>Contact Name</th>
+                                                                                                                                                            <th>Assigned User</th>
+                                                                                                                                                            <th>Email</th>
+                                                                                                                                                            <th>Last added Note</th>
+                                                                                                                                                        </tr>
+                                                                                                                                                    </thead>
+                                                                                                                                                    <tbody>
+                                                                                                                                                                                                                                                        
+                                                                                                                                                    </tbody>
+                                                                                                                                                </table>
+                                                                                                                                            </div>
+                                                                                                                                        
+                                                                                                                                        </section>
+                                                                                                                                        <section id="section-2">
+                                                                                                                                            <div class="">
+                                                                                                                                                <br>
+                                                                                                                                                <table class="table">
+                                                                                                                                                    <thead>
+                                                                                                                                                        <tr>
+                                                                                                                                                            <th>Contact Name</th>
+                                                                                                                                                            <th>Date of Site Visit</th>
+                                                                                                                                                            <th>Project Name</th>
+                                                                                                                                                            <!-- <th>Lastest Comment</th> -->
+                                                                                                                                                        </tr>
+                                                                                                                                                    </thead>
+                                                                                                                                                    <tbody>
+                                                                                                                                                        <tr><td colspan="3">No records found!</td></tr>                                        
+                                                                                                                                                    </tbody>
+                                                                                                                                                </table>
+                                                                                                                                            </div>
+                                                                                                                                        </section>
+                                                                                                                                    </div><!-- /content -->
+                                                                                                            </div>
+                                                                                                                                <!-- /tabs -->
+                                                                                                                                
+                                                                                                                            
+                                                                                                                            
+                                                                                                                            <script src="<?php echo base_url()?>/assets/js/cbpFWTabs.js"></script>
+                                                                                                                            <script>
+                                                                                                                                new CBPFWTabs( document.getElementById( 'tabs' ) );
+                                                                                                                            </script>
+                                                                                                                    
+                                                                                                                
+                                                                                                                <div class="clearfix"> </div>
+                                                                                                    </div>
                                                                                                
                                                                                             </div>
+                                                                                        </div>
+                                                                                        </div>
+
+                                                                                        
+                                                                                                    <div class="col-md-6 border-line" style="margin:15px 0px;">
+                                                                                                        <h2 align="center">Lead Source Report</h2>
+                                                                                                        <div class=" ctr">
+                                                                                                            <table align="center" class="table">
+                                                                                                                <thead>
+                                                                                                                    <tr>
+                                                                                                                        <th>Lead Source</th>
+                                                                                                                        <th>Count</th>
+                                                                                                                    </tr>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php foreach ($lead_source_report as $key => $value) { ?>
+                                                                                                                        <tr>
+                                                                                                                            <td><?php echo $this->common_model->get_leadsource_name($key); ?></td>
+                                                                                                                            <td><?php echo $value; ?></td>
+                                                                                                                        </tr>
+                                                                                                                    <?php } ?>
+                                                                                                                        
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+
+                                                                                                    <div class="col-md-6 border-line">
+                                                                                                        <h2 align="center">Call Reports</h2>
+                                                                                                        <div class=" ctr">
+                                                                                                            <table align="center" style="" class="table">
+                                                                                                                <thead>
+                                                                                                                    <tr>
+                                                                                                                        <th>User Name</th>
+                                                                                                                        <th>Number of calls</th>
+                                                                                                                        <th>Calls done Yesterday</th>
+                                                                                                                        <th>Calls for Today</th>
+                                                                                                                        <th>Productivity</th>
+                                                                                                                    </tr>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php foreach ($call_reports as $key => $value) { ?>
+                                                                                                                        <tr>
+                                                                                                                            <td><?php echo $value->first_name." ".$value->last_name; ?></td>
+                                                                                                                            <td><?php echo $value->total_calls; ?></td>
+                                                                                                                            <td><?php echo $value->yesterday_callback_count; ?></td>
+                                                                                                                            <td><?php echo $value->today_callback_count; ?></td>
+                                                                                                                            <td><?php echo $value->productivity; ?> %</td>
+                                                                                                                        </tr>
+                                                                                                                    <?php } ?>
+                                                                                                                        
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                             
+                                                                
+                                                                                    
+
+                                                                                    <div class="container"> 
+                                                                                        <div class="top-mg dash-wd">
+                                                                                                <div class="col-md-5 border-line1">
+                                                                                                    <div class="row top-mg dash-wd">
+                                                                                                        <h2>Productivity</h2>
+                                                                                                        <div class=" ctr">
+                                                                                                            <table class="table">
+                                                                                                                <thead>
+                                                                                                                    <tr>
+                                                                                                                        <th>User Name</th>
+                                                                                                                        <th>Number of calls</th>
+                                                                                                                        <!-- <th>Calls done Yesterday</th>
+                                                                                                                        <th>Calls for Today</th>
+                                                                                                                        <th>Productivity</th> -->
+                                                                                                                    </tr>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php foreach ($productivity_report as $key => $value) { ?>
+                                                                                                                        <tr>
+                                                                                                                            <td><?php echo $value->first_name." ".$value->last_name; ?></td>
+                                                                                                                            <td>
+                                                                                                                                <a href="<?php echo base_url().'view_callbacks?advisor='.$value->id.'&for=dashboard'; ?>"><?php echo $value->total_calls; ?></a>
+                                                                                                                            </td>
+                                                                                                                            <!-- <td><?php echo $value->yesterday_callback_count; ?></td>
+                                                                                                                            <td><?php echo $value->today_callback_count; ?></td>
+                                                                                                                            <td><?php echo $value->productivity; ?> %</td> -->
+                                                                                                                        </tr>
+                                                                                                                    <?php } ?>
+                                                                                                                        
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            <div class="col-md-6 border-line1">
+                                                                                                <div class="row top-mg dash-wd">
+                                                                                                    <h2>Live Feedback<button type="submit" class="btn btn-default btn-default1" id="refresh"><i class="fa fa-refresh" aria-hidden="true"></i></button></h2>
+                                                                                                   
+                                                                                                    <div class="ctr">
+                                                                                                        <table class="table">
+                                                                                                            <thead>
+                                                                                                                <tr>
+                                                                                                                    <th>User Name</th>
+                                                                                                                    <th>Last Login Time</th>
+                                                                                                                </tr>
+                                                                                                            </thead>
+                                                                                                            <tbody id="live_feed_back_body">
+                                                                                                                <?php foreach ($live_feed_back as $key => $value) { ?>
+                                                                                                                    <tr>
+                                                                                                                        <td><?php echo $value->first_name." ".$value->last_name; ?> (<?php echo ($value->type == 1)?'User':'Manager'; ?>)</td>
+                                                                                                                        <td>
+                                                                                                                            <?php echo $value->last_login; ?>
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                <?php } ?>
+                                                                                                                    
+                                                                                                            </tbody>
+                                                                                                        </table>
+                                                                                                    </div>
+                                                                                                </div>
                                                                                             </div>
-																							</div>
-																						</section>
-																					</div><!-- /content -->
-																				</div>
-																				<!-- /tabs -->
-																				
-																			</div>
-																			<script src="<?php echo base_url()?>/assets/js/cbpFWTabs.js"></script>
-																			<script>
-																				new CBPFWTabs( document.getElementById( 'tabs' ) );
-																			</script>
-																	
-																 
-																 <div class="clearfix"> </div>
-														</div>
-												<?php }
-												elseif ($this->session->userdata('user_type')=="manager"){ 
 
-        ?>
-         <style>
+                                                                                                <div class="col-md-6 border-line1">
+                                                                                                    <div class="row top-mg dash-wd">
+                                                                                                        <h2>Source Analysis</h2>
+                                                                                                        <div class=" ctr">
+                                                                                                            <table class="table">
+                                                                                                                <thead>
+                                                                                                                    <tr>
+                                                                                                                        <th>Lead Source</th>
+                                                                                                                        <th>Count</th>
+                                                                                                                    </tr>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php foreach ($lead_source_report as $key => $value) { ?>
+                                                                                                                        <tr>
+                                                                                                                            <td><?php echo $this->common_model->get_leadsource_name($key); ?></td>
+                                                                                                                            <td><?php echo $value; ?></td>
+                                                                                                                        </tr>
+                                                                                                                    <?php } ?>
+                                                                                                                        
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
 
-       
-        .stats-right label{
-            font-size: 1em; 
-            color: #3E3D3D;
-            word-break: break-all;
-        }
-        #textright{
-            padding: 37px 0px;
-        }
-        @media (max-width:1366px){
-           
-        .stats-right label{
-            font-size: 1em; 
-            color: #3E3D3D;
-            word-break: break-all;
-        }
-        #textright{
-            padding: 37px 0px;
-        }
-        }
-        @media (max-width:1366px){
-            .stats-right{
-                padding: 37px 0px!important;
-    height: 100px!important;
-        } 
-        .stats-right label{
-            font-size: 1em; 
-            color: #3E3D3D;
-            word-break: break-all;
-        }
-        #textright{
-            padding: 37px 0px;
-        }
-        }
-        
-        @media (max-width:1150px){
-            .stats-right{
-            padding: 33px 0px;
-}
-        } 
-       
-        #textright{
-            padding: 32px 0px;
-        }
-        }
+                                                                                                </div>
+                                                                                        
+                                                                                        </div>
+                                                                                        <br/><br/><br/><br/><br/>
+                                                                                        
+                                                                                    </div>
 
-        @media (max-width:930px){
-            .stats-right{
-            padding: 2px 0px;
-        } 
-       
-        #textright{
-            padding: 24px 0px;
-        }
-        }
-        @media (max-width:768px){
-            .stats-right{
-            padding: 2px 0px;
-        } 
-       
-        #textright{
-            padding: 24px 0px;
-        }
-        }
-        </style>
+                                                                                    <div class="container">
+                                                                                        <div class="top-mg dash-wd">
+                                                                                            
+                                                                                            <div class="col-md-6 border-line1">
+                                                                                                <div class="row top-mg dash-wd">
+                                                                                                    <h2>Revenue List</h2>
 
-												   <div class="row-one">
-														<div class="col-md-3 widget">
-															<div class="stats-left ">
-																<h5>Team</h5>
-																<h4> Revenue</h4>
-															</div>
-															<div class="stats-right" >
-																<label style=""><a href="#" ><?php echo $total_team_revenue?$total_team_revenue:0; ?></a></label>
-															</div>
-															<div class="clearfix"> </div>	
-														</div>
-														<div class="col-md-3 widget states-mdl">
-															<div class="stats-left">
-																<h5>Own</h5>
-																<h4>Closed Calls</h4>
-															</div>
-															<div class="stats-right" id="textright">
-																<label> <a href="#" class="view_callbacks" data-type="manager_close"><?php echo $close_leads_count; ?></a></label>
-															</div>
-															<div class="clearfix"> </div>	
-														</div>
-														<div class="col-md-3 widget states-thrd">
-															<div class="stats-left">
-																<h5>Total Calls </h5>
-																<h4>For Team</h4>
-															</div>
-															<div class="stats-right" id="textright">
-																<label><a href="<?php echo base_url().'view_callbacks?advisor='.$team_members; ?>" ><?php echo $total_calls; ?></a></label>
-															</div>
-															<div class="clearfix"> </div>	
-														</div>
-														<div class="col-md-3 widget states-last">
-															<div class="stats-left">
-																<h5>Own</h5>
-																<h4>Revenue</h4>
-															</div>
-															<div class="stats-right">
-																<label> <?php echo $total_revenue; ?></label>
-															</div>
-															<div class="clearfix"> </div>	
-														</div>
-														<div class="clearfix"> </div>	
-													</div> 
-        <div class="container"> 
-            <div class="top-mg dash-wd">
-                <div class="tab-inner">
-												      <div id="tabs" class="tabs">
-															<div class="graph">
-																					<nav>
-																						<ul>
-																							<li class="tab-current"><a href="#section-1" class="icon-shop"><i class="lnr lnr-briefcase"></i> <span>Important Calls</span></a></li>
-																							<li><a href="#section-2" class="icon-cup"><i class="lnr lnr-lighter"></i> <span>Site Visit Fixed</span></a></li>
-																						</ul>
-																					</nav>
-																					<div class="content tab">
-																						<section id="section-1" class="content-current">
-																							<div class="">
-																							<table class="table" style="margin-top: 30px;">
-														                                <thead>
-														                                    <tr>
-														                                        <th>Contact Name</th>
-														                                        <th>Assigned User</th>
-														                                        <th>Email</th>
-														                                        <th>Last added Note</th>
-														                                    </tr>
-														                                </thead>
-														                                <tbody>
-														                                    														                                        
-														                                </tbody>
-														                            </table>
-																							</div>
-																						
-																						</section>
-																						<section id="section-2">
-																							<div class="">
-																							 <br>
-														                            <table class="table">
-														                                <thead>
-														                                    <tr>
-														                                        <th>Contact Name</th>
-														                                        <th>Date of Site Visit</th>
-														                                        <th>Project Name</th>
-														                                        <!-- <th>Lastest Comment</th> -->
-														                                    </tr>
-														                                </thead>
-														                                <tbody>
-														                                    <tr><td colspan="3">No records found!</td></tr>                                        
-														                                </tbody>
-														                            </table>
-																							</div>
-																						</section>
-																					</div><!-- /content -->
-																				</div>
-																				<!-- /tabs -->
-																				
-																			</div>
-																			<script src="<?php echo base_url()?>/assets/js/cbpFWTabs.js"></script>
-																			<script>
-																				new CBPFWTabs( document.getElementById( 'tabs' ) );
-																			</script>
-																	
-																 
-																 <div class="clearfix"> </div>
-														</div>
-                <div class="col-md-12">
-                    <div class="">
-                        <h2 align="center">Lead Source Report</h2>
-                        <div class=" ctr">
-                            <table align="center" style="width:50%" class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Lead Source</th>
-                                        <th>Count</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($lead_source_report as $key => $value) { ?>
-                                        <tr>
-                                            <td><?php echo $this->common_model->get_leadsource_name($key); ?></td>
-                                            <td><?php echo $value; ?></td>
-                                        </tr>
-                                    <?php } ?>
-                                        
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <h2 align="center">Call Reports</h2>
-                        <div class=" ctr">
-                            <table align="center" style="width:50%" class="table">
-                                <thead>
-                                    <tr>
-                                        <th>User Name</th>
-                                        <th>Number of calls</th>
-                                        <th>Calls done Yesterday</th>
-                                        <th>Calls for Today</th>
-                                        <th>Productivity</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($call_reports as $key => $value) { ?>
-                                        <tr>
-                                            <td><?php echo $value->first_name." ".$value->last_name; ?></td>
-                                            <td><?php echo $value->total_calls; ?></td>
-                                            <td><?php echo $value->yesterday_callback_count; ?></td>
-                                            <td><?php echo $value->today_callback_count; ?></td>
-                                            <td><?php echo $value->productivity; ?> %</td>
-                                        </tr>
-                                    <?php } ?>
-                                        
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-             </div>
-        </div>
-    <?php } elseif ($this->session->userdata('user_type')=="City_head"  ) { 
-
-        ?>
-        <div class="container"> 
-            <div class="top-mg dash-wd">
-                <div class="col-md-12">
-                    
-                      <div class="tab-inner">
-												      <div id="tabs" class="tabs">
-															<div class="graph">
-																					<nav>
-																						<ul>
-																							<li class="tab-current"><a href="#section-1" class="icon-shop"><i class="lnr lnr-briefcase"></i> <span>Important Calls</span></a></li>
-																							<li><a href="#section-2" class="icon-cup"><i class="lnr lnr-lighter"></i> <span>Site Visit Fixed</span></a></li>
-																						</ul>
-																					</nav>
-																					<div class="content tab">
-																						<section id="section-1" class="content-current">
-																							<div class="">
-																							<table class="table" style="margin-top: 30px;">
-														                                <thead>
-														                                    <tr>
-														                                        <th>Contact Name</th>
-														                                        <th>Assigned User</th>
-														                                        <th>Email</th>
-														                                        <th>Last added Note</th>
-														                                    </tr>
-														                                </thead>
-														                                <tbody>
-														                                    														                                        
-														                                </tbody>
-														                            </table>
-																							</div>
-																						
-																						</section>
-																						<section id="section-2">
-																							<div class="">
-																							 <br>
-														                            <table class="table">
-														                                <thead>
-														                                    <tr>
-														                                        <th>Contact Name</th>
-														                                        <th>Date of Site Visit</th>
-														                                        <th>Project Name</th>
-														                                        <!-- <th>Lastest Comment</th> -->
-														                                    </tr>
-														                                </thead>
-														                                <tbody>
-														                                    <tr><td colspan="3">No records found!</td></tr>                                        
-														                                </tbody>
-														                            </table>
-																							</div>
-																						</section>
-																					</div><!-- /content -->
-																				</div>
-																				<!-- /tabs -->
-																				
-																			</div>
-																			<script src="<?php echo base_url()?>/assets/js/cbpFWTabs.js"></script>
-																			<script>
-																				new CBPFWTabs( document.getElementById( 'tabs' ) );
-																			</script>
-																	
-																 
-																 <div class="clearfix"> </div>
-														</div>
-					<div class="row top-mg dash-wd">
-                        <h2>Lead Source Report</h2>
-                        <div class="col-md-12 ctr">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Lead Source</th>
-                                        <th>Count</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($lead_source_report as $key => $value) { ?>
-                                        <tr>
-                                            <td><?php echo $this->common_model->get_leadsource_name($key); ?></td>
-                                            <td><?php echo $value; ?></td>
-                                        </tr>
-                                    <?php } ?>
-                                        
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="row top-mg dash-wd">
-                        <h2>Call Reports</h2>
-                        <div class="col-md-12 ctr">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>User Name</th>
-                                        <th>Number of calls</th>
-                                        <th>Calls done Yesterday</th>
-                                        <th>Calls for Today</th>
-                                        <th>Productivity</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($call_reports as $key => $value) { ?>
-                                        <tr>
-                                            <td><?php echo $value->first_name." ".$value->last_name; ?></td>
-                                            <td><?php echo $value->total_calls; ?></td>
-                                            <td><?php echo $value->yesterday_callback_count; ?></td>
-                                            <td><?php echo $value->today_callback_count; ?></td>
-                                            <td><?php echo $value->productivity; ?> %</td>
-                                        </tr>
-                                    <?php } ?>
-                                        
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    
-                </div>
-              
-            </div>
-        </div>
-    <?php }
-    else{ ?>
-    	<style>
-
-        .stats-right{
-            padding: 25px 0px;
-             height: 71px;
-        } 
-        .stats-right label{
-            font-size: 1em; 
-            color: #3E3D3D;
-            word-break: break-all;
-        }
-        #textright{
-            padding: 37px 0px;
-        }
-        @media (max-width:1366px){
-           
-        .stats-right label{
-            font-size: 1em; 
-            color: #3E3D3D;
-            word-break: break-all;
-        }
-        #textright{
-            padding: 37px 0px;
-        }
-        }
-        @media (max-width:1366px){
-          
-        .stats-right label{
-            font-size: 1em; 
-            color: #3E3D3D;
-            word-break: break-all;
-        }
-        #textright{
-            padding: 37px 0px;
-        }
-        }
-        
-        @media (max-width:1150px){
-            .stats-right{
-            padding: 33px 0px;
-}
-        } 
-       
-        #textright{
-            padding: 32px 0px;
-        }
-        }
-
-        @media (max-width:930px){
-            .stats-right{
-            padding: 2px 0px;
-        } 
-       
-        #textright{
-            padding: 24px 0px;
-        }
-        }
-        @media (max-width:768px){
-            .stats-right{
-            padding: 2px 0px;
-        } 
-       
-        #textright{
-            padding: 24px 0px;
-        }
-        }
-        </style>
-
-												    <div class="row-one">
-														<div class="col-md-3 widget">
-															<div class="stats-left ">
-																<h5>Team</h5>
-																<h4> Revenue</h4>
-															</div>
-															<div class="stats-right mt-0" >
-																<label style=""><a href="#" ><?php echo $total_team_revenue?$total_team_revenue:0; ?></a></label>
-															</div>
-															<div class="clearfix"> </div>	
-                                                        </div>
-                                                        
-														<div class="col-md-3 widget mt-30">
-															<div class="stats-left">
-																<h5>Own</h5>
-																<h4>Closed Calls</h4>
-															</div>
-															<div class="stats-right" id="textright">
-																<label> <a href="#" class="view_callbacks" data-type="manager_close"><?php echo $close_leads_count; ?></a></label>
-															</div>
-															<div class="clearfix"> </div>	
-                                                        </div>
-                                                        
-														<div class="col-md-3 widget mt-30">
-															<div class="stats-left">
-																<h5>Total Calls </h5>
-																<h4><!--For Team --> &nbsp;</h4>
-															</div>
-															<div class="stats-right" id="textright">
-																<label><a href="<?php echo base_url().'view_callbacks?advisor='.$team_members ?>&access=read_write" ><?php echo $total_calls; ?></a></label>
-															</div>
-															<div class="clearfix"> </div>	
-                                                        </div>
-                                                        
-														<div class="col-md-3 widget mt-30">
-															<div class="stats-left">
-																<h5>Own</h5>
-																<h4>Revenue</h4>
-															</div>
-															<div class="stats-right">
-																<label> <?php echo $total_revenue; ?></label>
-															</div>
-															<div class="clearfix"> </div>	
-                                                        </div>
-                                                        
-														<div class="clearfix"> </div>	
-													</div> 
-                                        <div class="container"> 
-                                        <div class="col-md-6">
-                                            <div class="top-mg dash-wd">
-                                                <div class="tab-inner">
-												      <div id="tabs" class="tabs">
-															<div class="graph">
-																					<nav>
-																						<ul>
-																							<li class="tab-current"><a href="#section-1" class="icon-shop"><i class="lnr lnr-briefcase"></i> <span>Important Calls</span></a></li>
-																							<li><a href="#section-2" class="icon-cup"><i class="lnr lnr-lighter"></i> <span>Site Visit Fixed</span></a></li>
-																						</ul>
-																					</nav>
-																					<div class="content tab">
-																						<section id="section-1" class="content-current">
-																							<div class="">
-																							<table class="table" style="">
-														                                <thead>
-														                                    <tr>
-														                                        <th>Contact Name</th>
-														                                        <th>Assigned User</th>
-														                                        <th>Email</th>
-														                                        <th>Last added Note</th>
-														                                    </tr>
-														                                </thead>
-														                                <tbody>
-														                                    														                                        
-														                                </tbody>
-														                            </table>
-																							</div>
-																						
-																						</section>
-																						<section id="section-2">
-																							<div class="">
-																							 <br>
-														                            <table class="table">
-														                                <thead>
-														                                    <tr>
-														                                        <th>Contact Name</th>
-														                                        <th>Date of Site Visit</th>
-														                                        <th>Project Name</th>
-														                                        <!-- <th>Lastest Comment</th> -->
-														                                    </tr>
-														                                </thead>
-														                                <tbody>
-														                                    <tr><td colspan="3">No records found!</td></tr>                                        
-														                                </tbody>
-														                            </table>
-																							</div>
-																						</section>
-																					</div><!-- /content -->
-																				</div>
-																				<!-- /tabs -->
-																				
-																			</div>
-                                                                            	
-																			</div>
-                                                                            </div>
-                                                                            
-																			<script src="<?php echo base_url()?>/assets/js/cbpFWTabs.js"></script>
-																			<script>
-																				new CBPFWTabs( document.getElementById( 'tabs' ) );
-																			</script>
-																	
-																 
-																 <div class="clearfix"> </div>
-														</div>
-                <div class="">
-                    <div class="col-md-5 border-line">
-                        <h2 align="center">Lead Source Report</h2>
-                        <div class=" ctr">
-                            <table align="center" style="" class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Lead Source</th>
-                                        <th>Count</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($lead_source_report as $key => $value) { ?>
-                                        <tr>
-                                            <td><?php echo $this->common_model->get_leadsource_name($key); ?></td>
-                                            <td><?php echo $value; ?></td>
-                                        </tr>
-                                    <?php } ?>
-                                        
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="col-md-6 border-line">
-                        <h2 align="center">Call Reports</h2>
-                        <div class=" ctr">
-                            <table align="center" style="" class="table">
-                                <thead>
-                                    <tr>
-                                        <th>User Name</th>
-                                        <th>Number of calls</th>
-                                        <th>Calls done Yesterday</th>
-                                        <th>Calls for Today</th>
-                                        <th>Productivity</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($call_reports as $key => $value) { ?>
-                                        <tr>
-                                            <td><?php echo $value->first_name." ".$value->last_name; ?></td>
-                                            <td><?php echo $value->total_calls; ?></td>
-                                            <td><?php echo $value->yesterday_callback_count; ?></td>
-                                            <td><?php echo $value->today_callback_count; ?></td>
-                                            <td><?php echo $value->productivity; ?> %</td>
-                                        </tr>
-                                    <?php } ?>
-                                        
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                
-             </div>
-        </div>
-        <div class="container"> 
-            <div class="top-mg dash-wd">
-                <div class="col-md-5 border-line1">
-                    <div class="row top-mg dash-wd">
-                        <h2>Productivity</h2>
-                        <div class=" ctr">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>User Name</th>
-                                        <th>Number of calls</th>
-                                        <!-- <th>Calls done Yesterday</th>
-                                        <th>Calls for Today</th>
-                                        <th>Productivity</th> -->
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($productivity_report as $key => $value) { ?>
-                                        <tr>
-                                            <td><?php echo $value->first_name." ".$value->last_name; ?></td>
-                                            <td>
-                                                <a href="<?php echo base_url().'view_callbacks?advisor='.$value->id.'&for=dashboard'; ?>"><?php echo $value->total_calls; ?></a>
-                                            </td>
-                                            <!-- <td><?php echo $value->yesterday_callback_count; ?></td>
-                                            <td><?php echo $value->today_callback_count; ?></td>
-                                            <td><?php echo $value->productivity; ?> %</td> -->
-                                        </tr>
-                                    <?php } ?>
-                                        
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                  <div class="col-md-6 border-line1">
-                    <div class="row top-mg dash-wd">
-                        <h2>Live Feedback<button type="submit" class="btn btn-default btn-default1" id="refresh"><i class="fa fa-refresh" aria-hidden="true"></i></button></h2>
-                        <div class="ctr">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>User Name</th>
-                                        <th>Last Login Time</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="live_feed_back_body">
-                                    <?php foreach ($live_feed_back as $key => $value) { ?>
-                                        <tr>
-                                            <td><?php echo $value->first_name." ".$value->last_name; ?> (<?php echo ($value->type == 1)?'User':'Manager'; ?>)</td>
-                                            <td>
-                                                <?php echo $value->last_login; ?>
-                                            </td>
-                                        </tr>
-                                    <?php } ?>
-                                        
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                  </div>
-
-                    <div class="col-md-6 border-line1">
-                        <div class="row top-mg dash-wd">
-                            <h2>Source Analysis</h2>
-                            <div class=" ctr">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Lead Source</th>
-                                            <th>Count</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach ($lead_source_report as $key => $value) { ?>
-                                            <tr>
-                                                <td><?php echo $this->common_model->get_leadsource_name($key); ?></td>
-                                                <td><?php echo $value; ?></td>
-                                            </tr>
-                                        <?php } ?>
-                                            
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                    </div>
-              
-            </div>
-            <br/><br/><br/><br/><br/>
-            
-        </div>
-        <div class="container">
-            <div class="top-mg dash-wd">
-                
-                <div class="col-md-6 border-line1">
-                    <div class="row top-mg dash-wd">
-                        <h2>Revenue List</h2>
-
-                      
-                        <input type="text" class="form-control table-form" id="revenueMonth" name="email2" placeholder="Click to filter" value="<?php echo date('m/Y'); ?>" > <button id="filter_revenue" class="filetr" onclick="get_revenues();">Filter</button>
-                        <br>
-                        <div class=" mt-30 ctr">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Customer Name</th>
-                                        <th>User name</th>
-                                        <th>Project</th>
-                                        <th>Net Revenue</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="revenue_data">
-                                        
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <!--<div class="col-md-3">
-                    <div class="row top-mg dash-wd">
-                        <h2>Name/State/</h2>
-                    </div>
-                </div>-->
-            </div>
-        </div>
-    <?php }?>
-												    
-												</div>
+                                                                                                
+                                                                                                    <input type="text" class="form-control table-form" id="revenueMonth" name="email2" placeholder="Click to filter" value="<?php echo date('m/Y'); ?>" > <button id="filter_revenue" class="filetr" onclick="get_revenues();">Filter</button>
+                                                                                                    <br>
+                                                                                                    <div class=" mt-30 ctr">
+                                                                                                        <table class="table">
+                                                                                                            <thead>
+                                                                                                                <tr>
+                                                                                                                    <th>Customer Name</th>
+                                                                                                                    <th>User name</th>
+                                                                                                                    <th>Project</th>
+                                                                                                                    <th>Net Revenue</th>
+                                                                                                                    <th>Status</th>
+                                                                                                                </tr>
+                                                                                                            </thead>
+                                                                                                            <tbody id="revenue_data">
+                                                                                                                    
+                                                                                                            </tbody>
+                                                                                                        </table>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <!--<div class="col-md-3">
+                                                                                                <div class="row top-mg dash-wd">
+                                                                                                    <h2>Name/State/</h2>
+                                                                                                </div>
+                                                                                            </div>-->
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <?php }?>
+                                                                                                
+                                                    </div>
 									
-									</div>
+									            </div>
+                                                
 									<?php
 								}?>
-<!--/tabs-->
+                                    <!--/tabs-->
 										<div class="tab-main">
 											 <!--/tabs-inner-->
 												
-												</div>
+										</div>
+                                        
 											  <!--//tabs-inner-->
 
 									 <!--footer section start-->
@@ -1598,26 +1627,26 @@ li.dropdown.note a {
 			<!--/sidebar-menu-->
 				<div class="sidebar-menu">
 					<header class="logo">
-					<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>  <span id="logo"> <h1>PMR</h1></span> 
-					<!--<img id="logo" src="" alt="Logo"/>--> 
-				  </a> 
-				</header>
+                        <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>  <span id="logo"> <h1>PMR</h1></span> 
+                        <!--<img id="logo" src="" alt="Logo"/>--> 
+                      </a> 
+                    </header>
 			<div style="border-top:1px solid rgba(69, 74, 84, 0.7)"></div>
 			<!--/down-->
-							<div class="down">	
+							        <div class="down">	
 									  <?php $this->load->view('profile_pic');?>
-									  <span class=" name-caret"><?php echo $this->session->userdata('user_name'); ?></span>
-									   <p><?php echo $this->session->userdata('user_type'); ?></p>
-									<?php if($this->session->userdata('user_type')=='user')
-                                       {?>
-                                      <span class="name-caret">RM:</span> <?php echo $this->session->userdata('manager_name'); ?><br>
+                                        <span class=" name-caret"><?php echo $this->session->userdata('user_name'); ?></span>
+                                        <p><?php echo $this->session->userdata('user_type'); ?></p>
+                                        <?php if($this->session->userdata('user_type')=='user')
+                                        {?>
+                                        <span class="name-caret">RM:</span> <?php echo $this->session->userdata('manager_name'); ?><br>
                                         <?php } ?>
-									<ul>
+                                        <ul>
 
-									<li><a class="tooltips" href="<?= base_url('dashboard/profile'); ?>"><span>Profile</span><i class="lnr lnr-user"></i></a></li>
-										<li><a class="tooltips" style=" color: #d8c26b !important; " href="#"><span>Team Size</span><?php if($this->session->userdata("manager_team_size")) echo $this->session->userdata("manager_team_size")?$this->session->userdata("manager_team_size"):''?></a></li>
-										<li><a class="tooltips" href="<?php echo base_url()?>login/logout"><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
-										</ul>
+                                            <li><a class="tooltips" href="<?= base_url('dashboard/profile'); ?>"><span>Profile</span><i class="lnr lnr-user"></i></a></li>
+                                            <li><a class="tooltips" style=" color: #d8c26b !important; " href="#"><span>Team Size</span><?php if($this->session->userdata("manager_team_size")) echo $this->session->userdata("manager_team_size")?$this->session->userdata("manager_team_size"):''?></a></li>
+                                            <li><a class="tooltips" href="<?php echo base_url()?>login/logout"><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
+                                        </ul>
 									</div>
 							   <!--//down-->
                            <?php $this->load->view('inc/header_nav'); ?>

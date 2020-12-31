@@ -1307,9 +1307,10 @@ ul.dropdown {
 }
 .stats-right {
        float: inherit;
-    width: 30%;
+	width: 30%;
+	height: 70px;
     text-align: center;
-    padding: 1.60em 0em;
+    padding: 1.10em 0em;
     background-color: #eee;
     border: none;
        border-right: 2px solid #540000;
@@ -1378,7 +1379,8 @@ canvas#viewport {
     -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
     -moz-box-shadow: 0 1px 1px rgba(0,0,0,.05);
     border: 1px solid #E7E7E8;
-    padding: 2em 2em;
+	padding: 2em 2em;
+	
     width: 49%;
     margin-right: 2%;
 	    background: #fff;
@@ -6340,8 +6342,24 @@ footer  p a:hover ,.footer p a:hover{
 		padding: 0em 1em 1em;
 		border: 1px solid #E7E7E8;
 	}
-@media (min-width:769px){
 
+	@media (min-width:750px){
+		.row-one .col-md-3{
+			margin-top: 30px;
+				}
+
+	}
+	@media (max-width:749px){
+
+		.row-one .col-md-3{
+			margin-left: 10px;
+			margin-top: 10px;
+			margin-right: 10px;
+				}
+	}
+
+@media (min-width:769px){
+	
 	.inner-content {
 		
 		margin-bottom: 55px;
@@ -6374,6 +6392,10 @@ footer  p a:hover ,.footer p a:hover{
 
 }
 @media (max-width:768px){
+	.stats-left {
+		float: left;
+		width: 70%;
+    }
 	.border-line{
 		
 		box-shadow: 0 1px 1px rgba(0,0,0,.05);
@@ -6633,7 +6655,7 @@ footer  p a:hover ,.footer p a:hover{
 		width: auto;
 	}
 	.widget {
-		width: 43.5%;
+		width: 49.5%;
 		padding: 0px;
 		float: left;
 	}
@@ -7009,7 +7031,7 @@ footer  p a:hover ,.footer p a:hover{
       font-size: 89px;
 	}
 	.widget {
-		width: 48.5%;
+		width: 49.5%;
 		padding: 0px;
 		float: left;
 	}

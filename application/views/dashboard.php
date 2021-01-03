@@ -673,7 +673,7 @@
 								if ($this->session->userdata('user_type')=="user") { 
        							?>
 
-                                <!-- <div class="col-md-3"> -->
+                                
                                 <div class="row-one">
                                     <div class="col-md-3 widget">
                                         <div class="stats-left ">
@@ -1710,10 +1710,10 @@
                                                                                                                                 </div>-->
                                     </div>
                                 </div>
-
+                                </div>
                             <?php }?>
 
-                            </div>
+                            
                         </div>
 
                     <?php
@@ -1734,7 +1734,9 @@
     <!--footer section end-->
     </div>
     </div>
+
     <!--//content-inner-->
+    
     <!--/sidebar-menu-->
     <div class="sidebar-menu">
         <header class="logo">
@@ -1769,6 +1771,7 @@
 
     <div class="clearfix"></div>
     </div>
+    
     <script>
         var toggle = true;
 

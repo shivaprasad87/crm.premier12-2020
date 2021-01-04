@@ -12,6 +12,7 @@ class GreetingsController extends CI_Controller {
         $this->load->model('callback_model');
         $this->load->library('session');
     }
+    
     public function index($value='')
     {
  

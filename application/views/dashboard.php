@@ -6,8 +6,8 @@
    $user_ids =json_decode( json_encode($user_ids), true);
    $string_ids='';
    foreach ($user_ids as $id) {
-   	//print_r($id['id']);
-   	$string_ids.=$id['id'].',';
+    //print_r($id['id']);
+    $string_ids.=$id['id'].',';
    }
    //echo $string_ids;
 
@@ -363,7 +363,7 @@
                         }
                         else{?>
                         <div class="outter-wp">
-                                        <?php
+                                         <?php
                   if(count($greeting)>0)
                   {
                     ?>
@@ -476,9 +476,9 @@
                         <!--custom-widgets-->
                         <div class="custom-widgets">
                                <?php 
-													
-								if ($this->session->userdata('user_type')=="user") { 
-       							?>
+                          
+                if ($this->session->userdata('user_type')=="user") { 
+                    ?>
 
                                 
                                 <div class="row-one">
@@ -1580,6 +1580,7 @@
     </div>
     
     <script>
+
         var toggle = true;
 
         $(".sidebar-icon").click(function() {
@@ -1599,10 +1600,15 @@
 
             toggle = !toggle;
         });
-                      function submit_comment(current_id,greetuserid,id) {
+
+        function submit_comment(current_id,greetuserid,id) {
       var l = window.location;
       var BASE_URL = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
-      var wishes = $('#wishes'+id).val(); 
+      var wishes = $('#wishes'+id).val();
+      if(wishes=='')
+        return false;
+      // alert(current_id+" "+greetuserid+" "+BASE_URL+" "+wishes);
+      //data:{current_id:current_id,greetuserid:greetuserid,id:id,wishes:wishes},
       $.ajax({
               type:"POST",
               url: BASE_URL+"dashboard/postWishes",
@@ -1871,10 +1877,9 @@
             document.body.appendChild(form);
             form.submit();
         }
-
     </script>
 </body>
-<?php
+ <?php
       function time_since($since) {
     $chunks = array(
         array(60 * 60 * 24 * 365 , 'year'),
@@ -1898,4 +1903,5 @@
     return $print;
 }
 ?>
+
 </html>

@@ -59,13 +59,13 @@ class Dashboard extends CI_Controller {
         $data['profile_pic'] = $this->user_model->get_profile_pic_name($data['user_id']);
         $data['profile_pic'] = json_decode( json_encode($data['profile_pic']), true);
         $this->session->set_userdata('profile_pic',$data['profile_pic'][0]['profile_pic']);
-        $data['greeting'] = $this->greeting_model->getWhere(array('date_added'=>date('y_m_d')),'todaysgreetings');
+        $data['greeting'] = $this->common_model->getWhere(array("date_added"=>date("Y-m-d")),"todaysgreetings");
+
         if ($this->session->userdata('user_type') == 'user') {
             $data['imp_callbacks'] = $this->callback_model->fetch_important_callbacks($data['user_id']);
             $data['today_callback_count'] = $this->callback_model->fetch_callback_count($data['user_id'],'today');
             $data['yesterday_callback_count'] = $this->callback_model->fetch_yesterday_callback_count($data['user_id']);
-            $data['overdue_callback_count'] = $this->callback_model->fetch_callback_count($data['user_id'],'overdue');
-           // $data['total_callback_count'] = $this->callback_model->fetch_callback_count($data['user_id'],"all","",true);
+            $data['overdue_callback_count'] = $this->callback_model->fetch_callback_count($data['user_id'],'overdue'); 
             $data['total_callback_count'] = $this->callback_model->all_leads_count();
             
             $data['dead_leads_count'] = $this->callback_model->fetch_leads_count($data['user_id'],'dead');
@@ -78,9 +78,9 @@ class Dashboard extends CI_Controller {
             $data['incentive_slabs'] = $this->callback_model->fetch_employee_incentive_slabs();
             $data['target'] = $this->callback_model->get_target($data['user_id'],date("m/Y"));
             $data['callsDone'] = $this->callback_model->callbackTrackCountByUserId($data['user_id']);
-           $data['calls_assigned_today']=$this->callback_model->get_callbacks_assigned_today($data['user_id']);
+            $data['calls_assigned_today']=$this->callback_model->get_callbacks_assigned_today($data['user_id']);
+             
             $fetchData = $this->callback_model->get_siteVisitDataByUserId($data['user_id']);
-            
             $prArry = array();
             $i = 1;
             foreach ($fetchData as $key => $value) {
@@ -1445,4 +1445,56 @@ class Dashboard extends CI_Controller {
         $this->properties_model->deleteWhere(array('image' => $path), $table_of_image);
         echo unlink('./' . $path);
     }
+    public function postWishes($value='')
+    { 
+        $g_id = $this->input->post('g_id');
+        $this->greeting_model->insertRow($this->input->post(),'greetingcomments');
+        $greetings = $this->greeting_model->prevComments($g_id);
+        if(count($greetings)>0)
+        {
+            foreach ($greetings as $comment) {
+                echo '<li class="box_result row prev_wishes" >
+                                          <div class="avatar_comment col-md-1">
+                                             <img src="'.base_url("uploads/".$comment->user_profile_pic).'" alt="avatar"/>
+                                          </div>
+                                          <div class="result_comment col-md-11">
+                                             <h4>'.$comment->f_name." ".$comment->l_name.'</h4>
+                                             <p>'.$comment->comment.'</p>
+                                             <div class="tools_comment"> 
+                                                <span aria-hidden="true"> · </span>
+                                                <span>'.$this->time_since(strtotime(date("Y-m-d H:i:s"))-strtotime($comment->date_added)).' ago</span>
+                                             </div>
+                                             <ul class="child_replay"></ul>
+                                          </div>
+                                       </li>';
+
+            }
+        }
+
+    }
+function time_since($since='')
+    {
+    $chunks = array(
+        array(60 * 60 * 24 * 365 , 'year'),
+        array(60 * 60 * 24 * 30 , 'month'),
+        array(60 * 60 * 24 * 7, 'week'),
+        array(60 * 60 * 24 , 'day'),
+        array(60 * 60 , 'hour'),
+        array(60 , 'minute'),
+        array(1 , 'second')
+    );
+
+    for ($i = 0, $j = count($chunks); $i < $j; $i++) {
+        $seconds = $chunks[$i][0];
+        $name = $chunks[$i][1];
+        if (($count = floor($since / $seconds)) != 0) {
+            break;
+        }
+    }
+
+    $print = ($count == 1) ? '1 '.$name : "$count {$name}s";
+    return $print;
+
+    }
 }
+

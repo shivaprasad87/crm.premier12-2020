@@ -87,7 +87,8 @@ class Login extends CI_Controller {
                         'user_type' => $user_type,
                         'user_city_id' => $data->city_id,
                         'user_mobile' => $data->mobile_number,
-                        'user_address' => $data->address
+                        'user_address' => $data->address,
+                        'user_dob' => $data->user_dob
  
                     );
                    

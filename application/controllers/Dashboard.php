@@ -10,6 +10,7 @@ class Dashboard extends CI_Controller {
         $this->load->model('user_model');
         $this->load->model('common_model');
         $this->load->model('callback_model');
+        $this->load->model('greeting_model');
         $this->load->library('session');
         $this->load->model('login_model');
          $this->load->model('ChatModel');
@@ -58,6 +59,7 @@ class Dashboard extends CI_Controller {
         $data['profile_pic'] = $this->user_model->get_profile_pic_name($data['user_id']);
         $data['profile_pic'] = json_decode( json_encode($data['profile_pic']), true);
         $this->session->set_userdata('profile_pic',$data['profile_pic'][0]['profile_pic']);
+        $data['greeting'] = $this->greeting_model->getWhere(array('date_added'=>date('y_m_d')),'todaysgreetings');
         if ($this->session->userdata('user_type') == 'user') {
             $data['imp_callbacks'] = $this->callback_model->fetch_important_callbacks($data['user_id']);
             $data['today_callback_count'] = $this->callback_model->fetch_callback_count($data['user_id'],'today');

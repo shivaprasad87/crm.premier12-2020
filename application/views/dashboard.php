@@ -363,307 +363,114 @@
                         }
                         else{?>
                         <div class="outter-wp">
-                            <div class="col-md-9 mt-30 ">
-                                <div class="birthday-card ">
-                                    <div class="birthday">
-                                        <div class="wrapper">
-                                            <div class="text1">
-                                                <h1>Happy Birthday</h1>
-
-                                                <h2 class="mt-30">Dear "Client Name"</h2>
-                                            </div>
-                                            <div id="scene">
-                                                <div class="bgcover">
-                                                    <div class="ballon"></div>
-                                                    <div class="ballon"></div>
-                                                    <div class="ballon"></div>
-                                                    <div class="ballon"></div>
-                                                    <div class="ballon"></div>
-                                                    <div class="ballon"></div>
-                                                </div>
-                                                <div class="cake">
-                                                    <div class="candle">
-                                                        <div class="candle-1">
-                                                            <div class="wax"></div>
-                                                            <div class="flame"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="strip"></div>
-                                                    <div class="strip next"></div>
-                                                </div>
-                                                <div class="platform">
-                                                    <div class="strip"></div>
-                                                    <div class="strip next"></div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="clearfix"> </div>
-
+                                        <?php
+                  if(count($greeting)>0)
+                  {
+                    ?>
+               <div class="col-md-9 mt-30">
+                  <?php
+                     foreach ($greeting as $greeting) {
+                      
+                     ?>
+                  <div class="birthday-card ">
+                     <div class="birthday">
+                        <div class="wrapper">
+                           <div class="text1">
+                              <h1>Happy Birthday</h1>
+                <h2 class="mt-30">Dear <?=$greeting->username;?></h2>
+                              <h2 class="quote">Hope your Special Day</h2>
+                              <h2 class="quote">Bring bring you all that your Heart Desires</h2>
+                              <h2 class="quote">Wishing you a day of Pleasent Surprises</h2>
+                              <h2 class="quote">Dear "Client Name"</h2>
+                           </div>
+                           <div id="scene">
+                              <div class="bgcover">
+                                 <div class="ballon"></div>
+                                 <div class="ballon"></div>
+                                 <div class="ballon"></div>
+                                 <div class="ballon"></div>
+                                 <div class="ballon"></div>
+                                 <div class="ballon"></div>
+                              </div>
+                              <div class="cake">
+                                 <div class="candle">
+                                    <div class="candle-1">
+                                       <div class="wax"></div>
+                                       <div class="flame"></div>
                                     </div>
-                                    <div class="ex1">
-                                        <div class="">
-                                            <div class="" id="fbcomment">
-                                                <div class="header_comment">
-                                                    <div class="row">
-                                                        <div class="col-md-6 text-left">
-                                                            <span class="count_comment">264235 Comments</span>
-                                                        </div>
-                                                        <div class="col-md-6 text-right">
-                                                            <span class="sort_title">Sort by</span>
-                                                            <select class="sort_by">
-                                                                                    <option>Top</option>
-                                                                                    <option>Newest</option>
-                                                                                    <option>Oldest</option>
-                                                                                </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="body_comment">
-                                                    <div class="row">
-                                                        <div class="avatar_comment col-md-1">
-                                                            <img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar" />
-                                                        </div>
-                                                        <div class="box_comment col-md-11">
-                                                            <textarea class="commentar" placeholder="Add a comment..."></textarea>
-                                                            <div class="box_post">
-                                                                <div class="pull-left">
-                                                                    <input type="checkbox" id="post_fb" />
-                                                                    <label for="post_fb">Also post on Facebook</label>
-                                                                </div>
-                                                                <div class="pull-right">
-                                                                    <span>
-                                                                                        <img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar" />
-                                                                                        <i class="fa fa-caret-down"></i>
-                                                                                    </span>
-                                                                    <button onclick="submit_comment()" type="button" value="1">Post</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <ul id="list_comment" class="col-md-12">
-                                                            <!-- Start List Comment 1 -->
-                                                            <li class="box_result row">
-                                                                <div class="avatar_comment col-md-1">
-                                                                    <img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar" />
-                                                                </div>
-                                                                <div class="result_comment col-md-11">
-                                                                    <h4>Nath Ryuzaki</h4>
-                                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
-                                                                    <div class="tools_comment">
-                                                                        <a class="like" href="#">Like</a>
-                                                                        <span aria-hidden="true"> · </span>
-                                                                        <a class="replay" href="#">Reply</a>
-                                                                        <span aria-hidden="true"> · </span>
-                                                                        <i class="fa fa-thumbs-o-up"></i> <span class="count">1</span>
-                                                                        <span aria-hidden="true"> · </span>
-                                                                        <span>26m</span>
-                                                                    </div>
-                                                                    <ul class="child_replay">
-                                                                        <li class="box_reply row">
-                                                                            <div class="avatar_comment col-md-1">
-                                                                                <img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar" />
-                                                                            </div>
-                                                                            <div class="result_comment col-md-11">
-                                                                                <h4>Sugito</h4>
-                                                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
-                                                                                <div class="tools_comment">
-                                                                                    <a class="like" href="#">Like</a>
-                                                                                    <span aria-hidden="true"> · </span>
-                                                                                    <a class="replay" href="#">Reply</a>
-                                                                                    <span aria-hidden="true"> · </span>
-                                                                                    <i class="fa fa-thumbs-o-up"></i> <span class="count">1</span>
-                                                                                    <span aria-hidden="true"> · </span>
-                                                                                    <span>26m</span>
-                                                                                </div>
-                                                                                <ul class="child_replay"></ul>
-                                                                            </div>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </li>
-
-                                                            <!-- Start List Comment 2 -->
-                                                            <li class="box_result row">
-                                                                <div class="avatar_comment col-md-1">
-                                                                    <img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar" />
-                                                                </div>
-                                                                <div class="result_comment col-md-11">
-                                                                    <h4>Gung Wah</h4>
-                                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
-                                                                    <div class="tools_comment">
-                                                                        <a class="like" href="#">Like</a>
-                                                                        <span aria-hidden="true"> · </span>
-                                                                        <a class="replay" href="#">Reply</a>
-                                                                        <span aria-hidden="true"> · </span>
-                                                                        <i class="fa fa-thumbs-o-up"></i> <span class="count">1</span>
-                                                                        <span aria-hidden="true"> · </span>
-                                                                        <span>26m</span>
-                                                                    </div>
-                                                                    <ul class="child_replay"></ul>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                        <button class="show_more" type="button">Load 10 more comments</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                 </div>
+                                 <div class="strip"></div>
+                                 <div class="strip next"></div>
+                              </div>
+                              <div class="platform">
+                                 <div class="strip"></div>
+                                 <div class="strip next"></div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                     </div>
+                     <div class="ex1">
+                        <div class="">
+                           <div class="" id="fbcomment">
+                              <div class="body_comment">
+                                 <div class="row">
+                                    <div class="avatar_comment col-md-1">
+                                       <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
                                     </div>
-                                </div>
-
-                                <div class="birthday-card ">
-                                    <div class="birthday">
-                                        <div class="wrapper">
-                                            <div class="text1">
-                                                <h1>Happy Birthday</h1>
-
-                                                <h2 class="mt-30">Dear "Client Name"</h2>
-                                            </div>
-                                            <div id="scene">
-                                                <div class="bgcover">
-                                                    <div class="ballon"></div>
-                                                    <div class="ballon"></div>
-                                                    <div class="ballon"></div>
-                                                    <div class="ballon"></div>
-                                                    <div class="ballon"></div>
-                                                    <div class="ballon"></div>
-                                                </div>
-                                                <div class="cake">
-                                                    <div class="candle">
-                                                        <div class="candle-1">
-                                                            <div class="wax"></div>
-                                                            <div class="flame"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="strip"></div>
-                                                    <div class="strip next"></div>
-                                                </div>
-                                                <div class="platform">
-                                                    <div class="strip"></div>
-                                                    <div class="strip next"></div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="clearfix"> </div>
-
+                                    <div class="box_comment col-md-11">
+                                       <textarea class="commentar" id="wishes<?=$greeting->id?>" placeholder="Add a comment..."></textarea>
+                                       <div class="box_post"> 
+                                          <div class="pull-right"> 
+                                             <button onclick="submit_comment('<?=$this->session->userdata("user_id")?>','<?=$greeting->user_id?>','<?=$greeting->id?>');" type="button" value="1">Post</button>
+                                          </div>
+                                       </div>
                                     </div>
-                                    <div class="ex1">
-                                        <div class="">
-                                            <div class="" id="fbcomment">
-                                                <div class="header_comment">
-                                                    <div class="row">
-                                                        <div class="col-md-6 text-left">
-                                                            <span class="count_comment">264235 Comments</span>
-                                                        </div>
-                                                        <div class="col-md-6 text-right">
-                                                            <span class="sort_title">Sort by</span>
-                                                            <select class="sort_by">
-                                                                                    <option>Top</option>
-                                                                                    <option>Newest</option>
-                                                                                    <option>Oldest</option>
-                                                                                </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="body_comment">
-                                                    <div class="row">
-                                                        <div class="avatar_comment col-md-1">
-                                                            <img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar" />
-                                                        </div>
-                                                        <div class="box_comment col-md-11">
-                                                            <textarea class="commentar" placeholder="Add a comment..."></textarea>
-                                                            <div class="box_post">
-                                                                <div class="pull-left">
-                                                                    <input type="checkbox" id="post_fb" />
-                                                                    <label for="post_fb">Also post on Facebook</label>
-                                                                </div>
-                                                                <div class="pull-right">
-                                                                    <span>
-                                                                                        <img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar" />
-                                                                                        <i class="fa fa-caret-down"></i>
-                                                                                    </span>
-                                                                    <button onclick="submit_comment()" type="button" value="1">Post</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <ul id="list_comment" class="col-md-12">
-                                                            <!-- Start List Comment 1 -->
-                                                            <li class="box_result row">
-                                                                <div class="avatar_comment col-md-1">
-                                                                    <img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar" />
-                                                                </div>
-                                                                <div class="result_comment col-md-11">
-                                                                    <h4>Nath Ryuzaki</h4>
-                                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
-                                                                    <div class="tools_comment">
-                                                                        <a class="like" href="#">Like</a>
-                                                                        <span aria-hidden="true"> · </span>
-                                                                        <a class="replay" href="#">Reply</a>
-                                                                        <span aria-hidden="true"> · </span>
-                                                                        <i class="fa fa-thumbs-o-up"></i> <span class="count">1</span>
-                                                                        <span aria-hidden="true"> · </span>
-                                                                        <span>26m</span>
-                                                                    </div>
-                                                                    <ul class="child_replay">
-                                                                        <li class="box_reply row">
-                                                                            <div class="avatar_comment col-md-1">
-                                                                                <img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar" />
-                                                                            </div>
-                                                                            <div class="result_comment col-md-11">
-                                                                                <h4>Sugito</h4>
-                                                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
-                                                                                <div class="tools_comment">
-                                                                                    <a class="like" href="#">Like</a>
-                                                                                    <span aria-hidden="true"> · </span>
-                                                                                    <a class="replay" href="#">Reply</a>
-                                                                                    <span aria-hidden="true"> · </span>
-                                                                                    <i class="fa fa-thumbs-o-up"></i> <span class="count">1</span>
-                                                                                    <span aria-hidden="true"> · </span>
-                                                                                    <span>26m</span>
-                                                                                </div>
-                                                                                <ul class="child_replay"></ul>
-                                                                            </div>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </li>
-
-                                                            <!-- Start List Comment 2 -->
-                                                            <li class="box_result row">
-                                                                <div class="avatar_comment col-md-1">
-                                                                    <img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar" />
-                                                                </div>
-                                                                <div class="result_comment col-md-11">
-                                                                    <h4>Gung Wah</h4>
-                                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
-                                                                    <div class="tools_comment">
-                                                                        <a class="like" href="#">Like</a>
-                                                                        <span aria-hidden="true"> · </span>
-                                                                        <a class="replay" href="#">Reply</a>
-                                                                        <span aria-hidden="true"> · </span>
-                                                                        <i class="fa fa-thumbs-o-up"></i> <span class="count">1</span>
-                                                                        <span aria-hidden="true"> · </span>
-                                                                        <span>26m</span>
-                                                                    </div>
-                                                                    <ul class="child_replay"></ul>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                        <button class="show_more" type="button">Load 10 more comments</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                 </div>
+                                 <div class="row">
+                                    <ul id="list_comment<?=$greeting->id?>" class="col-md-12">
+                                       <!-- Start List Comment 2 -->
+                                       <?php 
+                                      $comment = $this->greeting_model->prevComments($greeting->id);
+                                   
+                                      if(count($comment)>0)
+                                      {
+                                        foreach ($comment as $comment) {
+                                           
+                                       ?>
+                                       <li class="box_result row prev_wishes" >
+                                          <div class="avatar_comment col-md-1">
+                                             <img src="<?=base_url('uploads/'.$comment->user_profile_pic)?>" alt="avatar"/>
+                                          </div>
+                                          <div class="result_comment col-md-11">
+                                             <h4><?=$comment->f_name." ".$comment->l_name;?></h4>
+                                             <p><?=$comment->comment;?></p>
+                                             <div class="tools_comment"> 
+                                                <span aria-hidden="true"> · </span>
+                                                <span><?=time_since(strtotime(date("Y-m-d H:i:s"))-strtotime($comment->date_added));?> ago</span>
+                                             </div>
+                                             <ul class="child_replay"></ul>
+                                          </div>
+                                       </li>
+                                       <?php
+                                     }
+                                     }
+                                       ?>
+                                    </ul>
+                                    <!-- <button class="show_more" type="button">Load 10 more comments</button> -->
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <?php
+                     }
+                     ?>
+               </div>
+               <?php
+                  }
+                  ?>
                         </div>
                         
                         <!--custom-widgets-->
@@ -1792,6 +1599,20 @@
 
             toggle = !toggle;
         });
+                      function submit_comment(current_id,greetuserid,id) {
+      var l = window.location;
+      var BASE_URL = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
+      var wishes = $('#wishes'+id).val(); 
+      $.ajax({
+              type:"POST",
+              url: BASE_URL+"dashboard/postWishes",
+              data:{user_id:current_id,g_id:id,comment:wishes},
+              success:function(data) {   
+              $('#list_comment'+id).html(data);
+              }
+          });
+      
+      } 
     </script>
     <!--js 
     <script type="text/javascript" src="<?php echo base_url()?>assets/js/TweenLite.min.js"></script>
@@ -1803,6 +1624,7 @@
     <!-- Bootstrap Core JavaScript -->
 
     <script>
+
         $(document).ready(function() {
             $('#example').DataTable({
                 "paging": false,
@@ -2049,7 +1871,31 @@
             document.body.appendChild(form);
             form.submit();
         }
+
     </script>
 </body>
+<?php
+      function time_since($since) {
+    $chunks = array(
+        array(60 * 60 * 24 * 365 , 'year'),
+        array(60 * 60 * 24 * 30 , 'month'),
+        array(60 * 60 * 24 * 7, 'week'),
+        array(60 * 60 * 24 , 'day'),
+        array(60 * 60 , 'hour'),
+        array(60 , 'minute'),
+        array(1 , 'second')
+    );
 
+    for ($i = 0, $j = count($chunks); $i < $j; $i++) {
+        $seconds = $chunks[$i][0];
+        $name = $chunks[$i][1];
+        if (($count = floor($since / $seconds)) != 0) {
+            break;
+        }
+    }
+
+    $print = ($count == 1) ? '1 '.$name : "$count {$name}s";
+    return $print;
+}
+?>
 </html>

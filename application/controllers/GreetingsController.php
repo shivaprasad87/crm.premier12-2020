@@ -20,7 +20,7 @@ class GreetingsController extends CI_Controller {
     	{
     		foreach ($data as $today_dob) {
     			$data = array("user_id" => $today_dob->id, "username" => $today_dob->first_name." ".$today_dob->last_name, "type" =>"dob"); 
-    			$check_data = $this->greeting_model->getWhere(array_merge($data,array("date_added"=>date("Y-m-d"))),"todaysgreetings");
+    			$check_data = $this->greeting_model->getWhere(array_merge($data,array("date(date_added)"=>date("Y-m-d"))),"todaysgreetings");
     			if(!$check_data)
     			$this->greeting_model->insertRow($data,'todaysgreetings'); 
     		}

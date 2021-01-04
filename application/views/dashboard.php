@@ -376,6 +376,7 @@
                      <div class="birthday">
                         <div class="wrapper">
                            <div class="text1">
+                            
                               <h1>Happy Birthday</h1>
                 <h2 class="mt-30">Dear <?=$greeting->username;?></h2>
                               <h2 class="quote">Hope your Special Day</h2>

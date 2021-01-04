@@ -123,22 +123,7 @@ function assignProjects(id) {
                     else
                         var pchk = '';
                     $html +='<fieldset><legend><label class="pm-list">'+
-                        '<input type="checkbox" name="projectprojectaccess[]" value="'+val.id+'" '+pchk+'>'+val.name+'</label>';
-                    /*if(result.chldModules.length)
-                        $html +='<div>';
-                    $.each(result.chldModules, function(key, cval){
-                        if(val.id === cval.parentId){
-                            if(jQuery.inArray(cval.id, result.userAccess) !== -1)
-                                var chk = 'checked';
-                            else
-                                var chk = '';
-                            $html +='<label class="m-list">'+
-                                '<input type="checkbox" name="projectaccess[]" value="'+cval.id+'" '+chk+'>'+cval.name+
-                            '</label>';
-                        } 
-                    });   
-                    if(result.chldModules.length)
-                        $html +='</div>';  */                 
+                        '<input type="checkbox" name="projectprojectaccess[]" value="'+val.id+'" '+pchk+'>'+val.name+'</label>';               
                     $html +='</fieldset></legend>';
                 });
                 $("#assignProject .userId").val(id);

@@ -729,7 +729,11 @@ Team Premier Real Estate Services Pvt Ltd
                             </div>
                         </div>
                     </div>
-                    <?php if (($this->session->userdata('user_type') == 'user') || ($this->session->userdata('user_type') == 'manager')){ ?> 
+                    <?php
+                     // if (($this->session->userdata('user_type') == 'user') || ($this->session->userdata('user_type') == 'manager') || ($this->session->userdata('user_type') == 'director')){ 
+                    if (($this->session->userdata('user_type') != 'admin')){ 
+
+                        ?> 
                         <div class="col-md-6 form-group">
                             <input type="checkbox" name="fancy-checkbox-primary"   id="fancy-checkbox-primary" <?php echo ($this->session->userdata('siteVisitIds')) ? 'checked' : ''; ?> />
                             <div class="btn-group">

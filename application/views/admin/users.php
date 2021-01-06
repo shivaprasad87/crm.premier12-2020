@@ -380,7 +380,7 @@
                             <option value="admin">Admin</option>
                         </select>
                     </div>
-
+                    <div class="clearfix"></div>
                     <div class="col-md-6 form-group">
                         <label for="emp_code">Deprtment:</label>
                         <select  class="form-control"  id="m_dept_id" name="department" required="required" >
@@ -401,6 +401,7 @@
                                 <option value="<?php echo $city->id; ?>"><?php echo $city->name; ?></option>
                             <?php }?>
                         </select>
+
                     </div>
                 </div>
             </div>

@@ -731,7 +731,7 @@ Team Premier Real Estate Services Pvt Ltd
                     </div>
                     <?php
                      // if (($this->session->userdata('user_type') == 'user') || ($this->session->userdata('user_type') == 'manager') || ($this->session->userdata('user_type') == 'director')){ 
-                    if (($this->session->userdata('user_type') != 'admin')){ 
+                    if (($this->session->userdata('user_type') != 'admins')){ 
 
                         ?> 
                         <div class="col-md-6 form-group">

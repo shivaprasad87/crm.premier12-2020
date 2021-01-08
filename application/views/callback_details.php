@@ -664,9 +664,9 @@ Team Premier Real Estate Services Pvt Ltd
                 <!-- <label for="comment">Current Callbacks:</label> -->
                     <div class="input-group">
                         
-                        <input id="btn-input" type="text" class="form-control input-sm current_callback2" id="current_callback2"  placeholder="Please Update Your Changes To Save" />
+                        <input id="btn-input" type="text" class="form-control input-sm current_callback2" id="current_callback2"  placeholder="Please Update Your Changes To Save" style="width: 110%;" />
                         <span class="input-group-btn">
-                            <button class="btn btn-warning btn-sm" id="btn-chat">
+                            <button class="btn btn-warning btn-sm" id="btn-chat" style="visibility: hidden;">
                                 Send</button>
                         </span>
                     </div>
@@ -704,7 +704,7 @@ Team Premier Real Estate Services Pvt Ltd
                 <?php if($edit){ ?>
                     <!-- <div class="col-sm-6 form-group">
                         <label for="comment">Current Callbacks:</label>
-                        <textarea class="form-control" name="notes" rows="5" id="current_callback1" name="current_callback1" onkeyup="curr(this.value)" placeholder="Please Update Your Changes To Save"></textarea>
+                        <textarea class="form-control" name="notes" rows="5" id="current_callback2" name="current_callback2" onkeyup="curr(this.value)" placeholder="Please Update Your Changes To Save"></textarea>
                     </div> -->
                     <div class="clearfix"></div>
                     <div class="col-md-6 form-group">
@@ -982,7 +982,7 @@ Team Premier Real Estate
 <br/><br/><br/><br/>
 <script>
    /* $(function () {
-$('#current_callback1').keydown(function (e) {
+$('.current_callback2').keydown(function (e) {
 if (e.ctrlKey || e.altKey || ) {
 e.preventDefault();
 } else {
@@ -1151,13 +1151,13 @@ $(document).ready(function() {
         var stsId = $('#m_status').val();
         var error = 1;
         if(stsId == 4) {
-            if($('#current_callback1').val().length && $('#selectDeadRsn').val().length)
+            if($('.current_callback2').val().length && $('#selectDeadRsn').val().length)
                 error = 0;
             else
                 error = 1
         }
         else{
-            if($('#current_callback1').val().length >= 10)
+            if($('.current_callback2').val().length >= 10)
                 error = 0;
             else
                 error = 1;
@@ -1343,7 +1343,7 @@ $(document).ready(function() {
             'project_type':$('#c_projectType').val(),
             'reason_for_dead':$('.reasonOfDead').val(),
             'reason_cause':$('#selectDeadRsn').val(),    
-            'current_callback':$('#current_callback1').val(),
+            'current_callback':$('.current_callback2').val(),
             'name':$('#m_name1').val(),
             'due_date':$('#reassign_date').val()?$('#reassign_date').val()+' '+($('#reassign_time').val()?$('#reassign_time').val():'00:00'):null,
             'dept_id':$("#m_dept").val(),

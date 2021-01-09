@@ -210,7 +210,7 @@ input[readonly] {
                                     <div class="about-info-p">
                                       <strong>D.O.B</strong>
                                       <br>
-                                      <input type="text" name="user_dob" onfocus="this.blur()" readonly=""  value="<?= $this->session->userdata('user_dob')?$this->session->userdata('user_dob') : '';?>" readonly>
+                                      <input type="date" class="form-control" name="user_dob" onfocus="this.blur()" value="<?= $this->session->userdata('user_dob')?$this->session->userdata('user_dob') : '';?>">
                                     </div>
                                     <div class="about-info-p">
                                       <strong>D.O.J</strong>

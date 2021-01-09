@@ -1349,15 +1349,18 @@ class Dashboard extends CI_Controller {
             {
                 $mobile = $this->input->post('user_mobile');
                 $address = $this->input->post('address'); 
+                $user_dob = $this->input->post('user_dob');
                 $data = array(
                     "mobile_number" => $mobile,
-                    "address" => $address
+                    "address" => $address,
+                    "user_dob" => $user_dob
                 );
                 $bool= $this->user_model->update_user($data,$this->session->userdata('user_id'));
                 if($bool)
                 {
                     $this->session->set_userdata('user_mobile',$mobile);
                     $this->session->set_userdata('user_address',$address);
+                    $this->session->set_userdata('user_dob',$user_dob);
                     echo "<script>alert('user data updated successfully');</script>";
                     echo "<script>location.href='".base_url('dashboard/profile')."'</script>";
                 }

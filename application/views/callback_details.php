@@ -47,8 +47,9 @@
     defined('BASEPATH') OR exit('No direct script access allowed');
     $this->load->view('inc/header'); 
     $edit = true;
-     if (($this->session->userdata("user_type")=="vp"))
+     
    // if (($this->session->userdata("user_type")=="director") || ($this->session->userdata("user_type")=="vp"))
+        if (($this->session->userdata("user_type")=="vp"))
         $edit = false;
     if($siteVisitDate && ($siteVisitDate < date('Y-m-d'))){       
         ?>
@@ -185,9 +186,12 @@
                     <input type="hidden" id="hidden_user_id" name="hidden_user_id" value="<?= $user_name;?>">
                     <select  class="form-control"  id="m_user_name" name="m_user_name" required="required"  <?php if(!$edit) echo 'disabled'; ?>>
                         <option value="">Select</option>
-                        <?php if($edit){ ?>
+                        <?php if($edit){ 
+                             
+                            ?>
                             <option value="<?php echo $this->session->userdata("user_id"); ?>" <?php echo ($this->session->userdata("user_id") == $user_name) ? 'selected' : ''; ?>><?php echo $this->session->userdata("user_name"); ?></option>
-                            <?php if ($this->session->userdata("user_type")=="user" ){
+                            <?php
+                             if ($this->session->userdata("user_type")=="user" ){
                                 $name = $this->user_model->get_user_fullname($this->session->userdata("reports_to")); 
                                 ?>
                                 <option value="<?php echo $this->session->userdata("reports_to") ?>" <?php echo ($this->session->userdata("reports_to") == $user_name) ? 'selected' : ''; ?>><?php echo $name." (manager)"; ?></option>
@@ -202,8 +206,37 @@
                                     <option value="<?php echo $value->id ?>" <?php echo ($value->id  == $user_name) ? 'selected' : ''; ?>><?php echo $value->first_name." ".$value->last_name." (user)"; ?></option>
                                 <?php } ?>
                                 <option value="1">Admin</option>
-                            <?php } ?>
-                        <?php }else{ ?>
+                            <?php }
+                            elseif ($this->session->userdata("user_type")=="director") {
+                                 $all_user= $this->user_model->all_users("type in (1,2,3,4,5,6)"); 
+                            foreach( $all_user as $user){ 
+                                switch ($user->type) {
+                                    case '1':
+                                        $role = "User";
+                                        break;
+
+                                    case '2':
+                                        $role = "Manager";
+                                        break;
+
+                                    case '3':
+                                        $role = "VP";
+                                        break;
+                                    
+                                    case '4':
+                                        $role = "Director";
+                                        break;
+
+                                    case '5':
+                                        $role = "Admin";
+                                        break;
+                                    case '6':
+                                        $role = "City head";
+                                        break;
+                                }
+                                ?>
+                                <option value="<?php echo $user->id ?>" <?php if($user_name==$user->id) echo 'selected' ?>><?php echo $user->first_name." ".$user->last_name." ($role)"; ?></option>
+                           <?php  } } }else{ ?>
                             <?php $all_user= $this->user_model->all_users("type in (1,2,3,4,5,6)"); 
                             foreach( $all_user as $user){ 
                                 switch ($user->type) {
@@ -231,7 +264,7 @@
                                         break;
                                 }
                                 ?>
-                                <option value="<?php echo $user->id ?>" <?php if(($this->session->userdata("search_username"))==$user->id) echo 'selected' ?>><?php echo $user->first_name." ".$user->last_name." ($role)"; ?></option>
+                                <option value="<?php echo $user->id ?>" <?php if(($this->session->userdata("user_id"))==$user->id) echo 'selected' ?>><?php echo $user->first_name." ".$user->last_name." ($role)"; ?></option>
                             <?php } ?>
                         <?php } ?>
                     </select>

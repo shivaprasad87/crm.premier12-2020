@@ -572,7 +572,7 @@ Team Premier Real Estate Services Pvt Ltd
                     </script>
                     <div class="col-sm-3 form-group">
                         <label for="Location">Zone:</label> 
-                        <select  class="form-control"  id="p_type" name="Location"    >
+                        <select  class="form-control"  id="location" name="location"    >
                                     <option value="">Select</option>  
                                     <option value="east" <?php if($location=='east') echo 'selected';?>>East Zone</option>
                                     <option value="west" <?php if($location=='west') echo 'selected';?>>West Zone</option>
@@ -584,7 +584,7 @@ Team Premier Real Estate Services Pvt Ltd
                       $(document).ready(function(){
 
      // Initialize 
-     $( "#Location" ).autocomplete({
+     $( "#location" ).autocomplete({
         source: function( request, response ) {
           // Fetch data
           $.ajax({
@@ -605,7 +605,7 @@ Team Premier Real Estate Services Pvt Ltd
         },
         select: function (event, ui) {
           // Set selection
-          $('#Location').val(ui.item.label); // display the selected text
+          $('#location').val(ui.item.label); // display the selected text
           //$('#userid').val(ui.item.value); // save selected id to input
           return false;
         }
@@ -1032,7 +1032,7 @@ $(document).ready(function() {
     {
         $("#budget").prop('required',true);
         $("#cities").prop('required',true);
-        $("#Location").prop('required',true);
+        $("#location").prop('required',true);
         //$("#p_type").prop('required',true);
         $("#possesion").prop('required',true);
         //$("#a_services").prop('required',true);
@@ -1046,30 +1046,30 @@ $(document).ready(function() {
                 $("#cities").focus();
                 return false;
             }
-            if($("#Location").val()==""){
-                $("#Location").focus();
+            if($("#location").val()==""){
+                $("#location").focus();
                 return false;
             }
-             if($("#p_type").val()==""){
-                $("#p_type").focus();
-                return false;
-            }
+            //  if($("#p_type").val()==""){
+            //     $("#p_type").focus();
+            //     return false;
+            // }
              if($("#possesion").val()==""){
                 $("#possesion").focus();
                 return false;
             }
-             if($("#a_services").val()==""){
-                $("#a_services").focus();
-                return false;
-            }
-             if($("#tos").val()==""){
-                $("#tos").focus();
-                return false;
-            }
-             if($("#client_type").val()==""){
-                $("#client_type").focus();
-                return false;
-            } 
+            //  if($("#a_services").val()==""){
+            //     $("#a_services").focus();
+            //     return false;
+            // }
+            //  if($("#tos").val()==""){
+            //     $("#tos").focus();
+            //     return false;
+            // }
+            //  if($("#client_type").val()==""){
+            //     $("#client_type").focus();
+            //     return false;
+            // } 
     }
     
 });
@@ -1388,7 +1388,7 @@ $(document).ready(function() {
             'project_id':$("#m_project").val(),
             'leadid':$("#m_leadId").val(),
             'budget':$("#budget").val(),
-            'location':$("#Location").val(),
+            'location':$("#location").val(),
             'city' : $("#cities").val(),
             'p_type' : $("#p_type").val(),
             'possesion' : $("#possesion").val(),
@@ -1426,7 +1426,7 @@ $(document).ready(function() {
         }
         if($("#hidden_user_id").val() == $("#m_user_name").val())
             data.current_user_id = $("#m_user_name").val();
-        //console.log(data);
+        console.log(data); 
         //alert(data);
         $.ajax({
             type:"POST",

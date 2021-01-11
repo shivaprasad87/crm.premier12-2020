@@ -1390,7 +1390,7 @@ class Dashboard extends CI_Controller {
         }
         public function allLocations($value='')
         {
-           $data  = $this->callback_model->getName('Locations',$this->input->get_post('Location'));
+           $data  = $this->callback_model->getName('Locations',$this->input->get_post('location'));
            echo json_encode($data);
         }
         public function mob_num($value='')

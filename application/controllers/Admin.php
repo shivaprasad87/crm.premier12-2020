@@ -50,6 +50,7 @@ class Admin extends CI_Controller {
 			$select_user=$this->input->post('select_user');
 			$mobile = $this->input->post('employee_mobile');
 			$address = $this->input->post('employee_address');
+			$user_dob = $this->input->post('user_dob');
 			$savedata=array(
 				'first_name'=>$first_name,
 				'last_name'=>$last_name,
@@ -64,6 +65,7 @@ class Admin extends CI_Controller {
 				'loginid'=>$emp_code,
 				'date_added'=>date('Y-m-d H:i:s'),
 				'mobile_number' => $mobile,
+				'user_dob' => $user_dob,
 				'address' =>$address
 			);
 			$this->user_model->add_user($savedata);
@@ -1665,7 +1667,8 @@ if($this->input->post('budget')!='')
 			"last_name" => $last_name,
 			"email" => $email,
 			"mobile_number" => $this->input->post('mobile_number'),
-			"address" => $this->input->post('address')
+			"address" => $this->input->post('address'),
+			"user_dob" => $this->input->post('user_dob')
 		);
 		if($reports_to)
 			$data["reports_to"] = $reports_to;
@@ -1699,7 +1702,7 @@ if($this->input->post('budget')!='')
 			$data["dept_id"] = $dept_id;
 		if($city_id)
 			$data["city_id"] = $city_id;
-		$q = $this->user_model->update_user($data,$id);
+		$q = $this->user_model->update_user($data,$id); 
 		echo json_encode(array("response" => $q));
 	}
 

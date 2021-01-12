@@ -696,8 +696,11 @@ class Common_model extends MY_Model {
     }*/
     public function get_users_for_assign($p_id='',$table_name='')
     {
+        /******
+        assign leads to only active users not only for recent/today login user (12-10-2021)
+        **/
        $query = $this->db->select("id, online_lead_count") 
-        ->where("type!=5 and online_lead_count = (select min(online_lead_count) from user where`type` = 1 AND `active` = 1 AND date(last_update) = '".date('Y-m-d')."' ) and assignedProjects like ".'"%'.$p_id.'%"'." limit 1")
+        ->where("type!=5 and online_lead_count = (select min(online_lead_count) from user where`type` = 1 AND `active` = 1 and assignedProjects like ".'"%'.$p_id.'%"'." limit 1")
         ->from($table_name);
         return $query->get()->result();
     }

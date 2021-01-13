@@ -622,9 +622,9 @@ class Dashboard extends CI_Controller {
         //$indiv_callback_data = $this->callback_model->getCallbackDataByUserId($id, $query->user_id);
         $previous_callback = "";
         foreach ($indiv_callback_data as $callback_data) {
-            $previous_callback .= $callback_data->status."****".$callback_data->date_added."****".$callback_data->user_name;
-            $previous_callback .= "\n---------------------------------\n";
-            $previous_callback .= $callback_data->current_callback."\n\n";
+            $previous_callback .= $callback_data->date_added."****".$callback_data->user_name."****". $callback_data->status ;
+            $previous_callback .= "<br>---------------------------------<br>";
+            $previous_callback .= $callback_data->current_callback."<br><br>";
         }
         $data['previous_callback'] = $previous_callback;
         if($this->input->post('type')){
@@ -1475,6 +1475,7 @@ class Dashboard extends CI_Controller {
         }
 
     }
+
 function time_since($since='')
     {
     $chunks = array(
@@ -1498,6 +1499,14 @@ function time_since($since='')
     $print = ($count == 1) ? '1 '.$name : "$count {$name}s";
     return $print;
 
+    }
+
+    public function GreetingsDashboard($value='')
+    {
+         $data['name'] ="GreetingsDashboard";
+        $data['heading'] ="GreetingsDashboard";
+        $data['greeting'] = $this->common_model->getWhere(array("date(date_added) <="=>date("Y-m-d")),"todaysgreetings");
+        $this->load->view("greetings",$data);
     }
 }
 

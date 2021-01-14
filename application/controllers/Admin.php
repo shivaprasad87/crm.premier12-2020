@@ -6,7 +6,7 @@ class Admin extends CI_Controller {
 	function __construct(){
 		/* Session Checking Start*/
 		parent::__construct();
-		$this->load->model(['ChatModel','OuthModel','UserModel']);
+		$this->load->model(['ChatModel','OuthModel','UserModel','greeting_model']);
 		$this->load->helper('string');
 		$this->load->model('user_model');
 		$this->load->model('common_model');
@@ -753,6 +753,10 @@ if($this->input->post('budget')!='')
 				'user_id'=>$this->session->userdata('user_id'),
 				'project_id'=>$this->input->post('close_project_id')
 			);
+			$greeting_data =array("user_id" => $this->session->userdata("user_id"), "username" => $this->session->userdata("user_name"), "type" =>"closure","callback_id" => $this->input->post('callback_id'));
+			 $check_data = $this->greeting_model->getWhere(array_merge($greeting_data,array("date(date_added)"=>date("Y-m-d"))),"todaysgreetings");
+                if(!$check_data)
+                $this->greeting_model->insertRow($greeting_data,'todaysgreetings'); 
 			
 			$this->callback_model->insert_notification($notification_data);
 

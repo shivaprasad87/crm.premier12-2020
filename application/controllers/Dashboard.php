@@ -1502,9 +1502,12 @@ function time_since($since='')
     }
 
     public function GreetingsDashboard($value='')
-    {
-         $data['name'] ="GreetingsDashboard";
-        $data['heading'] ="GreetingsDashboard";
+    { 
+        $data['name'] = "dashboard";
+        $data['user_id'] = $this->session->userdata('user_id');
+        $data['profile_pic'] = $this->user_model->get_profile_pic_name($data['user_id']);
+        $data['profile_pic'] = json_decode( json_encode($data['profile_pic']), true);
+        $this->session->set_userdata('profile_pic',$data['profile_pic'][0]['profile_pic']); 
         $data['greeting'] = $this->common_model->getWhere(array("date(date_added) <="=>date("Y-m-d")),"todaysgreetings");
         $this->load->view("greetings",$data);
     }

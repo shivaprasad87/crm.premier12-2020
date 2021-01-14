@@ -36,6 +36,7 @@ $i=1;
 
 <div class="menu headerScroll">
 									<ul id="menu" class="scrollbar2">
+                    <li class="<?php if($name=='dashboard'){echo 'active';}?>"><a href="<?php echo $baseURL."dashboard"; ?>"><i class="fa fa-columns"></i> <span>Dashboard</span></a></li>
 										<li class="<?php if($name=='index'){echo 'active';}?>"><a href="<?php echo $baseURL; ?>"><i class="fa fa-home"></i> <span>Home</span></a></li>
 	              
 

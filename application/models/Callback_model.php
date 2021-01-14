@@ -1263,7 +1263,7 @@ $list_id=implode(',', $ids);
        if($where)
         $this->db->like('name',$where);
        $data =  $this->db->get($table)->result();
-
+       $response='';
        foreach($data as $row ){
           $response[] = array("name"=>$row->name);
        }

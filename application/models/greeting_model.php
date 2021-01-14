@@ -25,5 +25,13 @@ class Greeting_model extends MY_Model {
     $query=$this->db->get();
         return $query->result();
    }
+   public function checkJA($value='')
+   {
+   $this->db->select('*')
+    ->from('user')
+    ->where('active',1);
+     $query=$this->db->get();
+   return $query->result();
+   }
 }
 ?>

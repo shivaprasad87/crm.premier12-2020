@@ -88,7 +88,8 @@ class Login extends CI_Controller {
                         'user_city_id' => $data->city_id,
                         'user_mobile' => $data->mobile_number,
                         'user_address' => $data->address,
-                        'user_dob' => $data->user_dob
+                        'user_dob' => $data->user_dob,
+                        'emp_doj' => $data->emp_doj
  
                     );
                    
@@ -102,7 +103,7 @@ class Login extends CI_Controller {
                             redirect(base_url('generate_dar'));
                         }
                     }*/
-                    redirect(base_url());
+                    redirect(base_url('dashboard'));
 					}
                 }
                 else{

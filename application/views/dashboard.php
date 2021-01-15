@@ -117,14 +117,6 @@
             font-weight: 600;
         }
 
-        .body_comment {
-            padding: 0 8px;
-            font-size: 14px;
-            display: block;
-            line-height: 25px;
-            word-break: break-word;
-        }
-
         .avatar_comment {
             display: block;
         }
@@ -135,6 +127,14 @@
             float: right;
             border-radius: 100px;
         }
+        .avatar_comment p {
+            height: 48px;
+            width: 48px;
+            float: none;
+            text-align:center;
+            border-radius: 100px;
+        }
+
 
         .box_comment {
             display: block;
@@ -277,22 +277,6 @@
             color: #90949c;
         }
 
-        .body_comment .show_more {
-            background: #3578e5;
-            border: none;
-            box-sizing: border-box;
-            color: #fff;
-            font-size: 14px;
-            margin-top: 24px;
-            padding: 12px;
-            text-shadow: none;
-            width: 100%;
-            font-weight: bold;
-            position: relative;
-            text-align: center;
-            vertical-align: middle;
-            border-radius: 2px;
-        }
     </style>
     <div class="se-pre-con"></div>
     <div class="page-container" style="height: 1000px;">

@@ -1,4 +1,0 @@
-<<<<<<< HEAD
-permissions|N;
-=======
-__ci_last_regenerate|i:1609747295;permissions|s:21:"["1","2","3","4","5"]";user_id|s:2:"13";username|s:3:"007";user_email|s:37:"abhishekgupta@premierconsulting.co.in";user_name|s:14:"Abhishek Gupta";is_loggedin|b:1;last_login|s:19:"2020-08-05 19:29:11";reports_to|s:1:"9";user_type|s:7:"manager";user_city_id|s:1:"1";user_mobile|s:10:"8447786500";user_address|s:0:"";user_dob|s:0:"";user_ids|a:3:{i:0;O:8:"stdClass":1:{s:2:"id";s:1:"2";}i:1;O:8:"stdClass":1:{s:2:"id";s:2:"18";}i:2;O:8:"stdClass":1:{s:2:"id";s:2:"19";}}profile_pic|s:9:"admin.png";manager_team_size|i:4;notifications|a:0:{}__ci_last_regenerate|i:1609748333;

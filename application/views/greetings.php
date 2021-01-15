@@ -421,8 +421,30 @@ if(count($greeting)>0)
                         <div class="clearfix"> </div>
                      </div>
                          <div class="ex1">
-                        <div class="">
-                           <div class="" id="fbcomment">
+                        <div class="container1">
+                           <div class="fbcomment" id="">
+                            <?php
+                            $likes = $this->greeting_model->countWhere(array("g_id"=>$g->id,"liked!="=>0),"greetingcomments"); 
+                            $commentsCount = $this->greeting_model->countWhere(array("g_id"=>$g->id,"comment!="=>''),"greetingcomments"); 
+                            ?>
+                            <div style="float: left;"><a href="#" id="likecount<?=$g->id?>" onclick="likecount('<?=$g->id?>');"><?=($likes>0?$likes:'0')?></a> likes</div><div style="float: right;"><a href="#" id="commentCount<?=$g->id?>"><?=($commentsCount>0?$commentsCount:'0')?></a> comments</div>
+                            <script>
+                              function likecount(greetingId) {
+                                var likecount = $("#likecount"+greetingId).html();
+                                var className = $("#likecount"+greetingId).attr('class');
+                                if(className)
+                                {
+                                  $("#likecount"+greetingId).html(parseInt(likecount)-1);
+                                }
+                                else
+                                {
+                                  $("#likecount"+greetingId).html(parseInt(likecount)+1);
+                                  $("#likecount"+greetingId).addClass("active");
+                                }
+                              }
+                            </script>
+                            <div class="clearfix"></div>
+                            <br>
                               <div class="body_comment">
                                  <div class="row">
                                     <div class="avatar_comment col-md-1">
@@ -446,6 +468,8 @@ if(count($greeting)>0)
                                       if(count($comment)>0)
                                       {
                                         foreach ($comment as $comment) {
+                                           if($comment->comment!='')
+                                           {
                                            
                                        ?>
                                        <li class="box_result row prev_wishes" >
@@ -465,8 +489,12 @@ if(count($greeting)>0)
                                        <?php
                                      }
                                      }
+                                     }
                                        ?>
                                     </ul>
+
+                                    <button class="btn-success show" onclick="showFunction()"> Show More</button>
+                                    <button class="btn-success hide" onclick="hideFunction()"> Hide</button>
                                     <!-- <button class="show_more" type="button">Load 10 more comments</button> -->
                                  </div>
                               </div>
@@ -490,7 +518,7 @@ if(count($greeting)>0)
 
 		<div class="row text-center">
 			<div class="col-sm-6 col-sm-offset-3">
-					<br><br> <h1 style="color:#0fad00;font-size: 45px;">Team Premier Congratulating</h1>
+					<!-- <br><br> <h1 style="color:#0fad00;font-size: 45px;">Team Premier Congratulating</h1> -->
 					<img src="<?=base_url('img/')?>welldone.png" class="img-responsive">
 					<h3> <?=$close_callback->user_name;?> For Acomplishing The Closure In <?=$close_callback->project;?> <?=$close_callback->city;?>. Keep up the good work!</h3>
 				<!--	<p style="font-size:20px;color:#5C5C5C;">Thank you for your Verification</p>
@@ -523,6 +551,8 @@ if(count($greeting)>0)
                                       if(count($comment)>0)
                                       {
                                         foreach ($comment as $comment) {
+                                          if($comment->comment!='')
+                                          {
                                            
                                        ?>
                                        <li class="box_result row prev_wishes" >
@@ -540,6 +570,7 @@ if(count($greeting)>0)
                                           </div>
                                        </li>
                                         <?php
+                                          }
                                      }
                                      }
                                        ?> 
@@ -596,7 +627,7 @@ if(count($greeting)>0)
                                        <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
                                     </div>
                                     <div class="box_comment col-md-11">
-                                       <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..." style="color: black"></textarea>
+                                       <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..." style="color: black !important"></textarea>
                                        <div class="box_post"> 
                                           <div class="pull-right"> 
                                              <button onclick="submit_comment('<?=$this->session->userdata("user_id")?>','<?=$g->user_id?>','<?=$g->id?>');" type="button" value="1">Post</button>
@@ -620,7 +651,7 @@ if(count($greeting)>0)
                                              <img src="<?=base_url('uploads/'.$comment->user_profile_pic)?>" alt="avatar"/>                                           </div>
                                           <div class="result_comment col-md-11">
                                              <h4> <?=$comment->f_name." ".$comment->l_name;?> </h4>
-                                             <p> <?=$comment->comment;?> </p>
+                                             <p style="color: black"> <?=$comment->comment;?> </p>
                                              <div class="tools_comment"> 
                                                 <span aria-hidden="true"> · </span>
                                                 <span> <?=time_since(strtotime(date("Y-m-d H:i:s"))-strtotime($comment->date_added));?>  ago</span>
@@ -719,9 +750,7 @@ else
       var BASE_URL = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
       var wishes = $('#wishes'+id).val();
       if(wishes=='')
-        return false;
-      // alert(current_id+" "+greetuserid+" "+BASE_URL+" "+wishes);
-      //data:{current_id:current_id,greetuserid:greetuserid,id:id,wishes:wishes},
+        return false; 
       $.ajax({
               type:"POST",
               url: BASE_URL+"/postWishes",
@@ -729,6 +758,8 @@ else
               success:function(data) { 
               $('#wishes'+id).val('');  
               $('#list_comment'+id).html(data);
+              $('#commentCount'+id).html(parseInt( $('#commentCount'+id).html())+1);
+
               }
           });
       
@@ -767,5 +798,10 @@ else
     return $print;
 }
 ?> 
+
+
+<script type="">
+  
+</script>
 </body>
 </html>

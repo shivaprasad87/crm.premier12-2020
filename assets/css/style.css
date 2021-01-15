@@ -8633,14 +8633,14 @@ footer  p a:hover ,.footer p a:hover{
 } */
 
 .birthday-card{
-   background: #ffffff;
+   /*background: #ffffff;*/
    margin:0 auto;
    text-align:center;
 	
 }
 .birthday{
     width:80%;
-    height:510px;
+    height:600px;
     padding:50px;
     margin:0 auto;
     text-align:center;
@@ -8668,20 +8668,21 @@ footer  p a:hover ,.footer p a:hover{
 
 
 .text1 {
-  position: absolute;
-  top:0;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  left: 0;
-  z-index: 120;
-  width: 100%;
-  text-align: center;
+     position: absolute;
+    top: 0px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-17%);
+    left: 0;
+    z-index: 120;
+    line-height: 108px;
+    width: 100%;
+    text-align: center;
 }
 .text1 h1 {
   opacity: 0;
   font-size: 4.5em;
   font-weight: 700;
-  line-height: 40px;
+  line-height: 55px;
   color: white;
   text-shadow: 0 0 1px #41277C, 0 0 15px rgba(238, 238, 255, 0.85);
   animation: anime 5000ms linear infinite;
@@ -8786,7 +8787,7 @@ footer  p a:hover ,.footer p a:hover{
   position: absolute;
   width: 200px;
     height: 80px;
-    bottom: 156px;
+    bottom: 60px;
   left: 50%;
   transform: translate(-50%, 0);
   background-color: #fed9ff;
@@ -8881,7 +8882,7 @@ footer  p a:hover ,.footer p a:hover{
 
 .platform {
   position: absolute;
-  bottom: 75px;
+  bottom: -18px;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -9013,7 +9014,7 @@ opacity: 0;
 	}
 	.birthday {
 		width: 100%;
-		height: 500px;
+		height: 600px;
 		 padding: 10px;
 	}
 	.cake {
@@ -9039,8 +9040,8 @@ opacity: 0;
 div.ex1 {
 	background-color: #daafaf;
     width: 100%;
-	height: 250px;
-	overflow-y: scroll;
+	
+    overflow-x: hidden;
   }
 
 }
@@ -9055,10 +9056,12 @@ div.ex1 {
 	  vertical-align: middle;
   }
   div.ex1 {
-	background-color: #daafaf;
+	    height: 600px;
+    background-color: #daafaf;
     width: 80%;
     margin: 0 auto;
-    margin-bottom: 30px
+    margin-bottom: 30px;
+    overflow-y: scroll;
   }
   
 .darker {
@@ -9095,3 +9098,15 @@ div.ex1 {
 	float: left;
 	color: #999;
   }
+  .anniversary p{
+    color: white;
+    font-size: 30px;
+  }
+
+.body_comment ul{
+
+}
+
+.show-more{
+  height: 100%
+}

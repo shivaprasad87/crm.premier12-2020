@@ -1475,6 +1475,25 @@ class Dashboard extends CI_Controller {
         }
 
     }
+    public function postLike($value='')
+    {
+        $g_id = $this->input->get_post('g_id');
+        $liked = $this->input->get_post('liked');
+        $no_data = $this->greeting_model->getWhere(array('g_id'=>$g_id,'user_id'=>$this->session->userdata('user_id')),'greetingcomments');
+        //echo $this->db->last_query();
+        if(count($no_data)<=0)
+        {
+            $this->greeting_model->insertRow(array('g_id'=>$g_id,'user_id'=>$this->session->userdata('user_id'),'liked'=>1),'greetingcomments');
+           // echo "insert";
+        }
+        else
+        {
+            //print_r($no_data);
+            $this->greeting_model->updateWhere(array("id"=>$no_data[0]->id),array("liked"=>$liked),'greetingcomments');
+           // echo count($no_data)."update";
+        }
+        echo "success";
+    }
 
 function time_since($since='')
     {

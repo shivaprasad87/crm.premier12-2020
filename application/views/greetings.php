@@ -431,12 +431,14 @@ if(count($greeting)>0)
                                     <?php
                                     $likes = $this->greeting_model->countWhere(array("g_id"=>$g->id,"liked!="=>0),"greetingcomments"); 
                                     $commentsCount = $this->greeting_model->countWhere(array("g_id"=>$g->id,"comment!="=>''),"greetingcomments"); 
+                                    $no_data = $this->greeting_model->getWhere(array('g_id'=>$g->id,'user_id'=>$this->session->userdata('user_id'),"liked"=>1),'greetingcomments');
+                                   // print_r($no_data);
                                     ?>
-                                    <div style="float: left;"><i id="likeIcon" style="cursor:pointer"  onclick="likecount('<?=$g->id?>');" class="fa fa-thumbs-up" aria-hidden="true"><a id="likecount<?=$g->id?>"><?=($likes>0?$likes:'0')?></a></i> </div>
+                                    <div style="float: left;"><i id="likeIcon" style="cursor:pointer;<?=(count($no_data)>0?'color: rgb(11, 11, 232)':'')?>"  onclick="likecount('<?=$g->id?>');" class="fa fa-thumbs-up" aria-hidden="true"><a id="likecount<?=$g->id?>" class="<?=(count($no_data)>0?'active':'')?>"><?=($likes>0?$likes:'0')?></a></i> </div>
                                     <div style="float: right;"><i onclick="togglediv()" style="cursor:pointer" class="fa fa-comments" aria-hidden="true"><a  id="commentCount<?=$g->id?>"><?=($commentsCount>0?$commentsCount:'0')?>Comments</a></i> </div>
                                 </div>
                                 <br>
-                                <div class="data-icons">
+                                <!-- <div class="data-icons">
                                 <ul class="list-unstyled">
                                     <li><a href="#" style="cursor:pointer" id="likecount<?=$g->id?>"  onclick="likecount('<?=$g->id?>');"><?=($likes>0?$likes:'0')?></a><i class="fa fa-thumbs-up" aria-hidden="true"></i> like</li>
                                     
@@ -445,7 +447,7 @@ if(count($greeting)>0)
                                     <li ><a href="#" id="upload"></a><i class="fa fa-upload" aria-hidden="true"></i> Upload</li>
                                     <li ><a href="#" id="post"></a><i class="fa fa-sticky-note-o" aria-hidden="true"></i></i> Post</li>
                                 <ul>
-                                </div>
+                                </div> -->
                                 <script>
                                 function likecount(greetingId) {
                                     
@@ -454,15 +456,34 @@ if(count($greeting)>0)
                                     if(className)
                                     {
                                     $("#likecount"+greetingId).html(parseInt(likecount)-1);
-
                                     $("#likecount"+greetingId).removeClass("active");
-                                    $("#likeIcon").css("color","#3d3d3c !important")
+                                    $("#likeIcon").css("color","#3d3d3c !important");
+                                    var l = window.location;
+                                    var BASE_URL = '<?=base_url()?>';
+                                    $.ajax({
+                                            type:"POST",
+                                            url: "<?=base_url('dashboard/postLike')?>",
+                                            data:{g_id:greetingId,liked:0},
+                                            success:function(data) { 
+                                            
+
+                                            }
+                                        });
                                     }
                                     else
                                     {
                                     $("#likecount"+greetingId).html(parseInt(likecount)+1);
                                     $("#likecount"+greetingId).addClass("active");
-                                    $("#likeIcon").css("color","#0b0be8 !important")
+                                    $("#likeIcon").css("color","#0b0be8 !important");
+                                    $.ajax({
+                                            type:"POST",
+                                            url: "<?=base_url('dashboard/postLike')?>",
+                                            data:{g_id:greetingId,liked:1},
+                                            success:function(data) { 
+                                            
+
+                                            }
+                                        });
                                     }
                                 }
 
@@ -480,7 +501,7 @@ if(count($greeting)>0)
                                     <div class="row">
                                         <div class="avatar_comment col-md-1">
                                         <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
-                                        <span>abvcgvc u</span>
+                                        <span><?=$this->session->userdata('user_name');?></span>
                                         </div>
                                         <div class="box_comment col-md-11">
                                         <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..."></textarea>

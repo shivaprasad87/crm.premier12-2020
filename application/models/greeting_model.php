@@ -11,7 +11,7 @@ class Greeting_model extends MY_Model {
    	$this->db->select('*')
    	->from('user')
    	->where('active',1)
-   	->like('user_dob',date("m-d"));
+   	->like('date(user_dob)',date("m-d"));
    	 $query=$this->db->get();
         return $query->result();
    }
@@ -24,6 +24,14 @@ class Greeting_model extends MY_Model {
     $this->db->order_by('g.date_added','desc');
     $query=$this->db->get();
         return $query->result();
+   }
+   public function checkJA($value='')
+   {
+   $this->db->select('*')
+    ->from('user')
+    ->where('active',1);
+     $query=$this->db->get();
+   return $query->result();
    }
 }
 ?>

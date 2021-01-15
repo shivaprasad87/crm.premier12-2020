@@ -117,14 +117,6 @@
             font-weight: 600;
         }
 
-        .body_comment {
-            padding: 0 8px;
-            font-size: 14px;
-            display: block;
-            line-height: 25px;
-            word-break: break-word;
-        }
-
         .avatar_comment {
             display: block;
         }
@@ -135,6 +127,14 @@
             float: right;
             border-radius: 100px;
         }
+        .avatar_comment p {
+            height: 48px;
+            width: 48px;
+            float: none;
+            text-align:center;
+            border-radius: 100px;
+        }
+
 
         .box_comment {
             display: block;
@@ -277,22 +277,6 @@
             color: #90949c;
         }
 
-        .body_comment .show_more {
-            background: #3578e5;
-            border: none;
-            box-sizing: border-box;
-            color: #fff;
-            font-size: 14px;
-            margin-top: 24px;
-            padding: 12px;
-            text-shadow: none;
-            width: 100%;
-            font-weight: bold;
-            position: relative;
-            text-align: center;
-            vertical-align: middle;
-            border-radius: 2px;
-        }
     </style>
     <div class="se-pre-con"></div>
     <div class="page-container" style="height: 1000px;">
@@ -361,117 +345,7 @@
 
                     <?php
                         }
-                        else{?>
-                        <div class="outter-wp">
-                                         <?php
-                  if(count($greeting)>0)
-                  {
-                    ?>
-               <div class="col-md-9 mt-30">
-                  <?php
-                     foreach ($greeting as $greeting) {
-                      
-                     ?>
-                  <div class="birthday-card ">
-                     <div class="birthday">
-                        <div class="wrapper">
-                           <div class="text1">
-                              <h1>Happy Birthday</h1>
-                <h2 class="mt-30">Dear <?=$greeting->username;?></h2>
-                              <h2 class="quote">Hope your Special Day</h2>
-                              <h2 class="quote">Bring bring you all that your Heart Desires</h2>
-                              <h2 class="quote">Wishing you a day of Pleasent Surprises</h2>
-                              <h2 class="quote">Dear "Client Name"</h2>
-                           </div>
-                           <div id="scene">
-                              <div class="bgcover">
-                                 <div class="ballon"></div>
-                                 <div class="ballon"></div>
-                                 <div class="ballon"></div>
-                                 <div class="ballon"></div>
-                                 <div class="ballon"></div>
-                                 <div class="ballon"></div>
-                              </div>
-                              <div class="cake">
-                                 <div class="candle">
-                                    <div class="candle-1">
-                                       <div class="wax"></div>
-                                       <div class="flame"></div>
-                                    </div>
-                                 </div>
-                                 <div class="strip"></div>
-                                 <div class="strip next"></div>
-                              </div>
-                              <div class="platform">
-                                 <div class="strip"></div>
-                                 <div class="strip next"></div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="clearfix"> </div>
-                     </div>
-                     <div class="ex1">
-                        <div class="">
-                           <div class="" id="fbcomment">
-                              <div class="body_comment">
-                                 <div class="row">
-                                    <div class="avatar_comment col-md-1">
-                                       <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
-                                    </div>
-                                    <div class="box_comment col-md-11">
-                                       <textarea class="commentar" id="wishes<?=$greeting->id?>" placeholder="Add a comment..."></textarea>
-                                       <div class="box_post"> 
-                                          <div class="pull-right"> 
-                                             <button onclick="submit_comment('<?=$this->session->userdata("user_id")?>','<?=$greeting->user_id?>','<?=$greeting->id?>');" type="button" value="1">Post</button>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="row">
-                                    <ul id="list_comment<?=$greeting->id?>" class="col-md-12">
-                                       <!-- Start List Comment 2 -->
-                                       <?php 
-                                      $comment = $this->greeting_model->prevComments($greeting->id);
-                                   
-                                      if(count($comment)>0)
-                                      {
-                                        foreach ($comment as $comment) {
-                                           
-                                       ?>
-                                       <li class="box_result row prev_wishes" >
-                                          <div class="avatar_comment col-md-1">
-                                             <img src="<?=base_url('uploads/'.$comment->user_profile_pic)?>" alt="avatar"/>
-                                          </div>
-                                          <div class="result_comment col-md-11">
-                                             <h4><?=$comment->f_name." ".$comment->l_name;?></h4>
-                                             <p><?=$comment->comment;?></p>
-                                             <div class="tools_comment"> 
-                                                <span aria-hidden="true"> · </span>
-                                                <span><?=time_since(strtotime(date("Y-m-d H:i:s"))-strtotime($comment->date_added));?> ago</span>
-                                             </div>
-                                             <ul class="child_replay"></ul>
-                                          </div>
-                                       </li>
-                                       <?php
-                                     }
-                                     }
-                                       ?>
-                                    </ul>
-                                    <!-- <button class="show_more" type="button">Load 10 more comments</button> -->
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <?php
-                     }
-                     ?>
-               </div>
-               <?php
-                  }
-                  ?>
-                        </div>
+                        else{?> 
                         
                         <!--custom-widgets-->
                         <div class="custom-widgets">
@@ -1601,24 +1475,6 @@
             toggle = !toggle;
         });
 
-        function submit_comment(current_id,greetuserid,id) {
-      var l = window.location;
-      var BASE_URL = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
-      var wishes = $('#wishes'+id).val();
-      if(wishes=='')
-        return false;
-      // alert(current_id+" "+greetuserid+" "+BASE_URL+" "+wishes);
-      //data:{current_id:current_id,greetuserid:greetuserid,id:id,wishes:wishes},
-      $.ajax({
-              type:"POST",
-              url: BASE_URL+"dashboard/postWishes",
-              data:{user_id:current_id,g_id:id,comment:wishes},
-              success:function(data) {   
-              $('#list_comment'+id).html(data);
-              }
-          });
-      
-      } 
     </script>
     <!--js 
     <script type="text/javascript" src="<?php echo base_url()?>assets/js/TweenLite.min.js"></script>

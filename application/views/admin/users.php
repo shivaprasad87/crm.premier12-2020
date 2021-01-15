@@ -351,7 +351,7 @@
                     <label for="emp_dob">D.O.B:</label>
 
                 <!-- <input type="text" class="form-control datepicker" id="emp_dob" name="emp_dob" placeholder="Employee Date Of Birth" readonly required="required"> -->
-                <input type="date" class="form-control" id="emp_dob" name="user_dob" placeholder="Date" required="required">
+                <input type="date" class="form-control" id="m_emp_dob" name="m_user_dob" placeholder="Date" required="required">
                 
                 </div>
                     <div class="col-sm-6 form-group">
@@ -380,7 +380,7 @@
                             <option value="admin">Admin</option>
                         </select>
                     </div>
-                    <div class="clearfix"></div>
+                    <div class="clearfix"></div> 
                     <div class="col-md-6 form-group">
                         <label for="emp_code">Deprtment:</label>
                         <select  class="form-control"  id="m_dept_id" name="department" required="required" >
@@ -391,7 +391,6 @@
                             <?php }?>
                         </select>
                     </div>
-                      
                     <div class="col-md-6 form-group">
                         <label for="emp_code">City:</label>
                         <select  class="form-control"  id="m_city_id" name="city" required="required" >
@@ -456,6 +455,7 @@
                 var emp_code=data.emp_code;
                 var mobile=data.mobile_number;
                 var address=data.address;
+                var user_dob = data.user_dob;
                 
                 $("#m_emp_code").val(emp_code);
                 $("#m_first_name").val(first_name);
@@ -467,6 +467,7 @@
                 $("#m_city_id").val(city_id);
                 $("#m_employee_address").val(address);
                 $("#m_employee_mobile").val(mobile);
+                $("#m_emp_dob").val(user_dob);
                 $(".se-pre-con").hide("slow");
             }
         });
@@ -493,9 +494,7 @@
         var city_id=$("#m_city_id").val();
         var emp_address=$("#m_employee_address").val();
         var emp_mobile=$("#m_employee_mobile").val();
-
-        console.log(emp_mobile);
- 
+        var user_dob = $("#m_emp_dob").val();
         var id=$("#hid").val(); 
             
         $.ajax({
@@ -510,14 +509,18 @@
                 dept_id:dept_id,
                 city_id:city_id,
                 address:emp_address,
-                mobile_number:emp_mobile
+                mobile_number:emp_mobile,
+                user_dob:user_dob
             },
             success:function(data) {
                 data = JSON.parse(data);
                 if(data.response){
                     alert("success");
+                    location.reload();
                 }
-                location.reload();
+                else
+                    console.log(data);
+                
             }
         });
     }

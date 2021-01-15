@@ -6,7 +6,7 @@ class Admin extends CI_Controller {
 	function __construct(){
 		/* Session Checking Start*/
 		parent::__construct();
-		$this->load->model(['ChatModel','OuthModel','UserModel']);
+		$this->load->model(['ChatModel','OuthModel','UserModel','greeting_model']);
 		$this->load->helper('string');
 		$this->load->model('user_model');
 		$this->load->model('common_model');
@@ -50,6 +50,7 @@ class Admin extends CI_Controller {
 			$select_user=$this->input->post('select_user');
 			$mobile = $this->input->post('employee_mobile');
 			$address = $this->input->post('employee_address');
+			$user_dob = $this->input->post('user_dob');
 			$savedata=array(
 				'first_name'=>$first_name,
 				'last_name'=>$last_name,
@@ -64,6 +65,7 @@ class Admin extends CI_Controller {
 				'loginid'=>$emp_code,
 				'date_added'=>date('Y-m-d H:i:s'),
 				'mobile_number' => $mobile,
+				'user_dob' => $user_dob,
 				'address' =>$address
 			);
 			$this->user_model->add_user($savedata);
@@ -751,23 +753,27 @@ if($this->input->post('budget')!='')
 				'user_id'=>$this->session->userdata('user_id'),
 				'project_id'=>$this->input->post('close_project_id')
 			);
+			$greeting_data =array("user_id" => $this->session->userdata("user_id"), "username" => $this->session->userdata("user_name"), "type" =>"closure","callback_id" => $this->input->post('callback_id'));
+			 $check_data = $this->greeting_model->getWhere(array_merge($greeting_data,array("date(date_added)"=>date("Y-m-d"))),"todaysgreetings");
+                if(!$check_data)
+                $this->greeting_model->insertRow($greeting_data,'todaysgreetings'); 
 			
 			$this->callback_model->insert_notification($notification_data);
 
 			$query=$this->callback_model->update_callback_details($data,$id);
 		}
 
-		// $current_callback=$this->input->post('current_callback');
-		// $user_id = $this->session->userdata('user_id');
-		// $date_added = date('Y-m-d H:s:i');
-		// $ind_callback_data = array(
-		// 	"current_callback" => $current_callback,
-		// 	"user_id" => $user_id,
-		// 	"callback_id" => $id,
-		// 	"status_id" => $this->input->post('status_id'),
-		// 	"date_added" => $date_added
-		// );
-		// $query = $this->callback_model->add_callback_data($ind_callback_data);
+		$current_callback=$this->input->post('current_callback');
+		$user_id = $this->session->userdata('user_id');
+		$date_added = date('Y-m-d H:s:i');
+		$ind_callback_data = array(
+			"current_callback" => $current_callback,
+			"user_id" => $user_id,
+			"callback_id" => $id,
+			"status_id" => $this->input->post('status_id'),
+			"date_added" => $date_added
+		);
+		$query = $this->callback_model->add_callback_data($ind_callback_data);
 
 		$data = array(
 			'status' =>true
@@ -1665,7 +1671,8 @@ if($this->input->post('budget')!='')
 			"last_name" => $last_name,
 			"email" => $email,
 			"mobile_number" => $this->input->post('mobile_number'),
-			"address" => $this->input->post('address')
+			"address" => $this->input->post('address'),
+			"user_dob" => $this->input->post('user_dob')
 		);
 		if($reports_to)
 			$data["reports_to"] = $reports_to;
@@ -1699,7 +1706,7 @@ if($this->input->post('budget')!='')
 			$data["dept_id"] = $dept_id;
 		if($city_id)
 			$data["city_id"] = $city_id;
-		$q = $this->user_model->update_user($data,$id);
+		$q = $this->user_model->update_user($data,$id); 
 		echo json_encode(array("response" => $q));
 	}
 

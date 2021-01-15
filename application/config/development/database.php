@@ -64,9 +64,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
     'dsn'          => '',
-    'hostname'     => 'localhost',
-    /*'username'     => 'nkmtein_fullbask', // As of MySQL v5.7, you can't use 'root' without sudo - you must use a different username and password - http://askubuntu.com/questions/763336/cannot-enter-phpmyadmin-as-root-mysql-5-7
-    'password'     => ')6&kNPt(cqwY',*/
+    'hostname'     => 'localhost', 
     'username' => 'root',
     'password' => '',
     'database' => 'premier_crm',

@@ -47,8 +47,9 @@
     defined('BASEPATH') OR exit('No direct script access allowed');
     $this->load->view('inc/header'); 
     $edit = true;
-     if (($this->session->userdata("user_type")=="vp"))
+     
    // if (($this->session->userdata("user_type")=="director") || ($this->session->userdata("user_type")=="vp"))
+        if (($this->session->userdata("user_type")=="vp"))
         $edit = false;
     if($siteVisitDate && ($siteVisitDate < date('Y-m-d'))){       
         ?>
@@ -185,9 +186,12 @@
                     <input type="hidden" id="hidden_user_id" name="hidden_user_id" value="<?= $user_name;?>">
                     <select  class="form-control"  id="m_user_name" name="m_user_name" required="required"  <?php if(!$edit) echo 'disabled'; ?>>
                         <option value="">Select</option>
-                        <?php if($edit){ ?>
+                        <?php if($edit){ 
+                             
+                            ?>
                             <option value="<?php echo $this->session->userdata("user_id"); ?>" <?php echo ($this->session->userdata("user_id") == $user_name) ? 'selected' : ''; ?>><?php echo $this->session->userdata("user_name"); ?></option>
-                            <?php if ($this->session->userdata("user_type")=="user" ){
+                            <?php
+                             if ($this->session->userdata("user_type")=="user" ){
                                 $name = $this->user_model->get_user_fullname($this->session->userdata("reports_to")); 
                                 ?>
                                 <option value="<?php echo $this->session->userdata("reports_to") ?>" <?php echo ($this->session->userdata("reports_to") == $user_name) ? 'selected' : ''; ?>><?php echo $name." (manager)"; ?></option>
@@ -202,8 +206,37 @@
                                     <option value="<?php echo $value->id ?>" <?php echo ($value->id  == $user_name) ? 'selected' : ''; ?>><?php echo $value->first_name." ".$value->last_name." (user)"; ?></option>
                                 <?php } ?>
                                 <option value="1">Admin</option>
-                            <?php } ?>
-                        <?php }else{ ?>
+                            <?php }
+                            elseif ($this->session->userdata("user_type")=="director") {
+                                 $all_user= $this->user_model->all_users("type in (1,2,3,4,5,6)"); 
+                            foreach( $all_user as $user){ 
+                                switch ($user->type) {
+                                    case '1':
+                                        $role = "User";
+                                        break;
+
+                                    case '2':
+                                        $role = "Manager";
+                                        break;
+
+                                    case '3':
+                                        $role = "VP";
+                                        break;
+                                    
+                                    case '4':
+                                        $role = "Director";
+                                        break;
+
+                                    case '5':
+                                        $role = "Admin";
+                                        break;
+                                    case '6':
+                                        $role = "City head";
+                                        break;
+                                }
+                                ?>
+                                <option value="<?php echo $user->id ?>" <?php if($user_name==$user->id) echo 'selected' ?>><?php echo $user->first_name." ".$user->last_name." ($role)"; ?></option>
+                           <?php  } } }else{ ?>
                             <?php $all_user= $this->user_model->all_users("type in (1,2,3,4,5,6)"); 
                             foreach( $all_user as $user){ 
                                 switch ($user->type) {
@@ -231,7 +264,7 @@
                                         break;
                                 }
                                 ?>
-                                <option value="<?php echo $user->id ?>" <?php if(($this->session->userdata("search_username"))==$user->id) echo 'selected' ?>><?php echo $user->first_name." ".$user->last_name." ($role)"; ?></option>
+                                <option value="<?php echo $user->id ?>" <?php if(($this->session->userdata("user_id"))==$user->id) echo 'selected' ?>><?php echo $user->first_name." ".$user->last_name." ($role)"; ?></option>
                             <?php } ?>
                         <?php } ?>
                     </select>
@@ -539,7 +572,7 @@ Team Premier Real Estate Services Pvt Ltd
                     </script>
                     <div class="col-sm-3 form-group">
                         <label for="Location">Zone:</label> 
-                        <select  class="form-control"  id="p_type" name="Location"    >
+                        <select  class="form-control"  id="location" name="location"    >
                                     <option value="">Select</option>  
                                     <option value="east" <?php if($location=='east') echo 'selected';?>>East Zone</option>
                                     <option value="west" <?php if($location=='west') echo 'selected';?>>West Zone</option>
@@ -551,7 +584,7 @@ Team Premier Real Estate Services Pvt Ltd
                       $(document).ready(function(){
 
      // Initialize 
-     $( "#Location" ).autocomplete({
+     $( "#location" ).autocomplete({
         source: function( request, response ) {
           // Fetch data
           $.ajax({
@@ -572,7 +605,7 @@ Team Premier Real Estate Services Pvt Ltd
         },
         select: function (event, ui) {
           // Set selection
-          $('#Location').val(ui.item.label); // display the selected text
+          $('#location').val(ui.item.label); // display the selected text
           //$('#userid').val(ui.item.value); // save selected id to input
           return false;
         }
@@ -664,9 +697,9 @@ Team Premier Real Estate Services Pvt Ltd
                 <!-- <label for="comment">Current Callbacks:</label> -->
                     <div class="input-group">
                         
-                        <input id="btn-input" type="text" class="form-control input-sm current_callback2" id="current_callback2"  placeholder="Please Update Your Changes To Save" />
+                        <input id="btn-input" type="text" class="form-control input-sm current_callback2" id="current_callback2"  placeholder="Please Update Your Changes To Save" style="width: 110%;" />
                         <span class="input-group-btn">
-                            <button class="btn btn-warning btn-sm" id="btn-chat">
+                            <button class="btn btn-warning btn-sm" id="btn-chat" style="visibility: hidden;">
                                 Send</button>
                         </span>
                     </div>
@@ -704,7 +737,7 @@ Team Premier Real Estate Services Pvt Ltd
                 <?php if($edit){ ?>
                     <!-- <div class="col-sm-6 form-group">
                         <label for="comment">Current Callbacks:</label>
-                        <textarea class="form-control" name="notes" rows="5" id="current_callback1" name="current_callback1" onkeyup="curr(this.value)" placeholder="Please Update Your Changes To Save"></textarea>
+                        <textarea class="form-control" name="notes" rows="5" id="current_callback2" name="current_callback2" onkeyup="curr(this.value)" placeholder="Please Update Your Changes To Save"></textarea>
                     </div> -->
                     <div class="clearfix"></div>
                     <div class="col-md-6 form-group">
@@ -731,7 +764,7 @@ Team Premier Real Estate Services Pvt Ltd
                     </div>
                     <?php
                      // if (($this->session->userdata('user_type') == 'user') || ($this->session->userdata('user_type') == 'manager') || ($this->session->userdata('user_type') == 'director')){ 
-                    if (($this->session->userdata('user_type') != 'admin')){ 
+                    if (($this->session->userdata('user_type') != 'admins')){ 
 
                         ?> 
                         <div class="col-md-6 form-group">
@@ -982,7 +1015,7 @@ Team Premier Real Estate
 <br/><br/><br/><br/>
 <script>
    /* $(function () {
-$('#current_callback1').keydown(function (e) {
+$('.current_callback2').keydown(function (e) {
 if (e.ctrlKey || e.altKey || ) {
 e.preventDefault();
 } else {
@@ -999,7 +1032,7 @@ $(document).ready(function() {
     {
         $("#budget").prop('required',true);
         $("#cities").prop('required',true);
-        $("#Location").prop('required',true);
+        $("#location").prop('required',true);
         //$("#p_type").prop('required',true);
         $("#possesion").prop('required',true);
         //$("#a_services").prop('required',true);
@@ -1013,30 +1046,30 @@ $(document).ready(function() {
                 $("#cities").focus();
                 return false;
             }
-            if($("#Location").val()==""){
-                $("#Location").focus();
+            if($("#location").val()==""){
+                $("#location").focus();
                 return false;
             }
-             if($("#p_type").val()==""){
-                $("#p_type").focus();
-                return false;
-            }
+            //  if($("#p_type").val()==""){
+            //     $("#p_type").focus();
+            //     return false;
+            // }
              if($("#possesion").val()==""){
                 $("#possesion").focus();
                 return false;
             }
-             if($("#a_services").val()==""){
-                $("#a_services").focus();
-                return false;
-            }
-             if($("#tos").val()==""){
-                $("#tos").focus();
-                return false;
-            }
-             if($("#client_type").val()==""){
-                $("#client_type").focus();
-                return false;
-            } 
+            //  if($("#a_services").val()==""){
+            //     $("#a_services").focus();
+            //     return false;
+            // }
+            //  if($("#tos").val()==""){
+            //     $("#tos").focus();
+            //     return false;
+            // }
+            //  if($("#client_type").val()==""){
+            //     $("#client_type").focus();
+            //     return false;
+            // } 
     }
     
 });
@@ -1151,13 +1184,13 @@ $(document).ready(function() {
         var stsId = $('#m_status').val();
         var error = 1;
         if(stsId == 4) {
-            if($('#current_callback1').val().length && $('#selectDeadRsn').val().length)
+            if($('.current_callback2').val().length && $('#selectDeadRsn').val().length)
                 error = 0;
             else
                 error = 1
         }
         else{
-            if($('#current_callback1').val().length >= 10)
+            if($('.current_callback2').val().length >= 10)
                 error = 0;
             else
                 error = 1;
@@ -1343,7 +1376,7 @@ $(document).ready(function() {
             'project_type':$('#c_projectType').val(),
             'reason_for_dead':$('.reasonOfDead').val(),
             'reason_cause':$('#selectDeadRsn').val(),    
-            'current_callback':$('#current_callback1').val(),
+            'current_callback':$('.current_callback2').val(),
             'name':$('#m_name1').val(),
             'due_date':$('#reassign_date').val()?$('#reassign_date').val()+' '+($('#reassign_time').val()?$('#reassign_time').val():'00:00'):null,
             'dept_id':$("#m_dept").val(),
@@ -1355,7 +1388,7 @@ $(document).ready(function() {
             'project_id':$("#m_project").val(),
             'leadid':$("#m_leadId").val(),
             'budget':$("#budget").val(),
-            'location':$("#Location").val(),
+            'location':$("#location").val(),
             'city' : $("#cities").val(),
             'p_type' : $("#p_type").val(),
             'possesion' : $("#possesion").val(),
@@ -1393,7 +1426,7 @@ $(document).ready(function() {
         }
         if($("#hidden_user_id").val() == $("#m_user_name").val())
             data.current_user_id = $("#m_user_name").val();
-        //console.log(data);
+        console.log(data); 
         //alert(data);
         $.ajax({
             type:"POST",

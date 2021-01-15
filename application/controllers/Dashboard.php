@@ -59,7 +59,7 @@ class Dashboard extends CI_Controller {
         $data['profile_pic'] = $this->user_model->get_profile_pic_name($data['user_id']);
         $data['profile_pic'] = json_decode( json_encode($data['profile_pic']), true);
         $this->session->set_userdata('profile_pic',$data['profile_pic'][0]['profile_pic']);
-        $data['greeting'] = $this->common_model->getWhere(array("date_added"=>date("Y-m-d")),"todaysgreetings");
+        $data['greeting'] = $this->common_model->getWhere(array("date(date_added)"=>date("Y-m-d")),"todaysgreetings");
 
         if ($this->session->userdata('user_type') == 'user') {
             $data['imp_callbacks'] = $this->callback_model->fetch_important_callbacks($data['user_id']);
@@ -622,9 +622,9 @@ class Dashboard extends CI_Controller {
         //$indiv_callback_data = $this->callback_model->getCallbackDataByUserId($id, $query->user_id);
         $previous_callback = "";
         foreach ($indiv_callback_data as $callback_data) {
-            $previous_callback .= $callback_data->status."****".$callback_data->date_added."****".$callback_data->user_name;
-            $previous_callback .= "\n---------------------------------\n";
-            $previous_callback .= $callback_data->current_callback."\n\n";
+            $previous_callback .= $callback_data->date_added."****".$callback_data->user_name."****". $callback_data->status ;
+            $previous_callback .= "<br>---------------------------------<br>";
+            $previous_callback .= $callback_data->current_callback."<br><br>";
         }
         $data['previous_callback'] = $previous_callback;
         if($this->input->post('type')){
@@ -1349,15 +1349,18 @@ class Dashboard extends CI_Controller {
             {
                 $mobile = $this->input->post('user_mobile');
                 $address = $this->input->post('address'); 
+                $user_dob = $this->input->post('user_dob');
                 $data = array(
                     "mobile_number" => $mobile,
-                    "address" => $address
+                    "address" => $address,
+                    "user_dob" => $user_dob
                 );
                 $bool= $this->user_model->update_user($data,$this->session->userdata('user_id'));
                 if($bool)
                 {
                     $this->session->set_userdata('user_mobile',$mobile);
                     $this->session->set_userdata('user_address',$address);
+                    $this->session->set_userdata('user_dob',$user_dob);
                     echo "<script>alert('user data updated successfully');</script>";
                     echo "<script>location.href='".base_url('dashboard/profile')."'</script>";
                 }
@@ -1387,7 +1390,7 @@ class Dashboard extends CI_Controller {
         }
         public function allLocations($value='')
         {
-           $data  = $this->callback_model->getName('Locations',$this->input->get_post('Location'));
+           $data  = $this->callback_model->getName('Locations',$this->input->get_post('location'));
            echo json_encode($data);
         }
         public function mob_num($value='')
@@ -1472,6 +1475,7 @@ class Dashboard extends CI_Controller {
         }
 
     }
+
 function time_since($since='')
     {
     $chunks = array(
@@ -1495,6 +1499,17 @@ function time_since($since='')
     $print = ($count == 1) ? '1 '.$name : "$count {$name}s";
     return $print;
 
+    }
+
+    public function GreetingsDashboard($value='')
+    { 
+        $data['name'] = "dashboard";
+        $data['user_id'] = $this->session->userdata('user_id');
+        $data['profile_pic'] = $this->user_model->get_profile_pic_name($data['user_id']);
+        $data['profile_pic'] = json_decode( json_encode($data['profile_pic']), true);
+        $this->session->set_userdata('profile_pic',$data['profile_pic'][0]['profile_pic']); 
+        $data['greeting'] = $this->common_model->getWhere(array("date(date_added) <="=>date("Y-m-d")),"todaysgreetings");
+        $this->load->view("greetings",$data);
     }
 }
 

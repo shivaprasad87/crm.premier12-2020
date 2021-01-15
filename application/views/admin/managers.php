@@ -393,10 +393,18 @@
                             <label for="emp_last_name">Mobile Number:</label>
                             <input type="text" class="form-control" id="m_employee_mobile" name="m_employee_mobile" placeholder="Employee Mobile Number" required="required">
                         </div>
+                         <div class="col-sm-6 form-group">
+                    <label for="emp_dob">D.O.B:</label>
+
+                <!-- <input type="text" class="form-control datepicker" id="emp_dob" name="emp_dob" placeholder="Employee Date Of Birth" readonly required="required"> -->
+                <input type="date" class="form-control" id="emp_dob" name="user_dob" placeholder="Date" required="required">
+
+                </div>
                         <div class="col-sm-6 form-group">
                             <label for="emp_last_name">Address:</label>
                             <textarea id ="m_employee_address"name="m_employee_address"></textarea>
                         </div>
+
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -474,6 +482,7 @@
                 var select_user=data.select_user;
                 var mobile=data.mobile_number;
                 var address=data.address;
+                var user_dob = data.user_dob;
                 
 
                 $("#m_emp_code").val(emp_code);
@@ -483,9 +492,10 @@
                 $("#m_vp").val(reports_to);
                 $("#m_dept_id").val(dept_id);
                 $("#m_city_id").val(city_id);
-                $("#m_select_user").val(select_user);    
+                $("#m_select_user").val('manager');    
                 $("#m_employee_address").val(address);
                 $("#m_employee_mobile").val(mobile);
+                $('#emp_dob').val(emp_dob);
                 $(".se-pre-con").hide("slow");
             }
         });
@@ -510,7 +520,7 @@
         var dept_id=$("#m_dept_id").val();
         var city_id=$("#m_city_id").val();
         var select_user=$("#m_select_user").val();
-
+        var user_dob = $("#emp_dob").val();
         var emp_address=$("#m_employee_address").val();
         var emp_mobile=$("#m_employee_mobile").val();
 
@@ -528,7 +538,8 @@
                 city_id:city_id,
                 select_user:select_user,
                 address:emp_address,
-                mobile_number:emp_mobile
+                mobile_number:emp_mobile,
+                user_dob:user_dob
             },
             success:function(data) {
                 data = JSON.parse(data);

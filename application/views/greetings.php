@@ -130,7 +130,7 @@
         }
 
         .body_comment {
-            padding: 0 8px;
+            padding: 0 25px;
             font-size: 14px;
             display: block;
             line-height: 25px;
@@ -381,128 +381,195 @@ if(count($greeting)>0)
     {
 ?>
             <div class="container" style="  margin-left: 0px;">
-                <div class="birthday-card ">
-                     <div class="birthday">
-                        <div class="wrapper">
-                           <div class="text1">
-                            
-                              <h1>Team Premier Wishes  <?=$g->username;?> A Happy birthday!</h1>
-                <h2 class="mt-30">We wish you good luck, peace, prosperity and success in every dimension of your life and career.</h2>
-                              <h2 class="quote">Hope your Special Day</h2>
-                              <h2 class="quote">Bring bring you all that your Heart Desires</h2>
-                              <h2 class="quote">Wishing you a day of Pleasent Surprises</h2>
-                              <h2 class="quote">Dear "Client Name"</h2>
-                           </div>
-                           <div id="scene">
-                              <div class="bgcover">
-                                 <div class="ballon"></div>
-                                 <div class="ballon"></div>
-                                 <div class="ballon"></div>
-                                 <div class="ballon"></div>
-                                 <div class="ballon"></div>
-                                 <div class="ballon"></div>
-                              </div>
-                              <div class="cake">
-                                 <div class="candle">
-                                    <div class="candle-1">
-                                       <div class="wax"></div>
-                                       <div class="flame"></div>
+            <div class="row">
+                <div class="col-lg-11">
+                    <div class="birthday-card ">
+                        
+                        <div class="birthday">
+                        
+                            <div class="wrapper">
+                            <div class="text1">
+                                
+                                <h1>Team Premier Wishes  <?=$g->username;?> A Happy birthday!</h1>
+                                <h2 class="mt-30">We wish you good luck, peace, prosperity and success in every dimension of your life and career.</h2>
+                                <h2 class="quote">Hope your Special Day</h2>
+                                <h2 class="quote">Bring bring you all that your Heart Desires</h2>
+                                <h2 class="quote">Wishing you a day of Pleasent Surprises</h2>
+                                <h2 class="quote">Dear "Client Name"</h2>
+                            </div>
+                            <div id="scene">
+                                <div class="bgcover">
+                                    <div class="ballon"></div>
+                                    <div class="ballon"></div>
+                                    <div class="ballon"></div>
+                                    <div class="ballon"></div>
+                                    <div class="ballon"></div>
+                                    <div class="ballon"></div>
+                                </div>
+                                <div class="cake">
+                                    <div class="candle">
+                                        <div class="candle-1">
+                                        <div class="wax"></div>
+                                        <div class="flame"></div>
+                                        </div>
                                     </div>
-                                 </div>
-                                 <div class="strip"></div>
-                                 <div class="strip next"></div>
-                              </div>
-                              <div class="platform">
-                                 <div class="strip"></div>
-                                 <div class="strip next"></div>
-                              </div>
-                           </div>
+                                    <div class="strip"></div>
+                                    <div class="strip next"></div>
+                                </div>
+                                <div class="platform">
+                                    <div class="strip"></div>
+                                    <div class="strip next"></div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="clearfix"> </div>
                         </div>
-                        <div class="clearfix"> </div>
-                     </div>
-                         <div class="ex1">
-                        <div class="container1">
-                           <div class="fbcomment" id="">
-                            <?php
-                            $likes = $this->greeting_model->countWhere(array("g_id"=>$g->id,"liked!="=>0),"greetingcomments"); 
-                            $commentsCount = $this->greeting_model->countWhere(array("g_id"=>$g->id,"comment!="=>''),"greetingcomments"); 
-                            ?>
-                            <div style="float: left;"><a href="#" id="likecount<?=$g->id?>" onclick="likecount('<?=$g->id?>');"><?=($likes>0?$likes:'0')?></a> likes</div><div style="float: right;"><a href="#" id="commentCount<?=$g->id?>"><?=($commentsCount>0?$commentsCount:'0')?></a> comments</div>
-                            <script>
-                              function likecount(greetingId) {
-                                var likecount = $("#likecount"+greetingId).html();
-                                var className = $("#likecount"+greetingId).attr('class');
-                                if(className)
-                                {
-                                  $("#likecount"+greetingId).html(parseInt(likecount)-1);
-                                }
-                                else
-                                {
-                                  $("#likecount"+greetingId).html(parseInt(likecount)+1);
-                                  $("#likecount"+greetingId).addClass("active");
-                                }
-                              }
-                            </script>
-                            <div class="clearfix"></div>
-                            <br>
-                              <div class="body_comment">
-                                 <div class="row">
-                                    <div class="avatar_comment col-md-1">
-                                       <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
-                                    </div>
-                                    <div class="box_comment col-md-11">
-                                       <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..."></textarea>
-                                       <div class="box_post"> 
-                                          <div class="pull-right"> 
-                                             <button onclick="submit_comment('<?=$this->session->userdata("user_id")?>','<?=$g->user_id?>','<?=$g->id?>');" type="button" value="1">Post</button>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="row">
-                                    <ul id="list_comment<?=$g->id?>" class="col-md-12">
-                                       <!-- Start List Comment 2 -->
-                                       <?php 
-                                      $comment = $this->greeting_model->prevComments($g->id);
-                                   
-                                      if(count($comment)>0)
-                                      {
-                                        foreach ($comment as $comment) {
-                                           if($comment->comment!='')
-                                           {
-                                           
-                                       ?>
-                                       <li class="box_result row prev_wishes" >
-                                          <div class="avatar_comment col-md-1">
-                                             <img src="<?=base_url('uploads/'.$comment->user_profile_pic)?>" alt="avatar"/>
-                                          </div>
-                                          <div class="result_comment col-md-11">
-                                             <h4><?=$comment->f_name." ".$comment->l_name;?></h4>
-                                             <p><?=$comment->comment;?></p>
-                                             <div class="tools_comment"> 
-                                                <span aria-hidden="true"> · </span>
-                                                <span><?=time_since(strtotime(date("Y-m-d H:i:s"))-strtotime($comment->date_added));?> ago</span>
-                                             </div>
-                                             <ul class="child_replay"></ul>
-                                          </div>
-                                       </li>
-                                       <?php
-                                     }
-                                     }
-                                     }
-                                       ?>
-                                    </ul>
+                        <div class="ex1">
+                            <div class="container1">
+                            <div class="fbcomment" id="">
+                            <div class="data-icons-complete">
+                                    <?php
+                                    $likes = $this->greeting_model->countWhere(array("g_id"=>$g->id,"liked!="=>0),"greetingcomments"); 
+                                    $commentsCount = $this->greeting_model->countWhere(array("g_id"=>$g->id,"comment!="=>''),"greetingcomments"); 
+                                    ?>
+                                    <div style="float: left;"><i id="likeIcon" style="cursor:pointer"  onclick="likecount('<?=$g->id?>');" class="fa fa-thumbs-up" aria-hidden="true"><a id="likecount<?=$g->id?>"><?=($likes>0?$likes:'0')?></a></i> </div>
+                                    <div style="float: right;"><i onclick="togglediv()" style="cursor:pointer" class="fa fa-comments" aria-hidden="true"><a  id="commentCount<?=$g->id?>"><?=($commentsCount>0?$commentsCount:'0')?>Comments</a></i> </div>
+                                </div>
+                                <br>
+                                <div class="data-icons">
+                                <ul class="list-unstyled">
+                                    <li><a href="#" style="cursor:pointer" id="likecount<?=$g->id?>"  onclick="likecount('<?=$g->id?>');"><?=($likes>0?$likes:'0')?></a><i class="fa fa-thumbs-up" aria-hidden="true"></i> like</li>
+                                    
+                                    <li ><a href="#" id="commentCount<?=$g->id?>"><?=($commentsCount>0?$commentsCount:'0')?></a><i class="fa fa-comments" aria-hidden="true"></i> comments</li>
 
-                                    <button class="btn-success show" onclick="showFunction()"> Show More</button>
-                                    <button class="btn-success hide" onclick="hideFunction()"> Hide</button>
-                                    <!-- <button class="show_more" type="button">Load 10 more comments</button> -->
-                                 </div>
-                              </div>
-                           </div>
+                                    <li ><a href="#" id="upload"></a><i class="fa fa-upload" aria-hidden="true"></i> Upload</li>
+                                    <li ><a href="#" id="post"></a><i class="fa fa-sticky-note-o" aria-hidden="true"></i></i> Post</li>
+                                <ul>
+                                </div>
+                                <script>
+                                function likecount(greetingId) {
+                                    
+                                    var likecount = $("#likecount"+greetingId).html();
+                                    var className = $("#likecount"+greetingId).attr('class');
+                                    if(className)
+                                    {
+                                    $("#likecount"+greetingId).html(parseInt(likecount)-1);
+
+                                    $("#likecount"+greetingId).removeClass("active");
+                                    $("#likeIcon").css("color","#3d3d3c !important")
+                                    }
+                                    else
+                                    {
+                                    $("#likecount"+greetingId).html(parseInt(likecount)+1);
+                                    $("#likecount"+greetingId).addClass("active");
+                                    $("#likeIcon").css("color","#0b0be8 !important")
+                                    }
+                                }
+
+                                function togglediv(){
+                                    $(".toggle_div").toggleClass("hidden");
+                                }
+                                </script>
+                                
+                                
+                            
+                                <div class="clearfix"></div>
+                                
+                                <br>
+                                <div class="body_comment toggle_div hidden">
+                                    <div class="row">
+                                        <div class="avatar_comment col-md-1">
+                                        <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
+                                        <span>abvcgvc u</span>
+                                        </div>
+                                        <div class="box_comment col-md-11">
+                                        <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..."></textarea>
+                                        <div class="box_post"> 
+                                            <div class="pull-right"> 
+                                                <button onclick="submit_comment('<?=$this->session->userdata("user_id")?>','<?=$g->user_id?>','<?=$g->id?>');" type="button" value="1">Post</button>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <ul id="list_comment<?=$g->id?>" class="col-md-12">
+                                        <!-- Start List Comment 2 -->
+                                        <?php 
+                                        $comment = $this->greeting_model->prevComments($g->id);
+                                    
+                                        if(count($comment)>0)
+                                        {
+                                            foreach ($comment as $comment) {
+                                            if($comment->comment!='')
+                                            {
+                                            
+                                        ?>
+                                        <li class="box_result row prev_wishes" >
+                                            <div class="avatar_comment col-md-1">
+                                                <img src="<?=base_url('uploads/'.$comment->user_profile_pic)?>" alt="avatar"/>
+                                            </div>
+                                            <div class="result_comment col-md-11">
+                                                <h4><?=$comment->f_name." ".$comment->l_name;?></h4>
+                                                <p><?=$comment->comment;?></p>
+                                                <div class="tools_comment"> 
+                                                    <span aria-hidden="true"> · </span>
+                                                    <span><?=time_since(strtotime(date("Y-m-d H:i:s"))-strtotime($comment->date_added));?> ago</span>
+                                                </div>
+                                                <ul class="child_replay"></ul>
+                                            </div>
+                                        </li>
+                                        <?php
+                                        }
+                                        }
+                                        }
+                                        ?>
+                                        </ul>
+
+                                        <button class="btn-success show" onclick="showFunction()"> Show More</button>
+                                        <button class="btn-success hide" onclick="hideFunction()"> Hide</button>
+                                        <!-- <button class="show_more" type="button">Load 10 more comments</button> -->
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-              </div> 
+                    </div>
+                </div>
+                <div class="col-lg-1">
+                <button class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Post</button>
+                </div>
+
+                <div class="modal wishes" id="exampleModal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h5 class="modal-title"> Comment Modal</h5>
+                           
+                        </div>
+                        <div class="modal-body">
+                        <form action="/action_page.php">
+
+                        <label for="subj">Subject</label>
+                        <input type="text" id="sub" name="p_subject" placeholder="Subject..">
+
+                        <label for="subj">File</label>
+                        <input type="file" id="myFile" name="p_file">
+
+                        <label for="subject">Description</label>
+                        <textarea id="desc" name="p_desc" placeholder="Your Description.." style="height:100px"></textarea>
+
+                        <center><input type="submit" value="Submit"></center>
+                    </form>
+                        </div>
+                       
+                        </div>
+                    </div>
+                    </div>
+                
+            </div> 
               <?php
       }
       elseif($g->type=="closure")

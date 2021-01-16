@@ -199,15 +199,15 @@
                     <input type="email" class="form-control" id="email" name="email" placeholder="Employee Enter email" required="required">
                 </div>
                 <div class="col-sm-6 form-group">
-                    <label for="emp_dob">D.O.B:</label>
+                    <label for="user_dob">D.O.B:</label>
 
                 <!-- <input type="text" class="form-control datepicker" id="emp_dob" name="emp_dob" placeholder="Employee Date Of Birth" readonly required="required"> -->
-                <input type="date" class="form-control" id="emp_dob" name="user_dob" placeholder="Date" required="required">
+                <input type="date" class="form-control" id="user_dob" name="user_dob" placeholder="Date" required="required">
 
                 </div>
                 <div class="col-sm-6 form-group">
                     <label for="emp_doj">D.O.J:</label>
-                    <input type="text" class="form-control datepicker" id="emp_doj" name="emp_doj" placeholder="Employee Date Of Joining" readonly required="required">
+                    <input type="date" class="form-control" id="emp_doj" name="emp_doj" placeholder="Employee Date Of Joining"  required="required">
                 </div>
                 <div class="col-sm-6 form-group">
                     <label for="emp_last_name">Mobile Number:</label>
@@ -348,16 +348,21 @@
                   
                     </div>
                     <div class="col-sm-6 form-group">
-                    <label for="emp_dob">D.O.B:</label>
-
-                <!-- <input type="text" class="form-control datepicker" id="emp_dob" name="emp_dob" placeholder="Employee Date Of Birth" readonly required="required"> -->
-                <input type="date" class="form-control" id="m_emp_dob" name="m_user_dob" placeholder="Date" required="required">
-                
-                </div>
-                    <div class="col-sm-6 form-group">
                         <label for="emp_last_name">Address:</label>
                         <textarea id="m_employee_address"name="m_employee_address"></textarea>
                     </div>
+                <div class="col-sm-6 form-group">
+                    <label for="user_dob">D.O.B:</label>
+
+                <!-- <input type="text" class="form-control datepicker" id="emp_dob" name="emp_dob" placeholder="Employee Date Of Birth" readonly required="required"> -->
+                <input type="date" class="form-control" id="m_user_dob" name="m_user_dob" placeholder="Date" required="required">
+                
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="emp_doj">D.O.J:</label>
+                    <input type="date" class="form-control" id="m_emp_doj" name="m_emp_doj" placeholder="Employee Date Of Joining"  required="required">
+                </div>
+                    
 
                     <div class="col-md-6 form-group">
                         <label for="emp_code">Manager:</label>
@@ -380,8 +385,7 @@
                             <option value="admin">Admin</option>
                         </select>
                     </div>
-                    <div class="clearfix"></div>
-
+                    <div class="clearfix"></div> 
                     <div class="col-md-6 form-group">
                         <label for="emp_code">Deprtment:</label>
                         <select  class="form-control"  id="m_dept_id" name="department" required="required" >
@@ -401,6 +405,7 @@
                                 <option value="<?php echo $city->id; ?>"><?php echo $city->name; ?></option>
                             <?php }?>
                         </select>
+
                     </div>
                 </div>
             </div>

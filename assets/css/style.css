@@ -9098,15 +9098,7 @@ div.ex1 {
 	float: left;
 	color: #999;
   }
-  .anniversary p{
+  .anniversary article p{
     color: white;
     font-size: 30px;
   }
-
-.body_comment ul{
-
-}
-
-.show-more{
-  height: 100%
-}

@@ -218,16 +218,22 @@
                     <label for="emp_code">Enter Emp code:</label>
                     <input type="text" class="form-control" onblur="code_check(this.value)" id="emp_code" name="emp_code" placeholder="Enter Employee Id" required>
                 </div>
-                <div class="col-sm-6 form-group">
+                <div class="col-sm-3 form-group">
                     <label for="emp_last_name">Mobile Number:</label>
                     <input type="text" class="form-control" id="employee_mobile" name="employee_mobile" placeholder="Employee Mobile Number" required="required">
                 </div>
-                <div class="col-sm-6 form-group">
-                    <label for="emp_last_name">Address:</label>
-                    <textarea name="employee_address"></textarea>
-                </div>
+                <div class="col-sm-3 form-group">
+                    <label for="user_dob">D.O.B:</label>
 
-                <div class="col-md-3 form-group">
+                    <input type="date" class="form-control" id="user_dob" name="user_dob" placeholder="Date" required="required">
+
+                </div>
+                <div class="col-sm-3 form-group">
+                    <label for="emp_doj">D.O.J:</label>
+                    <input type="date" class="form-control" id="emp_doj" name="emp_doj" placeholder="Employee Date Of Joining"  required="required">
+                </div>
+        
+                <div class="col-md-3 col-sm-6 form-group">
                     <label for="emp_code">Deprtment:</label>
                     <select  class="form-control"  id="user_type" name="department" required="required" >
                         <option value="">Select</option>
@@ -237,8 +243,8 @@
                         <?php }?>
                     </select>
                 </div>
-
-                <div class="col-md-3 form-group">
+               
+                <div class="col-md-3 col-sm-6 form-group">
                     <label for="emp_code">City:</label>
                     <select  class="form-control"  id="user_type" name="city" required="required" >
                         <option value="">Select</option>
@@ -249,7 +255,7 @@
                     </select>
                 </div>
 
-                <div class="col-md-6 form-group">
+                <div class="col-md-3 col-sm-6 form-group">
                     <label for="emp_code">VP:</label>
                     <select  class="form-control"  id="director" name="director" required="required" >
                         <option value="">Select</option>
@@ -258,6 +264,10 @@
                             <option value="<?php echo $vp->id; ?>"><?php echo $vp->first_name." ".$vp->last_name; ?></option>
                         <?php }?>
                     </select>
+                </div>
+                <div class="col-md-6 col-sm-6 form-group">
+                    <label for="emp_last_name">Address:</label>
+                    <textarea name="employee_address"></textarea>
                 </div>
 
                 <div class="col-sm-12 form-group">

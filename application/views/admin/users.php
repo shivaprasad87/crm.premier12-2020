@@ -15,25 +15,6 @@
 			<div class="header-section">
 						<!--menu-right-->
 						<div class="top_menu">
-						        <!--<div class="main-search">
-											<form>
-											   <input type="text" value="Search" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search';}" class="text"/>
-												<input type="submit" value="">
-											</form>
-									<div class="close"><img src="<?php echo base_url()?>assets/images/cross.png" /></div>
-								</div>
-									<div class="srch"><button></button></div>
-									<script type="text/javascript">
-										 $('.main-search').hide();
-										$('button').click(function (){
-											$('.main-search').show();
-											$('.main-search text').focus();
-										}
-										);
-										$('.close').click(function(){
-											$('.main-search').hide();
-										});
-									</script>
 							<!--/profile_details-->
 								<div class="profile_details_left">
 									<?php $this->load->view('notification');?>
@@ -461,6 +442,7 @@
                 var mobile=data.mobile_number;
                 var address=data.address;
                 var user_dob = data.user_dob;
+                var emp_doj = data.emp_doj;
                 
                 $("#m_emp_code").val(emp_code);
                 $("#m_first_name").val(first_name);
@@ -472,7 +454,8 @@
                 $("#m_city_id").val(city_id);
                 $("#m_employee_address").val(address);
                 $("#m_employee_mobile").val(mobile);
-                $("#m_emp_dob").val(user_dob);
+                $("#m_user_dob").val(user_dob);
+                $("#m_emp_doj").val(emp_doj);
                 $(".se-pre-con").hide("slow");
             }
         });
@@ -499,7 +482,8 @@
         var city_id=$("#m_city_id").val();
         var emp_address=$("#m_employee_address").val();
         var emp_mobile=$("#m_employee_mobile").val();
-        var user_dob = $("#m_emp_dob").val();
+        var user_dob = $("#m_user_dob").val();
+        var emp_doj = $("#m_emp_doj").val();
         var id=$("#hid").val(); 
             
         $.ajax({
@@ -515,7 +499,8 @@
                 city_id:city_id,
                 address:emp_address,
                 mobile_number:emp_mobile,
-                user_dob:user_dob
+                user_dob:user_dob,
+                emp_doj:emp_doj
             },
             success:function(data) {
                 data = JSON.parse(data);

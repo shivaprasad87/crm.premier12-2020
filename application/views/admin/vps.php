@@ -442,6 +442,8 @@
                 var select_user=data.select_user;
                 var mobile=data.mobile_number;
                 var address=data.address;
+                var user_dob = data.user_dob;
+                var emp_doj = data.emp_doj;
 
                 $("#m_emp_code").val(emp_code);
                 $("#m_first_name").val(first_name);
@@ -453,6 +455,8 @@
                 $("#m_select_user").val(select_user);
                 $("#m_employee_address").val(address);
                 $("#m_employee_mobile").val(mobile);
+                $('#m_user_dob').val(user_dob);
+                $('#m_emp_doj').val(emp_doj);
                 $(".se-pre-con").hide("slow");
             }
         });
@@ -479,7 +483,8 @@
         var select_user=$("#m_select_user").val();
         var emp_address=$("#m_employee_address").val();
         var emp_mobile=$("#m_employee_mobile").val();
-
+         var user_dob = $("#m_user_dob").val();
+        var emp_doj = $("#m_emp_doj").val();
         
         var id=$("#hid").val(); 
             
@@ -495,7 +500,9 @@
                 city_id:city_id,
                 select_user:select_user,
                 address:emp_address,
-                mobile_number:emp_mobile
+                mobile_number:emp_mobile,
+                user_dob:user_dob,
+                emp_doj:emp_doj
             },
             success:function(data) {
                 data = JSON.parse(data);

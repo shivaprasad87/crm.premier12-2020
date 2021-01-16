@@ -51,6 +51,7 @@ class Admin extends CI_Controller {
 			$mobile = $this->input->post('employee_mobile');
 			$address = $this->input->post('employee_address');
 			$user_dob = $this->input->post('user_dob');
+			$emp_doj = $this->input->post('emp_doj');
 			$savedata=array(
 				'first_name'=>$first_name,
 				'last_name'=>$last_name,
@@ -66,7 +67,8 @@ class Admin extends CI_Controller {
 				'date_added'=>date('Y-m-d H:i:s'),
 				'mobile_number' => $mobile,
 				'user_dob' => $user_dob,
-				'address' =>$address
+				'address' =>$address,
+				'emp_doj' =>$emp_doj
 			);
 			$this->user_model->add_user($savedata);
 			redirect('admin/manage_users');
@@ -106,7 +108,9 @@ class Admin extends CI_Controller {
 				'loginid'=>$emp_code,
 				'date_added'=>date('Y-m-d H:i:s'), 
 				'mobile_number' => $mobile,
-				'address' =>$address 
+				'address' =>$address,
+				"user_dob" => $this->input->post('user_dob'),
+				"emp_doj" => $this->input->post('emp_doj')
 			);
 			$this->user_model->add_user($savedata);
 				redirect('admin/manage_directors');
@@ -142,7 +146,9 @@ class Admin extends CI_Controller {
 				'loginid'=>$emp_code,
 				'date_added'=>date('Y-m-d H:i:s'),
 				'mobile_number' => $mobile,
-				'address' =>$address 
+				'address' =>$address ,
+				"user_dob" => $this->input->post('user_dob'),
+				"emp_doj" => $this->input->post('emp_doj')
 			); 
 			$this->user_model->add_user($savedata);
 			redirect('admin/manage_vps');
@@ -164,8 +170,8 @@ class Admin extends CI_Controller {
 				$department=$this->input->post('department');
 				$city=$this->input->post('city');
 				$director=$this->input->post('director');
-			$mobile = $this->input->post('employee_mobile');
-			$address = $this->input->post('employee_address');
+				$mobile = $this->input->post('employee_mobile');
+				$address = $this->input->post('employee_address');
  
 				$type=6;
 				$savedata=array(
@@ -181,8 +187,10 @@ class Admin extends CI_Controller {
 					'password'=>md5($emp_code),
 					'loginid'=>$emp_code,
 					'date_added'=>date('Y-m-d H:i:s'),
-				'mobile_number' => $mobile,
-				'address' =>$address
+					'mobile_number' => $mobile,
+					'address' =>$address,
+					"user_dob" => $this->input->post('user_dob'),
+					"emp_doj" => $this->input->post('emp_doj')
 				);
 				$this->user_model->add_user($savedata);
 				redirect('admin/manage_city_head');
@@ -219,7 +227,9 @@ class Admin extends CI_Controller {
 				'loginid'=>$emp_code,
 				'date_added'=>date('Y-m-d H:i:s'),
 				'mobile_number' => $mobile,
-				'address' =>$address
+				'address' =>$address,
+				"user_dob" => $this->input->post('user_dob'),
+				"emp_doj" => $this->input->post('emp_doj')
 			);
 			$this->user_model->add_user($savedata);
 			redirect('admin/manage_managers');
@@ -1672,7 +1682,8 @@ if($this->input->post('budget')!='')
 			"email" => $email,
 			"mobile_number" => $this->input->post('mobile_number'),
 			"address" => $this->input->post('address'),
-			"user_dob" => $this->input->post('user_dob')
+			"user_dob" => $this->input->post('user_dob'),
+			"emp_doj" => $this->input->post('emp_doj')
 		);
 		if($reports_to)
 			$data["reports_to"] = $reports_to;

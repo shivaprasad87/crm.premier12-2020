@@ -407,7 +407,7 @@
                             <label for="emp_dob">D.O.B:</label>
 
                                 <!-- <input type="text" class="form-control datepicker" id="emp_dob" name="emp_dob" placeholder="Employee Date Of Birth" readonly required="required"> -->
-                                <input type="date" class="form-control" id="emp_dob" name="user_dob" placeholder="Date" required="required">
+                                <input type="date" class="form-control" id="m_user_dob" name="user_dob" placeholder="Date" required="required">
 
                         </div>
                         <div class="col-sm-6 form-group">
@@ -497,6 +497,7 @@
                 var mobile=data.mobile_number;
                 var address=data.address;
                 var user_dob = data.user_dob;
+                var emp_doj = data.emp_doj;
                 
 
                 $("#m_emp_code").val(emp_code);
@@ -509,7 +510,8 @@
                 $("#m_select_user").val('manager');    
                 $("#m_employee_address").val(address);
                 $("#m_employee_mobile").val(mobile);
-                $('#emp_dob').val(emp_dob);
+                $('#m_user_dob').val(user_dob);
+                $('#m_emp_doj').val(emp_doj);
                 $(".se-pre-con").hide("slow");
             }
         });
@@ -534,7 +536,8 @@
         var dept_id=$("#m_dept_id").val();
         var city_id=$("#m_city_id").val();
         var select_user=$("#m_select_user").val();
-        var user_dob = $("#emp_dob").val();
+        var user_dob = $("#m_user_dob").val();
+        var emp_doj = $("#m_emp_doj").val();
         var emp_address=$("#m_employee_address").val();
         var emp_mobile=$("#m_employee_mobile").val();
 
@@ -553,7 +556,8 @@
                 select_user:select_user,
                 address:emp_address,
                 mobile_number:emp_mobile,
-                user_dob:user_dob
+                user_dob:user_dob,
+                emp_doj:emp_doj
             },
             success:function(data) {
                 data = JSON.parse(data);

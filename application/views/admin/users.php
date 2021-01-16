@@ -348,16 +348,21 @@
                   
                     </div>
                     <div class="col-sm-6 form-group">
+                        <label for="emp_last_name">Address:</label>
+                        <textarea id="m_employee_address"name="m_employee_address"></textarea>
+                    </div>
+                <div class="col-sm-6 form-group">
                     <label for="user_dob">D.O.B:</label>
 
                 <!-- <input type="text" class="form-control datepicker" id="emp_dob" name="emp_dob" placeholder="Employee Date Of Birth" readonly required="required"> -->
                 <input type="date" class="form-control" id="m_user_dob" name="m_user_dob" placeholder="Date" required="required">
                 
                 </div>
-                    <div class="col-sm-6 form-group">
-                        <label for="emp_last_name">Address:</label>
-                        <textarea id="m_employee_address"name="m_employee_address"></textarea>
-                    </div>
+                <div class="col-sm-6 form-group">
+                    <label for="emp_doj">D.O.J:</label>
+                    <input type="date" class="form-control" id="m_emp_doj" name="m_emp_doj" placeholder="Employee Date Of Joining"  required="required">
+                </div>
+                    
 
                     <div class="col-md-6 form-group">
                         <label for="emp_code">Manager:</label>

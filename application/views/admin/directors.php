@@ -385,10 +385,23 @@
                 <label for="emp_code">Enter Emp code:</label>
                 <input type="text" class="form-control" onblur="code_check(this.value)" id="emp_code" name="emp_code" placeholder="Enter Employee Id" required>
             </div>
-            <div class="col-sm-6 form-group">
+
+            <div class="col-sm-4 form-group">
                 <label for="emp_last_name">Mobile Number:</label>
                 <input type="text" class="form-control" id="emp_last_name" name="employee_mobile" placeholder="Employee Mobile Number" required="required">
             </div>
+
+            <div class="col-sm-4 form-group">
+                    <label for="user_dob">D.O.B:</label>
+
+                <input type="date" class="form-control" id="user_dob" name="user_dob" placeholder="Date" required="required">
+
+                </div>
+                <div class="col-sm-4 form-group">
+                    <label for="emp_doj">D.O.J:</label>
+                    <input type="date" class="form-control" id="emp_doj" name="emp_doj" placeholder="Employee Date Of Joining"  required="required">
+                </div>
+
             <div class="col-sm-6 form-group">
                 <label for="emp_last_name">Address:</label>
                 <textarea name="employee_address"></textarea>
@@ -474,12 +487,19 @@
                     <label for="emp_last_name">Mobile Number:</label>
                     <input type="text" class="form-control" id="m_employee_mobile" name="m_employee_mobile" placeholder="Employee Mobile Number" required="required">
                     </div>
+
                     <div class="col-sm-6 form-group">
+                        <label for="user_dob">D.O.B:</label>
+                        <input type="date" class="form-control" id="m_user_dob" name="m_user_dob" placeholder="Date" required="required">
+                
+                    </div>
+                    <div class="col-sm-12 form-group">
                         <label for="emp_last_name">Address:</label>
                         <textarea id="m_employee_address"name="m_employee_address"></textarea>
                     </div>
 
                 </div>
+                <div class="clearfix"></div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="update_user()" data-dismiss="modal">Submit</button>

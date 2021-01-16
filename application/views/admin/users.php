@@ -380,11 +380,7 @@
                             <option value="admin">Admin</option>
                         </select>
                     </div>
-                    <div class="clearfix"></div>
-<<<<<<< HEAD
-
-=======
->>>>>>> 64726d1 (user admin)
+                    <div class="clearfix"></div> 
                     <div class="col-md-6 form-group">
                         <label for="emp_code">Deprtment:</label>
                         <select  class="form-control"  id="m_dept_id" name="department" required="required" >

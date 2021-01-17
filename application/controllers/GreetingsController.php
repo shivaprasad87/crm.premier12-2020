@@ -47,5 +47,30 @@ class GreetingsController extends CI_Controller {
                 }  
         } 
     }
- 
+    public function userPost($value='')
+    {
+        $file_data=array();
+        if(isset($_FILES['p_file']['name']) && !empty($_FILES['p_file']['name'])){  
+                $file = $_FILES["p_file"]['tmp_name'];
+                    $path = './uploads/userpost/';
+                    if (!is_dir($path)) {
+                        mkdir($path, 0777, true);
+                    }
+                    $file_type = 'gif|jpg|jpeg|png';
+                    $config['upload_path']          = './uploads/userpost/';
+                    $config['allowed_types']        = 'jpeg|jpg|png|txt|pdf|docx|xlsx|pptx|rtf'; 
+                    $config['encrypt_name'] = TRUE;
+                    $this->load->library('upload', $config); 
+                    if (!$this->upload->do_upload('p_file')) {
+                        $this->session->set_flashdata('error', $this->upload->display_errors());
+                        //redirect('admin/properties/add');
+                    } else {
+                        $image = $this->upload->data('file_name');
+                        $file_data = array("file_name" => $image,"date_added"=>date("Y-m-d"),"type" => "userpost", "user_id" =>$this->session->userdata("user_id"), "username"=>$this->session->userdata("user_name"));
+
+                    }
+                    $this->greeting_model->insertRow(array_merge($this->input->post(),$file_data),"todaysgreetings");
+                    print_r(array_merge($this->input->post(),$file_data));
+            }
+    } 
 }

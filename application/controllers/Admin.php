@@ -3069,16 +3069,11 @@ if ($err) {
              
  		   echo json_encode($response);
 	}
-	public function ChatAttachmentUpload(){
-		 
-		
+	public function ChatAttachmentUpload(){		
 		$file_data='';
 		if(isset($_FILES['attachmentfile']['name']) && !empty($_FILES['attachmentfile']['name'])){	
 				$config['upload_path']          = './uploads/attachment';
-				$config['allowed_types']        = 'jpeg|jpg|png|txt|pdf|docx|xlsx|pptx|rtf';
-				//$config['max_size']             = 500;
-				//$config['max_width']            = 1024;
-				//$config['max_height']           = 768;
+				$config['allowed_types']        = 'jpeg|jpg|png|txt|pdf|docx|xlsx|pptx|rtf'; 
 				$this->load->library('upload', $config);
 				if ( ! $this->upload->do_upload('attachmentfile'))
 				{

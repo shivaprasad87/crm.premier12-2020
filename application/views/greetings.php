@@ -412,14 +412,14 @@ $commentsCount = $this->greeting_model->countWhere(array("g_id"=>$g->id,"comment
 $no_data = $this->greeting_model->getWhere(array('g_id'=>$g->id,'user_id'=>$this->session->userdata('user_id'),"liked"=>1),'greetingcomments'); 
 ?>
                           <div style="float: left;">
-                            <i id="likeIcon" style="cursor:pointer;<?=(count($no_data)>0?'color: rgb(11, 11, 232)':'')?>"  onclick="likecount('<?=$g->id?>');" class="fa fa-thumbs-up" aria-hidden="true">
+                            <i id="likeIcon<?=$g->id?>" style="cursor:pointer;<?=(count($no_data)>0?'color: rgb(11, 11, 232)':'')?>"  onclick="likecount('<?=$g->id?>');" class="fa fa-thumbs-up" aria-hidden="true">
                               <a id="likecount<?=$g->id?>" class="<?=(count($no_data)>0?'active':'')?>">
                                 <?=($likes>0?$likes:'0')?>
                               </a>
                             </i> 
                           </div>
                           <div style="float: right;">
-                            <i onclick="togglediv()" style="cursor:pointer" class="fa fa-comments" aria-hidden="true">
+                            <i onclick="togglediv('<?=$g->id?>')" style="cursor:pointer" class="fa fa-comments" aria-hidden="true">
                               <a  id="commentCount<?=$g->id?>">
                                 <?=($commentsCount>0?$commentsCount:'0')?>Comments
                               </a>
@@ -430,7 +430,7 @@ $no_data = $this->greeting_model->getWhere(array('g_id'=>$g->id,'user_id'=>$this
                         <div class="clearfix">
                         </div>
                         <br>
-                        <div class="body_comment toggle_div hidden">
+                        <div class="body_comment toggle_div<?=$g->id?> hidden">
                           <div class="row">
                             <div class="avatar_comment col-md-1">
                               <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
@@ -439,8 +439,7 @@ $no_data = $this->greeting_model->getWhere(array('g_id'=>$g->id,'user_id'=>$this
                               </span>
                             </div>
                             <div class="box_comment col-md-11">
-                              <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment...">
-                              </textarea>
+                              <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..."></textarea>
                               <div class="box_post"> 
                                 <div class="pull-right"> 
                                   <button onclick="submit_comment('<?=$this->session->userdata("user_id")?>','<?=$g->user_id?>','<?=$g->id?>');" type="button" value="1">Post
@@ -525,8 +524,7 @@ if($comment->comment!='')
                         <input type="file" id="myFile" name="p_file">
                         <label for="subject">Description
                         </label>
-                        <textarea id="desc" name="p_desc" placeholder="Your Description.." style="height:100px">
-                        </textarea>
+                        <textarea id="desc" name="p_desc" placeholder="Your Description.." style="height:100px"></textarea>
                         <center>
                           <input type="submit" value="Submit">
                         </center>
@@ -563,14 +561,38 @@ $close_callback = $this->callback_model->get_callback_details($g->callback_id);
                   <div class="ex2">
                     <div class="container2">
                       <div class="fbcomment" id="">
-                        <div class="body_comment">
+                        <div class="data-icons-complete">
+                          <?php
+$likes = $this->greeting_model->countWhere(array("g_id"=>$g->id,"liked!="=>0),"greetingcomments"); 
+$commentsCount = $this->greeting_model->countWhere(array("g_id"=>$g->id,"comment!="=>''),"greetingcomments"); 
+$no_data = $this->greeting_model->getWhere(array('g_id'=>$g->id,'user_id'=>$this->session->userdata('user_id'),"liked"=>1),'greetingcomments'); 
+?>
+                          <div style="float: left;">
+                            <i id="likeIcon<?=$g->id?>" style="cursor:pointer;<?=(count($no_data)>0?'color: rgb(11, 11, 232)':'')?>"  onclick="likecount('<?=$g->id?>');" class="fa fa-thumbs-up" aria-hidden="true">
+                              <a id="likecount<?=$g->id?>" class="<?=(count($no_data)>0?'active':'')?>">
+                                <?=($likes>0?$likes:'0')?>
+                              </a>
+                            </i> 
+                          </div>
+                          <div style="float: right;">
+                            <i onclick="togglediv('<?=$g->id?>')" style="cursor:pointer" class="fa fa-comments" aria-hidden="true">
+                              <a  id="commentCount<?=$g->id?>">
+                                <?=($commentsCount>0?$commentsCount:'0')?>Comments
+                              </a>
+                            </i> 
+                          </div>
+                        </div>
+                        <br>
+                        <div class="clearfix">
+                        </div>
+                        <br>
+                        <div class="body_comment toggle_div<?=$g->id?> hidden">
                           <div class="row">
                             <div class="avatar_comment col-md-1">
                               <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
                             </div>
                             <div class="box_comment col-md-11">
-                              <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..." style="color: black">
-                              </textarea>
+                              <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..." style="color: black"></textarea>
                               <div class="box_post"> 
                                 <div class="pull-right"> 
                                   <button onclick="submit_comment('<?=$this->session->userdata("user_id")?>','<?=$g->user_id?>','<?=$g->id?>');" type="button" value="1">Post
@@ -637,23 +659,22 @@ elseif($g->type=="ja")
                 <div class="overlay">
                   <main id="htlfndr-main-content" class="htlfndr-main-content " role="main" style=" "> 
                     <article class="htlfndr-thanks-page text-center">
-                      <h1>Happy
-                        <br>
-                        Anniversary
+
+                      <h1> Congratulations <?=$g->username;?> for completing <?= floor(abs(strtotime(date("Y-m-d")) - strtotime($this->session->userdata('emp_doj'))) / (365*60*60*24)) ?>
+                          <?=(floor(abs(strtotime(date("Y-m-d")) - strtotime($this->session->userdata('emp_doj'))) / (365*60*60*24))>1)?"Years":"Year"?>
                       </h1>
                       <p>
-                        <?=$g->username;?>
+                         with Premier Real Estate. You are an asset to our company, and we hope you’ll continue on this path of hard work. We wish you a wonderful work anniversary!
                       </p>
-                      <div class="bglk">
+                     <!--  <div class="bglk">
                         <p>You have Completed
                         </p>
                         <span>
-                          <?= floor(abs(strtotime(date("Y-m-d")) - strtotime($this->session->userdata('emp_doj'))) / (365*60*60*24)) ?>
-                          <?=(floor(abs(strtotime(date("Y-m-d")) - strtotime($this->session->userdata('emp_doj'))) / (365*60*60*24))>1)?"Years":"Year"?>
+                          
                         </span>
                         <p> to CRM
                         </p>
-                      </div>
+                      </div> -->
                       <!-- <a class="htlfndr-more-link text-center" href="index.html">Back to homepage</a> -->
                     </article> 
                   </main>
@@ -662,14 +683,39 @@ elseif($g->type=="ja")
                   <div class="ex2">
                     <div class="container2">
                       <div class="fbcomment" id="">
-                        <div class="body_comment">
+                        <div class="data-icons-complete">
+                          <?php
+$likes = $this->greeting_model->countWhere(array("g_id"=>$g->id,"liked!="=>0),"greetingcomments"); 
+$commentsCount = $this->greeting_model->countWhere(array("g_id"=>$g->id,"comment!="=>''),"greetingcomments"); 
+$no_data = $this->greeting_model->getWhere(array('g_id'=>$g->id,'user_id'=>$this->session->userdata('user_id'),"liked"=>1),'greetingcomments'); 
+?>
+                          <div style="float: left;">
+                            <i id="likeIcon<?=$g->id?>" style="cursor:pointer;<?=(count($no_data)>0?'color: rgb(11, 11, 232)':'')?>"  onclick="likecount('<?=$g->id?>');" class="fa fa-thumbs-up" aria-hidden="true">
+                              <a id="likecount<?=$g->id?>" class="<?=(count($no_data)>0?'active':'')?>">
+                                <?=($likes>0?$likes:'0')?>
+                              </a>
+                            </i> 
+                          </div>
+                          <div style="float: right;">
+                            <i onclick="togglediv('<?=$g->id?>')" style="cursor:pointer" class="fa fa-comments" aria-hidden="true">
+                              <a  id="commentCount<?=$g->id?>">
+                                <?=($commentsCount>0?$commentsCount:'0')?>Comments
+                              </a>
+                            </i> 
+                          </div>
+                        </div>
+                        <br>
+                        <div class="clearfix">
+                        </div>
+                        <br>
+
+                        <div class="body_comment  toggle_div<?=$g->id?> hidden">
                           <div class="row">
                             <div class="avatar_comment col-md-1">
                               <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
                             </div>
                             <div class="box_comment col-md-11">
-                              <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..." style="color: black !important">
-                              </textarea>
+                              <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..." style="color: black !important"></textarea>
                               <div class="box_post"> 
                                 <div class="pull-right"> 
                                   <button onclick="submit_comment('<?=$this->session->userdata("user_id")?>','<?=$g->user_id?>','<?=$g->id?>');" type="button" value="1">Post
@@ -726,14 +772,15 @@ foreach ($comment as $comment) {
             <?php 
 }
 elseif($g->type=="userpost"){
-   echo "Need UI For Manual User POST<br>";
+   //echo "Need UI For Manual User POST<br>";
 }
 elseif($g->type=="new"){
-   echo "Need UI For New Joinees<br>";
+   //echo "Need UI For New Joinees<br>";
 }
 else
 {
-echo $g->type." this Check with Developer";
+//echo $g->type." this Check with Developer";
+  echo "No Posts Yet!";
 }
 }
 }
@@ -836,11 +883,14 @@ echo $g->type." this Check with Developer";
       }
                               );
       function submit_comment(current_id,greetuserid,id) {
+        
         var l = window.location;
         var BASE_URL = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
         var wishes = $('#wishes'+id).val();
         if(wishes=='')
           return false;
+
+        $('.se-pre-con').show();
         $.ajax({
           type:"POST",
           url: BASE_URL+"/postWishes",
@@ -851,6 +901,7 @@ echo $g->type." this Check with Developer";
             $('#wishes'+id).val('');
             $('#list_comment'+id).html(data);
             $('#commentCount'+id).html(parseInt( $('#commentCount'+id).html())+1);
+            $('.se-pre-con').hide();
           }
         }
               );
@@ -862,7 +913,7 @@ echo $g->type." this Check with Developer";
         {
           $("#likecount"+greetingId).html(parseInt(likecount)-1);
           $("#likecount"+greetingId).removeClass("active");
-          $("#likeIcon").css("color","#3d3d3c !important");
+          $("#likeIcon"+greetingId).css("color","#3d3d3c !important");
           var l = window.location;
           var BASE_URL = '<?=base_url()?>';
           $.ajax({
@@ -880,7 +931,7 @@ echo $g->type." this Check with Developer";
         {
           $("#likecount"+greetingId).html(parseInt(likecount)+1);
           $("#likecount"+greetingId).addClass("active");
-          $("#likeIcon").css("color","#0b0be8 !important");
+          $("#likeIcon"+greetingId).css("color","#0b0be8 !important");
           $.ajax({
             type:"POST",
             url: "<?=base_url('dashboard/postLike')?>",
@@ -893,8 +944,8 @@ echo $g->type." this Check with Developer";
                 );
         }
       }
-      function togglediv(){
-        $(".toggle_div").toggleClass("hidden");
+      function togglediv(id){
+        $(".toggle_div"+id).toggleClass("hidden");
       }
     </script>
     <!--js -->

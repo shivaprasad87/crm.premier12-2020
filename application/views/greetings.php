@@ -487,11 +487,11 @@ if($comment->comment!='')
 }
 ?>
                             </ul>
-                            <button class="btn-success show" onclick="showFunction()"> Show More
+                           <!-- <button class="btn-success show" onclick="showFunction()"> Show More
                             </button>
                             <button class="btn-success hide" onclick="hideFunction()"> Hide
                             </button>
-                            <!-- <button class="show_more" type="button">Load 10 more comments</button> -->
+                             <button class="show_more" type="button">Load 10 more comments</button> -->
                           </div>
                         </div>
                       </div>

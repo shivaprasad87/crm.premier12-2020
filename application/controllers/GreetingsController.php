@@ -70,7 +70,8 @@ class GreetingsController extends CI_Controller {
 
                     }
                     $this->greeting_model->insertRow(array_merge($this->input->post(),$file_data),"todaysgreetings");
-                    print_r(array_merge($this->input->post(),$file_data));
+                    //print_r(array_merge($this->input->post(),$file_data));
+                    redirect(base_url('dashboard'));
             }
     } 
 }

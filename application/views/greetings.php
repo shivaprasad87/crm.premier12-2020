@@ -725,9 +725,15 @@ foreach ($comment as $comment) {
             </div>
             <?php 
 }
+elseif($g->type=="userpost"){
+   echo "Need UI For Manual User POST<br>";
+}
+elseif($g->type=="new"){
+   echo "Need UI For New Joinees<br>";
+}
 else
 {
-echo "Check with Developer";
+echo $g->type." this Check with Developer";
 }
 }
 }

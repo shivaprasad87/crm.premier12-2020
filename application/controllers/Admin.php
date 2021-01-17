@@ -70,7 +70,8 @@ class Admin extends CI_Controller {
 				'address' =>$address,
 				'emp_doj' =>$emp_doj
 			);
-			$this->user_model->add_user($savedata);
+			$user_id = $this->user_model->add_user($savedata);
+			$this->greeting_model->insertRow(array("user_id" => $user_id, "username" => $first_name." ".$last_name, "type" =>"new"),"todaysgreetings");
 			redirect('admin/manage_users');
 		}
 		//$data['all_user'] = $this->user_model->all_employees();
@@ -112,7 +113,8 @@ class Admin extends CI_Controller {
 				"user_dob" => $this->input->post('user_dob'),
 				"emp_doj" => $this->input->post('emp_doj')
 			);
-			$this->user_model->add_user($savedata);
+			$user_id = $this->user_model->add_user($savedata);
+			$this->greeting_model->insertRow(array("user_id" => $user_id, "username" => $first_name." ".$last_name, "type" =>"new"),"todaysgreetings");
 				redirect('admin/manage_directors');
 		}
 		$data['all_directors'] = $this->user_model->all_users("type=4");
@@ -150,7 +152,8 @@ class Admin extends CI_Controller {
 				"user_dob" => $this->input->post('user_dob'),
 				"emp_doj" => $this->input->post('emp_doj')
 			); 
-			$this->user_model->add_user($savedata);
+			$user_id = $this->user_model->add_user($savedata);
+			$this->greeting_model->insertRow(array("user_id" => $user_id, "username" => $first_name." ".$last_name, "type" =>"new"),"todaysgreetings");
 			redirect('admin/manage_vps');
 		}
 		$data['all_vps'] = $this->user_model->all_vps();
@@ -192,7 +195,8 @@ class Admin extends CI_Controller {
 					"user_dob" => $this->input->post('user_dob'),
 					"emp_doj" => $this->input->post('emp_doj')
 				);
-				$this->user_model->add_user($savedata);
+				$user_id = $this->user_model->add_user($savedata);
+				$this->greeting_model->insertRow(array("user_id" => $user_id, "username" => $first_name." ".$last_name, "type" =>"new"),"todaysgreetings");
 				redirect('admin/manage_city_head');
 					
 			}
@@ -231,7 +235,8 @@ class Admin extends CI_Controller {
 				"user_dob" => $this->input->post('user_dob'),
 				"emp_doj" => $this->input->post('emp_doj')
 			);
-			$this->user_model->add_user($savedata);
+			$user_id = $this->user_model->add_user($savedata);
+			$this->greeting_model->insertRow(array("user_id" => $user_id, "username" => $first_name." ".$last_name, "type" =>"new"),"todaysgreetings");
 			redirect('admin/manage_managers');
 		}
 		$data['all_managers'] = $this->user_model->all_managers();

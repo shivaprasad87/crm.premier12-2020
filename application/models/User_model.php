@@ -34,6 +34,8 @@ class User_model extends CI_Model {
             $this->email->message("Welcome to Premier Real Estate CRM System,<br><br>Your user name is ".$data['emp_code']." And password is ".$data['emp_code']." by using them please login to the tool with the following link: <a href=\"https://crm.premier-realestate.in//\" >http://crm.premier-realestate.in//</a> <br><br>Regards Premier Real Estate IT team");
             $this->email->send();
         }
+        $insert_id = $this->db->insert_id();
+        return  $insert_id;
     }
 
     public function all_admins(){        

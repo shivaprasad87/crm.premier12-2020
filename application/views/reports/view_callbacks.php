@@ -254,7 +254,7 @@ else if(!empty($project))
             foreach ($result as $data) {
                 $duedate = explode(" ", $data->due_date);
                 $duedate = $duedate[0]; ?>
-                <tr style="cursor: pointer;" onclick="window.open('<?= base_url('callback-details?id='.$data->id) ?>','_blank')" id="row<?php echo $data->id; ?>" <?php if(strtotime($duedate)<strtotime('today')){?> class="highlight_past" <?php }elseif(strtotime($duedate) == strtotime('today')) {?> class="highlight_now" <?php }elseif(strtotime($duedate)>strtotime('today')){ ?> class="highlight_future" <?php } ?>>
+                <tr onclick="window.open('<?= base_url('callback-details?id='.$data->id) ?>','_blank')" id="row<?php echo $data->id; ?>" <?php if($data->last_update=='0000-00-00 00:00:00') echo "style='font-weight:bold;cursor: pointer;'"; else echo "style='cursor: pointer;'"; if(strtotime($duedate)<strtotime('today')){?> class="highlight_past" <?php }elseif(strtotime($duedate) == strtotime('today')) {?> class="highlight_now" <?php }elseif(strtotime($duedate)>strtotime('today')){ ?> class="highlight_future" <?php } ?>>
                     <td><?php echo $i; ?></td>
                     <?php if(($report == 'lead') || ($report == 'lead_assignment') || ($report == 'site_visit') || ($report == 'clent_reg')){ ?>
 

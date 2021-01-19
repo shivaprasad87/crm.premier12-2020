@@ -295,9 +295,18 @@ p ,a ,a:hover{
 	border: 1px solid #ddd;
     border-top: 1px solid #ddd!important;
 }
-.manual .panel {
-   
+.manual h5{
+    margin-top: 0px;
+	margin-bottom: 10px;
+	color: #45a049;
+}
+.manual .panel,.manual .panel-body p{
+	font-weight: 300;
 	 padding: 0em 0em;
+	 margin-top: 0px;
+}
+.manual label {
+  margin-bottom: 1px;
 }
 .manual .post-footer-option li{
     float:left;

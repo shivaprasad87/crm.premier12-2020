@@ -652,7 +652,8 @@
              
                   <div class="manual wishes">
                     <div class="container">
-                    <div class="col-md-5">
+                    
+                     <div class="col-md-5">
                         <div class="panel panel-default">
                               <div class="panel-body">
                                  <section class="post-heading">
@@ -676,6 +677,9 @@
                                     </div>             
                                  </section>
                                  <section class="post-body">
+                                    <label>Subject</label>
+                                    <h5>Birthday</h5>
+                                    <label>Description</label>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras 
                                     turpis sem, dictum id bibendum eget, malesuada ut massa. Ut scel
                                     erisque nulla sed luctus dapibus. Nulla sit amet mi vitae purus sol
@@ -712,6 +716,7 @@
                               </div>
                         </div>  
                      </div>
+
                      <div class="col-md-5">
                         <div class="panel panel-default">
                               <div class="panel-body">
@@ -736,6 +741,9 @@
                                     </div>             
                                  </section>
                                  <section class="post-body">
+                                    <label>Subject</label>
+                                    <h5>Birthday</h5>
+                                    <label>Description</label>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras 
                                     turpis sem, dictum id bibendum eget, malesuada ut massa. Ut scel
                                     erisque nulla sed luctus dapibus. Nulla sit amet mi vitae purus sol

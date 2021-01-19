@@ -298,8 +298,9 @@ p ,a ,a:hover{
 		 background-size: cover;
 		 position: relative;
 	}
-	.bg-img label,	.bg-img h1 {
-		color: white;
+	.card {
+		background: white;
+		padding: 20px;
 
 	}
 	.bg-img {

@@ -652,8 +652,8 @@
              
                   <div class="manual wishes">
                     <div class="container">
-                      
-                    <div class="bg-img">
+                      <dov class="col-md-6 col-md-offset-3 col-sm-6 col-xs-12">
+                    <div class="card">
                     <center><h1>User Manual</h1></center>
                     <form action="" method="post" enctype="multipart/form-data" >
                                     <label for="subj">Subject</label>
@@ -672,6 +672,7 @@
                                     </center>
                                  </form>
                     
+                     </div>
                      </div>
                     </div>
                 </div>

@@ -652,29 +652,127 @@
              
                   <div class="manual wishes">
                     <div class="container">
-                      <dov class="col-md-6 col-md-offset-3 col-sm-6 col-xs-12">
-                    <div class="card">
-                    <center><h1>User Manual</h1></center>
-                    <form action="" method="post" enctype="multipart/form-data" >
-                                    <label for="subj">Subject</label>
-                                    <input type="text" id="sub" name="p_subject" placeholder="Subject..">
-
-                                   
-                                   
-                                    <label for="img">Select image:</label>
-                                    <input type="file" id="img" name="img" accept="image/*">
-                                   
-                                    <label for="subject">Description
-                                    </label>
-                                    <textarea id="desc" name="p_desc" placeholder="Your Description.." style="height:100px"></textarea>
-                                    <center>
-                                       <input type="submit" value="Submit">
-                                    </center>
-                                 </form>
-                    
+                    <div class="col-md-5">
+                        <div class="panel panel-default">
+                              <div class="panel-body">
+                                 <section class="post-heading">
+                                    <div class="row">
+                                          <div class="col-md-10">
+                                             <div class="media">
+                                                <div class="media-left">
+                                                <a href="#">
+                                                   <img class="media-object photo-profile" src="http://0.gravatar.com/avatar/38d618563e55e6082adf4c8f8c13f3e4?s=40&d=mm&r=g" width="40" height="40" alt="...">
+                                                </a>
+                                                </div>
+                                                <div class="media-body">
+                                                <a href="#" class="anchor-username"><h4 class="media-heading">Bayu Darmantra</h4></a> 
+                                                <a href="#" class="anchor-time">51 mins</a>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="col-md-2">
+                                             <a href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                          </div>
+                                    </div>             
+                                 </section>
+                                 <section class="post-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras 
+                                    turpis sem, dictum id bibendum eget, malesuada ut massa. Ut scel
+                                    erisque nulla sed luctus dapibus. Nulla sit amet mi vitae purus sol
+                                    licitudin venenatis.</p>
+                                    <img src="https://i.imgur.com/xhzhaGA.jpg" class="img-responsive">
+                                 </section>
+                                 <section class="post-footer">
+                                    <hr>
+                                    <div class="post-footer-option container">
+                                          <ul class="list-unstyled">
+                                             <li><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i> Like</a></li>
+                                             
+                                          </ul>
+                                    </div>
+                                    <div class="post-footer-comment-wrapper">
+                                       <div class="comment-form">
+                                             
+                                       </div>
+                                       <div class="comment">
+                                             <div class="media">
+                                                <div class="media-left">
+                                                <a href="#">
+                                                   <img class="media-object photo-profile" src="http://0.gravatar.com/avatar/38d618563e55e6082adf4c8f8c13f3e4?s=40&d=mm&r=g" width="32" height="32" alt="...">
+                                                </a>
+                                                </div>
+                                                <div class="media-body">
+                                                <a href="#" class="anchor-username"><h4 class="media-heading">Media heading</h4></a> 
+                                                <a href="#" class="anchor-time">51 mins</a>
+                                                </div>
+                                             </div>
+                                       </div>
+                                    </div>
+                                 </section>
+                              </div>
+                        </div>  
                      </div>
+                     <div class="col-md-5">
+                        <div class="panel panel-default">
+                              <div class="panel-body">
+                                 <section class="post-heading">
+                                    <div class="row">
+                                          <div class="col-md-10">
+                                             <div class="media">
+                                                <div class="media-left">
+                                                <a href="#">
+                                                   <img class="media-object photo-profile" src="http://0.gravatar.com/avatar/38d618563e55e6082adf4c8f8c13f3e4?s=40&d=mm&r=g" width="40" height="40" alt="...">
+                                                </a>
+                                                </div>
+                                                <div class="media-body">
+                                                <a href="#" class="anchor-username"><h4 class="media-heading">Bayu Darmantra</h4></a> 
+                                                <a href="#" class="anchor-time">51 mins</a>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="col-md-2">
+                                             <a href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                          </div>
+                                    </div>             
+                                 </section>
+                                 <section class="post-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras 
+                                    turpis sem, dictum id bibendum eget, malesuada ut massa. Ut scel
+                                    erisque nulla sed luctus dapibus. Nulla sit amet mi vitae purus sol
+                                    licitudin venenatis.</p>
+                                    <img src="https://i.imgur.com/xhzhaGA.jpg" class="img-responsive">
+                                 </section>
+                                 <section class="post-footer">
+                                    <hr>
+                                    <div class="post-footer-option container">
+                                          <ul class="list-unstyled">
+                                             <li><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i> Like</a></li>
+                                             
+                                          </ul>
+                                    </div>
+                                    <div class="post-footer-comment-wrapper">
+                                       <div class="comment-form">
+                                             
+                                       </div>
+                                       <div class="comment">
+                                             <div class="media">
+                                                <div class="media-left">
+                                                <a href="#">
+                                                   <img class="media-object photo-profile" src="http://0.gravatar.com/avatar/38d618563e55e6082adf4c8f8c13f3e4?s=40&d=mm&r=g" width="32" height="32" alt="...">
+                                                </a>
+                                                </div>
+                                                <div class="media-body">
+                                                <a href="#" class="anchor-username"><h4 class="media-heading">Media heading</h4></a> 
+                                                <a href="#" class="anchor-time">51 mins</a>
+                                                </div>
+                                             </div>
+                                       </div>
+                                    </div>
+                                 </section>
+                              </div>
+                        </div>  
                      </div>
-                    </div>
+                  </div>
                 </div>
                 <div class="welcome">
                     <div class="container">

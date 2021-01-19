@@ -289,29 +289,46 @@ p ,a ,a:hover{
     width: 100%;
     background: #e85b27;
 	}
-	.manual{
-		 /* The image used */
-		 background-color: rgb(240, 234, 234);
- 		 min-height: 500px;
-	   	 background-position: center;
-		 background-repeat: no-repeat;
-		 background-size: cover;
-		 position: relative;
-	}
-	.card {
-		background: white;
-		padding: 20px;
+	
+/*-- Content Style --*/
+.manual .panel-body{
+	border: 1px solid #ddd;
+    border-top: 1px solid #ddd!important;
+}
+.manual .panel {
+   
+	 padding: 0em 0em;
+}
+.manual .post-footer-option li{
+    float:left;
+    margin-right:40px;
+    padding-bottom:15px;
+}
 
-	}
-	.bg-img {
-		position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 300px;
-    padding: 16px;
-	background-image: url("../../img/pattern2.png");
-	}
+.manual .post-footer-option li a{
+    color:#AFB4BD;
+    font-weight:500;
+    font-size:16px;
+}
+
+.manual .photo-profile{
+    border:1px solid #DDD;    
+}
+
+.manual .anchor-username h4{
+	font-weight:bold; 
+	font-size: 16px!important;   
+}
+
+.manual .anchor-time{
+    color:#ADB2BB;
+    font-size:10px;
+}
+
+.manual .post-footer-comment-wrapper{
+    background-color:#F6F7F8;
+}
+	
 	.user-detail{
 		background-color: #d8c26b2e;
 		position: relative;

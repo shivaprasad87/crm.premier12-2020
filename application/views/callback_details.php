@@ -191,15 +191,15 @@
                             ?>
                             <option value="<?php echo $this->session->userdata("user_id"); ?>" <?php echo ($this->session->userdata("user_id") == $user_name) ? 'selected' : ''; ?>><?php echo $this->session->userdata("user_name"); ?></option>
                             <?php
-                             if ($this->session->userdata("user_type")=="user" ){
+                             if ($this->session->userdata("user_type")=="userTemp" ){
                                 $name = $this->user_model->get_user_fullname($this->session->userdata("reports_to")); 
                                 ?>
                                 <option value="<?php echo $this->session->userdata("reports_to") ?>" <?php echo ($this->session->userdata("reports_to") == $user_name) ? 'selected' : ''; ?>><?php echo $name." (manager)"; ?></option>
-                            <?php }elseif ($this->session->userdata("user_type")=="manager" ){ 
+                            <?php }elseif ($this->session->userdata("user_type")=="managerTemp" ){ 
                                 $users = $this->user_model->get_usersby_reports_to($this->session->userdata("user_id"));
                                 foreach ($users as $key => $value) { ?>
                                     <option value="<?php echo $value->id ?>" <?php echo ($value->id  == $user_name) ? 'selected' : ''; ?>><?php echo $value->first_name." ".$value->last_name." (user)"; ?></option>
-                                <?php } }elseif ($this->session->userdata("user_type")=="City_head" ){ 
+                                <?php } }elseif ($this->session->userdata("user_type")=="City_headTemp" ){ 
                                // $users = $this->user_model->get_usersby_reports_to($this->session->userdata("user_id"));
                                     $users = $this->user_model->get_city_users_active();;
                                 foreach ($users as $key => $value) { ?>
@@ -207,7 +207,7 @@
                                 <?php } ?>
                                 <option value="1">Admin</option>
                             <?php }
-                            elseif ($this->session->userdata("user_type")=="director") {
+                            elseif ($this->session->userdata("user_type")!="admin") {
                                  $all_user= $this->user_model->all_users("type in (1,2,3,4,5,6)"); 
                             foreach( $all_user as $user){ 
                                 switch ($user->type) {
@@ -1200,7 +1200,7 @@ $(document).ready(function() {
             $('#save').prop('disabled', false);
         }
         else{
-            $('#save').prop('disabled', true);
+           // $('#save').prop('disabled', true);
         }
     }
     var notesClient = "Greetings From Premier Real Estate.\n\nWith reference to your site visit on {site_visit_date} assisted by Mr. {site_assigned_by} from Premier Real Estate, we thank you for giving us an opportunity to serve you in searching your dream home.  At PMR it is our endeavour to help you with all the possible Property options which will suit your requirement. Mr. {relationship_manager} from PMR will be at your service. He/she will be there to assist you in searching your dream home.\n\n1. Home search - Assisting and helping you find your dream home suiting your requirements by giving you info on market trends, legalities, site visit assistance etc.\n\n2. Home loan Assistance - We will take away your pain of running around the banks to get your loan approved by giving doorstep service of bankers of your choice at your place.\n\n3. Property Purchase Assistance - Ensuring that your home buying becomes a pleasant experience our Relationship Manager will be there throughout the process Of documentation.\n\n4. Post sales Service – This is what differentiates us from others. We will be there for all possible help and guidance till you move into your home.\n\n5. Interior Services - We are tied With best interior designers in the city who give the best designs and execute them at a competitive price.\n\n\nFor any escalations/ complaints please write to admin@leads.com\n\nRegards\n\nTeam Premier Real Estate Services Pvt Ltd";

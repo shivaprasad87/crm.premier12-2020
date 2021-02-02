@@ -21,15 +21,15 @@ class RoundRobbin extends CI_Controller {
     	{
 		foreach ($un_saved as $us) { 
 			$user = $this->common_model->get_users_for_assign($us->project_id,'user'); 
+			echo $this->db->last_query()."<br>";
 			if(!empty($user))
 			{
-			//print_r($user);
+			print_r($user);
 			echo "<br>".$user[0]->id."<br>";
 			$this->save_online_leads($user[0]->id,$us->id,$us->project_id);
-			$check = $this->common_model->userCountplus($user[0]->id); 
-			if($check)
 			$this->index();
-			}
+			
+		}
 		}
 		echo "success";
 		}
@@ -41,6 +41,7 @@ class RoundRobbin extends CI_Controller {
     public function save_online_leads($user='',$online_lead_id='',$project_id=''){ 
 		$error=0;
 		$ext=''; 
+		$this->common_model->userCountplus($user); 
 			$dept=1;
 			$callback_type=1; 
 			$broker=1;

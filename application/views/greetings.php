@@ -650,157 +650,7 @@
                      </div>
                   </div>
              
-                  <div class="manual wishes">
-                    <div class="container">
-                    
-                     <div class="col-md-5">
-                        <div class="panel panel-default">
-                              <div class="panel-body">
-                                 <section class="post-heading">
-                                    <div class="row">
-                                          <div class="col-md-10">
-                                             <div class="media">
-                                                <div class="media-left">
-                                                <a href="#">
-                                                   <img class="media-object photo-profile" src="http://0.gravatar.com/avatar/38d618563e55e6082adf4c8f8c13f3e4?s=40&d=mm&r=g" width="40" height="40" alt="...">
-                                                </a>
-                                                </div>
-                                                <div class="media-body">
-                                                <a href="#" class="anchor-username"><h4 class="media-heading">Bayu Darmantra</h4></a> 
-                                                <a href="#" class="anchor-time">51 mins</a>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <div class="col-md-2">
-                                             <a href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
-                                          </div>
-                                    </div>             
-                                 </section>
-                                 <section class="post-body">
-                                    <label>Subject</label>
-                                    <h5>Birthday</h5>
-                                    <label>Description</label>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras 
-                                    turpis sem, dictum id bibendum eget, malesuada ut massa. Ut scel
-                                    erisque nulla sed luctus dapibus. Nulla sit amet mi vitae purus sol
-                                    licitudin venenatis.</p>
-                                    <img src="https://i.imgur.com/xhzhaGA.jpg" class="img-responsive">
-                                 </section>
-                                 <section class="post-footer">
-                                    <hr>
-                                    <div class="post-footer-option container">
-                                          <ul class="list-unstyled">
-                                             <li><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i> Like</a></li>
-                                             
-                                          </ul>
-                                    </div>
-                                    <div class="post-footer-comment-wrapper">
-                                       <div class="comment-form">
-                                             
-                                       </div>
-                                       <div class="comment">
-                                             <div class="media">
-                                                <div class="media-left">
-                                                <a href="#">
-                                                   <img class="media-object photo-profile" src="http://0.gravatar.com/avatar/38d618563e55e6082adf4c8f8c13f3e4?s=40&d=mm&r=g" width="32" height="32" alt="...">
-                                                </a>
-                                                </div>
-                                                <div class="media-body">
-                                                <a href="#" class="anchor-username"><h4 class="media-heading">Media heading</h4></a> 
-                                                <a href="#" class="anchor-time">51 mins</a>
-                                                </div>
-                                             </div>
-                                       </div>
-                                    </div>
-                                 </section>
-                              </div>
-                        </div>  
-                     </div>
-
-                     <div class="col-md-5">
-                        <div class="panel panel-default">
-                              <div class="panel-body">
-                                 <section class="post-heading">
-                                    <div class="row">
-                                          <div class="col-md-10">
-                                             <div class="media">
-                                                <div class="media-left">
-                                                <a href="#">
-                                                   <img class="media-object photo-profile" src="http://0.gravatar.com/avatar/38d618563e55e6082adf4c8f8c13f3e4?s=40&d=mm&r=g" width="40" height="40" alt="...">
-                                                </a>
-                                                </div>
-                                                <div class="media-body">
-                                                <a href="#" class="anchor-username"><h4 class="media-heading">Bayu Darmantra</h4></a> 
-                                                <a href="#" class="anchor-time">51 mins</a>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <div class="col-md-2">
-                                             <a href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
-                                          </div>
-                                    </div>             
-                                 </section>
-                                 <section class="post-body">
-                                    <label>Subject</label>
-                                    <h5>Birthday</h5>
-                                    <label>Description</label>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras 
-                                    turpis sem, dictum id bibendum eget, malesuada ut massa. Ut scel
-                                    erisque nulla sed luctus dapibus. Nulla sit amet mi vitae purus sol
-                                    licitudin venenatis.</p>
-                                    <img src="https://i.imgur.com/xhzhaGA.jpg" class="img-responsive">
-                                 </section>
-                                 <section class="post-footer">
-                                    <hr>
-                                    <div class="post-footer-option container">
-                                          <ul class="list-unstyled">
-                                             <li><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i> Like</a></li>
-                                             
-                                          </ul>
-                                    </div>
-                                    <div class="post-footer-comment-wrapper">
-                                       <div class="comment-form">
-                                             
-                                       </div>
-                                       <div class="comment">
-                                             <div class="media">
-                                                <div class="media-left">
-                                                <a href="#">
-                                                   <img class="media-object photo-profile" src="http://0.gravatar.com/avatar/38d618563e55e6082adf4c8f8c13f3e4?s=40&d=mm&r=g" width="32" height="32" alt="...">
-                                                </a>
-                                                </div>
-                                                <div class="media-body">
-                                                <a href="#" class="anchor-username"><h4 class="media-heading">Media heading</h4></a> 
-                                                <a href="#" class="anchor-time">51 mins</a>
-                                                </div>
-                                             </div>
-                                       </div>
-                                    </div>
-                                 </section>
-                              </div>
-                        </div>  
-                     </div>
-                  </div>
-                </div>
-                <div class="welcome">
-                    <div class="container">
-                      <div class="row">
-                       
-                          <div class="col-md-6 col-md-offset-3 col-sm-6 col-xs-12 profile-badge">
-                            <div class="upper-img"></div>
-                            <div class="profile-pic">
-                                <img src="https://www.goarabic.com/vm/wp-content/uploads/2019/05/dummy-profile-pic.jpg">
-                            </div>
-                            <div class="user-detail text-center">
-                            <h1>Welcome</h1>
-                                <h3>ABCD</h3>
-                                <p>to The Onboard</p>
-                               
-                            </div>
-                          </div>
-                      </div>
-                    </div>
-                </div>
+            
 
                
             <?php
@@ -924,10 +774,262 @@
          <?php 
             }
             elseif($g->type=="userpost"){
-               //echo "Need UI For Manual User POST<br>";
+               $userpostdata = $this->greeting_model->getOneWhere(array("id"=>$g->user_id),"user");
+              ?>
+              <div class="manual wishes">
+                    <div class="container">
+                    
+                     <div class="col-md-12">
+                        <div class="panel panel-default">
+                              <div class="panel-body">
+                                 <section class="post-heading">
+                                    <div class="row">
+                                          <div class="col-md-10">
+                                             <div class="media">
+                                                <div class="media-left">
+                                                <a href="#">
+                                                   <img class="media-object photo-profile" src="<?=base_url('uploads/'.$userpostdata->profile_pic)?>" width="40" height="40" alt="...">
+                                                </a>
+                                                </div>
+                                                <div class="media-body">
+                                                <a href="#" class="anchor-username"><h4 class="media-heading"><?=$userpostdata->first_name." ".$userpostdata->last_name?></h4></a> 
+                                               <!--  <a href="#" class="anchor-time">51 mins</a> -->
+                                                </div>
+                                             </div>
+                                          </div>
+                                         <!--  <div class="col-md-2">
+                                             <a href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                          </div> -->
+                                    </div>             
+                                 </section>
+                                 <section class="post-body"> 
+                                    <br>
+                                    <h5><?=$g->p_subject?></h5> 
+                                    <p><?=$g->p_desc?></p>
+                                    <img src="<?=base_url('uploads/userpost/').$g->file_name?>" class="img-responsive">
+                                 </section>
+                                 <div class="ex1">
+                              <div class="container1">
+                                 <div class="fbcomment" id="">
+                                    <div class="data-icons-complete">
+                                       <?php
+                                          $likes = $this->greeting_model->countWhere(array("g_id"=>$g->id,"liked!="=>0),"greetingcomments"); 
+                                          $commentsCount = $this->greeting_model->countWhere(array("g_id"=>$g->id,"comment!="=>''),"greetingcomments"); 
+                                          $no_data = $this->greeting_model->getWhere(array('g_id'=>$g->id,'user_id'=>$this->session->userdata('user_id'),"liked"=>1),'greetingcomments'); 
+                                          ?>
+                                       <div style="float: left;">
+                                          <i id="likeIcon<?=$g->id?>" style="cursor:pointer;<?=(count($no_data)>0?'color: rgb(11, 11, 232)':'')?>"  onclick="likecount('<?=$g->id?>');" class="fa fa-thumbs-up" aria-hidden="true">
+                                          <a id="likecount<?=$g->id?>" class="<?=(count($no_data)>0?'active':'')?>">
+                                          <?=($likes>0?$likes:'0')?>
+                                          </a>
+                                          </i> 
+                                       </div>
+                                       <div style="float: right;">
+                                          <i onclick="togglediv('<?=$g->id?>')" style="cursor:pointer" class="fa fa-comments" aria-hidden="true">
+                                          <a  id="commentCount<?=$g->id?>">
+                                          <?=($commentsCount>0?$commentsCount:'0')?>Comments
+                                          </a>
+                                          </i> 
+                                       </div>
+                                    </div>
+                                    <br>
+                                    <div class="clearfix">
+                                    </div>
+                                    <br>
+                                    <div class="body_comment toggle_div<?=$g->id?> hidden">
+                                       <div class="row">
+                                          <div class="avatar_comment col-md-1">
+                                             <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
+                                             <span>
+                                             <?=$this->session->userdata('user_name');?>
+                                             </span>
+                                          </div>
+                                          <div class="box_comment col-md-11">
+                                             <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..."></textarea>
+                                             <div class="box_post">
+                                                <div class="pull-right"> 
+                                                   <button onclick="submit_comment('<?=$this->session->userdata("user_id")?>','<?=$g->user_id?>','<?=$g->id?>');" type="button" value="1">Post
+                                                   </button>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="row">
+                                          <ul id="list_comment<?=$g->id?>" class="col-md-12">
+                                             <!-- Start List Comment 2 -->
+                                             <?php 
+                                                $comment = $this->greeting_model->prevComments($g->id);
+                                                if(count($comment)>0)
+                                                {
+                                                foreach ($comment as $comment) {
+                                                if($comment->comment!='')
+                                                {
+                                                ?>
+                                             <li class="box_result row prev_wishes" >
+                                                <div class="avatar_comment col-md-1">
+                                                   <img src="<?=base_url('uploads/'.$comment->user_profile_pic)?>" alt="avatar"/>
+                                                </div>
+                                                <div class="result_comment col-md-11">
+                                                   <h4 class="test">
+                                                      <?=$comment->f_name." ".$comment->l_name;?>
+                                                   </h4>
+                                                   <p>
+                                                      <?=$comment->comment;?>
+                                                   </p>
+                                                   <div class="tools_comment"> 
+                                                      <span aria-hidden="true"> · 
+                                                      </span>
+                                                      <span>
+                                                      <?=time_since(strtotime(date("Y-m-d H:i:s"))-strtotime($comment->date_added));?> ago
+                                                      </span>
+                                                   </div>
+                                                   <ul class="child_replay">
+                                                   </ul>
+                                                </div>
+                                             </li>
+                                             <?php
+                                                }
+                                                }
+                                                }
+                                                ?>
+                                          </ul>
+                                          <!-- <button class="btn-success show" onclick="showFunction()"> Show More
+                                             </button>
+                                             <button class="btn-success hide" onclick="hideFunction()"> Hide
+                                             </button>
+                                              <button class="show_more" type="button">Load 10 more comments</button> -->
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                              </div>
+                        </div>  
+                     </div>
+
+                     
+                  </div>
+                </div>
+              <?php
             }
             elseif($g->type=="new"){
-               //echo "Need UI For New Joinees<br>";
+               ?>
+
+                <div class="welcome">
+                    <div class="container">
+                      <div class="row">
+                       
+                          <div class="col-md-6 col-md-offset-3 col-sm-6 col-xs-12 profile-badge">
+                            <div class="upper-img"></div>
+                            <div class="profile-pic">
+                                <img src="https://www.goarabic.com/vm/wp-content/uploads/2019/05/dummy-profile-pic.jpg">
+                            </div>
+                            <div class="user-detail text-center">
+                            <h1>Welcome</h1>
+                                <h3><?=$g->username;?></h3>
+                                <p>to The Onboard</p>
+                               
+                            </div>
+                          </div>
+                      </div>
+                      <div class="ex1">
+                              <div class="container1">
+                                 <div class="fbcomment" id="">
+                                    <div class="data-icons-complete">
+                                       <?php
+                                          $likes = $this->greeting_model->countWhere(array("g_id"=>$g->id,"liked!="=>0),"greetingcomments"); 
+                                          $commentsCount = $this->greeting_model->countWhere(array("g_id"=>$g->id,"comment!="=>''),"greetingcomments"); 
+                                          $no_data = $this->greeting_model->getWhere(array('g_id'=>$g->id,'user_id'=>$this->session->userdata('user_id'),"liked"=>1),'greetingcomments'); 
+                                          ?>
+                                       <div style="float: left;">
+                                          <i id="likeIcon<?=$g->id?>" style="cursor:pointer;<?=(count($no_data)>0?'color: rgb(11, 11, 232)':'')?>"  onclick="likecount('<?=$g->id?>');" class="fa fa-thumbs-up" aria-hidden="true">
+                                          <a id="likecount<?=$g->id?>" class="<?=(count($no_data)>0?'active':'')?>">
+                                          <?=($likes>0?$likes:'0')?>
+                                          </a>
+                                          </i> 
+                                       </div>
+                                       <div style="float: right;">
+                                          <i onclick="togglediv('<?=$g->id?>')" style="cursor:pointer" class="fa fa-comments" aria-hidden="true">
+                                          <a  id="commentCount<?=$g->id?>">
+                                          <?=($commentsCount>0?$commentsCount:'0')?>Comments
+                                          </a>
+                                          </i> 
+                                       </div>
+                                    </div>
+                                    <br>
+                                    <div class="clearfix">
+                                    </div>
+                                    <br>
+                                    <div class="body_comment toggle_div<?=$g->id?> hidden">
+                                       <div class="row">
+                                          <div class="avatar_comment col-md-1">
+                                             <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
+                                             <span>
+                                             <?=$this->session->userdata('user_name');?>
+                                             </span>
+                                          </div>
+                                          <div class="box_comment col-md-11">
+                                             <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..."></textarea>
+                                             <div class="box_post">
+                                                <div class="pull-right"> 
+                                                   <button onclick="submit_comment('<?=$this->session->userdata("user_id")?>','<?=$g->user_id?>','<?=$g->id?>');" type="button" value="1">Post
+                                                   </button>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="row">
+                                          <ul id="list_comment<?=$g->id?>" class="col-md-12">
+                                             <!-- Start List Comment 2 -->
+                                             <?php 
+                                                $comment = $this->greeting_model->prevComments($g->id);
+                                                if(count($comment)>0)
+                                                {
+                                                foreach ($comment as $comment) {
+                                                if($comment->comment!='')
+                                                {
+                                                ?>
+                                             <li class="box_result row prev_wishes" >
+                                                <div class="avatar_comment col-md-1">
+                                                   <img src="<?=base_url('uploads/'.$comment->user_profile_pic)?>" alt="avatar"/>
+                                                </div>
+                                                <div class="result_comment col-md-11">
+                                                   <h4 class="test">
+                                                      <?=$comment->f_name." ".$comment->l_name;?>
+                                                   </h4>
+                                                   <p>
+                                                      <?=$comment->comment;?>
+                                                   </p>
+                                                   <div class="tools_comment"> 
+                                                      <span aria-hidden="true"> · 
+                                                      </span>
+                                                      <span>
+                                                      <?=time_since(strtotime(date("Y-m-d H:i:s"))-strtotime($comment->date_added));?> ago
+                                                      </span>
+                                                   </div>
+                                                   <ul class="child_replay">
+                                                   </ul>
+                                                </div>
+                                             </li>
+                                             <?php
+                                                }
+                                                }
+                                                }
+                                                ?>
+                                          </ul>
+                                          <!-- <button class="btn-success show" onclick="showFunction()"> Show More
+                                             </button>
+                                             <button class="btn-success hide" onclick="hideFunction()"> Hide
+                                             </button>
+                                              <button class="show_more" type="button">Load 10 more comments</button> -->
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                    </div>
+                </div>
+                <?php
             }
             else
             {

@@ -26,6 +26,13 @@
     }
     ?>
     <style>
+    /* @media (min-width: 769px){
+      .inner-content {
+         margin-bottom: 55px;
+         margin-top: -30px;
+      }
+    } */
+
       td,
       th {
       /* border: 1px solid #dddddd; */
@@ -331,8 +338,7 @@
                   padding: 5px
                   }
                </style>
-               <script></script> 
-               <?php 
+                 <?php 
                   //print_r($greeting);die;
                   if(count($greeting)>0)
                   {
@@ -1040,9 +1046,11 @@
             }
             ?>
          <!--/tabs-->
+         </div>
          <div class="tab-main">
             <!--/tabs-inner-->
          </div>
+         
          <!--//tabs-inner-->
          <!--footer section start-->
          <footer>
@@ -1051,7 +1059,8 @@
             </p>
          </footer>
          <!--footer section end-->
-      </div>
+     
+   </div>
    </div>
    <!--//content-inner-->
    <!--/sidebar-menu-->

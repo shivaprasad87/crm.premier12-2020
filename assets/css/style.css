@@ -1260,8 +1260,11 @@ ul.dropdown {
 	    margin-bottom: 2em;
 }
 .widget {
-       width: 23.5%;
+       /* width: 23.5%; */
     padding: 0px;
+}
+.mt-10{
+	margin-top: 10px;
 }
 .widget.states-mdl {
     margin: 0 2%;
@@ -1329,8 +1332,8 @@ ul.dropdown {
     margin-top: 17px;
     font-weight: 400;
 }
-.stats-right label {
-    font-size: 2em;
+.stats-right label ,.stats-right label a{
+    font-size: 20px;
     color: #3E3D3D;
 }
 /*--/charts--*/
@@ -9129,3 +9132,16 @@ div.container {
   display: none;
   opacity: 0.8;
   }
+  .Greetings-scrollbar
+  {
+	float: left;
+    height: 450px;
+    width: 50%;
+    background: #F5F5F5;
+    overflow-y: scroll;
+}
+    .force-overflow
+{
+	min-height: 850px;
+	width: 100%;
+}

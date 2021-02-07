@@ -353,10 +353,16 @@
                           
                 if ($this->session->userdata('user_type')=="user") { 
                     ?>
-
-                                
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 Greetings-scrollbar ">
+                        <div class="force-overflow">
+                      
+                            <p>Greetings </p>  
+                        </div>                      
+                         </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
                                 <div class="row-one">
-                                    <div class="col-md-3 widget">
+                                    <div class="col-md-6 widget mt-10">
                                         <div class="stats-left ">
                                             <h5>Today</h5>
                                             <h4> Calls</h4>
@@ -366,7 +372,7 @@
                                         </div>
                                         <div class="clearfix"> </div>
                                     </div>
-                                    <div class="col-md-3 widget ">
+                                    <div class="col-md-6 widget mt-10">
                                         <div class="stats-left">
                                             <h5>Yesterday</h5>
                                             <h4>Calls</h4>
@@ -376,7 +382,7 @@
                                         </div>
                                         <div class="clearfix"> </div>
                                     </div>
-                                    <div class="col-md-3 widget ">
+                                    <div class="col-md-6 widget mt-10">
                                         <div class="stats-left">
                                             <h5>Overdue </h5>
                                             <h4>Calls</h4>
@@ -386,7 +392,7 @@
                                         </div>
                                         <div class="clearfix"> </div>
                                     </div>
-                                    <div class="col-md-3 widget ">
+                                    <div class="col-md-6 widget mt-10">
                                         <div class="stats-left">
                                             <h5>Today Calls</h5>
                                             <h4>Done</h4>
@@ -398,12 +404,9 @@
                                     </div>
                                     <div class="clearfix"> </div>
                                 </div>
-                                <!-- </div -->
-
-                                <br>
 
                                 <div class="row-one">
-                                    <div class="col-md-3 widget">
+                                    <div class="col-md-6 widget mt-10 ">
                                         <div class="stats-left ">
                                             <h5>Calls Assigned </h5>
                                             <h4> Today</h4>
@@ -413,7 +416,7 @@
                                         </div>
                                         <div class="clearfix"> </div>
                                     </div>
-                                    <div class="col-md-3 widget ">
+                                    <div class="col-md-6 widget mt-10">
                                         <div class="stats-left">
                                             <h5>Total</h5>
                                             <h4>Leads</h4>
@@ -423,7 +426,7 @@
                                         </div>
                                         <div class="clearfix"> </div>
                                     </div>
-                                    <div class="col-md-3 widget ">
+                                    <div class="col-md-6 widget mt-10">
                                         <div class="stats-left">
                                             <h5>Dead </h5>
                                             <h4>Leads</h4>
@@ -433,7 +436,7 @@
                                         </div>
                                         <div class="clearfix"> </div>
                                     </div>
-                                    <div class="col-md-3 widget ">
+                                    <div class="col-md-6 widget mt-10">
                                         <div class="stats-left">
                                             <h5>Active</h5>
                                             <h4>Leads</h4>
@@ -445,6 +448,8 @@
                                     </div>
                                     <div class="clearfix"> </div>
                                 </div>
+                        </div>
+                    </div>
 
                                 <br>
 
@@ -631,8 +636,8 @@
 
                                     @media (max-width:1366px) {
                                         .stats-right {
-                                            padding: 37px 0px !important;
-                                            height: 100px !important;
+                                            padding: 35px 0px !important;
+                                            height: 71px !important;
                                         }
                                         .stats-right label {
                                             font-size: 1em;
@@ -675,49 +680,61 @@
                                     }
                                 </style>
 
-                                <div class="row-one">
-                                    <div class="col-md-3 widget">
-                                        <div class="stats-left ">
-                                            <h5>Team</h5>
-                                            <h4> Revenue</h4>
-                                        </div>
-                                        <div class="stats-right">
-                                            <label style=""><a href="#" ><?php echo $total_team_revenue?$total_team_revenue:0; ?></a></label>
-                                        </div>
-                                        <div class="clearfix"> </div>
-                                    </div>
-                                    <div class="col-md-3 widget ">
-                                        <div class="stats-left">
-                                            <h5>Own</h5>
-                                            <h4>Closed Calls</h4>
-                                        </div>
-                                        <div class="stats-right" id="textright">
-                                            <label> <a href="#" class="view_callbacks" data-type="manager_close"><?php echo $close_leads_count; ?></a></label>
-                                        </div>
-                                        <div class="clearfix"> </div>
-                                    </div>
-                                    <div class="col-md-3 widget ">
-                                        <div class="stats-left">
-                                            <h5>Total Calls </h5>
-                                            <h4>For Team</h4>
-                                        </div>
-                                        <div class="stats-right" id="textright">
-                                            <label><a href="<?php echo base_url().'view_callbacks?advisor='.$team_members; ?>" ><?php echo $total_calls; ?></a></label>
-                                        </div>
-                                        <div class="clearfix"> </div>
-                                    </div>
-                                    <div class="col-md-3 widget ">
-                                        <div class="stats-left">
-                                            <h5>Own</h5>
-                                            <h4>Revenue</h4>
-                                        </div>
-                                        <div class="stats-right">
-                                            <label> <?php echo $total_revenue; ?></label>
-                                        </div>
-                                        <div class="clearfix"> </div>
-                                    </div>
-                                    <div class="clearfix"> </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-12 Greetings-scrollbar mt-10">
+                                    <div class="force-overflow">
+                                
+                                        <p>Greetings </p>  
+                                    </div>                      
                                 </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                
+                                    <div class="row-one">
+                                        <div class="col-md-6 widget mt-10">
+                                            <div class="stats-left ">
+                                                <h5>Team</h5>
+                                                <h4> Revenue</h4>
+                                            </div>
+                                            <div class="stats-right">
+                                                <label style=""><a href="#" ><?php echo $total_team_revenue?$total_team_revenue:0; ?></a></label>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                        <div class="col-md-6 widget mt-10">
+                                            <div class="stats-left">
+                                                <h5>Own</h5>
+                                                <h4>Closed Calls</h4>
+                                            </div>
+                                            <div class="stats-right" id="textright">
+                                                <label> <a href="#" class="view_callbacks" data-type="manager_close"><?php echo $close_leads_count; ?></a></label>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                        <div class="col-md-6 widget mt-10">
+                                            <div class="stats-left">
+                                                <h5>Total Calls </h5>
+                                                <h4>For Team</h4>
+                                            </div>
+                                            <div class="stats-right" id="textright">
+                                                <label><a href="<?php echo base_url().'view_callbacks?advisor='.$team_members; ?>" ><?php echo $total_calls; ?></a></label>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                        <div class="col-md-6 widget mt-10">
+                                            <div class="stats-left">
+                                                <h5>Own</h5>
+                                                <h4>Revenue</h4>
+                                            </div>
+                                            <div class="stats-right">
+                                                <label> <?php echo $total_revenue; ?></label>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                </div>
+                            </div>
+
 
                                 <div class="container">
                                     <div class="top-mg dash-wd">
@@ -788,11 +805,11 @@
                                             </div>
                                     </div>
 
-                                            <div class="col-md-12">
+                                            <div class="col-md-6">
                                                 <div class="">
                                                     <h2 align="center">Lead Source Report</h2>
                                                     <div class=" ctr">
-                                                        <table align="center" style="width:50%" class="table">
+                                                        <table align="center" style="" class="table">
                                                             <thead>
                                                                 <tr>
                                                                     <th>Lead Source</th>
@@ -817,10 +834,10 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-12">
+                                            <div class="col-md-6">
                                                 <h2 align="center">Call Reports</h2>
                                                 <div class=" ctr">
-                                                    <table align="center" style="width:50%" class="table">
+                                                    <table align="center" style="" class="table">
                                                         <thead>
                                                             <tr>
                                                                 <th>User Name</th>
@@ -1072,54 +1089,64 @@
                                 }
                             </style>
 
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 Greetings-scrollbar mt-10">
+                            <div class="force-overflow">
+                        
+                                <p>Greetings </p>  
+                            </div>                      
+                         </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
                             <div class="row-one">
-                                <div class="col-md-3 widget ">
-                                    <div class="stats-left ">
-                                        <h5>Team</h5>
-                                        <h4> Revenue</h4>
+                                    <div class="col-md-6 widget mt-10">
+                                        <div class="stats-left ">
+                                            <h5>Team</h5>
+                                            <h4> Revenue</h4>
+                                        </div>
+                                        <div class="stats-right mt-0">
+                                            <label style=""><a href="#" ><?php echo $total_team_revenue?$total_team_revenue:0; ?></a></label>
+                                        </div>
+                                        <div class="clearfix"> </div>
                                     </div>
-                                    <div class="stats-right mt-0">
-                                        <label style=""><a href="#" ><?php echo $total_team_revenue?$total_team_revenue:0; ?></a></label>
+
+                                    <div class="col-md-6 widget mt-10">
+                                        <div class="stats-left">
+                                            <h5>Own</h5>
+                                            <h4>Closed Calls</h4>
+                                        </div>
+                                        <div class="stats-right" id="textright">
+                                            <label> <a href="#" class="view_callbacks" data-type="manager_close"><?php echo $close_leads_count; ?></a></label>
+                                        </div>
+                                        <div class="clearfix"> </div>
                                     </div>
+
+                                    <div class="col-md-6 widget mt-10">
+                                        <div class="stats-left">
+                                            <h5>Total Calls </h5>
+                                            <h4>
+                                                <!--For Team -->&nbsp;</h4>
+                                        </div>
+                                        <div class="stats-right" id="textright">
+                                            <label><a href="<?php echo base_url().'view_callbacks?advisor='.$team_members ?>&access=read_write" ><?php echo $total_calls; ?></a></label>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+
+                                    <div class="col-md-6 widget mt-10 ">
+                                        <div class="stats-left">
+                                            <h5>Own</h5>
+                                            <h4>Revenue</h4>
+                                        </div>
+                                        <div class="stats-right">
+                                            <label> <?php echo $total_revenue; ?></label>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+
                                     <div class="clearfix"> </div>
                                 </div>
-
-                                <div class="col-md-3 widget ">
-                                    <div class="stats-left">
-                                        <h5>Own</h5>
-                                        <h4>Closed Calls</h4>
-                                    </div>
-                                    <div class="stats-right" id="textright">
-                                        <label> <a href="#" class="view_callbacks" data-type="manager_close"><?php echo $close_leads_count; ?></a></label>
-                                    </div>
-                                    <div class="clearfix"> </div>
-                                </div>
-
-                                <div class="col-md-3 widget ">
-                                    <div class="stats-left">
-                                        <h5>Total Calls </h5>
-                                        <h4>
-                                            <!--For Team -->&nbsp;</h4>
-                                    </div>
-                                    <div class="stats-right" id="textright">
-                                        <label><a href="<?php echo base_url().'view_callbacks?advisor='.$team_members ?>&access=read_write" ><?php echo $total_calls; ?></a></label>
-                                    </div>
-                                    <div class="clearfix"> </div>
-                                </div>
-
-                                <div class="col-md-3 widget ">
-                                    <div class="stats-left">
-                                        <h5>Own</h5>
-                                        <h4>Revenue</h4>
-                                    </div>
-                                    <div class="stats-right">
-                                        <label> <?php echo $total_revenue; ?></label>
-                                    </div>
-                                    <div class="clearfix"> </div>
-                                </div>
-
-                                <div class="clearfix"> </div>
                             </div>
+                        </div>
 
                             <div class="container">
                                 <div class="col-md-6">

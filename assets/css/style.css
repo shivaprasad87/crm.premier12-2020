@@ -6347,12 +6347,26 @@ footer  p a:hover ,.footer p a:hover{
 	}
 
 	@media (min-width:750px){
+		.birthday-card .fbcomment span{
+			float: right;
+			font-size: 13px;
+			margin-left: -33px;
+			margin-top: 10px;
+		}
+		.wishcard .row ,.wishcard .col-lg-11 {
+		margin: 0px; padding: 0px;
+		}
+
 		.row-one .col-md-3{
 			margin-top: 30px;
 				}
 
 	}
 	@media (max-width:749px){
+		.Greetings-scrollbar {
+			width: 90%!important;
+			
+		}
 
 		.row-one .col-md-3{
 			margin-left: 10px;
@@ -8644,7 +8658,7 @@ footer  p a:hover ,.footer p a:hover{
 .birthday{
     width:100%;
     height:600px;
-    padding:50px;
+    padding:40px;
     /* margin:0 auto; */
     text-align:center;
     border: 1px solid #e8e4e4;
@@ -8674,7 +8688,7 @@ footer  p a:hover ,.footer p a:hover{
      position: absolute;
     top: 0px;
     -webkit-transform: translateY(-50%);
-    transform: translateY(-17%);
+    transform: translateY(-12%);
     left: 0;
     z-index: 120;
     line-height: 108px;
@@ -8683,9 +8697,9 @@ footer  p a:hover ,.footer p a:hover{
 }
 .text1 h1 {
   opacity: 0;
-  font-size: 4.5em;
+  font-size:2.5em;
   font-weight: 700;
-  line-height: 55px;
+  line-height: 36px;
   color: white;
   text-shadow: 0 0 1px #41277C, 0 0 15px rgba(238, 238, 255, 0.85);
   animation: anime 5000ms linear infinite;
@@ -8693,8 +8707,9 @@ footer  p a:hover ,.footer p a:hover{
 }
 .text1 h2 {
   color: aliceblue;
-  font-weight: 700;
-  font-size: 2.3em;
+  font-weight: 500;
+  font-size: 25px;
+    line-height: 30px;
 }
 
 .bgcover{
@@ -9013,7 +9028,7 @@ opacity: 0;
 	.text1 h2 {
 		color: aliceblue;
 		font-weight: 700;
-		font-size: 2.0em;
+		font-size: 20px;
 	}
 	.birthday {
 		width: 100%;
@@ -9061,7 +9076,7 @@ div.ex1 {
   div.ex1 {
 	    /* height: 600px; */
     background-color: #daafaf;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     margin-bottom: 30px;
     /* overflow-y: scroll; */
@@ -9139,6 +9154,7 @@ div.container {
     width: 50%;
     background: #F5F5F5;
     overflow-y: scroll;
+	overflow-x: hidden;
 }
     .force-overflow
 {

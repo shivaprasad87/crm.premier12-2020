@@ -122,8 +122,8 @@
         }
 
         .avatar_comment img {
-            height: 48px;
-            width: 48px;
+            height: 30px;
+            width: 30px;
             float: right;
             border-radius: 100px;
         }
@@ -365,7 +365,7 @@
                   if($g->type=='dob')
                   {
                   ?>
-                <div class="container" style="  margin-left: 0px;">
+                <div class="container wishcard" style="  margin-left: 0px;">
                   <div class="row">
                      <div class="col-lg-11">
                         <div class="birthday-card ">
@@ -456,13 +456,13 @@
                                     <br>
                                     <div class="body_comment toggle_div<?=$g->id?> hidden">
                                        <div class="row">
-                                          <div class="avatar_comment col-md-1">
+                                          <div class="avatar_comment col-md-2">
                                              <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
                                              <span>
                                              <?=$this->session->userdata('user_name');?>
                                              </span>
                                           </div>
-                                          <div class="box_comment col-md-11">
+                                          <div class="box_comment col-md-10">
                                              <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..."></textarea>
                                              <div class="box_post">
                                                 <div class="pull-right"> 
@@ -484,10 +484,10 @@
                                                 {
                                                 ?>
                                              <li class="box_result row prev_wishes" >
-                                                <div class="avatar_comment col-md-1">
+                                                <div class="avatar_comment col-md-2">
                                                    <img src="<?=base_url('uploads/'.($comment->user_profile_pic?$comment->user_profile_pic:'admin.png'))?>" alt="avatar"/>
                                                 </div>
-                                                <div class="result_comment col-md-11">
+                                                <div class="result_comment col-md-10">
                                                    <h4 class="test">
                                                       <?=$comment->f_name." ".$comment->l_name;?>
                                                    </h4>
@@ -523,7 +523,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-lg-1">
+                     <div class="col-lg-1 col-xs-12">
                         <button class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Post
                         </button>
                      </div>
@@ -614,10 +614,10 @@
                                  <br>
                                  <div class="body_comment toggle_div<?=$g->id?> hidden">
                                     <div class="row">
-                                       <div class="avatar_comment col-md-1">
+                                       <div class="avatar_comment col-md-2">
                                           <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
                                        </div>
-                                       <div class="box_comment col-md-11">
+                                       <div class="box_comment col-md-10">
                                           <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..." style="color: black"></textarea>
                                           <div class="box_post">
                                              <div class="pull-right"> 
@@ -639,10 +639,10 @@
                                              {
                                              ?>
                                           <li class="box_result row prev_wishes" >
-                                             <div class="avatar_comment col-md-1">
+                                             <div class="avatar_comment col-md-2">
                                                 <img src="<?=base_url('uploads/'.$comment->user_profile_pic)?>" alt="avatar"/>
                                              </div>
-                                             <div class="result_comment col-md-11">
+                                             <div class="result_comment col-md-10">
                                                 <h4>
                                                    <?=$comment->f_name." ".$comment->l_name;?> 
                                                 </h4>
@@ -738,10 +738,10 @@
                               <br>
                               <div class="body_comment  toggle_div<?=$g->id?> hidden">
                                   <div class="row">
-                                    <div class="avatar_comment col-md-1">
+                                    <div class="avatar_comment col-md-2">
                                         <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
                                     </div>
-                                    <div class="box_comment col-md-11">
+                                    <div class="box_comment col-md-10">
                                         <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..." style="color: black !important"></textarea>
                                         <div class="box_post">
                                           <div class="pull-right"> 
@@ -761,10 +761,10 @@
                                           foreach ($comment as $comment) {
                                           ?> 
                                         <li class="box_result row prev_wishes" >
-                                          <div class="avatar_comment col-md-1">
+                                          <div class="avatar_comment col-md-2">
                                               <img src="<?=base_url('uploads/'.$comment->user_profile_pic)?>" alt="avatar"/>                                           
                                           </div>
-                                          <div class="result_comment col-md-11">
+                                          <div class="result_comment col-md-10">
                                               <h4> 
                                                 <?=$comment->f_name." ".$comment->l_name;?> 
                                               </h4>
@@ -865,13 +865,13 @@
                                     <br>
                                     <div class="body_comment toggle_div<?=$g->id?> hidden">
                                        <div class="row">
-                                          <div class="avatar_comment col-md-1">
+                                          <div class="avatar_comment col-md-2">
                                              <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
-                                             <span>
+                                             <!-- <span>
                                              <?=$this->session->userdata('user_name');?>
-                                             </span>
+                                             </span> -->
                                           </div>
-                                          <div class="box_comment col-md-11">
+                                          <div class="box_comment col-md-10">
                                              <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..."></textarea>
                                              <div class="box_post">
                                                 <div class="pull-right"> 
@@ -893,10 +893,10 @@
                                                 {
                                                 ?>
                                              <li class="box_result row prev_wishes" >
-                                                <div class="avatar_comment col-md-1">
+                                                <div class="avatar_comment col-md-2">
                                                    <img src="<?=base_url('uploads/'.$comment->user_profile_pic)?>" alt="avatar"/>
                                                 </div>
-                                                <div class="result_comment col-md-11">
+                                                <div class="result_comment col-md-10">
                                                    <h4 class="test">
                                                       <?=$comment->f_name." ".$comment->l_name;?>
                                                    </h4>
@@ -947,7 +947,7 @@
                     <div class="container">
                       <div class="row">
                        
-                          <div class="col-md-6 col-md-offset-3 col-sm-6 col-xs-12 profile-badge">
+                          <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12 profile-badge">
                             <div class="upper-img"></div>
                             <div class="profile-pic">
                                 <img src="https://www.goarabic.com/vm/wp-content/uploads/2019/05/dummy-profile-pic.jpg">
@@ -990,13 +990,13 @@
                                     <br>
                                     <div class="body_comment toggle_div<?=$g->id?> hidden">
                                        <div class="row">
-                                          <div class="avatar_comment col-md-1">
+                                          <div class="avatar_comment col-md-2">
                                              <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
                                              <span>
                                              <?=$this->session->userdata('user_name');?>
                                              </span>
                                           </div>
-                                          <div class="box_comment col-md-11">
+                                          <div class="box_comment col-md-10">
                                              <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..."></textarea>
                                              <div class="box_post">
                                                 <div class="pull-right"> 
@@ -1018,10 +1018,10 @@
                                                 {
                                                 ?>
                                              <li class="box_result row prev_wishes" >
-                                                <div class="avatar_comment col-md-1">
+                                                <div class="avatar_comment col-md-2">
                                                    <img src="<?=base_url('uploads/'.$comment->user_profile_pic)?>" alt="avatar"/>
                                                 </div>
-                                                <div class="result_comment col-md-11">
+                                                <div class="result_comment col-md-10">
                                                    <h4 class="test">
                                                       <?=$comment->f_name." ".$comment->l_name;?>
                                                    </h4>
@@ -1492,13 +1492,13 @@
                                     <br>
                                     <div class="body_comment toggle_div<?=$g->id?> hidden">
                                        <div class="row">
-                                          <div class="avatar_comment col-md-1">
+                                          <div class="avatar_comment col-md-2">
                                              <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
                                              <span>
                                              <?=$this->session->userdata('user_name');?>
                                              </span>
                                           </div>
-                                          <div class="box_comment col-md-11">
+                                          <div class="box_comment col-md-10">
                                              <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..."></textarea>
                                              <div class="box_post">
                                                 <div class="pull-right"> 
@@ -1520,10 +1520,10 @@
                                                 {
                                                 ?>
                                              <li class="box_result row prev_wishes" >
-                                                <div class="avatar_comment col-md-1">
+                                                <div class="avatar_comment col-md-2">
                                                    <img src="<?=base_url('uploads/'.$comment->user_profile_pic)?>" alt="avatar"/>
                                                 </div>
-                                                <div class="result_comment col-md-11">
+                                                <div class="result_comment col-md-10">
                                                    <h4 class="test">
                                                       <?=$comment->f_name." ".$comment->l_name;?>
                                                    </h4>
@@ -1650,10 +1650,10 @@
                                  <br>
                                  <div class="body_comment toggle_div<?=$g->id?> hidden">
                                     <div class="row">
-                                       <div class="avatar_comment col-md-1">
+                                       <div class="avatar_comment col-md-2">
                                           <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
                                        </div>
-                                       <div class="box_comment col-md-11">
+                                       <div class="box_comment col-md-10">
                                           <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..." style="color: black"></textarea>
                                           <div class="box_post">
                                              <div class="pull-right"> 
@@ -1675,10 +1675,10 @@
                                              {
                                              ?>
                                           <li class="box_result row prev_wishes" >
-                                             <div class="avatar_comment col-md-1">
+                                             <div class="avatar_comment col-md-2">
                                                 <img src="<?=base_url('uploads/'.$comment->user_profile_pic)?>" alt="avatar"/>
                                              </div>
-                                             <div class="result_comment col-md-11">
+                                             <div class="result_comment col-md-10">
                                                 <h4>
                                                    <?=$comment->f_name." ".$comment->l_name;?> 
                                                 </h4>
@@ -1774,10 +1774,10 @@
                               <br>
                               <div class="body_comment  toggle_div<?=$g->id?> hidden">
                                   <div class="row">
-                                    <div class="avatar_comment col-md-1">
+                                    <div class="avatar_comment col-md-2">
                                         <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
                                     </div>
-                                    <div class="box_comment col-md-11">
+                                    <div class="box_comment col-md-10">
                                         <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..." style="color: black !important"></textarea>
                                         <div class="box_post">
                                           <div class="pull-right"> 
@@ -1797,10 +1797,10 @@
                                           foreach ($comment as $comment) {
                                           ?> 
                                         <li class="box_result row prev_wishes" >
-                                          <div class="avatar_comment col-md-1">
+                                          <div class="avatar_comment col-md-2">
                                               <img src="<?=base_url('uploads/'.$comment->user_profile_pic)?>" alt="avatar"/>                                           
                                           </div>
-                                          <div class="result_comment col-md-11">
+                                          <div class="result_comment col-md-10">
                                               <h4> 
                                                 <?=$comment->f_name." ".$comment->l_name;?> 
                                               </h4>
@@ -1899,13 +1899,13 @@
                                     <br>
                                     <div class="body_comment toggle_div<?=$g->id?> hidden">
                                        <div class="row">
-                                          <div class="avatar_comment col-md-1">
+                                          <div class="avatar_comment col-md-2">
                                              <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
                                              <span>
                                              <?=$this->session->userdata('user_name');?>
                                              </span>
                                           </div>
-                                          <div class="box_comment col-md-11">
+                                          <div class="box_comment col-md-10">
                                              <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..."></textarea>
                                              <div class="box_post">
                                                 <div class="pull-right"> 
@@ -1927,10 +1927,10 @@
                                                 {
                                                 ?>
                                              <li class="box_result row prev_wishes" >
-                                                <div class="avatar_comment col-md-1">
+                                                <div class="avatar_comment col-md-2">
                                                    <img src="<?=base_url('uploads/'.$comment->user_profile_pic)?>" alt="avatar"/>
                                                 </div>
-                                                <div class="result_comment col-md-11">
+                                                <div class="result_comment col-md-10">
                                                    <h4 class="test">
                                                       <?=$comment->f_name." ".$comment->l_name;?>
                                                    </h4>
@@ -2023,13 +2023,13 @@
                                     <br>
                                     <div class="body_comment toggle_div<?=$g->id?> hidden">
                                        <div class="row">
-                                          <div class="avatar_comment col-md-1">
+                                          <div class="avatar_comment col-md-2">
                                              <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
                                              <span>
                                              <?=$this->session->userdata('user_name');?>
                                              </span>
                                           </div>
-                                          <div class="box_comment col-md-11">
+                                          <div class="box_comment col-md-10">
                                              <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..."></textarea>
                                              <div class="box_post">
                                                 <div class="pull-right"> 
@@ -2051,10 +2051,10 @@
                                                 {
                                                 ?>
                                              <li class="box_result row prev_wishes" >
-                                                <div class="avatar_comment col-md-1">
+                                                <div class="avatar_comment col-md-2">
                                                    <img src="<?=base_url('uploads/'.$comment->user_profile_pic)?>" alt="avatar"/>
                                                 </div>
-                                                <div class="result_comment col-md-11">
+                                                <div class="result_comment col-md-10">
                                                    <h4 class="test">
                                                       <?=$comment->f_name." ".$comment->l_name;?>
                                                    </h4>
@@ -2607,13 +2607,13 @@
                                     <br>
                                     <div class="body_comment toggle_div<?=$g->id?> hidden">
                                        <div class="row">
-                                          <div class="avatar_comment col-md-1">
+                                          <div class="avatar_comment col-md-2">
                                              <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
                                              <span>
                                              <?=$this->session->userdata('user_name');?>
                                              </span>
                                           </div>
-                                          <div class="box_comment col-md-11">
+                                          <div class="box_comment col-md-10">
                                              <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..."></textarea>
                                              <div class="box_post">
                                                 <div class="pull-right"> 
@@ -2635,10 +2635,10 @@
                                                 {
                                                 ?>
                                              <li class="box_result row prev_wishes" >
-                                                <div class="avatar_comment col-md-1">
+                                                <div class="avatar_comment col-md-2">
                                                    <img src="<?=base_url('uploads/'.$comment->user_profile_pic)?>" alt="avatar"/>
                                                 </div>
-                                                <div class="result_comment col-md-11">
+                                                <div class="result_comment col-md-10">
                                                    <h4 class="test">
                                                       <?=$comment->f_name." ".$comment->l_name;?>
                                                    </h4>
@@ -2765,10 +2765,10 @@
                                  <br>
                                  <div class="body_comment toggle_div<?=$g->id?> hidden">
                                     <div class="row">
-                                       <div class="avatar_comment col-md-1">
+                                       <div class="avatar_comment col-md-2">
                                           <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
                                        </div>
-                                       <div class="box_comment col-md-11">
+                                       <div class="box_comment col-md-10">
                                           <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..." style="color: black"></textarea>
                                           <div class="box_post">
                                              <div class="pull-right"> 
@@ -2790,10 +2790,10 @@
                                              {
                                              ?>
                                           <li class="box_result row prev_wishes" >
-                                             <div class="avatar_comment col-md-1">
+                                             <div class="avatar_comment col-md-2">
                                                 <img src="<?=base_url('uploads/'.$comment->user_profile_pic)?>" alt="avatar"/>
                                              </div>
-                                             <div class="result_comment col-md-11">
+                                             <div class="result_comment col-md-10">
                                                 <h4>
                                                    <?=$comment->f_name." ".$comment->l_name;?> 
                                                 </h4>
@@ -2889,10 +2889,10 @@
                               <br>
                               <div class="body_comment  toggle_div<?=$g->id?> hidden">
                                   <div class="row">
-                                    <div class="avatar_comment col-md-1">
+                                    <div class="avatar_comment col-md-2">
                                         <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
                                     </div>
-                                    <div class="box_comment col-md-11">
+                                    <div class="box_comment col-md-10">
                                         <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..." style="color: black !important"></textarea>
                                         <div class="box_post">
                                           <div class="pull-right"> 
@@ -2912,10 +2912,10 @@
                                           foreach ($comment as $comment) {
                                           ?> 
                                         <li class="box_result row prev_wishes" >
-                                          <div class="avatar_comment col-md-1">
+                                          <div class="avatar_comment col-md-2">
                                               <img src="<?=base_url('uploads/'.$comment->user_profile_pic)?>" alt="avatar"/>                                           
                                           </div>
-                                          <div class="result_comment col-md-11">
+                                          <div class="result_comment col-md-10">
                                               <h4> 
                                                 <?=$comment->f_name." ".$comment->l_name;?> 
                                               </h4>
@@ -3014,13 +3014,13 @@
                                     <br>
                                     <div class="body_comment toggle_div<?=$g->id?> hidden">
                                        <div class="row">
-                                          <div class="avatar_comment col-md-1">
+                                          <div class="avatar_comment col-md-2">
                                              <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
                                              <span>
                                              <?=$this->session->userdata('user_name');?>
                                              </span>
                                           </div>
-                                          <div class="box_comment col-md-11">
+                                          <div class="box_comment col-md-10">
                                              <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..."></textarea>
                                              <div class="box_post">
                                                 <div class="pull-right"> 
@@ -3042,10 +3042,10 @@
                                                 {
                                                 ?>
                                              <li class="box_result row prev_wishes" >
-                                                <div class="avatar_comment col-md-1">
+                                                <div class="avatar_comment col-md-2">
                                                    <img src="<?=base_url('uploads/'.$comment->user_profile_pic)?>" alt="avatar"/>
                                                 </div>
-                                                <div class="result_comment col-md-11">
+                                                <div class="result_comment col-md-10">
                                                    <h4 class="test">
                                                       <?=$comment->f_name." ".$comment->l_name;?>
                                                    </h4>
@@ -3138,13 +3138,13 @@
                                     <br>
                                     <div class="body_comment toggle_div<?=$g->id?> hidden">
                                        <div class="row">
-                                          <div class="avatar_comment col-md-1">
+                                          <div class="avatar_comment col-md-2">
                                              <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
                                              <span>
                                              <?=$this->session->userdata('user_name');?>
                                              </span>
                                           </div>
-                                          <div class="box_comment col-md-11">
+                                          <div class="box_comment col-md-10">
                                              <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..."></textarea>
                                              <div class="box_post">
                                                 <div class="pull-right"> 
@@ -3166,10 +3166,10 @@
                                                 {
                                                 ?>
                                              <li class="box_result row prev_wishes" >
-                                                <div class="avatar_comment col-md-1">
+                                                <div class="avatar_comment col-md-2">
                                                    <img src="<?=base_url('uploads/'.$comment->user_profile_pic)?>" alt="avatar"/>
                                                 </div>
-                                                <div class="result_comment col-md-11">
+                                                <div class="result_comment col-md-10">
                                                    <h4 class="test">
                                                       <?=$comment->f_name." ".$comment->l_name;?>
                                                    </h4>

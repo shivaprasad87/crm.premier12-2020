@@ -439,9 +439,9 @@
                                        <div class="row">
                                           <div class="avatar_comment col-md-1">
                                              <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
-                                             <span>
+                                             <!-- <span>
                                              <?=$this->session->userdata('user_name');?>
-                                             </span>
+                                             </span> -->
                                           </div>
                                           <div class="box_comment col-md-11">
                                              <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..."></textarea>

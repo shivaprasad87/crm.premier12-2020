@@ -1836,6 +1836,8 @@
             }
             elseif($g->type=="userpost"){
                $userpostdata = $this->greeting_model->getOneWhere(array("id"=>$g->user_id),"user");
+                if(is_object($userpostdata))
+               {
               ?>
               <div class="manual wishes">
                     <div class="container">
@@ -1972,6 +1974,7 @@
                   </div>
                 </div>
               <?php
+          }
             }
             elseif($g->type=="new"){
                ?>
@@ -2951,6 +2954,8 @@
             }
             elseif($g->type=="userpost"){
                $userpostdata = $this->greeting_model->getOneWhere(array("id"=>$g->user_id),"user");
+                if(is_object($userpostdata))
+               {
               ?>
               <div class="manual wishes">
                     <div class="container">
@@ -3088,6 +3093,7 @@
                 </div>
               <?php
             }
+        }
             elseif($g->type=="new"){
                ?>
 

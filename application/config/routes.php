@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 $route['default_controller'] = 'dashboard';
-$route['dashboard'] = 'dashboard/GreetingsDashboard';
+$route['dashboard'] = 'dashboard';
 $route['callbacks'] = 'dashboard/callbacks';
 $route['callbacks/(:num)'] = 'dashboard/callbacks';
 $route['search_callback'] = 'dashboard/search_callback';

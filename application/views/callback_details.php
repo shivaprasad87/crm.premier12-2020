@@ -1434,9 +1434,9 @@ $(document).ready(function() {
             data:data,
             success:function(data){
               alert('Data saved Success.');
-              //opener.location.reload();
-             // window.top.close();
-             location.reload();
+             opener.location.reload();
+             window.top.close();
+            // location.reload();
             }
         });
     }

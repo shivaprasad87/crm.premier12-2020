@@ -60,7 +60,8 @@ class Dashboard extends CI_Controller {
         $data['profile_pic'] = json_decode( json_encode($data['profile_pic']), true);
         $this->session->set_userdata('profile_pic',$data['profile_pic'][0]['profile_pic']);
         $data['greeting'] = $this->common_model->getWhere(array("date(date_added) <="=>date("Y-m-d")),"todaysgreetings");
-       // print_r($data['greeting']);die;
+        $data['holidays'] = $this->common_model->getNextThreeHolidays('holidays');
+        //print_r($data['holidays']);die;
 
         if ($this->session->userdata('user_type') == 'user') {
             $data['imp_callbacks'] = $this->callback_model->fetch_important_callbacks($data['user_id']);

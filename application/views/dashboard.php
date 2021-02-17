@@ -318,7 +318,7 @@
                         <div class="clearfix"></div>
                     </div>
                         <!-- //header-ends -->
-
+                        
                         <?php
                         if(!$this->session->userdata('permissions') && $this->session->userdata('permissions')=='' ) {
                         ?>
@@ -351,82 +351,74 @@
                         <div class="custom-widgets">
                                <?php 
                           
-                if ($this->session->userdata('user_type')=="user") { 
+                    if ($this->session->userdata('user_type')=="user") { 
                     ?>
-                    <div class="row">
+                       <div class="row">
+                    <!-- user div -->
                         <div class="col-lg-6 col-md-6 col-sm-12 Greetings-scrollbar ">
                         <div class="force-overflow">
                       
-                                             <?php 
+                            <?php 
                   //print_r($greeting);die;
-                  if(count($greeting)>0)
-                  {
-                  foreach ($greeting as $g) {
-                  if($g->type=='dob')
-                  {
-                  ?>
-                <div class="container wishcard" style="  margin-left: 0px;">
-                  <div class="row">
-                     <div class="col-lg-11">
-                        <div class="birthday-card ">
-                           <div class="birthday">
-                              <div class="wrapper">
-                                 <div class="text1">
-                                    <h1>Team Premier Wishes  
-                                       <?=$g->username;?> A Happy birthday!
-                                    </h1>
-                                    <h2 class="mt-30">We wish you good luck, peace, prosperity and success in every dimension of your life and career.
-                                    </h2>
-                                    <h2 class="quote">Hope your Special Day
-                                    </h2>
-                                    <h2 class="quote">Bring bring you all that your Heart Desires
-                                    </h2>
-                                    <h2 class="quote">Wishing you a day of Pleasent Surprises
-                                    </h2>
-                                    <h2 class="quote">Dear "Client Name"
-                                    </h2>
-                                 </div>
-                                 <div id="scene">
-                                    <div class="bgcover">
-                                       <div class="ballon">
-                                       </div>
-                                       <div class="ballon">
-                                       </div>
-                                       <div class="ballon">
-                                       </div>
-                                       <div class="ballon">
-                                       </div>
-                                       <div class="ballon">
-                                       </div>
-                                       <div class="ballon">
-                                       </div>
-                                    </div>
-                                    <div class="cake">
-                                       <div class="candle">
-                                          <div class="candle-1">
-                                             <div class="wax">
+                        if(count($greeting)>0)
+                        {
+                          foreach ($greeting as $g) {
+                            if($g->type=='dob')
+                              {
+                           ?>
+                             <div class="container wishcard" style="  margin-left: 0px;">
+                               <div class="row">
+                                  <div class="col-lg-11">
+                                     <div class="birthday-card ">
+                                        <div class="birthday">
+                                          <div class="wrapper">
+                                            <div class="text1">
+                                              <h1>Team Premier Wishes  
+                                                <?=$g->username;?> A Happy birthday!
+                                                 </h1>
+                                                   <h2 class="mt-30">We wish you good luck, peace, prosperity and success in every dimension of your life and career.
+                                                   </h2>
+                                                     <h2 class="quote">Hope your Special Day
+                                                       </h2>
+                                                        <h2 class="quote">Bring bring you all that your Heart Desires
+                                                         </h2>
+                                                          <h2 class="quote">Wishing you a day of Pleasent Surprises
+                                                            </h2>
+                                                             <h2 class="quote">Dear "Client Name"
+                                                               </h2>
+                                                                </div>
+                                                                  <div id="scene">
+                                                                     <div class="bgcover">
+                                                                       <div class="ballon"></div>
+                                                                        <div class="ballon"></div>
+                                                                        <div class="ballon"></div>
+                                                                        <div class="ballon"></div>
+                                                                        <div class="ballon"></div>
+                                                                        <div class="ballon"></div>
+                                                                      </div>
+                                                                     <div class="cake">
+                                                                        <div class="candle">
+                                                                            <div class="candle-1">
+                                                                                <div class="wax">
+                                                                                </div>
+                                                                                <div class="flame">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                      <div class="strip"></div>
+                                                                       <div class="strip next"></div>
+                                                                     </div>
+                                                                        <div class="platform">
+                                                                        <div class="strip">
+                                                                        </div>
+                                                                        <div class="strip next">
+                                                                        </div>
+                                                                        </div>
+                                                                  </div>
                                              </div>
-                                             <div class="flame">
-                                             </div>
-                                          </div>
-                                       </div>
-                                       <div class="strip">
-                                       </div>
-                                       <div class="strip next">
-                                       </div>
-                                    </div>
-                                    <div class="platform">
-                                       <div class="strip">
-                                       </div>
-                                       <div class="strip next">
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="clearfix"> 
-                              </div>
-                           </div>
-                           <div class="ex1">
+                                <div class="clearfix"></div>
+                             </div>
+                            <div class="ex1">
                               <div class="container1">
                                  <div class="fbcomment" id="">
                                     <div class="data-icons-complete">
@@ -806,137 +798,137 @@
               <div class="manual wishes">
                     <div class="container">
                     
-                     <div class="col-md-12">
-                        <div class="panel panel-default">
-                              <div class="panel-body">
-                                 <section class="post-heading">
-                                    <div class="row">
-                                          <div class="col-md-10">
-                                             <div class="media">
-                                                <div class="media-left">
-                                                <a href="#">
-                                                   <img class="media-object photo-profile" src="<?=base_url('uploads/'.$userpostdata->profile_pic)?>" width="40" height="40" alt="...">
-                                                </a>
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <section class="post-heading">
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                    <a href="#">
+                                                    <img class="media-object photo-profile" src="<?=base_url('uploads/'.$userpostdata->profile_pic)?>" width="40" height="40" alt="...">
+                                                    </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                    <a href="#" class="anchor-username"><h4 class="media-heading"><?=$userpostdata->first_name." ".$userpostdata->last_name?></h4></a> 
+                                                <!--  <a href="#" class="anchor-time">51 mins</a> -->
+                                                    </div>
                                                 </div>
-                                                <div class="media-body">
-                                                <a href="#" class="anchor-username"><h4 class="media-heading"><?=$userpostdata->first_name." ".$userpostdata->last_name?></h4></a> 
-                                               <!--  <a href="#" class="anchor-time">51 mins</a> -->
+                                            </div>
+                                            <!--  <div class="col-md-2">
+                                                <a href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                            </div> -->
+                                        </div>             
+                                    </section>
+                                    <section class="post-body"> 
+                                        <br>
+                                        <h5><?=$g->p_subject?></h5> 
+                                        <p><?=$g->p_desc?></p>
+                                        <img src="<?=base_url('uploads/userpost/').$g->file_name?>" class="img-responsive">
+                                    </section>
+                                    <div class="ex1">
+                                        <div class="container1">
+                                            <div class="fbcomment" id="">
+                                                <div class="data-icons-complete">
+                                                <?php
+                                                    $likes = $this->greeting_model->countWhere(array("g_id"=>$g->id,"liked!="=>0),"greetingcomments"); 
+                                                    $commentsCount = $this->greeting_model->countWhere(array("g_id"=>$g->id,"comment!="=>''),"greetingcomments"); 
+                                                    $no_data = $this->greeting_model->getWhere(array('g_id'=>$g->id,'user_id'=>$this->session->userdata('user_id'),"liked"=>1),'greetingcomments'); 
+                                                    ?>
+                                                <div style="float: left;">
+                                                    <i id="likeIcon<?=$g->id?>" style="cursor:pointer;<?=(count($no_data)>0?'color: rgb(11, 11, 232)':'')?>"  onclick="likecount('<?=$g->id?>');" class="fa fa-thumbs-up" aria-hidden="true">
+                                                    <a id="likecount<?=$g->id?>" class="<?=(count($no_data)>0?'active':'')?>">
+                                                    <?=($likes>0?$likes:'0')?>
+                                                    </a>
+                                                    </i> 
                                                 </div>
-                                             </div>
-                                          </div>
-                                         <!--  <div class="col-md-2">
-                                             <a href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
-                                          </div> -->
-                                    </div>             
-                                 </section>
-                                 <section class="post-body"> 
-                                    <br>
-                                    <h5><?=$g->p_subject?></h5> 
-                                    <p><?=$g->p_desc?></p>
-                                    <img src="<?=base_url('uploads/userpost/').$g->file_name?>" class="img-responsive">
-                                 </section>
-                                 <div class="ex1">
-                              <div class="container1">
-                                 <div class="fbcomment" id="">
-                                    <div class="data-icons-complete">
-                                       <?php
-                                          $likes = $this->greeting_model->countWhere(array("g_id"=>$g->id,"liked!="=>0),"greetingcomments"); 
-                                          $commentsCount = $this->greeting_model->countWhere(array("g_id"=>$g->id,"comment!="=>''),"greetingcomments"); 
-                                          $no_data = $this->greeting_model->getWhere(array('g_id'=>$g->id,'user_id'=>$this->session->userdata('user_id'),"liked"=>1),'greetingcomments'); 
-                                          ?>
-                                       <div style="float: left;">
-                                          <i id="likeIcon<?=$g->id?>" style="cursor:pointer;<?=(count($no_data)>0?'color: rgb(11, 11, 232)':'')?>"  onclick="likecount('<?=$g->id?>');" class="fa fa-thumbs-up" aria-hidden="true">
-                                          <a id="likecount<?=$g->id?>" class="<?=(count($no_data)>0?'active':'')?>">
-                                          <?=($likes>0?$likes:'0')?>
-                                          </a>
-                                          </i> 
-                                       </div>
-                                       <div style="float: right;">
-                                          <i onclick="togglediv('<?=$g->id?>')" style="cursor:pointer" class="fa fa-comments" aria-hidden="true">
-                                          <a  id="commentCount<?=$g->id?>">
-                                          <?=($commentsCount>0?$commentsCount:'0')?>Comments
-                                          </a>
-                                          </i> 
-                                       </div>
+                                                <div style="float: right;">
+                                                    <i onclick="togglediv('<?=$g->id?>')" style="cursor:pointer" class="fa fa-comments" aria-hidden="true">
+                                                    <a  id="commentCount<?=$g->id?>">
+                                                    <?=($commentsCount>0?$commentsCount:'0')?>Comments
+                                                    </a>
+                                                    </i> 
+                                                </div>
+                                                </div>
+                                                <br>
+                                                <div class="clearfix">
+                                                </div>
+                                                <br>
+                                                <div class="body_comment toggle_div<?=$g->id?> hidden">
+                                                <div class="row">
+                                                    <div class="avatar_comment col-md-2">
+                                                        <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
+                                                        <!-- <span>
+                                                        <?=$this->session->userdata('user_name');?>
+                                                        </span> -->
+                                                    </div>
+                                                    <div class="box_comment col-md-10">
+                                                        <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..."></textarea>
+                                                        <div class="box_post">
+                                                            <div class="pull-right"> 
+                                                            <button onclick="submit_comment('<?=$this->session->userdata("user_id")?>','<?=$g->user_id?>','<?=$g->id?>');" type="button" value="1">Post
+                                                            </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <ul id="list_comment<?=$g->id?>" class="col-md-12">
+                                                        <!-- Start List Comment 2 -->
+                                                        <?php 
+                                                            $comment = $this->greeting_model->prevComments($g->id);
+                                                            if(count($comment)>0)
+                                                            {
+                                                            foreach ($comment as $comment) {
+                                                            if($comment->comment!='')
+                                                            {
+                                                            ?>
+                                                        <li class="box_result row prev_wishes" >
+                                                            <div class="avatar_comment col-md-2">
+                                                            <img src="<?=base_url('uploads/'.$comment->user_profile_pic)?>" alt="avatar"/>
+                                                            </div>
+                                                            <div class="result_comment col-md-10">
+                                                            <h4 class="test">
+                                                                <?=$comment->f_name." ".$comment->l_name;?>
+                                                            </h4>
+                                                            <p>
+                                                                <?=$comment->comment;?>
+                                                            </p>
+                                                            <div class="tools_comment"> 
+                                                                <span aria-hidden="true"> · 
+                                                                </span>
+                                                                <span>
+                                                                <?=time_since(strtotime(date("Y-m-d H:i:s"))-strtotime($comment->date_added));?> ago
+                                                                </span>
+                                                            </div>
+                                                            <ul class="child_replay">
+                                                            </ul>
+                                                            </div>
+                                                        </li>
+                                                        <?php
+                                                            }
+                                                            }
+                                                            }
+                                                            ?>
+                                                    </ul>
+                                                    <!-- <button class="btn-success show" onclick="showFunction()"> Show More
+                                                        </button>
+                                                        <button class="btn-success hide" onclick="hideFunction()"> Hide
+                                                        </button>
+                                                        <button class="show_more" type="button">Load 10 more comments</button> -->
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <br>
-                                    <div class="clearfix">
-                                    </div>
-                                    <br>
-                                    <div class="body_comment toggle_div<?=$g->id?> hidden">
-                                       <div class="row">
-                                          <div class="avatar_comment col-md-2">
-                                             <img src="<?=base_url('uploads/'.$this->session->userdata('profile_pic'));?>" alt="avatar"/>
-                                             <!-- <span>
-                                             <?=$this->session->userdata('user_name');?>
-                                             </span> -->
-                                          </div>
-                                          <div class="box_comment col-md-10">
-                                             <textarea class="commentar" id="wishes<?=$g->id?>" placeholder="Add a comment..."></textarea>
-                                             <div class="box_post">
-                                                <div class="pull-right"> 
-                                                   <button onclick="submit_comment('<?=$this->session->userdata("user_id")?>','<?=$g->user_id?>','<?=$g->id?>');" type="button" value="1">Post
-                                                   </button>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                       <div class="row">
-                                          <ul id="list_comment<?=$g->id?>" class="col-md-12">
-                                             <!-- Start List Comment 2 -->
-                                             <?php 
-                                                $comment = $this->greeting_model->prevComments($g->id);
-                                                if(count($comment)>0)
-                                                {
-                                                foreach ($comment as $comment) {
-                                                if($comment->comment!='')
-                                                {
-                                                ?>
-                                             <li class="box_result row prev_wishes" >
-                                                <div class="avatar_comment col-md-2">
-                                                   <img src="<?=base_url('uploads/'.$comment->user_profile_pic)?>" alt="avatar"/>
-                                                </div>
-                                                <div class="result_comment col-md-10">
-                                                   <h4 class="test">
-                                                      <?=$comment->f_name." ".$comment->l_name;?>
-                                                   </h4>
-                                                   <p>
-                                                      <?=$comment->comment;?>
-                                                   </p>
-                                                   <div class="tools_comment"> 
-                                                      <span aria-hidden="true"> · 
-                                                      </span>
-                                                      <span>
-                                                      <?=time_since(strtotime(date("Y-m-d H:i:s"))-strtotime($comment->date_added));?> ago
-                                                      </span>
-                                                   </div>
-                                                   <ul class="child_replay">
-                                                   </ul>
-                                                </div>
-                                             </li>
-                                             <?php
-                                                }
-                                                }
-                                                }
-                                                ?>
-                                          </ul>
-                                          <!-- <button class="btn-success show" onclick="showFunction()"> Show More
-                                             </button>
-                                             <button class="btn-success hide" onclick="hideFunction()"> Hide
-                                             </button>
-                                              <button class="show_more" type="button">Load 10 more comments</button> -->
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                              </div>
-                        </div>  
-                     </div>
+                                </div>
+                            </div>  
+                        </div>
 
-                     
-                  </div>
-                </div>
+                        
+                    </div>
+              </div>
               <?php
           }
             }
@@ -953,7 +945,7 @@
                                 <img src="https://www.goarabic.com/vm/wp-content/uploads/2019/05/dummy-profile-pic.jpg">
                             </div>
                             <div class="user-detail text-center">
-                            <h1>Welcome</h1>
+                               <h1>Welcome</h1>
                                 <h3><?=$g->username;?></h3>
                                 <p>to The Onboard</p>
                                
@@ -1054,7 +1046,7 @@
                                     </div>
                                  </div>
                               </div>
-                           </div>
+                       </div>
                     </div>
                 </div>
                 <?php
@@ -1069,7 +1061,32 @@
             ?>
                         </div>                      
                          </div>
+                        
                         <div class="col-lg-6 col-md-6 col-sm-12">
+                          <!--------Holiday Code Starts ---------->       
+                            <?php
+                            if($holidays)
+                            {
+                                echo "
+                                     <table class=table>
+                                    <thead>
+                                        <tr> 
+                                            <th>Holiday</th>
+                                            <th>Date</th>
+                                        </tr>
+                                    </thead>";
+                                foreach ($holidays as $holidays) {
+                                    echo "<tr><td>".$holidays->name."</td>
+                                              <td>".$holidays->holiday_date."</td>
+                                          </tr>";
+                                    
+                                }
+                            }
+
+                            ?>
+                           <!---------Holiday Code ends-------------->
+                        
+                         
                                 <div class="row-one">
                                     <div class="col-md-6 widget mt-10">
                                         <div class="stats-left ">
@@ -1157,13 +1174,13 @@
                                     </div>
                                     <div class="clearfix"> </div>
                                 </div>
-                        </div>
-                    </div>
-
+                       
+                    
+                                </div>
                                 <br>
-
                                 <div class="tab-inner">
                                     <div id="tabs" class="tabs">
+                                        <!-- test 7 -->
                                         <div class="graph">
                                             <nav>
                                                 <ul>
@@ -1222,6 +1239,7 @@
                                                 </section>
 
                                                 <section id="section-2">
+                                                     <!-- test 8 -->
                                                     <div class="">
                                                         <br>
                                                         <table class="table">
@@ -1316,7 +1334,7 @@
 
                                     <div class="clearfix"> </div>
                                
-                       
+                                   </div>
                                     <?php }
                                         elseif ($this->session->userdata('user_type')=="manager"){ 
 
@@ -1390,6 +1408,7 @@
                                 </style>
 
                             <div class="row">
+                             <!-- manager div -->
                                 <div class="col-lg-6 col-md-6 col-sm-12 Greetings-scrollbar mt-10">
                                     <div class="force-overflow">
                                 
@@ -2158,6 +2177,7 @@
                                     <div class="top-mg dash-wd">
                                             <div class="tab-inner">
                                                 <div id="tabs" class="tabs">
+                                                <!-- test 1 -->
                                                     <div class="graph">
                                                         <nav>
                                                             <ul>
@@ -2189,6 +2209,7 @@
                                                                 <div class="">
                                                                     <br>
                                                                     <table class="table">
+                                                                    <!-- test 2 -->
                                                                         <thead>
                                                                             <tr>
                                                                                 <th>Contact Name</th>
@@ -2297,10 +2318,12 @@
 
                             <div class="container">
                                 <div class="top-mg dash-wd">
+                                 <!-- City_head div -->
                                     <div class="col-md-12">
 
                                         <div class="tab-inner">
                                             <div id="tabs" class="tabs">
+                                            <!-- test 3 -->
                                                 <div class="graph">
                                                     <nav>
                                                         <ul>
@@ -2329,6 +2352,7 @@
                                                         </section>
 
                                                         <section id="section-2">
+                                                        <!-- test 4 -->
                                                             <div class="">
                                                                 <br>
                                                                 <table class="table">
@@ -2436,7 +2460,7 @@
                                
                     
                             <?php }
-                            else{ ?>
+                            else { ?>
 
                             <style>
                                 .stats-right {
@@ -3280,7 +3304,9 @@
                                     <div class="top-mg dash-wd">
                                         <div class="tab-inner">
                                             <div id="tabs" class="tabs">
+                                            <!-- test 5 -->
                                                 <div class="graph">
+
                                                     <nav>
                                                         <ul>
                                                             <li class="tab-current"><a href="#section-1" class="icon-shop"><i class="lnr lnr-briefcase"></i> <span>Important Calls</span></a></li>
@@ -3308,6 +3334,7 @@
                                                         </section>
 
                                                         <section id="section-2">
+                                                        <!-- test 6 -->
                                                             <div class="">
                                                                 <br>
                                                                 <table class="table">
@@ -3553,6 +3580,8 @@
 
                     <?php
                         }?>
+
+
     <!--/tabs-->
     <div class="tab-main">
         <!--/tabs-inner-->

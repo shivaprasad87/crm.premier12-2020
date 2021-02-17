@@ -238,21 +238,7 @@
                         <?php }?>
                     </select>
                 </div>
-                <div class="col-md-6 form-group">
-                    <label for="emp_code">Q1 Target:</label>
-                       <input type="text" class="form-control" id="Q1" name="Q1" placeholder="Employee Q1 Target">
-                <div class="col-md-6 form-group">
-                    <label for="emp_code">Q2:</label>
-                       <input type="text" class="form-control" id="Q2" name="Q2" placeholder="Employee Q2 Target" required="required">
-                </div>
-                <div class="col-md-6 form-group">
-                    <label for="emp_code">Q3:</label>
-                      <input type="text" class="form-control" id="Q3" name="Q3" placeholder="Employee Q3 Target" required="required">
-                </div>
-                <div class="col-md-6 form-group">
-                    <label for="emp_code">Q4:</label>
-                      <input type="text" class="form-control" id="Q4" name="Q4" placeholder="Employee Q4 Target" required="required">
-                </div>
+               
 
                 <button type="submit" id="add_user" class="btn btn-success btn-block" disabled>Submit</button>
             </form>
@@ -403,6 +389,21 @@
                         </select>
 
                     </div>
+                     <div class="col-md-6 form-group">
+                    <label for="emp_code">Q1 Target:</label>
+                       <input type="text" class="form-control" id="Q1" name="Q1" placeholder="Employee Q1 Target">
+                <div class="col-md-6 form-group">
+                    <label for="emp_code">Q2:</label>
+                       <input type="text" class="form-control" id="Q2" name="Q2" placeholder="Employee Q2 Target" required="required">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="emp_code">Q3:</label>
+                      <input type="text" class="form-control" id="Q3" name="Q3" placeholder="Employee Q3 Target" required="required">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="emp_code">Q4:</label>
+                      <input type="text" class="form-control" id="Q4" name="Q4" placeholder="Employee Q4 Target" required="required">
+                </div>
                 </div>
             </div>
             <div class="modal-footer">

@@ -760,10 +760,11 @@ class Common_model extends MY_Model {
     }
     public function getNextThreeHolidays($table='')
     {
+        $ar = array('(city = 0 or city ='.$this->session->userdata('user_city_id').")");
         $query = $this->db->select('*')
         ->from($table)
-        ->where('date(holiday_date)>=',date('Y-m-d'))
-        ->where('city = 0 or city =',$this->session->userdata('user_city_id'))
+        ->where('holiday_date >=',date('Y-m-d'))
+        ->where($ar['0'])
         ->limit('3');
          return $query->get()->result();
     }

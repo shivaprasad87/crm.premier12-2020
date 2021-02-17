@@ -52,6 +52,10 @@ class Admin extends CI_Controller {
 			$address = $this->input->post('employee_address');
 			$user_dob = $this->input->post('user_dob');
 			$emp_doj = $this->input->post('emp_doj');
+			$Q1 = $this->input->post('Q1');
+			$Q2 = $this->input->post('Q2');
+			$Q3 = $this->input->post('Q3');
+			$Q4 = $this->input->post('Q4');	
 			$savedata=array(
 				'first_name'=>$first_name,
 				'last_name'=>$last_name,
@@ -68,7 +72,12 @@ class Admin extends CI_Controller {
 				'mobile_number' => $mobile,
 				'user_dob' => $user_dob,
 				'address' =>$address,
-				'emp_doj' =>$emp_doj
+				'emp_doj' =>$emp_doj,
+				"Q1" => $Q1,
+				"Q2" => $Q2,
+				"Q3" => $Q3,
+				"Q4" => $Q4
+
 			);
 			$user_id = $this->user_model->add_user($savedata);
 			$this->greeting_model->insertRow(array("user_id" => $user_id, "username" => $first_name." ".$last_name, "type" =>"new"),"todaysgreetings");

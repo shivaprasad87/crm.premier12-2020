@@ -238,6 +238,21 @@
                         <?php }?>
                     </select>
                 </div>
+                <div class="col-md-6 form-group">
+                    <label for="emp_code">Q1 Target:</label>
+                       <input type="text" class="form-control" id="Q1" name="Q1" placeholder="Employee Q1 Target">
+                <div class="col-md-6 form-group">
+                    <label for="emp_code">Q2:</label>
+                       <input type="text" class="form-control" id="Q2" name="Q2" placeholder="Employee Q2 Target" required="required">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="emp_code">Q3:</label>
+                      <input type="text" class="form-control" id="Q3" name="Q3" placeholder="Employee Q3 Target" required="required">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="emp_code">Q4:</label>
+                      <input type="text" class="form-control" id="Q4" name="Q4" placeholder="Employee Q4 Target" required="required">
+                </div>
 
                 <button type="submit" id="add_user" class="btn btn-success btn-block" disabled>Submit</button>
             </form>
@@ -456,6 +471,10 @@
                 $("#m_employee_mobile").val(mobile);
                 $("#m_user_dob").val(user_dob);
                 $("#m_emp_doj").val(emp_doj);
+                $("#Q1").val(data.Q1);
+                $("#Q2").val(data.Q2);
+                $("#Q3").val(data.Q3);
+                $("#Q4").val(data.Q4);
                 $(".se-pre-con").hide("slow");
             }
         });
@@ -484,6 +503,10 @@
         var emp_mobile=$("#m_employee_mobile").val();
         var user_dob = $("#m_user_dob").val();
         var emp_doj = $("#m_emp_doj").val();
+        var Q1 =$("#Q1").val();
+        var Q2 =$("#Q2").val();
+        var Q3 =$("#Q3").val();
+        var Q4 =$("#Q4").val();
         var id=$("#hid").val(); 
             
         $.ajax({
@@ -500,7 +523,11 @@
                 address:emp_address,
                 mobile_number:emp_mobile,
                 user_dob:user_dob,
-                emp_doj:emp_doj
+                emp_doj:emp_doj,
+                Q1:Q1,
+                Q2:Q2,
+                Q3:Q3,
+                Q4:Q4
             },
             success:function(data) {
                 data = JSON.parse(data);

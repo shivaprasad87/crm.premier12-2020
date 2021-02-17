@@ -763,6 +763,7 @@ class Common_model extends MY_Model {
         $query = $this->db->select('*')
         ->from($table)
         ->where('date(holiday_date)>=',date('Y-m-d'))
+        ->where('city = 0 or city =',$this->session->userdata('user_city_id'))
         ->limit('3');
          return $query->get()->result();
     }

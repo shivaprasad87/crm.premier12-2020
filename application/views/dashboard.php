@@ -1070,10 +1070,11 @@
                                 echo "
                                      <table class=table>
                                     <thead>
-                                        <tr> 
+                                    <tr><th colspan='2' style='text-align: -webkit-center;'> Upcoming Holidays </th></tr>
+                                        <!--<tr> 
                                             <th>Holiday</th>
                                             <th>Date</th>
-                                        </tr>
+                                        </tr>-->
                                     </thead>";
                                 foreach ($holidays as $holidays) {
                                     echo "<tr><td>".$holidays->name."</td>

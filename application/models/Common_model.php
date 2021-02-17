@@ -758,6 +758,14 @@ class Common_model extends MY_Model {
             $table_name = $this->table_name;
         return $this->db->where($where)->update($table_name, $data);
     }
+    public function getNextThreeHolidays($table='')
+    {
+        $query = $this->db->select('*')
+        ->from($table)
+        ->where('date(holiday_date)>=',date('Y-m-d'))
+        ->limit('3');
+         return $query->get()->result();
+    }
 
 
        }

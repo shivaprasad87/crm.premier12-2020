@@ -3582,5 +3582,20 @@ public function make_user_online($value='')
 		// header('Content-Type: application/json');
 		// echo json_encode($data);
 }
+public function holidays($value='')
+{
+	if($this->input->post())
+	{
+		$holidays = $this->input->post();
+		echo $this->common_model->insertRow($holidays,'holidays');
+	}
+	else
+	{
+	$data['heading'] ='Holidays';
+	$data['name'] ='Holidays';
+	$data['result'] = $this->common_model->getAll('holidays');
+	$this->load->view('admin/holidays',$data);
+	}
+}
 
 }

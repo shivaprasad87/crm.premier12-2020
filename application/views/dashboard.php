@@ -1069,7 +1069,26 @@
             ?>
                         </div>                      
                          </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
+                         <div class="col-lg-6 col-md-6 col-sm-12">
+                         <!--------Holiday Code Starts ---------->       
+                         <?php
+                         if($holidays)
+                         {
+                            echo "
+                                <table>
+                                  <tr>  <th>Holiday</th>
+                                    <th>Date</th></tr>
+                                ";
+                            foreach ($holidays as $holidays) {
+                                echo "<tr><td>".$holidays->name."</td><td>".$holidays->holiday_date."</td></tr>";
+                                
+                            }
+                         }
+
+                         ?>
+                         <!---------Holiday Code ends-------------->
+                 </div>
+                         <div class="col-lg-6 col-md-6 col-sm-12">
                                 <div class="row-one">
                                     <div class="col-md-6 widget mt-10">
                                         <div class="stats-left ">

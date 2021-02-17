@@ -1688,7 +1688,11 @@ if($this->input->post('budget')!='')
 			"mobile_number" => $this->input->post('mobile_number'),
 			"address" => $this->input->post('address'),
 			"user_dob" => $this->input->post('user_dob'),
-			"emp_doj" => $this->input->post('emp_doj')
+			"emp_doj" => $this->input->post('emp_doj'),
+			"Q1"=> $this->input->post("Q1"),
+			"Q2"=> $this->input->post("Q2"),
+			"Q3"=> $this->input->post("Q3"),
+			"Q4"=> $this->input->post("Q4")
 		);
 		if($reports_to)
 			$data["reports_to"] = $reports_to;

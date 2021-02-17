@@ -317,6 +317,7 @@
                         <!--//menu-right-->
                         <div class="clearfix"></div>
                     </div>
+                    <div class="custom-widgets">
                         <!-- //header-ends -->
                         
                         <?php
@@ -348,7 +349,7 @@
                         else{?> 
                         
                         <!--custom-widgets-->
-                        <div class="custom-widgets">
+                        
                                <?php 
                           
                     if ($this->session->userdata('user_type')=="user") { 
@@ -1063,29 +1064,7 @@
                          </div>
                         
                         <div class="col-lg-6 col-md-6 col-sm-12">
-                          <!--------Holiday Code Starts ---------->       
-                            <?php
-                            if($holidays)
-                            {
-                                echo "
-                                     <table class=table>
-                                    <thead>
-                                    <tr><th colspan='2' style='text-align: -webkit-center;'> Upcoming Holidays </th></tr>
-                                        <!--<tr> 
-                                            <th>Holiday</th>
-                                            <th>Date</th>
-                                        </tr>-->
-                                    </thead>";
-                                foreach ($holidays as $holidays) {
-                                    echo "<tr><td>".$holidays->name."</td>
-                                              <td>".$holidays->holiday_date."</td>
-                                          </tr>";
-                                    
-                                }
-                            }
-
-                            ?>
-                           <!---------Holiday Code ends-------------->
+                          
                         
                          
                                 <div class="row-one">
@@ -1175,10 +1154,49 @@
                                     </div>
                                     <div class="clearfix"> </div>
                                 </div>
+
+                                <br>
+                                <style>
+                          .bg th {
+                            font-weight: 900!important;
+                            color: #540000;
+                          }
+                          </style>
+                          
+                          <!--------Holiday Code Starts ---------->       
+                            <?php
+                            if($holidays)
+                            {
+                                
+                                echo "
+                                     <table class=table>
+                                    <thead>
+                                    <tr>
+                                   
+                                    <th colspan=2 class=text-center>Upcoming Holidays</th>
+                                  </tr>
+                                       
+                                    </thead>
+                                    <tr class=bg> 
+                                    <th>Holiday</th>
+                                    <th>Date</th>
+                                </tr>";
+                                foreach ($holidays as $holidays) {
+                                    echo "<tr><td>".$holidays->name."</td>
+                                              <td>".$holidays->holiday_date."</td>
+                                          </tr>";
+                                    echo " </table>";
+                                    
+                                }
+                            }
+
+                            ?>
+                           <!---------Holiday Code ends-------------->
                        
                     
                                 </div>
                                 <br>
+                                
                                 <div class="tab-inner">
                                     <div id="tabs" class="tabs">
                                         <!-- test 7 -->
@@ -1226,7 +1244,7 @@
                                                                     <?php }
                                                                                                     }
                                                                                                     else
-                                                                                                            echo '<tr><td colspan="3">No records found!</td></tr>';
+                                                                                                            echo '<tr><td colspan="4" class="text-center">No records found in!</td></tr>';
 
                                                                                                         ?>
 
@@ -1279,7 +1297,7 @@
                                                                                                             }
                                                                                                         }
                                                                                                         else
-                                                                                                            echo '<tr><td colspan="3">No records found!</td></tr>';
+                                                                                                            echo '<tr><td colspan="3" class="text-center">No records found!</td></tr>';
                                                                                                         ?>
 
                                                             </tbody>
@@ -2221,7 +2239,7 @@
                                                                         </thead>
                                                                         <tbody>
                                                                             <tr>
-                                                                                <td colspan="3">No records found!</td>
+                                                                                <td colspan="3" class="text-center">No records found!</td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
@@ -2367,7 +2385,7 @@
                                                                     </thead>
                                                                     <tbody>
                                                                         <tr>
-                                                                            <td colspan="3">No records found!</td>
+                                                                            <td colspan="3" class="text-center">No records found!</td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
@@ -3349,7 +3367,7 @@
                                                                     </thead>
                                                                     <tbody>
                                                                         <tr>
-                                                                            <td colspan="3">No records found!</td>
+                                                                            <td colspan="3" class="text-center">No records found!</td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>

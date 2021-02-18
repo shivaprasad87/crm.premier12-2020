@@ -1192,7 +1192,41 @@
 
                             ?>
                            <!---------Holiday Code ends-------------->
-                       
+                       <table class="table">
+                           <thead>
+                               <tr>
+                                   <th colspan="5" class=text-center>Target Vs Revenue Generated</th>
+                               </tr>
+                           </thead>
+                           <tr>
+                               <td></td>
+                               <td>Q1</td>
+                               <td>Q2</td>
+                               <td>Q3</td>
+                               <td>Q4</td>
+                           </tr>
+                           <tr>
+                               <th>Target</th>
+                               <td><?=$this->session->userdata('Q1')?></td>
+                               <td><?=$this->session->userdata('Q2')?></td>
+                               <td><?=$this->session->userdata('Q3')?></td>
+                               <td><?=$this->session->userdata('Q4')?></td>
+                           </tr>
+                           <tr>
+                               <th>Achieved</th>
+                               <td><?=$Q1?$Q1:0?></td>
+                               <td><?=$Q2?$Q2:0?></td>
+                               <td><?=$Q3?$Q3:0?></td>
+                               <td><?=$Q4?$Q4:0?></td>
+                           </tr>
+                           <tr>
+                               <th>T vs A</th>
+                               <td <?php if((float)($Q1?$Q1:0)-(float)$this->session->userdata('Q1')<0){echo "style=color:red";}else{echo "style=color:green";} ?>><?=(float)($Q1?$Q1:0)-(float)$this->session->userdata('Q1')?></td>
+                               <td <?php if((float)($Q2?$Q2:0)-(float)$this->session->userdata('Q2')<0){echo "style=color:red";}else{echo "style=color:green";} ?> ><?=(float)($Q2?$Q2:0)-(float)$this->session->userdata('Q2')?></td>
+                               <td <?php if((float)($Q3?$Q3:0)-(float)$this->session->userdata('Q3')<0){echo "style=color:red";}else{echo "style=color:green";} ?>><?=(float)($Q3?$Q3:0)-(float)$this->session->userdata('Q3')?></td>
+                               <td <?php if((float)($Q4?$Q4:0)-(float)$this->session->userdata('Q4')<0){echo "style=color:red";}else{echo "style=color:green";} ?>><?=(float)($Q4?$Q4:0)-(float)$this->session->userdata('Q4')?></td>
+                           </tr>
+                       </table>
                     
                                 </div>
                                 <br>

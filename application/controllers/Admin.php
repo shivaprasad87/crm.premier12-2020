@@ -769,6 +769,7 @@ if($this->input->post('budget')!='')
 				'est_month_of_invoice'=> $this->input->post('est_month_of_invoice'),
 				'agreement_status' => $this->input->post('agreement_status'),
 				'project_type' => $this->input->post('project_type'),
+				'date_added' =>date('Y-m-d H:i:s')
 
 			);
 

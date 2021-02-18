@@ -89,7 +89,11 @@ class Login extends CI_Controller {
                         'user_mobile' => $data->mobile_number,
                         'user_address' => $data->address,
                         'user_dob' => $data->user_dob,
-                        'emp_doj' => $data->emp_doj
+                        'emp_doj' => $data->emp_doj,
+                        'Q1' =>$data->Q1,
+                        'Q2' =>$data->Q2,
+                        'Q3' =>$data->Q3,
+                        'Q4' =>$data->Q4
  
                     );
                    

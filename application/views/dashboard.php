@@ -1195,7 +1195,11 @@
                        <table class="table">
                            <thead>
                                <tr>
+<<<<<<< Updated upstream
                                    <th colspan="5" class=text-center>Target Vs Revenue Generated ( <?php if(date("m")<=3) echo date("Y",strtotime("-1 year"))." - ".date("Y"); else echo date("Y")." - ".date("Y",strtotime("+1 year")); ?> )</th>
+=======
+                                   <th colspan="5" class=text-center>Target Vs Revenue Generated</th>
+>>>>>>> Stashed changes
                                </tr>
                            </thead>
                            <tr>

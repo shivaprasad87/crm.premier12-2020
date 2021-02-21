@@ -59,7 +59,7 @@ class Dashboard extends CI_Controller {
         $data['profile_pic'] = $this->user_model->get_profile_pic_name($data['user_id']);
         $data['profile_pic'] = json_decode( json_encode($data['profile_pic']), true);
         $this->session->set_userdata('profile_pic',$data['profile_pic'][0]['profile_pic']);
-        $data['greeting'] = $this->common_model->getWhere(array("date(date_added) <="=>date("Y-m-d")),"todaysgreetings");
+        $data['greeting'] = $this->common_model->getWhere(array("date(date_added) <="=>date("Y-m-d")),"todaysgreetings",'','','date_added');
         $data['holidays'] = $this->common_model->getNextThreeHolidays('holidays');
         //print_r($data['holidays']);die;
 

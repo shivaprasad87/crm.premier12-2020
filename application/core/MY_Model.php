@@ -41,9 +41,11 @@ class MY_Model extends CI_Model {
         return (is_null($perpage) or is_null($offset)) ? $this->db->get($table_name)->result() : $this->db->get($table_name, $perpage, $offset)->result();
     }
 
-    public function getWhere($where, $table_name = '', $perpage = NULL, $offset = NULL) {
+    public function getWhere($where, $table_name = '', $perpage = NULL, $offset = NULL,$order_by='') {
         if ($table_name == '')
             $table_name = $this->table_name;
+        if($order_by!='')
+             $this->db->order_by($order_by, 'DESC');
 
         return (is_null($perpage) or is_null($offset)) ? $this->db->get_where($table_name, $where)->result() : $this->db->get_where($table_name, $where, $perpage, $offset)->result();
     }

@@ -56,6 +56,7 @@ class Admin extends CI_Controller {
 			$Q2 = $this->input->post('Q2');
 			$Q3 = $this->input->post('Q3');
 			$Q4 = $this->input->post('Q4');	
+			$year = $this->input->post('year');	
 			$savedata=array(
 				'first_name'=>$first_name,
 				'last_name'=>$last_name,
@@ -72,15 +73,13 @@ class Admin extends CI_Controller {
 				'mobile_number' => $mobile,
 				'user_dob' => $user_dob,
 				'address' =>$address,
-				'emp_doj' =>$emp_doj,
-				"Q1" => $Q1,
-				"Q2" => $Q2,
-				"Q3" => $Q3,
-				"Q4" => $Q4
-
+				'emp_doj' =>$emp_doj 
 			);
+			
 			$user_id = $this->user_model->add_user($savedata);
 			$this->greeting_model->insertRow(array("user_id" => $user_id, "username" => $first_name." ".$last_name, "type" =>"new"),"todaysgreetings");
+			$this->common_model->insertRow(array("user_id" => $user_id, "year" => date('Y'),"Q2"=>$Q1,"Q3"=>$Q2,"Q4"=>$Q3),"emp_target");
+			$this->common_model->insertRow(array("user_id" => $user_id, "year" => date('Y')+1,"Q1"=>$Q4),"emp_target");
 			redirect('admin/manage_users');
 		}
 		//$data['all_user'] = $this->user_model->all_employees();
@@ -1691,6 +1690,11 @@ if($this->input->post('budget')!='')
 		$select_user = $this->input->post('select_user');
 		$dept_id = $this->input->post('dept_id');
 		$city_id = $this->input->post('city_id');
+		$year =(int)$this->input->post('year');
+		$Q1 = $this->input->post("Q1");
+		$Q2 = $this->input->post("Q2");
+		$Q3 = $this->input->post("Q3");
+		$Q4 = $this->input->post("Q4");
 		$data = array(
 			"first_name" => $first_name,
 			"last_name" => $last_name,
@@ -1699,11 +1703,20 @@ if($this->input->post('budget')!='')
 			"address" => $this->input->post('address'),
 			"user_dob" => $this->input->post('user_dob'),
 			"emp_doj" => $this->input->post('emp_doj'),
-			"Q1"=> $this->input->post("Q1"),
-			"Q2"=> $this->input->post("Q2"),
-			"Q3"=> $this->input->post("Q3"),
-			"Q4"=> $this->input->post("Q4")
 		);
+		$check_user_taget = $this->common_model->getWhere(array("year"=>$year,"user_id"=>$id),'emp_target');
+		$check_user_taget_1 = $this->common_model->getWhere(array("year"=>$year+1,"user_id"=>$id),'emp_target');
+		if(!$check_user_taget)
+			$this->common_model->insertRow(array("user_id" => $id, "year" => $year,"Q2"=>$Q1,"Q3"=>$Q2,"Q4"=>$Q3),"emp_target");
+		else
+			$this->common_model->updateWhere(array("user_id" => $id, "year" => $year),array("Q2"=>$Q1,"Q3"=>$Q2,"Q4"=>$Q3),'emp_target');
+
+		if(!$check_user_taget_1)
+			$this->common_model->insertRow(array("user_id" => $id, "year" => $year+1,"Q1"=>$Q4),"emp_target");
+		else
+			$this->common_model->updateWhere(array("user_id" => $id, "year" => $year+1),array("Q1"=>$Q4),'emp_target');
+
+
 		if($reports_to)
 			$data["reports_to"] = $reports_to;
 		if($select_user){
@@ -1737,7 +1750,7 @@ if($this->input->post('budget')!='')
 		if($city_id)
 			$data["city_id"] = $city_id;
 		$q = $this->user_model->update_user($data,$id); 
-		echo json_encode(array("response" => $q));
+		echo json_encode(array("response" => true));
 	}
 
 	public function manage_cities() {
@@ -3610,6 +3623,14 @@ public function holidays($value='')
 	$data['result'] = $this->common_model->getAll('holidays');
 	$this->load->view('admin/holidays',$data);
 	}
+}
+public function get_emp_target()
+{
+	$data = $this->common_model->get_emp_target($this->input->post('year'),$this->input->post("user_id"));
+	//echo $this->db->last_query();
+	// print_r($data);
+	header('Content-Type: application/json');
+		echo json_encode($data);
 }
 
 }

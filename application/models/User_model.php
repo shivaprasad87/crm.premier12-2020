@@ -266,12 +266,50 @@ class User_model extends CI_Model {
         return $user;
     }
 
-    public function get_user_data($id){
-        $this->db->select('*');
-        $this->db->from('user');
-        $this->db->where('id',$id);
+    public function get_user_data($id,$year=''){
+        $year=date("Y",strtotime("-1 year"));
+        $this->db->select('u.*');
+        $this->db->from('user as u'); 
+        $this->db->where('u.id',$id); 
         $query=$this->db->get();
         $user = $query->row_array();
+
+         $this->db->select('et1.Q2 as Q1,et1.Q3 as Q2, et1.Q4 as Q3');
+        $this->db->from('emp_target et1'); 
+        $this->db->where('et1.user_id',$id);
+        $this->db->where('et1.year',$year);
+        $query=$this->db->get();
+        $year_target = $query->row_array();
+        if(is_null($year_target))
+            $year_target =array("Q1"=>0,"Q2"=>0,"Q3"=>0);
+
+        $this->db->select('et2.Q1 as Q4');
+        $this->db->from('emp_target et2'); 
+        $this->db->where('et2.user_id',$id);
+        $this->db->where('et2.year',$year+1);
+        $query1=$this->db->get();
+        $year_target1 = $query1->row_array();
+        if(is_null($year_target1))
+            $year_target1 =array("Q4"=>0);
+        $year_target = array_merge($year_target,$year_target1);
+        $user =array_merge($user,$year_target);
+       /* $this->db->select('u.*,et.*');
+        $this->db->from('user as u');
+        $this->db->join('emp_target as et','u.id = et.user_id','left');
+        $this->db->join('emp_target as et2','u.id = et2.user_id','left');
+        $this->db->where('u.id',$id);
+        $this->db->where('et.year',date("Y"));
+        $query=$this->db->get();
+        $user = $query->row_array();
+        if(is_null($user))
+        {
+        $this->db->select('u.*,et.*');
+        $this->db->from('user as u');
+        $this->db->join('emp_target as et','u.id = et.user_id','left');
+        $this->db->where('u.id',$id); 
+        $query=$this->db->get();
+        $user = $query->row_array();
+        }*/
         return $user;
     }
 

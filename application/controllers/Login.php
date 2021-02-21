@@ -6,7 +6,7 @@ class Login extends CI_Controller {
 	function __construct(){
         /* Session Checking Start*/
         parent::__construct();
-        $this->load->model(array('login_model','callback_model'));
+        $this->load->model(array('login_model','callback_model','common_model'));
         $this->load->library('session');    
     }
 
@@ -23,7 +23,7 @@ class Login extends CI_Controller {
             $type_array=$this->login_model->get_user_type($username);
             $user_type=$type_array['type'];
             $data = $this->login_model->user_login($username,$password,$user_type);
-         
+            $target_data='';
             if($data){
                 if($data->active){
                     if($data->is_new && ($data->type == 1)){
@@ -90,10 +90,32 @@ class Login extends CI_Controller {
                         'user_address' => $data->address,
                         'user_dob' => $data->user_dob,
                         'emp_doj' => $data->emp_doj
- 
                     );
+                    if(date("m")<=3)
+                    $target = $this->common_model->get_emp_target(date("Y",strtotime("-1 year")),$data->id); 
+                    else
+                    $target = $this->common_model->get_emp_target(date("Y"),$data->id); 
+
+                    if($target)
+                    {
+                        $target_data = array( 
+                        'Q1' =>$target['Q1']?$target['Q1']:0,
+                        'Q2' =>$target['Q2']?$target['Q2']:0,
+                        'Q3' =>$target['Q3']?$target['Q3']:0,
+                        'Q4' =>$target['Q4']?$target['Q4']:0);
+                    }
+                    else
+                    {
+                        $target_data = array(
+                            "Q1"=>0,
+                            "Q2"=>0,
+                            "Q3"=>0,
+                            "Q4"=>0
+                        );
+                    } 
                    
                     $this->session->set_userdata($newdata);
+                    $this->session->set_userdata($target_data);
                     //-- permission ----
                     $this->getPermission($this->session->userdata('user_id'));
 

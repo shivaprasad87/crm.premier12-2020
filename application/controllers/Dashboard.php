@@ -75,6 +75,11 @@ class Dashboard extends CI_Controller {
             $data['active_leads_count'] = $this->callback_model->fetch_leads_count($data['user_id'],'active');
             $data['client_reg_count'] = $this->callback_model->fetch_client_reg_count($data['user_id']);
             $data['total_revenue'] = $this->callback_model->fetch_total_revenue($data['user_id']);
+            $data['Q1'] = $this->callback_model->fetch_total_revenue_quarterwise($data['user_id'],1);
+            $data['Q2'] = $this->callback_model->fetch_total_revenue_quarterwise($data['user_id'],2);
+            $data['Q3'] = $this->callback_model->fetch_total_revenue_quarterwise($data['user_id'],3);
+            $data['Q4'] = $this->callback_model->fetch_total_revenue_quarterwise($data['user_id'],4);
+            //print_r($data);die;
             $data['manager_name'] = $this->user_model->get_manager_name($data['user_id']);
             $this->session->set_userdata('manager_name', $data['manager_name']);
             $data['incentive_slabs'] = $this->callback_model->fetch_employee_incentive_slabs();

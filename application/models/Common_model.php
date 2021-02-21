@@ -769,5 +769,27 @@ class Common_model extends MY_Model {
          return $query->get()->result();
     }
 
+    public function get_emp_target($year='',$id='')
+    {
+  
+        $this->db->select('et1.Q2 as Q1,et1.Q3 as Q2, et1.Q4 as Q3');
+        $this->db->from('emp_target et1'); 
+        $this->db->where('et1.user_id',$id);
+        $this->db->where('et1.year',$year);
+        $query=$this->db->get();
+        $year_target = $query->row_array();
+
+        $this->db->select('et2.Q1 as Q4');
+        $this->db->from('emp_target et2'); 
+        $this->db->where('et2.user_id',$id);
+        $this->db->where('et2.year',$year+1);
+        $query1=$this->db->get();
+        $year_target1 = $query1->row_array();
+        if(is_null($year_target1))
+            $year_target1 =array("Q4"=>0);
+        return array_merge($year_target,$year_target1);
+ 
+    }
+
 
        }

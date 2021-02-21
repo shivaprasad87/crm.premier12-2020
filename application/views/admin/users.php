@@ -317,8 +317,10 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Edit User</h4>
-                <div class="modal-body">
+            </div>
+
                     <input type="hidden" id="hid" name="hid">
+                <div class="modal-body">
                     
                     <div class="col-sm-6 form-group">
                         <label for="emp_code">Employee Code:</label>
@@ -350,9 +352,7 @@
                         <textarea id="m_employee_address"name="m_employee_address"></textarea>
                     </div>
                 <div class="col-sm-6 form-group">
-                    <label for="user_dob">D.O.B:</label>
-
-                <!-- <input type="text" class="form-control datepicker" id="emp_dob" name="emp_dob" placeholder="Employee Date Of Birth" readonly required="required"> -->
+                    <label for="user_dob">D.O.B:</label> 
                 <input type="date" class="form-control" id="m_user_dob" name="m_user_dob" placeholder="Date" required="required">
                 
                 </div>
@@ -382,8 +382,7 @@
                             <option value="vp">VP</option>
                             <option value="admin">Admin</option>
                         </select>
-                    </div>
-                    <div class="clearfix"></div> 
+                    </div> 
                     <div class="col-md-6 form-group">
                         <label for="emp_code">Deprtment:</label>
                         <select  class="form-control"  id="m_dept_id" name="department" required="required" >
@@ -405,24 +404,32 @@
                         </select>
 
                     </div>
+                    <div class="col-md-12 form-group">
+                        <label for="emp_code">Employee Target :</label>
+                        <select  class="form-control"  id="target_year" name="target_year" required="required" >
+                            <option value="<?=date("Y",strtotime("-1 year"))?>" selected=""><?=date("Y",strtotime("-1 year"))?> - <?=date('Y')?></option>
+                            <option value="<?=date('Y')?>"><?=date('Y')?> - <?=date("Y",strtotime("+1 year"))?> </option>
+                             
+                        </select>
+                    </div>
                      <div class="col-md-6 form-group">
-                    <label for="emp_code">Q1 Target:</label>
+                    <label for="emp_code">Q1 Target(Apr-Jun):</label>
                        <input type="text" class="form-control" id="Q1" name="Q1" placeholder="Employee Q1 Target">
                    </div>
                 <div class="col-md-6 form-group">
-                    <label for="emp_code">Q2:</label>
+                    <label for="emp_code">Q2(Jul-Sep):</label>
                        <input type="text" class="form-control" id="Q2" name="Q2" placeholder="Employee Q2 Target" required="required">
                 </div>
                 <div class="col-md-6 form-group">
-                    <label for="emp_code">Q3:</label>
+                    <label for="emp_code">Q3(Oct-Dec):</label>
                       <input type="text" class="form-control" id="Q3" name="Q3" placeholder="Employee Q3 Target" required="required">
                 </div>
                 <div class="col-md-6 form-group">
-                    <label for="emp_code">Q4:</label>
+                    <label for="emp_code">Q4(Next year Jan-Mar):</label>
                       <input type="text" class="form-control" id="Q4" name="Q4" placeholder="Employee Q4 Target" required="required">
                 </div>
                 </div>
-            </div>
+            
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="update_user()">Submit</button>
             </div>
@@ -452,7 +459,28 @@
 
 <script type="text/javascript">
    
-
+    $(document).ready(function(){
+    $("#target_year").on('change', function postinput(){
+         $(".se-pre-con").show();
+        var year = $("#target_year").val();
+        var id=$("#hid").val(); 
+        $.ajax({ 
+            url: "<?php echo base_url()?>admin/get_emp_target",
+            data: { year: year,'user_id':id },
+            type: 'post'
+        }).done(function(data) {
+            $(".se-pre-con").hide("slow");
+             $("#Q1").val(data.Q1);
+                $("#Q2").val(data.Q2);
+                $("#Q3").val(data.Q3);
+                $("#Q4").val(data.Q4);
+                 $(".se-pre-con").hide("slow");
+        }).fail(function() {
+            alert('Failed');
+            $(".se-pre-con").hide("slow");
+        });
+    });
+}); 
     function edit_user(v){
         $(".se-pre-con").show();
         //console.log(v);
@@ -526,6 +554,7 @@
         var Q3 =$("#Q3").val();
         var Q4 =$("#Q4").val();
         var id=$("#hid").val(); 
+        var year = $("#target_year").val();
             
         $.ajax({
             type:"POST",
@@ -545,7 +574,8 @@
                 Q1:Q1,
                 Q2:Q2,
                 Q3:Q3,
-                Q4:Q4
+                Q4:Q4,
+                year:year
             },
             success:function(data) {
                 data = JSON.parse(data);

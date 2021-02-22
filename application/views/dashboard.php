@@ -1474,6 +1474,16 @@
                             <div class="row">
                              <!-- manager div -->
                                 <div class="col-lg-6 col-md-6 col-sm-12 Greetings-scrollbar mt-10">
+                                <div class="row">
+                                    <div class="col-lg-4 col-xs-6" style=" z-index: 9999999; height: 40px;display: table-row; float: initial;">
+                                    </div>
+                                    <div class="col-lg-4 col-xs-6" style=" z-index: 9999999;position:fixed;    float: right;">
+                                    <div class="col-lg-1">
+                        <button class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Post
+                        </button>
+                     </div>
+                                    </div>
+                                </div>
                                     <div class="force-overflow">
                                 
                                                          <?php 
@@ -1486,7 +1496,7 @@
                   ?>
                 <div class="container" style="  margin-left: 0px;">
                   <div class="row">
-                     <div class="col-lg-11">
+                     <div class="col-lg-12">
                         <div class="birthday-card ">
                            <div class="birthday">
                               <div class="wrapper">
@@ -1642,10 +1652,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-lg-1">
-                        <button class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Post
-                        </button>
-                     </div>
+                     
                      <div class="modal wishes" id="exampleModal" tabindex="-1" role="dialog">
                         <div class="modal-dialog" role="document">
                            <div class="modal-content">
@@ -2600,6 +2607,16 @@
 
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-12 Greetings-scrollbar mt-10">
+                                <div class="row">
+                                    <div class="col-lg-4 col-xs-6" style="    z-index: 9999999; height: 40px;display: table-row; float: initial;">
+                                    </div>
+                                    <div class="col-lg-4 col-xs-6" style=" z-index: 9999999;position:fixed;    float: right;">
+                                    <div class="col-lg-1">
+                                        <button class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Post
+                                        </button>
+                                    </div>
+                                    </div>
+                                </div>
                             <div class="force-overflow">
                         
                                                  <?php 
@@ -2612,7 +2629,7 @@
                   ?>
                 <div class="container" style="  margin-left: 0px;">
                   <div class="row">
-                     <div class="col-lg-11">
+                     <div class="col-lg-12">
                         <div class="birthday-card ">
                            <div class="birthday">
                               <div class="wrapper">
@@ -2768,10 +2785,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-lg-1">
-                        <button class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Post
-                        </button>
-                     </div>
+                     
                      <div class="modal wishes" id="exampleModal" tabindex="-1" role="dialog">
                         <div class="modal-dialog" role="document">
                            <div class="modal-content">

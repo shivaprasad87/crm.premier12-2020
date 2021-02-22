@@ -2608,7 +2608,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-12 Greetings-scrollbar mt-10">
                                 <div class="row">
-                                    <div class="col-lg-4 col-xs-6" style="    z-index: 9999999; height: 40px;display: table-row; float: initial;">
+                                    <div class="col-lg-4 col-xs-6" style="    z-index: 9999999; height: 40px;display: table-row; ">
                                     </div>
                                     <div class="col-lg-4 col-xs-6" style=" z-index: 9999999;position:fixed;    float: right;">
                                     <div class="col-lg-1">

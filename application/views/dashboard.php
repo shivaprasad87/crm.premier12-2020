@@ -681,8 +681,11 @@
                   <div class="overlay">
                       <main id="htlfndr-main-content" class="htlfndr-main-content " role="main" style=" ">
                         <article class="htlfndr-thanks-page text-center">
-                            <h1> Congratulations <?=$g->username;?> for completing <?= floor(abs(strtotime(date("Y-m-d")) - strtotime($this->session->userdata('emp_doj'))) / (365*60*60*24)) ?>
-                              <?=(floor(abs(strtotime(date("Y-m-d")) - strtotime($this->session->userdata('emp_doj'))) / (365*60*60*24))>1)?"Years":"Year"?>
+                            <?php 
+                             $user_date_of_join = $this->common_model->getWhere(array("id"=>$g->user_id),"user"); 
+                            ?>
+                            <h1> Congratulations <?=$g->username;?> for completing <?= floor(abs(strtotime(date("Y-m-d")) - strtotime($user_date_of_join[0]->emp_doj)) / (365*60*60*24)) ?>
+                              <?=(floor(abs(strtotime(date("Y-m-d")) - strtotime($user_date_of_join[0]->emp_doj)) / (365*60*60*24))>1)?"Years":"Year"?>
                             </h1>
                             <p>
                               with Premier Real Estate. You are an asset to our company, and we hope you’ll continue on this path of hard work. We wish you a wonderful work anniversary!
@@ -1195,7 +1198,7 @@
                        <table class="table">
                            <thead>
                                <tr>
-                                   <th colspan="5" class=text-center>Target Vs Revenue Generated ( <?php if(date("m")<=3) echo date("Y",strtotime("-1 year"))." - ".date("Y"); else echo date("Y")." - ".date("Y",strtotime("+1 year")); ?> )</th>
+                                   <th colspan="5" class=text-center>Target Vs Revenue ( <?php if(date("m")<=3) echo date("Y",strtotime("-1 year"))." - ".date("Y"); else echo date("Y")." - ".date("Y",strtotime("+1 year")); ?> )</th>
                                </tr>
                            </thead>
                            <tr>
@@ -1796,8 +1799,11 @@
                   <div class="overlay">
                       <main id="htlfndr-main-content" class="htlfndr-main-content " role="main" style=" ">
                         <article class="htlfndr-thanks-page text-center">
-                            <h1> Congratulations <?=$g->username;?> for completing <?= floor(abs(strtotime(date("Y-m-d")) - strtotime($this->session->userdata('emp_doj'))) / (365*60*60*24)) ?>
-                              <?=(floor(abs(strtotime(date("Y-m-d")) - strtotime($this->session->userdata('emp_doj'))) / (365*60*60*24))>1)?"Years":"Year"?>
+                            <?php
+                            $user_date_of_join = $this->common_model->getWhere(array("id"=>$g->user_id),"user");
+                            ?>
+                            <h1> Congratulations <?=$g->username;?> for completing <?= floor(abs(strtotime(date("Y-m-d")) - strtotime($user_date_of_join[0]->emp_doj)) / (365*60*60*24)) ?>
+                              <?=(floor(abs(strtotime(date("Y-m-d")) - strtotime($user_date_of_join[0]->emp_doj)) / (365*60*60*24))>1)?"Years":"Year"?>
                             </h1>
                             <p>
                               with Premier Real Estate. You are an asset to our company, and we hope you’ll continue on this path of hard work. We wish you a wonderful work anniversary!
@@ -2919,8 +2925,12 @@
                   <div class="overlay">
                       <main id="htlfndr-main-content" class="htlfndr-main-content " role="main" style=" ">
                         <article class="htlfndr-thanks-page text-center">
-                            <h1> Congratulations <?=$g->username;?> for completing <?= floor(abs(strtotime(date("Y-m-d")) - strtotime($this->session->userdata('emp_doj'))) / (365*60*60*24)) ?>
-                              <?=(floor(abs(strtotime(date("Y-m-d")) - strtotime($this->session->userdata('emp_doj'))) / (365*60*60*24))>1)?"Years":"Year"?>
+                            <?php
+                            $user_date_of_join = $this->common_model->getWhere(array("id"=>$g->user_id),"user");
+                            ?>
+                            <h1> Congratulations <?=$g->username;?> for completing <?= floor(abs(strtotime(date("Y-m-d")) - strtotime($user_date_of_join[0]->emp_doj)) / (365*60*60*24)) ?>
+                              <?=(floor(abs(strtotime(date("Y-m-d")) - strtotime($user_date_of_join[0]->emp_doj)) / (365*60*60*24))>1)?"Years":"Year"?>
+                            </h1>
                             </h1>
                             <p>
                               with Premier Real Estate. You are an asset to our company, and we hope you’ll continue on this path of hard work. We wish you a wonderful work anniversary!
@@ -3774,12 +3784,7 @@
       }
       function togglediv(id){
         $(".toggle_div"+id).toggleClass("hidden");
-      }
-    </script> 
-
-    <!-- Bootstrap Core JavaScript -->
-
-    <script>
+      } 
 
         $(document).ready(function() {
             $('#example').DataTable({
@@ -3806,6 +3811,7 @@
             get_revenues();
 
             $('.view_callbacks').click(function() {
+                //alert('vire');
                 var type = $(this).data('type');
                 var data = {};
                 switch (type) {
@@ -3866,8 +3872,7 @@
             $("#overdue_lead_count").click(function() {
                 var form = document.createElement('form');
                 form.method = "POST";
-                form.action = "<?php echo base_url()."
-                dashboard / generate_report " ?>";
+                form.action = "<?php echo base_url()."dashboard/generate_report" ?>";
 
                 var input = document.createElement('input');
                 input.type = "text";
@@ -3904,8 +3909,7 @@
         });
         // $('#filter_revenue').click(get_revenues());
         function get_revenues() {
-            $.get("<?php echo base_url()."
-                dashboard / get_revenue / " ?>" + $('#revenueMonth').val(),
+            $.get("<?php echo base_url()."dashboard/get_revenue/" ?>" + $('#revenueMonth').val(),
                 function(data) {
                     $('#revenue_data').html(data);
                 });
@@ -3914,8 +3918,7 @@
         function view_callbacks(data, method) {
             var form = document.createElement('form');
             form.method = method;
-            form.action = "<?php echo base_url()."
-            view_callbacks ? " ?>" + jQuery.param(data);
+            form.action = "<?php echo base_url()."view_callbacks?" ?>" + jQuery.param(data);
             for (var i in data) {
                 var input = document.createElement('input');
                 input.type = "text";
@@ -3928,104 +3931,104 @@
             form.submit();
         } 
 
-        $(document).ready(function() {
-            $('#example').DataTable({
-                "paging": false,
-                "info": false
+        // $(document).ready(function() {
+        //     $('#example').DataTable({
+        //         "paging": false,
+        //         "info": false
 
-            });
-            if (!Modernizr.inputtypes.date) {
-                // If not native HTML5 support, fallback to jQuery datePicker
-                $('input[type=date]').datepicker({
-                    // Consistent format with the HTML5 picker
-                    dateFormat: 'dd/mm/yy'
-                });
-            }
-            if (!Modernizr.inputtypes.time) {
-                // If not native HTML5 support, fallback to jQuery timepicker
-                $('input[type=time]').timepicker({
-                    'timeFormat': 'H:i'
-                });
-            }
-            $('#revenueMonth').MonthPicker({
-                Button: false
-            });
-            get_revenues();
+        //     });
+        //     if (!Modernizr.inputtypes.date) {
+        //         // If not native HTML5 support, fallback to jQuery datePicker
+        //         $('input[type=date]').datepicker({
+        //             // Consistent format with the HTML5 picker
+        //             dateFormat: 'dd/mm/yy'
+        //         });
+        //     }
+        //     if (!Modernizr.inputtypes.time) {
+        //         // If not native HTML5 support, fallback to jQuery timepicker
+        //         $('input[type=time]').timepicker({
+        //             'timeFormat': 'H:i'
+        //         });
+        //     }
+        //     $('#revenueMonth').MonthPicker({
+        //         Button: false
+        //     });
+        //     get_revenues();
 
 
 
-            $("#refresh").click(function() {
-                $(".se-pre-con").show();
-                $.get("<?php echo base_url(); ?>dashboard/get_live_feed_back", function(response) {
-                    $("#live_feed_back_body").html(response);
-                    $(".se-pre-con").hide("slow");
-                });
-            });
+            // $("#refresh").click(function() {
+            //     $(".se-pre-con").show();
+            //     $.get("<?php echo base_url(); ?>dashboard/get_live_feed_back", function(response) {
+            //         $("#live_feed_back_body").html(response);
+            //         $(".se-pre-con").hide("slow");
+            //     });
+            // });
 
-            $("#overdue_lead_count").click(function() {
-                var form = document.createElement('form');
-                form.method = "POST";
-                form.action = "<?php echo base_url()."
-                dashboard / generate_report " ?>";
+            // $("#overdue_lead_count").click(function() {
+            //     var form = document.createElement('form');
+            //     form.method = "POST";
+            //     form.action = "<?php echo base_url()."
+            //     dashboard / generate_report " ?>";
 
-                var input = document.createElement('input');
-                input.type = "text";
-                input.name = "toDate";
-                input.value = $(this).data('datetime');
-                form.appendChild(input);
+            //     var input = document.createElement('input');
+            //     input.type = "text";
+            //     input.name = "toDate";
+            //     input.value = $(this).data('datetime');
+            //     form.appendChild(input);
 
-                input = document.createElement('input');
-                input.type = "text";
-                input.name = "reportType";
-                input.value = "due";
-                form.appendChild(input);
+            //     input = document.createElement('input');
+            //     input.type = "text";
+            //     input.name = "reportType";
+            //     input.value = "due";
+            //     form.appendChild(input);
 
-                document.body.appendChild(form);
-                form.submit();
-            });
+            //     document.body.appendChild(form);
+            //     form.submit();
+            // });
 
-            $('.emailSiteVisit').on('click', function() {
-                $(".se-pre-con").show();
-                $.ajax({
-                    type: 'POST',
-                    url: "<?= base_url('site-visit-report-mail');?>",
-                    data: 1,
-                    success: function(res) {
-                        $(".se-pre-con").hide("slow");
-                        if (res == 1)
-                            alert('Email Sent Successfully.');
-                        else
-                            alert('Email Sent fail!');
-                    }
-                });
-            });
+            // $('.emailSiteVisit').on('click', function() {
+            //     $(".se-pre-con").show();
+            //     $.ajax({
+            //         type: 'POST',
+            //         url: "<?= base_url('site-visit-report-mail');?>",
+            //         data: 1,
+            //         success: function(res) {
+            //             $(".se-pre-con").hide("slow");
+            //             if (res == 1)
+            //                 alert('Email Sent Successfully.');
+            //             else
+            //                 alert('Email Sent fail!');
+            //         }
+            //     });
+            // });
 
-        });
-        // $('#filter_revenue').click(get_revenues());
-        function get_revenues() {
-            $.get("<?php echo base_url()."
-                dashboard / get_revenue / " ?>" + $('#revenueMonth').val(),
-                function(data) {
-                    $('#revenue_data').html(data);
-                });
-        }
+        // });
+        // // $('#filter_revenue').click(get_revenues());
+        // function get_revenues() {
+        //     $.get("<?php echo base_url()."
+        //         dashboard / get_revenue / " ?>" + $('#revenueMonth').val(),
+        //         function(data) {
+        //             $('#revenue_data').html(data);
+        //         });
+        // }
 
-        function view_callbacks(data, method) {
-            var form = document.createElement('form');
-            form.method = method;
-            form.action = "<?php echo base_url()."
-            view_callbacks ? " ?>" + jQuery.param(data);
-            for (var i in data) {
-                var input = document.createElement('input');
-                input.type = "text";
-                input.name = i;
-                input.value = data[i];
-                form.appendChild(input);
-            }
-            //console.log(form);
-            document.body.appendChild(form);
-            form.submit();
-        }
+        // function view_callbacks(data, method) {
+        //     var form = document.createElement('form');
+        //     form.method = method;
+        //     form.action = "<?php echo base_url()."
+        //     view_callbacks ? " ?>" + jQuery.param(data);
+        //     for (var i in data) {
+        //         var input = document.createElement('input');
+        //         input.type = "text";
+        //         input.name = i;
+        //         input.value = data[i];
+        //         form.appendChild(input);
+        //     }
+        //     //console.log(form);
+        //     document.body.appendChild(form);
+        //     form.submit();
+        // }
 
     </script>
 </body>

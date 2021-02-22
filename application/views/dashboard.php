@@ -1203,45 +1203,79 @@
 
                             ?>
                            <!---------Holiday Code ends-------------->
-                       <table class="table">
+                      
+                    
+                                </div>
+                                <br>
+                                <div class="fix"></div>
+                                <div class="tab-inner">
+                                    <div class="col-md-12">
+                                         <table class="table">
                            <thead>
                                <tr>
-                                   <th colspan="5" class=text-center>Target Vs Revenue ( <?php if(date("m")<=3) echo date("Y",strtotime("-1 year"))." - ".date("Y"); else echo date("Y")." - ".date("Y",strtotime("+1 year")); ?> )</th>
+                                <?php
+                                $sy='';
+                                $ey='';
+                                 if(date("m")<=3){
+                                  $sy = date("Y",strtotime("-1 year"));
+                                  $ey =date("Y");
+                                    }
+                                  else{
+                                    $sy = date("Y");
+                                    $ey =date("Y",strtotime("+1 year")); 
+                                }?> 
+                                   <th colspan="13" class=text-center>Target Vs Revenue ( <?=$sy." - ".$ey?> )</th>
                                </tr>
                            </thead>
                            <tr>
                                <td></td>
-                               <td>Q1</td>
-                               <td>Q2</td>
-                               <td>Q3</td>
-                               <td>Q4</td>
+                               <td>Jan (<?=$ey?>)</td>
+                               <td>Feb (<?=$ey?>)</td>
+                               <td>Mar (<?=$ey?>)</td>
+                               <td>Apr (<?=$sy?>)</td>
+                               <td>May (<?=$sy?>)</td>
+                               <td>Jun (<?=$sy?>)</td>
+                               <td>Jul (<?=$sy?>)</td>
+                               <td>Aug (<?=$sy?>)</td>
+                               <td>Sep (<?=$sy?>)</td>
+                               <td>Oct (<?=$sy?>)</td>
+                               <td>Nov (<?=$sy?>)</td>
+                               <td>Dec (<?=$sy?>)</td>
                            </tr>
                            <tr>
-                               <th>Target</th>
-                               <td><?=$this->session->userdata('Q1')?></td>
-                               <td><?=$this->session->userdata('Q2')?></td>
-                               <td><?=$this->session->userdata('Q3')?></td>
-                               <td><?=$this->session->userdata('Q4')?></td>
+                               <td>Target</td>
+                                <?php 
+                                for ($i=1; $i <=12 ; $i++) { 
+                                   echo "<td>".$this->session->userdata('target')[$i]."</td>";
+                                }
+
+                                ?>
                            </tr>
                            <tr>
-                               <th>Achieved</th>
-                               <td><?=$Q1?$Q1:0?></td>
-                               <td><?=$Q2?$Q2:0?></td>
-                               <td><?=$Q3?$Q3:0?></td>
-                               <td><?=$Q4?$Q4:0?></td>
+                               <td>Generated</td>
+                                <?php 
+                                for ($i=1; $i <=12 ; $i++) { 
+                                   echo "<td>".$generated_revenues[$i]."</td>";
+                                }
+
+                                ?>
                            </tr>
-                           <tr>
+                            <tr>
                                <th>T vs A</th>
-                               <td <?php if((float)($Q1?$Q1:0)-(float)$this->session->userdata('Q1')<0){echo "style=color:red";}else{echo "style=color:green";} ?>><?=(float)($Q1?$Q1:0)-(float)$this->session->userdata('Q1')?></td>
-                               <td <?php if((float)($Q2?$Q2:0)-(float)$this->session->userdata('Q2')<0){echo "style=color:red";}else{echo "style=color:green";} ?> ><?=(float)($Q2?$Q2:0)-(float)$this->session->userdata('Q2')?></td>
-                               <td <?php if((float)($Q3?$Q3:0)-(float)$this->session->userdata('Q3')<0){echo "style=color:red";}else{echo "style=color:green";} ?>><?=(float)($Q3?$Q3:0)-(float)$this->session->userdata('Q3')?></td>
-                               <td <?php if((float)($Q4?$Q4:0)-(float)$this->session->userdata('Q4')<0){echo "style=color:red";}else{echo "style=color:green";} ?>><?=(float)($Q4?$Q4:0)-(float)$this->session->userdata('Q4')?></td>
+                               <?php
+                               for ($i=1; $i <= 12 ; $i++) { 
+                                   ?>
+                                   <td <?php if((float)$generated_revenues[$i]-(float)$this->session->userdata('target')[$i]<0){echo "style=color:red";}else{echo "style=color:green";} ?>><?=(float)$generated_revenues[$i]-(float)$this->session->userdata('target')[$i]?></td>
+                                   <?php
+                               }
+                               ?> 
                            </tr>
+
+                           
+                          
                        </table>
-                    
+                                    </div>
                                 </div>
-                                <br>
-                                
                                 <div class="tab-inner">
                                     <div id="tabs" class="tabs">
                                         <!-- test 7 -->

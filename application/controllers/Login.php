@@ -90,32 +90,32 @@ class Login extends CI_Controller {
                         'user_address' => $data->address,
                         'user_dob' => $data->user_dob,
                         'emp_doj' => $data->emp_doj
-                    );
-                    if(date("m")<=3)
-                    $target = $this->common_model->get_emp_target(date("Y",strtotime("-1 year")),$data->id); 
-                    else
-                    $target = $this->common_model->get_emp_target(date("Y"),$data->id); 
-
+                    ); 
+                    $target = $this->common_model->get_emp_target_all_months(date("Y",strtotime("-1 year")),$data->id);  
+                    
                     if($target)
                     {
-                        $target_data = array( 
-                        'Q1' =>$target['Q1']?$target['Q1']:0,
-                        'Q2' =>$target['Q2']?$target['Q2']:0,
-                        'Q3' =>$target['Q3']?$target['Q3']:0,
-                        'Q4' =>$target['Q4']?$target['Q4']:0);
+                        $target_data = array();
+                        for ($i=1;$i<=12;$i++) {
+                            if(isset($target[$i]['month']))
+                           $target_data['target'][$i] = $target[$i]['target'];
+                           else
+                        $target_data['target'][$i] = 0;
+                        }
                     }
                     else
                     {
-                        $target_data = array(
-                            "Q1"=>0,
-                            "Q2"=>0,
-                            "Q3"=>0,
-                            "Q4"=>0
-                        );
+                        $target_data = array();
+                        for ($i=1;$i<=12;$i++) {
+                        $target_data['target'][$i] = 0;
+                        }
                     } 
+                   // print_r($target_data);die;
+                   //echo $this->db->last_query();
                    
                     $this->session->set_userdata($newdata);
                     $this->session->set_userdata($target_data);
+                    
                     //-- permission ----
                     $this->getPermission($this->session->userdata('user_id'));
 

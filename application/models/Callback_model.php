@@ -1330,42 +1330,15 @@ $list_id=implode(',', $ids);
         return $this->db->count_all($table_name)->where('saved',0);
     }
 
-    function fetch_total_revenue_quarterwise($user_id=null,$q=null){
-        if(date("m")<=3)
-        {
-        if($q==1)
-        {
-            $sql="SELECT SUM(r.net_revenue) as total_revenue FROM `callback` as `cb` LEFT JOIN `close_callback_details` as `r` ON `cb`.`id`=`r`.`callback_id` LEFT JOIN `user` as `u` ON `u`.`id`=`cb`.`user_id` WHERE (month(r.closure_date) =4 or month(r.closure_date) =5 or month(r.closure_date) =6) and (year(r.closure_date) = YEAR(CURDATE())-1)  and `cb`.`user_id` = '$user_id'";
-        }
-        elseif ($q==2) {
-           $sql="SELECT SUM(r.net_revenue) as total_revenue FROM `callback` as `cb` LEFT JOIN `close_callback_details` as `r` ON `cb`.`id`=`r`.`callback_id` LEFT JOIN `user` as `u` ON `u`.`id`=`cb`.`user_id` WHERE (month(r.closure_date) =7 or month(r.closure_date) =8 or month(r.closure_date) =9) and (year(r.closure_date) = YEAR(CURDATE())-1)  and `cb`.`user_id` = '$user_id'";
-        }
-        elseif ($q==3) {
-            $sql="SELECT SUM(r.net_revenue) as total_revenue FROM `callback` as `cb` LEFT JOIN `close_callback_details` as `r` ON `cb`.`id`=`r`.`callback_id` LEFT JOIN `user` as `u` ON `u`.`id`=`cb`.`user_id` WHERE (month(r.closure_date) =10 or month(r.closure_date) =11 or month(r.closure_date) =12) and (year(r.closure_date) = YEAR(CURDATE())-1)  and `cb`.`user_id` = '$user_id'";
-        }
-        else
-        {
-          $sql="SELECT SUM(r.net_revenue) as total_revenue FROM `callback` as `cb` LEFT JOIN `close_callback_details` as `r` ON `cb`.`id`=`r`.`callback_id` LEFT JOIN `user` as `u` ON `u`.`id`=`cb`.`user_id` WHERE (month(r.closure_date) =3 or month(r.closure_date) =1 or month(r.closure_date) =2) and (year(r.closure_date) = YEAR(CURDATE()))  and `cb`.`user_id` = '$user_id'"; 
-        }
-        }
-        else
-        {
-           if($q==1)
-        {
-            $sql="SELECT SUM(r.net_revenue) as total_revenue FROM `callback` as `cb` LEFT JOIN `close_callback_details` as `r` ON `cb`.`id`=`r`.`callback_id` LEFT JOIN `user` as `u` ON `u`.`id`=`cb`.`user_id` WHERE (month(r.closure_date) =4 or month(r.closure_date) =5 or month(r.closure_date) =6) and (year(r.closure_date) = YEAR(CURDATE()))  and `cb`.`user_id` = '$user_id'";
-        }
-        elseif ($q==2) {
-           $sql="SELECT SUM(r.net_revenue) as total_revenue FROM `callback` as `cb` LEFT JOIN `close_callback_details` as `r` ON `cb`.`id`=`r`.`callback_id` LEFT JOIN `user` as `u` ON `u`.`id`=`cb`.`user_id` WHERE (month(r.closure_date) =7 or month(r.closure_date) =8 or month(r.closure_date) =9) and (year(r.closure_date) = YEAR(CURDATE()))  and `cb`.`user_id` = '$user_id'";
-        }
-        elseif ($q==3) {
-            $sql="SELECT SUM(r.net_revenue) as total_revenue FROM `callback` as `cb` LEFT JOIN `close_callback_details` as `r` ON `cb`.`id`=`r`.`callback_id` LEFT JOIN `user` as `u` ON `u`.`id`=`cb`.`user_id` WHERE (month(r.closure_date) =10 or month(r.closure_date) =11 or month(r.closure_date) =12) and (year(r.closure_date) = YEAR(CURDATE()))  and `cb`.`user_id` = '$user_id'";
-        }
-        else
-        {
-          $sql="SELECT SUM(r.net_revenue) as total_revenue FROM `callback` as `cb` LEFT JOIN `close_callback_details` as `r` ON `cb`.`id`=`r`.`callback_id` LEFT JOIN `user` as `u` ON `u`.`id`=`cb`.`user_id` WHERE (month(r.closure_date) =3 or month(r.closure_date) =1 or month(r.closure_date) =2) and (year(r.closure_date) = YEAR(CURDATE())+1)  and `cb`.`user_id` = '$user_id'"; 
-        } 
-        }
-        $data='';
+    function fetch_total_revenue_quarterwise($user_id=null,$month=null){
+        $revenue =array(); 
+        if($month<=3)
+        $year = date("Y");
+    else
+        $year =date("Y",strtotime("-1 year"));
+
+            $sql="SELECT SUM(r.net_revenue) as total_revenue FROM `callback` as `cb` LEFT JOIN `close_callback_details` as `r` ON `cb`.`id`=`r`.`callback_id` LEFT JOIN `user` as `u` ON `u`.`id`=`cb`.`user_id` WHERE (month(r.closure_date) ='$month') and year(r.closure_date) = '$year'  and `cb`.`user_id` = '$user_id'";
+             $data='';
         $query = $this->db->query($sql);
         if ($query->num_rows() > 0)
         {
@@ -1374,6 +1347,14 @@ $list_id=implode(',', $ids);
                 $data =$row->total_revenue;
             }
         }
-        return $data;
+        if($data)
+         $revenue[$month] = $data;
+     else
+        $revenue[$month] = 0;
+   // echo $this->db->last_query()."<br>";
+   
+       
+        
+        return $revenue;
     }
 }

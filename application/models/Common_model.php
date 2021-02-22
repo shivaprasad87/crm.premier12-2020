@@ -769,26 +769,35 @@ class Common_model extends MY_Model {
          return $query->get()->result();
     }
 
-    public function get_emp_target($year='',$id='')
+    public function get_emp_target($year='',$id='',$month='')
     {
-  
-        $this->db->select('et1.Q2 as Q1,et1.Q3 as Q2, et1.Q4 as Q3');
-        $this->db->from('emp_target et1'); 
-        $this->db->where('et1.user_id',$id);
-        $this->db->where('et1.year',$year);
+        if(date("m")<=3)
+            $year = $year+1;
+        $this->db->select('*');
+        $this->db->from('emp_target');
+        $this->db->where('year',$year);
+        $this->db->where('user_id',$id);
+        if($month)
+        $this->db->where('month',$month);
         $query=$this->db->get();
         $year_target = $query->row_array();
-
-        $this->db->select('et2.Q1 as Q4');
-        $this->db->from('emp_target et2'); 
-        $this->db->where('et2.user_id',$id);
-        $this->db->where('et2.year',$year+1);
-        $query1=$this->db->get();
-        $year_target1 = $query1->row_array();
-        if(is_null($year_target1))
-            $year_target1 =array("Q4"=>0);
-        return array_merge($year_target,$year_target1);
- 
+        return is_null($year_target)?0:$year_target; 
+    }
+    public function get_emp_target_all_months($year='',$id='',$month='')
+    {
+        $target_data = array();
+        for ($i=1;$i<=12;$i++) {
+        if(date("m")<=3)
+            $year = $year+1;
+        $this->db->select('*');
+        $this->db->from('emp_target');
+        $this->db->where('year',$year);
+        $this->db->where('user_id',$id); 
+        $this->db->where('month',$i);
+        $query=$this->db->get();
+        $target_data[$i] = $query->row_array();
+         }
+        return $target_data; 
     }
 
 

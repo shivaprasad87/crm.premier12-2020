@@ -225,7 +225,7 @@
                         foreach($all_department as $department){ ?>
                             <option value="<?php echo $department->id; ?>"><?php echo $department->name; ?></option>
                         <?php }?>
-                    </select>
+                    </select> 
                 </div>
                 
                 <div class="col-md-6 form-group">
@@ -237,23 +237,7 @@
                             <option value="<?php echo $city->id; ?>"><?php echo $city->name; ?></option>
                         <?php }?>
                     </select>
-                </div>
-                 <div class="col-md-6 form-group">
-                    <label for="emp_code">Q1 Target:</label>
-                       <input type="text" class="form-control" id="m_Q1" name="Q1" placeholder="Employee Q1 Target">
-                   </div>
-                <div class="col-md-6 form-group">
-                    <label for="emp_code">Q2:</label>
-                       <input type="text" class="form-control" id="m_Q2" name="Q2" placeholder="Employee Q2 Target" required="required">
-                </div>
-                <div class="col-md-6 form-group">
-                    <label for="emp_code">Q3:</label>
-                      <input type="text" class="form-control" id="m_Q3" name="Q3" placeholder="Employee Q3 Target" required="required">
-                </div>
-                <div class="col-md-6 form-group">
-                    <label for="emp_code">Q4:</label>
-                      <input type="text" class="form-control" id="m_Q4" name="Q4" placeholder="Employee Q4 Target" required="required">
-                </div>
+                </div> 
                
 
                 <button type="submit" id="add_user" class="btn btn-success btn-block" disabled>Submit</button>
@@ -405,30 +389,37 @@
 
                     </div>
                     <div class="col-md-12 form-group">
-                        <label for="emp_code">Employee Target :</label>
+                        <label for="emp_code">Employee Target Year:</label>
                         <select  class="form-control"  id="target_year" name="target_year" required="required" >
-                            <option value="<?=date("Y",strtotime("-1 year"))?>" selected=""><?=date("Y",strtotime("-1 year"))?> - <?=date('Y')?></option>
+                            <option value="" selected>--Select--</option>
+                            <option value="<?=date("Y",strtotime("-1 year"))?>"><?=date("Y",strtotime("-1 year"))?> - <?=date('Y')?></option>
                             <option value="<?=date('Y')?>"><?=date('Y')?> - <?=date("Y",strtotime("+1 year"))?> </option>
                              
                         </select>
                     </div>
-                     <div class="col-md-6 form-group">
-                    <label for="emp_code">Q1 Target(Apr-Jun):</label>
-                       <input type="text" class="form-control" id="Q1" name="Q1" placeholder="Employee Q1 Target">
-                   </div>
-                <div class="col-md-6 form-group">
-                    <label for="emp_code">Q2(Jul-Sep):</label>
-                       <input type="text" class="form-control" id="Q2" name="Q2" placeholder="Employee Q2 Target" required="required">
+                    <div class="col-md-6 form-group">
+                        <label for="emp_code">Employee Target Month:</label>
+                        <select  class="form-control"  id="target_month" name="target_month" required="required" >
+                            <option value='1' selected>Janaury</option>
+                            <option value='2'>February</option>
+                            <option value='3'>March</option>
+                            <option value='4'>April</option>
+                            <option value='5'>May</option>
+                            <option value='6'>June</option>
+                            <option value='7'>July</option>
+                            <option value='8'>August</option>
+                            <option value='9'>September</option>
+                            <option value='10'>October</option>
+                            <option value='11'>November</option>
+                            <option value='12'>December</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 form-group jan" hidden="">
+                        <label for="emp_code">Enter Target:</label>
+                        <input type="number" class="col-md-6 form-control form-group" name="1" id="1"value="" placeholder="Enter Janaury Target"> 
+                    </div> 
                 </div>
-                <div class="col-md-6 form-group">
-                    <label for="emp_code">Q3(Oct-Dec):</label>
-                      <input type="text" class="form-control" id="Q3" name="Q3" placeholder="Employee Q3 Target" required="required">
-                </div>
-                <div class="col-md-6 form-group">
-                    <label for="emp_code">Q4(Next year Jan-Mar):</label>
-                      <input type="text" class="form-control" id="Q4" name="Q4" placeholder="Employee Q4 Target" required="required">
-                </div>
-                </div>
+                <div class="clearfix"></div>
             
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="update_user()">Submit</button>
@@ -462,18 +453,37 @@
     $(document).ready(function(){
     $("#target_year").on('change', function postinput(){
          $(".se-pre-con").show();
-        var year = $("#target_year").val();
+          var year = $("#target_year").val();
+        var month = $("#target_month").val();
         var id=$("#hid").val(); 
+        $('.jan').show();
+        $("#1").attr("placeholder", "Enter "+$("#target_month option:selected").text()+" Target");
         $.ajax({ 
             url: "<?php echo base_url()?>admin/get_emp_target",
-            data: { year: year,'user_id':id },
+            data: { year: year,'user_id':id,month:month },
             type: 'post'
-        }).done(function(data) {
+        }).done(function(data) { 
+            $("#1").val(data.target?data.target:'0'); 
             $(".se-pre-con").hide("slow");
-             $("#Q1").val(data.Q1);
-                $("#Q2").val(data.Q2);
-                $("#Q3").val(data.Q3);
-                $("#Q4").val(data.Q4);
+        }).fail(function() {
+            alert('Failed');
+            $(".se-pre-con").hide("slow");
+        });
+        
+    });
+    $("#target_month").on('change', function postinput(){
+         $(".se-pre-con").show();
+        var year = $("#target_year").val();
+        var month = $("#target_month").val();
+        var id=$("#hid").val(); 
+        $('.jan').show();
+        $("#1").attr("placeholder", "Enter "+$("#target_month option:selected").text()+" Target");
+        $.ajax({ 
+            url: "<?php echo base_url()?>admin/get_emp_target",
+            data: { year: year,'user_id':id,month:month },
+            type: 'post'
+        }).done(function(data) { 
+            $("#1").val(data.target?data.target:'0'); 
                  $(".se-pre-con").hide("slow");
         }).fail(function() {
             alert('Failed');
@@ -516,11 +526,7 @@
                 $("#m_employee_address").val(address);
                 $("#m_employee_mobile").val(mobile);
                 $("#m_user_dob").val(user_dob);
-                $("#m_emp_doj").val(emp_doj);
-                $("#Q1").val(data.Q1);
-                $("#Q2").val(data.Q2);
-                $("#Q3").val(data.Q3);
-                $("#Q4").val(data.Q4);
+                $("#m_emp_doj").val(emp_doj); 
                 $(".se-pre-con").hide("slow");
             }
         });
@@ -549,12 +555,10 @@
         var emp_mobile=$("#m_employee_mobile").val();
         var user_dob = $("#m_user_dob").val();
         var emp_doj = $("#m_emp_doj").val();
-        var Q1 =$("#Q1").val();
-        var Q2 =$("#Q2").val();
-        var Q3 =$("#Q3").val();
-        var Q4 =$("#Q4").val();
+        var target =$("#1").val();
         var id=$("#hid").val(); 
         var year = $("#target_year").val();
+        var month = $("#target_month").val();
             
         $.ajax({
             type:"POST",
@@ -571,11 +575,9 @@
                 mobile_number:emp_mobile,
                 user_dob:user_dob,
                 emp_doj:emp_doj,
-                Q1:Q1,
-                Q2:Q2,
-                Q3:Q3,
-                Q4:Q4,
-                year:year
+                target:target, 
+                year:year,
+                month:month
             },
             success:function(data) {
                 data = JSON.parse(data);

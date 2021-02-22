@@ -69,7 +69,9 @@ class Dashboard extends CI_Controller {
             $data['yesterday_callback_count'] = $this->callback_model->fetch_yesterday_callback_count($data['user_id']);
             $data['overdue_callback_count'] = $this->callback_model->fetch_callback_count($data['user_id'],'overdue'); 
             $data['total_callback_count'] = $this->callback_model->all_leads_count();
-            
+            for ($i=1; $i <=12 ; $i++) { 
+            $data['generated_revenues'][$i] =$this->callback_model->fetch_total_revenue_quarterwise($this->session->userdata('user_id'),$i)[$i];
+            }
             $data['dead_leads_count'] = $this->callback_model->fetch_leads_count($data['user_id'],'dead');
             $data['close_leads_count'] = $this->callback_model->fetch_leads_count($data['user_id'],'close');
             $data['active_leads_count'] = $this->callback_model->fetch_leads_count($data['user_id'],'active');

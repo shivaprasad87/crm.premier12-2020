@@ -1691,10 +1691,8 @@ if($this->input->post('budget')!='')
 		$dept_id = $this->input->post('dept_id');
 		$city_id = $this->input->post('city_id');
 		$year =(int)$this->input->post('year');
-		$Q1 = $this->input->post("Q1");
-		$Q2 = $this->input->post("Q2");
-		$Q3 = $this->input->post("Q3");
-		$Q4 = $this->input->post("Q4");
+		$month = $this->input->post("month");
+		$target = $this->input->post("target"); 
 		$data = array(
 			"first_name" => $first_name,
 			"last_name" => $last_name,
@@ -1704,8 +1702,14 @@ if($this->input->post('budget')!='')
 			"user_dob" => $this->input->post('user_dob'),
 			"emp_doj" => $this->input->post('emp_doj'),
 		);
-		$check_user_taget = $this->common_model->getWhere(array("year"=>$year,"user_id"=>$id),'emp_target');
-		$check_user_taget_1 = $this->common_model->getWhere(array("year"=>$year+1,"user_id"=>$id),'emp_target');
+		if(date("m")<=3)
+			$year = $year+1;
+		$check_user_taget = $this->common_model->getWhere(array("year"=>$year,"user_id"=>$id,"month"=>$month),'emp_target');
+		if(!$check_user_taget)
+			$this->common_model->insertRow(array("year"=>$year,"user_id"=>$id,"month"=>$month,"target"=>$target),"emp_target");
+		else
+			$this->common_model->updateWhere(array("year"=>$year,"user_id"=>$id,"month"=>$month),array("target"=>$target),'emp_target');
+		/*$check_user_taget_1 = $this->common_model->getWhere(array("year"=>$year+1,"user_id"=>$id),'emp_target');
 		if(!$check_user_taget)
 			$this->common_model->insertRow(array("user_id" => $id, "year" => $year,"Q2"=>$Q1,"Q3"=>$Q2,"Q4"=>$Q3),"emp_target");
 		else
@@ -1714,7 +1718,7 @@ if($this->input->post('budget')!='')
 		if(!$check_user_taget_1)
 			$this->common_model->insertRow(array("user_id" => $id, "year" => $year+1,"Q1"=>$Q4),"emp_target");
 		else
-			$this->common_model->updateWhere(array("user_id" => $id, "year" => $year+1),array("Q1"=>$Q4),'emp_target');
+			$this->common_model->updateWhere(array("user_id" => $id, "year" => $year+1),array("Q1"=>$Q4),'emp_target');*/
 
 
 		if($reports_to)
@@ -3626,7 +3630,7 @@ public function holidays($value='')
 }
 public function get_emp_target()
 {
-	$data = $this->common_model->get_emp_target($this->input->post('year'),$this->input->post("user_id"));
+	$data = $this->common_model->get_emp_target($this->input->post('year'),$this->input->post("user_id"),$this->input->post("month"));
 	//echo $this->db->last_query();
 	// print_r($data);
 	header('Content-Type: application/json');

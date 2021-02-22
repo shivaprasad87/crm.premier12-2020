@@ -355,8 +355,19 @@
                     if ($this->session->userdata('user_type')=="user") { 
                     ?>
                        <div class="row">
+                       
                     <!-- user div -->
-                        <div class="col-lg-6 col-md-6 col-sm-12 Greetings-scrollbar ">
+                        <div class="col-lg-5 col-md-6 col-sm-12 Greetings-scrollbar ">
+                        <div class="row" style="    z-index: 9999999; height: 40px;display: table-row; float: initial;">
+                        <div class="col-lg-4 col-xs-6">
+                        </div>
+                        <div class="col-lg-4 col-xs-6" style=" float: right;position: fixed; z-index: 9999999;">
+                        <button class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Post
+                        </button>
+                     </div>
+                        </div>
+                        
+
                         <div class="force-overflow">
                       
                             <?php 
@@ -369,7 +380,7 @@
                            ?>
                              <div class="container wishcard" style="  margin-left: 0px;">
                                <div class="row">
-                                  <div class="col-lg-11">
+                                  <div class="col-lg-12">
                                      <div class="birthday-card ">
                                         <div class="birthday">
                                           <div class="wrapper">
@@ -516,10 +527,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-lg-1 col-xs-12">
-                        <button class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Post
-                        </button>
-                     </div>
+                    
                      <div class="modal wishes" id="exampleModal" tabindex="-1" role="dialog">
                         <div class="modal-dialog" role="document">
                            <div class="modal-content">
